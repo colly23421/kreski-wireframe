@@ -56,10 +56,8 @@
 
   /* ── CANVAS ── */
   .canvas {
-    max-width: 980px;
-    margin: 0 auto;
+    width: 100%;
     background: white;
-    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
   }
 
   .page-wrap {
@@ -100,7 +98,7 @@
     height: 38px;
     background: #f8f8f8;
     border-bottom: 1px solid #eee;
-    padding: 0 24px;
+    padding: 0 5%;
   }
 
   .tb-item {
@@ -137,7 +135,7 @@
     background: white;
     border-bottom: 1px solid #eee;
     display: flex; align-items: center;
-    padding: 0 24px;
+    padding: 0 5%;
   }
 
   .logo-box {
@@ -157,7 +155,7 @@
     background: white;
     border-bottom: 2px solid #d42b2b;
     display: flex; align-items: center;
-    padding: 0 24px;
+    padding: 0 5%;
     gap: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
@@ -271,7 +269,7 @@
      ⑤ PARTNERZY
   ══════════════════════════════ */
   .section-wrap {
-    padding: 20px 24px;
+    padding: 20px 5%;
     background: white;
     border-bottom: 1px solid #f0f0f0;
     position: relative;
@@ -432,7 +430,7 @@
   }
 
   .contact-col {
-    padding: 22px 24px;
+    padding: 22px 5%;
   }
 
   .contact-col:first-child { border-right: 1px solid #eee; }
@@ -492,7 +490,7 @@
   .footer {
     background: #f8f8f8;
     border-top: 2px solid #d42b2b;
-    padding: 22px 24px;
+    padding: 22px 5%;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 20px;
@@ -558,6 +556,105 @@
     color: #555; margin-bottom: 2px;
   }
   .ann li::before { content:'→'; position:absolute; left:0; color:#ccc; }
+
+  /* ══════════════════════════════
+     RESPONSIVE — TABLET (≤768px)
+  ══════════════════════════════ */
+  @media (max-width: 768px) {
+
+    .wrapper { width: 100%; padding: 0 12px; }
+
+    /* Top bar */
+    .topbar { flex-direction: column; gap: 6px; padding: 8px 12px; text-align: center; }
+    .tb-right { flex-wrap: wrap; justify-content: center; }
+    .tb-sep { display: none; }
+
+    /* Logo bar */
+    .logobar { padding: 12px 16px; }
+    .logo-box { width: 100px; height: 28px; }
+
+    /* Nav */
+    .nav { padding: 0 12px; overflow-x: auto; }
+    .nav-items { gap: 0; }
+    .nav-item { padding: 10px 12px; font-size: 9px; white-space: nowrap; }
+
+    /* Hero */
+    .hero { height: 40vh; padding: 0 16px; }
+    .hero-content { width: 100%; max-width: 100%; padding: 16px; }
+
+    /* Partners */
+    .partners-track { gap: 16px; }
+    .partner-logo { width: 80px; height: 28px; }
+
+    /* Kategorie — 2 kolumny */
+    .cat-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+
+    /* Branże — 2 kolumny */
+    .branze-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+    .branza-card { height: 100px; }
+
+    /* Liczby — 2 kolumny */
+    .liczby-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Blog — 1 kolumna */
+    .blog-grid { grid-template-columns: 1fr !important; }
+
+    /* Kontakt */
+    .contact-panel { grid-template-columns: 1fr !important; }
+    .contact-col:first-child { border-right: none; border-bottom: 1px solid #eee; }
+
+    /* Footer */
+    .footer { grid-template-columns: 1fr !important; gap: 24px; padding: 20px 16px; }
+
+    /* Sekcje */
+    .section-wrap { padding: 32px 0; }
+    .sec-title { font-size: 13px; }
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE — MOBILE (≤480px)
+  ══════════════════════════════ */
+  @media (max-width: 480px) {
+
+    /* Top bar — schowaj na bardzo małych */
+    .topbar { display: none; }
+
+    /* Hero */
+    .hero { height: 50vw; min-height: 180px; }
+    .hero-content { padding: 12px; }
+    .hero-h1 { height: 14px; }
+    .hero-h1b { height: 14px; }
+    .hero-cta { padding: 8px 14px; font-size: 9px; }
+
+    /* Nav — hamburger hint */
+    .nav { position: relative; }
+    .nav-items { display: none; }
+    .nav::after {
+      content: '☰ Menu';
+      display: block;
+      padding: 12px 16px;
+      font-size: 11px;
+      color: #d42b2b;
+      font-family: monospace;
+      cursor: pointer;
+    }
+
+    /* Kategorie — 1 kolumna */
+    .cat-grid { grid-template-columns: 1fr !important; }
+
+    /* Branże — 1 kolumna */
+    .branze-grid { grid-template-columns: 1fr !important; }
+
+    /* Liczby — 1 kolumna */
+    .liczby-grid { grid-template-columns: 1fr !important; }
+
+    .wrapper { padding: 0 8px; }
+    .section-wrap { padding: 24px 0; }
+
+    /* Annotations — schowaj na mobile */
+    .ann { font-size: 8px; padding: 8px; }
+  }
+
 </style>
 </head>
 <body>
