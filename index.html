@@ -8,702 +8,570 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Courier New', monospace;
-    background: #f0ede8;
-    color: #222;
+    background: #edecea;
+    color: #333;
   }
 
-  /* ── GLOBAL ── */
-  .wf-label {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #aaa;
-    margin-bottom: 4px;
-  }
-
-  .wf-note {
-    font-size: 9px;
-    color: #e05a2b;
-    font-style: italic;
-    padding: 4px 8px;
-    background: #fff8f5;
-    border-left: 2px solid #e05a2b;
-    margin: 4px 0;
-  }
-
-  .wf-note.green {
-    color: #2b7a2b;
-    background: #f5fff5;
-    border-color: #2b7a2b;
-  }
-
-  .block {
-    border: 1.5px dashed #bbb;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #aaa;
-    position: relative;
-  }
-
-  .block.image {
-    background: repeating-linear-gradient(45deg,#f0ede8,#f0ede8 5px,#e3dfda 5px,#e3dfda 10px);
-    border: 1.5px solid #ccc;
-  }
-
-  /* ── PAGE CHROME ── */
-  .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-    padding: 0 24px;
-    height: 36px;
-    background: #1a1a1a;
-    border-bottom: 1px solid #333;
-  }
-
-  .top-bar-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 9px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .top-bar-icon {
-    width: 14px;
-    height: 14px;
-    border: 1px dashed #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7px;
-    color: #555;
-    flex-shrink: 0;
-  }
-
-  .top-bar-line {
-    width: 80px;
-    height: 7px;
-    background: #333;
-  }
-
-  .social-icons {
-    display: flex;
-    gap: 5px;
-    margin-left: 8px;
-  }
-
-  .social-icon {
-    width: 18px;
-    height: 18px;
-    border: 1px dashed #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7px;
-    color: #555;
-  }
-
-  .logo-bar {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    height: 72px;
-    background: white;
-    border-bottom: 1px solid #e0dbd5;
-  }
-
-  .logo-placeholder {
-    width: 130px;
-    height: 40px;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    color: #bbb;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .nav-bar {
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    height: 48px;
-    background: #222;
-    border-bottom: 2px solid #d42b2b;
-    gap: 2px;
-  }
-
-  .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 14px;
-    height: 100%;
-    font-size: 9px;
-    color: #777;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-right: 1px solid #333;
-  }
-
-  .nav-item .nav-icon {
-    width: 14px;
-    height: 14px;
-    border: 1px dashed #555;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 7px;
-    color: #555;
-  }
-
-  .nav-dropdown-hint {
-    font-size: 7px;
-    color: #555;
-    margin-left: 2px;
-  }
-
-  .nav-note {
-    margin-left: auto;
+  /* ── UTILS ── */
+  .section-tag {
+    position: absolute;
+    top: 6px; right: 8px;
     font-size: 8px;
-    color: #555;
-    font-style: italic;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aaa;
+    background: rgba(255,255,255,0.9);
+    padding: 2px 6px;
+    border: 1px solid #ddd;
+    z-index: 10;
   }
 
-  /* ── SECTIONS ── */
-  .section {
-    position: relative;
+  .question-tag {
+    position: absolute;
+    top: 6px; right: 8px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #c0392b;
+    background: #fff5f5;
+    padding: 2px 6px;
+    border: 1px solid #e8b4b8;
+    z-index: 10;
   }
 
-  .section-inner {
-    padding: 20px 24px;
+  .block-img {
+    background: repeating-linear-gradient(
+      45deg, #f5f5f5, #f5f5f5 5px, #ebebeb 5px, #ebebeb 10px
+    );
+    border: 1.5px dashed #d0d0d0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: #bbb;
+    text-transform: uppercase; letter-spacing: 1px;
   }
 
-  .section-heading {
+  .line { background: #e0e0e0; border-radius: 2px; }
+  .line.dark { background: #555; }
+  .line.red { background: #d42b2b; }
+  .line.light { background: #f0f0f0; }
+
+  /* ── CANVAS ── */
+  .canvas {
+    max-width: 980px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.10);
+  }
+
+  .page-wrap {
+    padding: 20px;
+    background: #edecea;
+  }
+
+  .page-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 14px;
   }
+  .page-title::after { content:''; flex:1; height:1px; background:#ccc; }
 
-  .section-heading-bar {
-    height: 14px;
-    background: #222;
-    flex: 1;
-    max-width: 260px;
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; flex-wrap: wrap;
+    gap: 14px; margin-bottom: 14px;
+    font-size: 9px; text-transform: uppercase;
+    letter-spacing: 1px; color: #777;
   }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-swatch { width: 14px; height: 14px; border: 1px solid #ccc; }
 
-  .section-heading-line {
-    flex: 1;
-    height: 1px;
-    background: #e0dbd5;
-  }
-
-  /* HERO SLIDER */
-  .hero-slider {
-    height: 50vh;
-    min-height: 240px;
-    background: repeating-linear-gradient(45deg,#e0dbd5,#e0dbd5 8px,#d5d0ca 8px,#d5d0ca 16px);
-    position: relative;
+  /* ══════════════════════════════
+     ① TOP BAR
+  ══════════════════════════════ */
+  .top-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 2px solid #ccc;
+    gap: 20px;
+    height: 38px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #eee;
+    padding: 0 24px;
   }
 
-  .slider-arrows {
-    position: absolute;
-    left: 0; right: 0; top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 16px;
-    pointer-events: none;
+  .tb-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 9px; color: #888;
+    text-transform: uppercase; letter-spacing: 1px;
   }
 
-  .slider-arrow {
-    width: 36px; height: 36px;
-    background: rgba(255,255,255,0.5);
-    border: 1.5px dashed #bbb;
+  .tb-icon {
+    width: 16px; height: 16px;
+    border: 1.5px dashed #ccc;
     display: flex; align-items: center; justify-content: center;
-    font-size: 14px; color: #999;
+    font-size: 8px; color: #bbb;
   }
 
-  .slider-dots {
-    position: absolute;
-    bottom: 12px; left: 50%; transform: translateX(-50%);
+  .tb-text { height: 8px; background: #ddd; border-radius: 2px; }
+
+  .tb-sep { width: 1px; height: 18px; background: #ddd; }
+
+  .social-row { display: flex; gap: 5px; }
+  .social-box {
+    width: 20px; height: 20px;
+    border: 1.5px dashed #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7px; color: #bbb;
+    background: white;
+  }
+
+  /* ══════════════════════════════
+     ② LOGO BAR
+  ══════════════════════════════ */
+  .logo-bar {
+    height: 76px;
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center;
+    padding: 0 24px;
+  }
+
+  .logo-box {
+    width: 140px; height: 44px;
+    border: 2px dashed #ddd;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: #ccc;
+    text-transform: uppercase; letter-spacing: 2px;
+    background: #fafafa;
+  }
+
+  /* ══════════════════════════════
+     ③ MENU
+  ══════════════════════════════ */
+  .nav-bar {
+    height: 50px;
+    background: white;
+    border-bottom: 2px solid #d42b2b;
+    display: flex; align-items: center;
+    padding: 0 24px;
+    gap: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 5px;
+    padding: 0 16px;
+    height: 100%;
+    font-size: 9px; color: #666;
+    text-transform: uppercase; letter-spacing: 1px;
+    border-right: 1px solid #f0f0f0;
+    cursor: pointer;
+  }
+
+  .nav-icon-sm {
+    width: 14px; height: 14px;
+    border: 1.5px dashed #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7px; color: #ccc;
+  }
+
+  .nav-arrow { font-size: 7px; color: #ccc; margin-left: 2px; }
+
+  .nav-item.red-item {
+    color: #d42b2b;
+    font-weight: bold;
+    border-right: none;
+    margin-left: auto;
+  }
+
+  .nav-hint {
+    font-size: 8px; color: #bbb;
+    font-style: italic;
+    margin-left: auto;
+    padding-right: 8px;
+  }
+
+  /* ══════════════════════════════
+     ④ HERO SLIDER
+  ══════════════════════════════ */
+  .hero {
+    height: 50vh;
+    min-height: 260px;
+    position: relative;
+    background: url('https://raw.githubusercontent.com/colly23421/kreski-wireframe/main/kreski-skaner.jpeg') center center / cover no-repeat;
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center;
+    padding: 0 40px;
+  }
+
+  .hero-content {
+    width: 320px;
+    background: rgba(255,255,255,0.92);
+    border: 1.5px dashed #ddd;
+    padding: 18px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .hero-label {
+    font-size: 8px; color: #bbb;
+    text-transform: uppercase; letter-spacing: 2px;
+  }
+
+  .hero-h1 { height: 18px; background: #444; border-radius: 2px; }
+  .hero-h1b { height: 18px; background: #444; width: 75%; border-radius: 2px; }
+  .hero-sub { height: 9px; background: #e0e0e0; width: 85%; border-radius: 2px; }
+
+  .hero-cta {
+    height: 32px; width: 110px;
+    background: #d42b2b;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: rgba(255,255,255,0.7);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .hero-arrows {
+    position: absolute; left: 0; right: 0; top: 50%;
+    transform: translateY(-50%);
+    display: flex; justify-content: space-between;
+    padding: 0 12px; pointer-events: none;
+  }
+
+  .hero-arrow {
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.8);
+    border: 1.5px dashed #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #bbb;
+  }
+
+  .hero-dots {
+    position: absolute; bottom: 14px; left: 50%;
+    transform: translateX(-50%);
     display: flex; gap: 6px;
   }
 
-  .slider-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    border: 1px solid rgba(255,255,255,0.7);
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #ddd; border: 1px solid #ccc;
+  }
+  .dot.active { background: #d42b2b; border-color: #d42b2b; }
+
+  .hero-note {
+    position: absolute; bottom: 10px; right: 14px;
+    font-size: 8px; color: #bbb;
+    text-transform: uppercase; letter-spacing: 1px;
   }
 
-  .slider-dot.active {
+  /* ══════════════════════════════
+     ⑤ PARTNERZY
+  ══════════════════════════════ */
+  .section-wrap {
+    padding: 20px 24px;
     background: white;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
   }
 
-  .slider-content-box {
-    width: 340px;
-    background: rgba(255,255,255,0.4);
-    border: 1.5px dashed rgba(255,255,255,0.6);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .section-wrap.gray { background: #fafafa; }
+
+  .sec-heading {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
   }
 
-  .slider-h1 {
-    height: 20px;
-    background: rgba(255,255,255,0.6);
-    width: 100%;
+  .sec-title-bar { height: 12px; background: #444; border-radius: 2px; }
+  .sec-line { flex:1; height: 1px; background: #eee; }
+  .sec-label {
+    font-size: 8px; color: #bbb;
+    text-transform: uppercase; letter-spacing: 1px;
+    white-space: nowrap;
   }
 
-  .slider-sub {
-    height: 10px;
-    background: rgba(255,255,255,0.4);
-    width: 80%;
-  }
-
-  .slider-cta {
-    height: 28px;
-    background: #d42b2b;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* PARTNERS SLIDER */
-  .partners-strip {
-    background: white;
-    border-bottom: 1px solid #e0dbd5;
-    padding: 16px 24px;
-  }
-
-  .partner-logos {
-    display: flex;
-    gap: 12px;
-    align-items: center;
+  .partners-row {
+    display: flex; gap: 12px; align-items: center;
   }
 
   .partner-logo {
-    width: 90px;
-    height: 40px;
-    border: 1.5px dashed #ccc;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    color: #ccc;
-    text-transform: uppercase;
-    flex-shrink: 0;
+    width: 88px; height: 40px;
+    border: 1.5px dashed #ddd;
+    background: #fafafa;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: #ccc;
+    text-transform: uppercase; flex-shrink: 0;
   }
 
-  /* CATEGORIES TILES */
+  /* ══════════════════════════════
+     ⑥ OFERTA — KATEGORIE
+  ══════════════════════════════ */
   .cat-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5,1fr);
     gap: 1px;
-    background: #e0dbd5;
+    background: #eee;
   }
 
   .cat-tile {
     background: white;
-    padding: 16px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    padding: 18px 10px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
   }
 
-  .cat-icon-box {
-    width: 42px;
-    height: 42px;
-    border: 1.5px dashed #ccc;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: #ccc;
+  .cat-icon {
+    width: 44px; height: 44px;
+    border: 1.5px dashed #ddd;
+    background: #fafafa;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #ddd;
   }
 
-  .cat-name-line {
-    width: 70px;
-    height: 9px;
-    background: #e0dbd5;
-  }
+  .cat-name { width: 68px; height: 9px; background: #e8e8e8; border-radius: 2px; }
+  .cat-sub { width: 50px; height: 7px; background: #f0f0f0; border-radius: 2px; }
 
-  /* BRANŻE */
+  /* ══════════════════════════════
+     ⑦ BRANŻE — 6 kafelków
+  ══════════════════════════════ */
   .branze-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 10px;
   }
 
   .branza-tile {
-    height: 80px;
-    background: repeating-linear-gradient(45deg,#f5f3f0,#f5f3f0 5px,#ede9e4 5px,#ede9e4 10px);
-    border: 1.5px dashed #ccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    height: 90px;
     position: relative;
     overflow: hidden;
+    border: 1px solid #eee;
+  }
+
+  .branza-bg {
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      45deg, #f5f5f5, #f5f5f5 6px, #ececec 6px, #ececec 12px
+    );
   }
 
   .branza-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 28px;
-    background: rgba(34,34,34,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 30px;
+    background: rgba(212,43,43,0.85);
+    display: flex; align-items: center;
+    padding: 0 10px; gap: 6px;
   }
 
-  .branza-label {
-    height: 8px;
-    background: rgba(255,255,255,0.4);
-    width: 70%;
-  }
+  .branza-label { height: 8px; background: rgba(255,255,255,0.5); flex: 1; border-radius: 2px; }
 
-  /* LICZBY */
+  /* ══════════════════════════════
+     ⑧ LICZBY
+  ══════════════════════════════ */
   .liczby-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 1px;
-    background: #e0dbd5;
+    background: #eee;
   }
 
   .liczba-tile {
-    background: #222;
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    background: #fafafa;
+    padding: 22px 16px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 8px;
+    border-top: 3px solid #d42b2b;
   }
 
-  .liczba-big {
-    width: 80px;
-    height: 28px;
-    background: #d42b2b;
-  }
+  .liczba-big { width: 80px; height: 28px; background: #d42b2b; border-radius: 2px; }
+  .liczba-desc { height: 8px; background: #e0e0e0; border-radius: 2px; }
 
-  .liczba-desc {
-    width: 60px;
-    height: 8px;
-    background: #444;
-  }
-
-  /* BLOG */
+  /* ══════════════════════════════
+     ⑨ BLOG
+  ══════════════════════════════ */
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 14px;
   }
 
   .blog-card {
     background: white;
-    border: 1px solid #e0dbd5;
+    border: 1px solid #eee;
     overflow: hidden;
   }
 
   .blog-img {
-    height: 80px;
-    background: repeating-linear-gradient(45deg,#f0ede8,#f0ede8 5px,#e3dfda 5px,#e3dfda 10px);
-    border-bottom: 1px solid #e0dbd5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    color: #bbb;
-    text-transform: uppercase;
+    height: 90px;
+    background: repeating-linear-gradient(
+      45deg, #f5f5f5, #f5f5f5 5px, #ececec 5px, #ececec 10px
+    );
+    border-bottom: 1px solid #eee;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: #ccc; text-transform: uppercase;
   }
 
-  .blog-meta {
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+  .blog-body { padding: 10px; display: flex; flex-direction: column; gap: 5px; }
 
-  .blog-date { width: 60px; height: 7px; background: #e0dbd5; }
-  .blog-title { width: 100%; height: 10px; background: #222; }
-  .blog-title2 { width: 70%; height: 10px; background: #222; }
-  .blog-excerpt { width: 100%; height: 7px; background: #e8e4df; }
-  .blog-excerpt2 { width: 80%; height: 7px; background: #e8e4df; }
-  .blog-cta { width: 70px; height: 18px; background: #d42b2b; margin-top: 2px; }
+  .blog-date { width: 55px; height: 7px; background: #eee; border-radius: 2px; }
+  .blog-t1 { height: 10px; background: #555; border-radius: 2px; }
+  .blog-t2 { height: 10px; width: 70%; background: #555; border-radius: 2px; }
+  .blog-e1 { height: 7px; background: #e8e8e8; border-radius: 2px; }
+  .blog-e2 { height: 7px; width: 80%; background: #e8e8e8; border-radius: 2px; }
+  .blog-cta { height: 22px; width: 80px; background: #d42b2b; margin-top: 4px; border-radius: 2px; }
 
-  /* KONTAKT PANEL */
+  /* ══════════════════════════════
+     ⑩ KONTAKT PANEL
+  ══════════════════════════════ */
   .contact-panel {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    background: #f5f3f0;
-    border-top: 2px solid #e0dbd5;
+    background: #fafafa;
+    border-top: 1px solid #eee;
   }
 
-  .contact-left {
-    padding: 20px 24px;
-    border-right: 1px solid #e0dbd5;
+  .contact-col {
+    padding: 22px 24px;
   }
 
-  .contact-right {
-    padding: 20px 24px;
+  .contact-col:first-child { border-right: 1px solid #eee; }
+
+  .form-row { margin-bottom: 10px; }
+  .form-lbl { height: 7px; width: 60px; background: #ddd; border-radius: 2px; margin-bottom: 4px; }
+  .form-input {
+    height: 32px; width: 100%;
+    border: 1.5px dashed #ccc;
+    background: white; border-radius: 2px;
+  }
+  .form-textarea {
+    height: 65px; width: 100%;
+    border: 1.5px dashed #ccc;
+    background: white; border-radius: 2px;
   }
 
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 8px;
+  .form-check {
+    display: flex; gap: 6px; align-items: center; margin-bottom: 8px;
   }
-
-  .form-label { width: 60px; height: 7px; background: #ccc; }
-  .form-input { height: 28px; border: 1.5px dashed #bbb; background: white; width: 100%; }
-  .form-textarea { height: 60px; border: 1.5px dashed #bbb; background: white; width: 100%; }
+  .checkbox { width: 13px; height: 13px; border: 1.5px solid #ccc; flex-shrink: 0; }
+  .check-text { height: 7px; background: #e8e8e8; flex:1; border-radius: 2px; }
 
   .form-submit {
-    height: 36px;
+    height: 38px; width: 100%;
     background: #d42b2b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; color: rgba(255,255,255,0.75);
+    text-transform: uppercase; letter-spacing: 2px; border-radius: 2px;
   }
 
-  .contact-info-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
+  .ci-item { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
   .ci-icon {
-    width: 28px;
-    height: 28px;
-    border: 1.5px dashed #bbb;
-    background: white;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: #ccc;
+    width: 30px; height: 30px;
+    border: 1.5px dashed #ddd;
+    background: white; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #ccc; border-radius: 2px;
+  }
+  .ci-lines { display: flex; flex-direction: column; gap: 4px; }
+  .ci-l { height: 8px; background: #e0e0e0; border-radius: 2px; }
+
+  .map-box {
+    height: 90px; margin-top: 12px;
+    background: repeating-linear-gradient(
+      45deg, #f0f0f0, #f0f0f0 5px, #e8e8e8 5px, #e8e8e8 10px
+    );
+    border: 1.5px dashed #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: #bbb; text-transform: uppercase; letter-spacing: 1px;
+    border-radius: 2px;
   }
 
-  .ci-lines { display: flex; flex-direction: column; gap: 4px; }
-  .ci-line { height: 7px; background: #ccc; }
-
-  /* FOOTER */
+  /* ══════════════════════════════
+     ⑪ FOOTER
+  ══════════════════════════════ */
   .footer {
-    background: #111;
-    padding: 20px 24px;
+    background: #f8f8f8;
+    border-top: 2px solid #d42b2b;
+    padding: 22px 24px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 20px;
-    border-top: 2px solid #d42b2b;
   }
 
-  .footer-logo-area {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  .footer-logo { width: 110px; height: 34px; border: 2px dashed #ddd; background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: #ccc; text-transform: uppercase; margin-bottom: 10px;
   }
 
-  .footer-logo-box {
-    width: 100px;
-    height: 30px;
-    border: 1.5px dashed #444;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8px;
-    color: #555;
-    text-transform: uppercase;
+  .f-desc { height: 7px; background: #e0e0e0; border-radius: 2px; margin-bottom: 5px; }
+  .f-social { display: flex; gap: 5px; margin-top: 8px; }
+  .f-soc {
+    width: 20px; height: 20px;
+    border: 1.5px dashed #ccc; background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7px; color: #bbb;
   }
 
-  .footer-desc-line { height: 6px; background: #333; margin-bottom: 4px; }
-
-  .footer-col-title { height: 8px; background: #555; width: 70%; margin-bottom: 10px; }
-  .footer-link { height: 6px; background: #333; margin-bottom: 6px; }
-  .footer-link.short { width: 60%; }
-  .footer-link.medium { width: 80%; }
+  .f-col-title { height: 9px; background: #555; width: 70%; border-radius: 2px; margin-bottom: 10px; }
+  .f-link { height: 7px; background: #ddd; border-radius: 2px; margin-bottom: 6px; }
 
   .footer-bottom {
-    background: #0a0a0a;
+    background: white;
+    border-top: 1px solid #eee;
     padding: 10px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; justify-content: space-between; align-items: center;
   }
 
-  .footer-copy { width: 150px; height: 7px; background: #222; }
-  .footer-links-row { display: flex; gap: 10px; }
-  .footer-bottom-link { width: 50px; height: 7px; background: #222; }
+  .f-copy { height: 7px; width: 140px; background: #e8e8e8; border-radius: 2px; }
+  .f-bottom-links { display: flex; gap: 10px; }
+  .f-bl { height: 7px; width: 50px; background: #e8e8e8; border-radius: 2px; }
 
-  /* CANVAS */
-  .canvas {
-    max-width: 960px;
-    margin: 0 auto;
-    background: #fafaf8;
-    box-shadow: 0 0 40px rgba(0,0,0,0.15);
-  }
-
-  /* PAGE WRAPPER */
-  .page-wrap {
-    padding: 20px;
-    background: #f0ede8;
-  }
-
-  .page-title {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .page-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #ccc;
-  }
-
-  /* LEGEND */
-  .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 16px;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #666;
-  }
-
-  .legend-item { display: flex; align-items: center; gap: 5px; }
-  .legend-swatch { width: 14px; height: 14px; border: 1px solid #ccc; }
-
-  /* ANNOTATIONS */
+  /* ══════════════════════════════
+     ANNOTATIONS
+  ══════════════════════════════ */
   .annotations {
-    max-width: 960px;
+    max-width: 980px;
     margin: 12px auto 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 
-  .ann-box {
+  .ann {
     background: white;
-    border: 1px solid #ddd;
+    border: 1px solid #e0e0e0;
     padding: 12px 14px;
-    font-size: 9px;
-    line-height: 1.7;
+    font-size: 9px; line-height: 1.7;
   }
 
-  .ann-box h3 {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    color: #222;
+  .ann h3 {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 7px;
   }
 
-  .ann-box.question h3 { color: #e05a2b; }
-  .ann-box.notes h3 { color: #2b7a2b; }
+  .ann.ok h3 { color: #27ae60; }
+  .ann.q h3 { color: #c0392b; }
 
-  .ann-box li {
+  .ann li {
     list-style: none;
-    padding-left: 14px;
-    color: #555;
-    position: relative;
-    margin-bottom: 2px;
+    padding-left: 14px; position: relative;
+    color: #555; margin-bottom: 2px;
   }
-
-  .ann-box li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #bbb;
-  }
-
-  .section-tag {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #bbb;
-    background: rgba(255,255,255,0.8);
-    padding: 2px 5px;
-    border: 1px solid #e0dbd5;
-  }
-
-  .question-tag {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #e05a2b;
-    background: #fff8f5;
-    padding: 2px 5px;
-    border: 1px solid #e05a2b;
-  }
-
-  .section-divider {
-    height: 1px;
-    background: #e0dbd5;
-  }
+  .ann li::before { content:'→'; position:absolute; left:0; color:#ccc; }
 </style>
 </head>
 <body>
 <div class="page-wrap">
 
-  <div class="page-title">Kreski.pl — Strona Główna — Low-Fi Wireframe</div>
+  <div class="page-title">Kreski.pl — Strona Główna — Low-Fi Wireframe v2</div>
 
   <div class="legend">
-    <div class="legend-item"><div class="legend-swatch" style="background:white;border:1.5px dashed #bbb;"></div>Treść</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:repeating-linear-gradient(45deg,#f0ede8,#f0ede8 4px,#e3dfda 4px,#e3dfda 8px);"></div>Zdjęcie</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#d42b2b;"></div>CTA / akcja</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#222;"></div>Nagłówek</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#1a1a1a;border-color:#333;"></div>Ciemny pasek</div>
-    <div class="legend-item" style="color:#e05a2b;">⚑ = do decyzji</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:white;border:1.5px dashed #ccc;"></div>Treść</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:repeating-linear-gradient(45deg,#f5f5f5,#f5f5f5 4px,#ebebeb 4px,#ebebeb 8px);"></div>Zdjęcie</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#d42b2b;"></div>CTA / akcent</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#555;"></div>Tekst / nagłówek</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#fafafa;border:1px solid #eee;"></div>Sekcja tło</div>
+    <div class="legend-item" style="color:#c0392b;">⚑ = do decyzji</div>
   </div>
 
   <div class="canvas">
@@ -712,254 +580,200 @@
     <div style="position:relative;">
       <div class="section-tag">① TOP BAR</div>
       <div class="top-bar">
-        <div class="top-bar-item">
-          <div class="top-bar-icon">☏</div>
-          <div class="top-bar-line" style="width:90px;"></div>
+        <div class="tb-item">
+          <div class="tb-icon">☏</div>
+          <div class="tb-text" style="width:95px;"></div>
         </div>
-        <div class="top-bar-item">
-          <div class="top-bar-icon">@</div>
-          <div class="top-bar-line" style="width:120px;"></div>
+        <div class="tb-sep"></div>
+        <div class="tb-item">
+          <div class="tb-icon">@</div>
+          <div class="tb-text" style="width:120px;"></div>
         </div>
-        <div style="width:1px;height:16px;background:#333;"></div>
-        <div class="social-icons">
-          <div class="social-icon">in</div>
-          <div class="social-icon">fb</div>
-          <div class="social-icon">yt</div>
-          <div class="social-icon">ig</div>
-          <div class="social-icon">𝕏</div>
+        <div class="tb-sep"></div>
+        <div class="social-row">
+          <div class="social-box">in</div>
+          <div class="social-box">fb</div>
+          <div class="social-box">yt</div>
+          <div class="social-box">ig</div>
+          <div class="social-box">𝕏</div>
         </div>
       </div>
     </div>
 
-    <!-- ② LOGO BAR -->
+    <!-- ② LOGO -->
     <div style="position:relative;">
-      <div class="section-tag">② LOGO</div>
+      <div class="section-tag">② LOGO — po lewej</div>
       <div class="logo-bar">
-        <div class="logo-placeholder">LOGO KRESKI</div>
+        <div class="logo-box">LOGO KRESKI</div>
       </div>
     </div>
 
     <!-- ③ MENU -->
     <div style="position:relative;">
-      <div class="section-tag">③ MENU — najechanie = dropdown z ikonką</div>
+      <div class="section-tag">③ MENU — hover = dropdown z ikonkami</div>
       <div class="nav-bar">
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          Kategoria 1
-          <span class="nav-dropdown-hint">▾</span>
-        </div>
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          Kategoria 2
-          <span class="nav-dropdown-hint">▾</span>
-        </div>
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          Kategoria 3
-          <span class="nav-dropdown-hint">▾</span>
-        </div>
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          Kategoria 4
-          <span class="nav-dropdown-hint">▾</span>
-        </div>
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          O nas
-        </div>
-        <div class="nav-item">
-          <div class="nav-icon">□</div>
-          Blog
-        </div>
-        <div class="nav-item" style="color:#d42b2b; border-color:#d42b2b;">
-          Kontakt
-        </div>
-        <div class="nav-note">← po najechaniu pojawia się dropdown z ikonkami subkategorii</div>
+        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 1 <span class="nav-arrow">▾</span></div>
+        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 2 <span class="nav-arrow">▾</span></div>
+        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 3 <span class="nav-arrow">▾</span></div>
+        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 4 <span class="nav-arrow">▾</span></div>
+        <div class="nav-item">O nas</div>
+        <div class="nav-item">Blog</div>
+        <div class="nav-item red-item">Kontakt</div>
+        <div class="nav-hint">← po najechaniu: dropdown z ikonkami subkategorii</div>
       </div>
     </div>
 
     <!-- ④ HERO SLIDER -->
     <div style="position:relative;">
-      <div class="question-tag">⚑ slider: z tekstem H1? czy bez? — do decyzji</div>
-      <div class="hero-slider">
-        <div class="slider-content-box">
-          <div style="font-size:8px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:2px;">H1 — Nagłówek strony?</div>
-          <div class="slider-h1"></div>
-          <div class="slider-sub"></div>
-          <div class="slider-cta">CTA?</div>
+      <div class="question-tag">⚑ H1 + tekst + CTA? czy tylko grafika? — do decyzji</div>
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-label">H1 — główne hasło strony?</div>
+          <div class="hero-h1"></div>
+          <div class="hero-h1b"></div>
+          <div class="hero-sub"></div>
+          <div class="hero-cta">CTA?</div>
         </div>
-        <div class="slider-arrows">
-          <div class="slider-arrow">‹</div>
-          <div class="slider-arrow">›</div>
+        <div class="hero-arrows">
+          <div class="hero-arrow">‹</div>
+          <div class="hero-arrow">›</div>
         </div>
-        <div class="slider-dots">
-          <div class="slider-dot active"></div>
-          <div class="slider-dot"></div>
-          <div class="slider-dot"></div>
+        <div class="hero-dots">
+          <div class="dot active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
         </div>
-        <div style="position:absolute;bottom:6px;right:12px;font-size:8px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;">50% wysokości ekranu laptopa</div>
+        <div class="hero-note">50% wys. ekranu laptopa</div>
       </div>
     </div>
 
     <!-- ⑤ PARTNERZY -->
-    <div style="position:relative; border-top:1px solid #e0dbd5;">
-      <div class="question-tag">⚑ masz wątpliwości — do decyzji</div>
-      <div class="partners-strip">
-        <div class="section-heading" style="margin-bottom:10px;">
-          <div class="section-heading-bar" style="max-width:200px;height:10px;"></div>
-          <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Poznaj naszych partnerów"</div>
-          <div class="section-heading-line"></div>
+    <div style="position:relative; border-top:1px solid #eee;">
+      <div class="question-tag">⚑ ta sekcja — zostawiamy czy wycinamy?</div>
+      <div class="section-wrap">
+        <div class="sec-heading">
+          <div class="sec-title-bar" style="width:180px;"></div>
+          <div class="sec-label" style="margin-left:6px;">"Poznaj naszych partnerów"</div>
+          <div class="sec-line"></div>
         </div>
-        <div class="partner-logos">
+        <div class="partners-row">
           <div class="partner-logo">Partner 1</div>
           <div class="partner-logo">Partner 2</div>
           <div class="partner-logo">Partner 3</div>
           <div class="partner-logo">Partner 4</div>
           <div class="partner-logo">Partner 5</div>
           <div class="partner-logo">Partner 6</div>
-          <div style="margin-left:auto;font-size:8px;color:#bbb;font-style:italic;">← slider →</div>
+          <div style="margin-left:auto;font-size:8px;color:#ccc;font-style:italic;">← auto-slider →</div>
         </div>
       </div>
     </div>
 
-    <!-- ⑥ OFERTA / KATEGORIE -->
-    <div style="position:relative; border-top:2px solid #e0dbd5;">
-      <div class="section-tag">⑥ OFERTA — KATEGORIE Z IKONKAMI</div>
-      <div class="section-inner">
-        <div class="section-heading">
-          <div class="section-heading-bar"></div>
-          <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Nasza oferta"</div>
-          <div class="section-heading-line"></div>
+    <!-- ⑥ OFERTA -->
+    <div style="position:relative; border-top:1px solid #eee;">
+      <div class="section-tag">⑥ OFERTA — kategorie z ikonkami</div>
+      <div class="section-wrap">
+        <div class="sec-heading">
+          <div class="sec-title-bar" style="width:120px;"></div>
+          <div class="sec-label" style="margin-left:6px;">"Nasza oferta"</div>
+          <div class="sec-line"></div>
         </div>
         <div class="cat-grid">
-          <div class="cat-tile">
-            <div class="cat-icon-box">□</div>
-            <div class="cat-name-line"></div>
-            <div class="cat-name-line" style="width:50px;height:7px;background:#f0ede8;"></div>
-          </div>
-          <div class="cat-tile">
-            <div class="cat-icon-box">□</div>
-            <div class="cat-name-line"></div>
-            <div class="cat-name-line" style="width:50px;height:7px;background:#f0ede8;"></div>
-          </div>
-          <div class="cat-tile">
-            <div class="cat-icon-box">□</div>
-            <div class="cat-name-line"></div>
-            <div class="cat-name-line" style="width:50px;height:7px;background:#f0ede8;"></div>
-          </div>
-          <div class="cat-tile">
-            <div class="cat-icon-box">□</div>
-            <div class="cat-name-line"></div>
-            <div class="cat-name-line" style="width:50px;height:7px;background:#f0ede8;"></div>
-          </div>
-          <div class="cat-tile">
-            <div class="cat-icon-box">□</div>
-            <div class="cat-name-line"></div>
-            <div class="cat-name-line" style="width:50px;height:7px;background:#f0ede8;"></div>
-          </div>
+          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
+          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
+          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
+          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
+          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
         </div>
       </div>
     </div>
 
-    <!-- ⑦ ROZWIĄZANIA DLA BRANŻY -->
-    <div style="position:relative; border-top:2px solid #e0dbd5; background:#f5f3f0;">
+    <!-- ⑦ BRANŻE -->
+    <div style="position:relative; border-top:1px solid #eee;">
       <div class="section-tag">⑦ ROZWIĄZANIA DLA TWOJEJ BRANŻY — 6 kafelków</div>
-      <div class="section-inner">
-        <div class="section-heading">
-          <div class="section-heading-bar"></div>
-          <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Rozwiązania dla Twojej branży"</div>
-          <div class="section-heading-line"></div>
+      <div class="section-wrap gray">
+        <div class="sec-heading">
+          <div class="sec-title-bar" style="width:240px;"></div>
+          <div class="sec-label" style="margin-left:6px;">"Rozwiązania dla Twojej branży"</div>
+          <div class="sec-line"></div>
         </div>
         <div class="branze-grid">
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
-          <div class="branza-tile">
-            <div class="branza-overlay"><div class="branza-label"></div></div>
-          </div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
+          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
         </div>
       </div>
     </div>
 
-    <!-- ⑧ KRESKI W LICZBACH -->
-    <div style="position:relative; border-top:2px solid #e0dbd5;">
-      <div class="section-tag" style="color:white; background:rgba(0,0,0,0.4); border-color:rgba(255,255,255,0.2);">⑧ KRESKI W LICZBACH</div>
+    <!-- ⑧ LICZBY -->
+    <div style="position:relative; border-top:1px solid #eee;">
+      <div class="section-tag">⑧ KRESKI W LICZBACH</div>
       <div class="liczby-grid">
         <div class="liczba-tile">
           <div class="liczba-big"></div>
-          <div class="liczba-desc"></div>
-          <div class="liczba-desc" style="width:80px;"></div>
+          <div class="liczba-desc" style="width:70px;"></div>
+          <div class="liczba-desc" style="width:90px;"></div>
         </div>
         <div class="liczba-tile">
           <div class="liczba-big"></div>
-          <div class="liczba-desc"></div>
-          <div class="liczba-desc" style="width:80px;"></div>
+          <div class="liczba-desc" style="width:70px;"></div>
+          <div class="liczba-desc" style="width:90px;"></div>
         </div>
         <div class="liczba-tile">
           <div class="liczba-big"></div>
-          <div class="liczba-desc"></div>
-          <div class="liczba-desc" style="width:80px;"></div>
+          <div class="liczba-desc" style="width:70px;"></div>
+          <div class="liczba-desc" style="width:90px;"></div>
         </div>
         <div class="liczba-tile">
           <div class="liczba-big"></div>
-          <div class="liczba-desc"></div>
-          <div class="liczba-desc" style="width:80px;"></div>
+          <div class="liczba-desc" style="width:70px;"></div>
+          <div class="liczba-desc" style="width:90px;"></div>
         </div>
       </div>
     </div>
 
     <!-- ⑨ BLOG -->
-    <div style="position:relative; border-top:2px solid #e0dbd5;">
+    <div style="position:relative; border-top:1px solid #eee;">
       <div class="section-tag">⑨ 3 NAJNOWSZE WPISY BLOGOWE</div>
-      <div class="section-inner">
-        <div class="section-heading">
-          <div class="section-heading-bar"></div>
-          <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Aktualności / Blog"</div>
-          <div class="section-heading-line"></div>
+      <div class="section-wrap">
+        <div class="sec-heading">
+          <div class="sec-title-bar" style="width:160px;"></div>
+          <div class="sec-label" style="margin-left:6px;">"Aktualności / Blog"</div>
+          <div class="sec-line"></div>
         </div>
         <div class="blog-grid">
           <div class="blog-card">
             <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-meta">
+            <div class="blog-body">
               <div class="blog-date"></div>
-              <div class="blog-title"></div>
-              <div class="blog-title2"></div>
-              <div class="blog-excerpt"></div>
-              <div class="blog-excerpt2"></div>
+              <div class="blog-t1"></div>
+              <div class="blog-t2"></div>
+              <div class="blog-e1"></div>
+              <div class="blog-e2"></div>
               <div class="blog-cta"></div>
             </div>
           </div>
           <div class="blog-card">
             <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-meta">
+            <div class="blog-body">
               <div class="blog-date"></div>
-              <div class="blog-title"></div>
-              <div class="blog-title2"></div>
-              <div class="blog-excerpt"></div>
-              <div class="blog-excerpt2"></div>
+              <div class="blog-t1"></div>
+              <div class="blog-t2"></div>
+              <div class="blog-e1"></div>
+              <div class="blog-e2"></div>
               <div class="blog-cta"></div>
             </div>
           </div>
           <div class="blog-card">
             <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-meta">
+            <div class="blog-body">
               <div class="blog-date"></div>
-              <div class="blog-title"></div>
-              <div class="blog-title2"></div>
-              <div class="blog-excerpt"></div>
-              <div class="blog-excerpt2"></div>
+              <div class="blog-t1"></div>
+              <div class="blog-t2"></div>
+              <div class="blog-e1"></div>
+              <div class="blog-e2"></div>
               <div class="blog-cta"></div>
             </div>
           </div>
@@ -967,97 +781,85 @@
       </div>
     </div>
 
-    <!-- ⑩ KONTAKT PANEL -->
-    <div style="position:relative;">
-      <div class="section-tag">⑩ PANEL KONTAKTOWY</div>
+    <!-- ⑩ KONTAKT -->
+    <div style="position:relative; border-top:1px solid #eee;">
+      <div class="question-tag">⚑ mapa — tak/nie?</div>
       <div class="contact-panel">
-        <div class="contact-left">
-          <div class="section-heading" style="margin-bottom:12px;">
-            <div class="section-heading-bar" style="max-width:140px;height:10px;"></div>
-            <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Napisz do nas"</div>
+        <div class="contact-col">
+          <div class="sec-heading" style="margin-bottom:12px;">
+            <div class="sec-title-bar" style="width:130px;"></div>
+            <div class="sec-label" style="margin-left:6px;">"Napisz do nas"</div>
           </div>
-          <div class="form-row"><div class="form-label"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-label"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-label"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-label"></div><div class="form-textarea"></div></div>
-          <div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;">
-            <div style="width:12px;height:12px;border:1.5px solid #bbb;flex-shrink:0;"></div>
-            <div style="height:7px;background:#e0dbd5;flex:1;"></div>
+          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
+          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
+          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
+          <div class="form-row"><div class="form-lbl"></div><div class="form-textarea"></div></div>
+          <div class="form-check">
+            <div class="checkbox"></div>
+            <div class="check-text"></div>
           </div>
           <div class="form-submit">Wyślij wiadomość</div>
         </div>
-        <div class="contact-right">
-          <div class="section-heading" style="margin-bottom:12px;">
-            <div class="section-heading-bar" style="max-width:120px;height:10px;"></div>
-            <div style="font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:1px;margin-left:4px;">"Dane kontaktowe"</div>
+        <div class="contact-col">
+          <div class="sec-heading" style="margin-bottom:12px;">
+            <div class="sec-title-bar" style="width:110px;"></div>
+            <div class="sec-label" style="margin-left:6px;">"Dane kontaktowe"</div>
           </div>
-          <div class="contact-info-item">
-            <div class="ci-icon">☏</div>
-            <div class="ci-lines"><div class="ci-line" style="width:100px;"></div><div class="ci-line" style="width:80px;"></div></div>
-          </div>
-          <div class="contact-info-item">
-            <div class="ci-icon">@</div>
-            <div class="ci-lines"><div class="ci-line" style="width:130px;"></div></div>
-          </div>
-          <div class="contact-info-item">
-            <div class="ci-icon">⌖</div>
-            <div class="ci-lines"><div class="ci-line" style="width:110px;"></div><div class="ci-line" style="width:90px;"></div></div>
-          </div>
-          <div class="contact-info-item">
-            <div class="ci-icon">⊙</div>
-            <div class="ci-lines"><div class="ci-line" style="width:80px;"></div></div>
-          </div>
-          <div style="height:80px;margin-top:8px;background:repeating-linear-gradient(45deg,#e8e4df,#e8e4df 5px,#ddd9d4 5px,#ddd9d4 10px);border:1.5px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:8px;color:#bbb;text-transform:uppercase;">Mapa (opcjonalnie)</div>
+          <div class="ci-item"><div class="ci-icon">☏</div><div class="ci-lines"><div class="ci-l" style="width:100px;"></div><div class="ci-l" style="width:70px;"></div></div></div>
+          <div class="ci-item"><div class="ci-icon">@</div><div class="ci-lines"><div class="ci-l" style="width:130px;"></div></div></div>
+          <div class="ci-item"><div class="ci-icon">⌖</div><div class="ci-lines"><div class="ci-l" style="width:110px;"></div><div class="ci-l" style="width:80px;"></div></div></div>
+          <div class="ci-item"><div class="ci-icon">⊙</div><div class="ci-lines"><div class="ci-l" style="width:80px;"></div></div></div>
+          <div class="map-box">Mapa (opcjonalnie)</div>
         </div>
       </div>
     </div>
 
     <!-- ⑪ FOOTER -->
     <div style="position:relative;">
-      <div class="section-tag" style="color:white;background:rgba(0,0,0,0.4);border-color:rgba(255,255,255,0.2);">⑪ FOOTER</div>
+      <div class="section-tag">⑪ FOOTER</div>
       <div class="footer">
-        <div class="footer-logo-area">
-          <div class="footer-logo-box">LOGO</div>
-          <div class="footer-desc-line"></div>
-          <div class="footer-desc-line" style="width:80%;"></div>
-          <div class="footer-desc-line" style="width:60%;"></div>
-          <div style="display:flex;gap:5px;margin-top:4px;">
-            <div style="width:18px;height:18px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:7px;color:#555;">in</div>
-            <div style="width:18px;height:18px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:7px;color:#555;">fb</div>
-            <div style="width:18px;height:18px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:7px;color:#555;">yt</div>
-            <div style="width:18px;height:18px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:7px;color:#555;">ig</div>
-            <div style="width:18px;height:18px;border:1px dashed #444;display:flex;align-items:center;justify-content:center;font-size:7px;color:#555;">𝕏</div>
+        <div>
+          <div class="footer-logo">LOGO</div>
+          <div class="f-desc" style="width:100%;"></div>
+          <div class="f-desc" style="width:80%;"></div>
+          <div class="f-desc" style="width:60%;"></div>
+          <div class="f-social">
+            <div class="f-soc">in</div>
+            <div class="f-soc">fb</div>
+            <div class="f-soc">yt</div>
+            <div class="f-soc">ig</div>
+            <div class="f-soc">𝕏</div>
           </div>
         </div>
         <div>
-          <div class="footer-col-title"></div>
-          <div class="footer-link"></div>
-          <div class="footer-link short"></div>
-          <div class="footer-link medium"></div>
-          <div class="footer-link short"></div>
-          <div class="footer-link"></div>
+          <div class="f-col-title"></div>
+          <div class="f-link"></div>
+          <div class="f-link" style="width:60%;"></div>
+          <div class="f-link" style="width:80%;"></div>
+          <div class="f-link" style="width:55%;"></div>
+          <div class="f-link"></div>
         </div>
         <div>
-          <div class="footer-col-title"></div>
-          <div class="footer-link medium"></div>
-          <div class="footer-link short"></div>
-          <div class="footer-link"></div>
-          <div class="footer-link medium"></div>
+          <div class="f-col-title"></div>
+          <div class="f-link" style="width:80%;"></div>
+          <div class="f-link" style="width:55%;"></div>
+          <div class="f-link"></div>
+          <div class="f-link" style="width:70%;"></div>
         </div>
         <div>
-          <div class="footer-col-title"></div>
-          <div class="footer-link short"></div>
-          <div class="footer-link"></div>
-          <div class="footer-link medium"></div>
-          <div class="footer-link short"></div>
+          <div class="f-col-title"></div>
+          <div class="f-link" style="width:55%;"></div>
+          <div class="f-link"></div>
+          <div class="f-link" style="width:75%;"></div>
+          <div class="f-link" style="width:60%;"></div>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy"></div>
-        <div class="footer-links-row">
-          <div class="footer-bottom-link"></div>
-          <div class="footer-bottom-link"></div>
-          <div class="footer-bottom-link"></div>
+        <div class="f-copy"></div>
+        <div class="f-bottom-links">
+          <div class="f-bl"></div>
+          <div class="f-bl"></div>
+          <div class="f-bl"></div>
         </div>
       </div>
     </div>
@@ -1066,33 +868,32 @@
 
   <!-- ANNOTATIONS -->
   <div class="annotations">
-    <div class="ann-box notes">
-      <h3>Sekcje zgodnie z wytycznymi</h3>
+    <div class="ann ok">
+      <h3>✓ Sekcje zgodnie z wytycznymi</h3>
       <ul>
-        <li>① Top bar: telefon, e-mail, social (LinkedIn, FB, YT, IG, X)</li>
-        <li>② Logo bar — tylko logo po lewej</li>
-        <li>③ Menu z ikonkami kategorii + dropdown po najechaniu</li>
+        <li>① Top bar: telefon, e-mail, social (LinkedIn, FB, YT, IG, X) — po prawej</li>
+        <li>② Logo bar — tylko logo po lewej, biały pasek</li>
+        <li>③ Menu z ikonkami + dropdown po najechaniu, podkreślony czerwienią</li>
         <li>④ Hero slider — pełna szerokość, 50% wys. ekranu</li>
         <li>⑤ Slider partnerów z headingiem</li>
-        <li>⑥ Oferta — kategorie z ikonkami</li>
-        <li>⑦ Rozwiązania dla branży — 6 kafelków ze zdjęciami</li>
-        <li>⑧ Kreski w liczbach — 4 liczby na ciemnym tle</li>
+        <li>⑥ Oferta — kategorie z ikonkami (5 kolumn)</li>
+        <li>⑦ Rozwiązania dla branży — 6 kafelków ze zdjęciami + red overlay</li>
+        <li>⑧ Kreski w liczbach — 4 kafelki, bordowy akcent</li>
         <li>⑨ Blog — 3 zajawki artykułów</li>
-        <li>⑩ Panel kontaktowy — formularz + dane</li>
-        <li>⑪ Footer — logo, social, linki, copyright</li>
+        <li>⑩ Panel kontaktowy — formularz + dane kontaktowe</li>
+        <li>⑪ Footer — logo, social, 3 kolumny linków, copyright</li>
       </ul>
     </div>
-    <div class="ann-box question">
+    <div class="ann q">
       <h3>⚑ Otwarte pytania — do Twojej decyzji</h3>
       <ul>
-        <li>Slider hero: czy zawiera H1 i tekst, czy tylko grafika?</li>
-        <li>Slider hero: czy jest CTA (przycisk)?</li>
-        <li>Partnerzy: zostawiamy tę sekcję czy wycinamy?</li>
-        <li>Partnerzy: jeśli tak — slider czy statyczny rząd?</li>
-        <li>Kategorie w ofercie: ile? (teraz 5, może być więcej)</li>
-        <li>Kafelki branż: tylko zdjęcie+napis czy też krótki opis?</li>
-        <li>Liczby: ile liczb pokazujemy? (teraz 4)</li>
-        <li>Panel kontaktowy: mapa tak/nie?</li>
+        <li>Slider hero: H1 + tekst + CTA? czy tylko duże zdjęcie?</li>
+        <li>Partnerzy: zostawiamy sekcję czy wycinamy?</li>
+        <li>Partnerzy: auto-slider czy statyczny rząd?</li>
+        <li>Kategorie w ofercie: ile? (teraz 5)</li>
+        <li>Kafelki branż: tylko nazwa czy też krótki opis?</li>
+        <li>Liczby: ile pokazujemy? (teraz 4)</li>
+        <li>Kontakt: mapa tak/nie?</li>
       </ul>
     </div>
   </div>
