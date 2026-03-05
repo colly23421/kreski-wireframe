@@ -315,17 +315,17 @@
 
   .cat-tile {
     background: white;
-    padding: 18px 10px;
+    padding: 28px 16px;
     display: flex; flex-direction: column;
-    align-items: center; gap: 8px;
+    align-items: center; gap: 12px;
   }
 
   .cat-icon {
-    width: 44px; height: 44px;
+    width: 60px; height: 60px;
     border: 1.5px dashed #ddd;
     background: #fafafa;
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px; color: #ddd;
+    font-size: 28px; color: #ddd;
   }
 
   .cat-name { width: 68px; height: 9px; background: #e8e8e8; border-radius: 2px; }
@@ -341,7 +341,7 @@
   }
 
   .branza-tile {
-    height: 90px;
+    height: 220px;
     position: relative;
     overflow: hidden;
     border: 1px solid #eee;
@@ -356,10 +356,10 @@
 
   .branza-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
-    height: 30px;
+    height: 52px;
     background: rgba(212,43,43,0.85);
     display: flex; align-items: center;
-    padding: 0 10px; gap: 6px;
+    padding: 0 14px; gap: 6px;
   }
 
   .branza-label { height: 8px; background: rgba(255,255,255,0.5); flex: 1; border-radius: 2px; }
@@ -376,13 +376,13 @@
 
   .liczba-tile {
     background: #fafafa;
-    padding: 22px 16px;
+    padding: 36px 16px;
     display: flex; flex-direction: column;
-    align-items: center; gap: 8px;
+    align-items: center; gap: 10px;
     border-top: 3px solid #d42b2b;
   }
 
-  .liczba-big { width: 80px; height: 28px; background: #d42b2b; border-radius: 2px; }
+  .liczba-big { width: 100px; height: 36px; background: #d42b2b; border-radius: 2px; }
   .liczba-desc { height: 8px; background: #e0e0e0; border-radius: 2px; }
 
   /* ══════════════════════════════
@@ -401,7 +401,7 @@
   }
 
   .blog-img {
-    height: 90px;
+    height: 190px;
     background: repeating-linear-gradient(
       45deg, #f5f5f5, #f5f5f5 5px, #ececec 5px, #ececec 10px
     );
@@ -410,7 +410,7 @@
     font-size: 8px; color: #ccc; text-transform: uppercase;
   }
 
-  .blog-body { padding: 10px; display: flex; flex-direction: column; gap: 5px; }
+  .blog-body { padding: 16px; display: flex; flex-direction: column; gap: 7px; }
 
   .blog-date { width: 55px; height: 7px; background: #eee; border-radius: 2px; }
   .blog-t1 { height: 10px; background: #555; border-radius: 2px; }
@@ -443,7 +443,7 @@
     background: white; border-radius: 2px;
   }
   .form-textarea {
-    height: 65px; width: 100%;
+    height: 120px; width: 100%;
     border: 1.5px dashed #ccc;
     background: white; border-radius: 2px;
   }
@@ -474,7 +474,7 @@
   .ci-l { height: 8px; background: #e0e0e0; border-radius: 2px; }
 
   .map-box {
-    height: 90px; margin-top: 12px;
+    height: 180px; margin-top: 16px;
     background: repeating-linear-gradient(
       45deg, #f0f0f0, #f0f0f0 5px, #e8e8e8 5px, #e8e8e8 10px
     );
@@ -591,7 +591,7 @@
 
     /* Branże — 2 kolumny */
     .branze-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
-    .branza-card { height: 100px; }
+    .branza-card { height: 160px; }
 
     /* Liczby — 2 kolumny */
     .liczby-grid { grid-template-columns: repeat(2, 1fr) !important; }
