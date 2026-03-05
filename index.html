@@ -426,11 +426,17 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
               </div>
             </div>
             <div>
-              <div class="f-ct" style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;height:auto;background:none;width:auto;margin-bottom:14px;">Newsletter</div>
-              <div style="height:8px;background:#e8e8e8;border-radius:2px;margin-bottom:10px;width:90%;"></div>
-              <div class="f-nl-input"></div>
-              <div class="f-nl-btn">Zapisz sie</div>
-              <div class="f-pay-row"><div class="f-pay">VISA</div><div class="f-pay">PP</div><div class="f-pay">MC</div><div class="f-pay">STR</div></div>
+              <div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">Napisz do nas</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <input type="text" placeholder="Imię i nazwisko" style="padding:9px 12px;border:1px solid #ddd;border-radius:5px;font-size:13px;font-family:sans-serif;outline:none;width:100%;box-sizing:border-box;">
+                <input type="email" placeholder="Adres e-mail" style="padding:9px 12px;border:1px solid #ddd;border-radius:5px;font-size:13px;font-family:sans-serif;outline:none;width:100%;box-sizing:border-box;">
+                <textarea placeholder="Treść wiadomości" rows="3" style="padding:9px 12px;border:1px solid #ddd;border-radius:5px;font-size:13px;font-family:sans-serif;outline:none;width:100%;box-sizing:border-box;resize:none;"></textarea>
+                <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;">
+                  <input type="checkbox" style="margin-top:3px;flex-shrink:0;accent-color:#e30613;">
+                  <span style="font-size:10px;color:#888;line-height:1.5;font-family:sans-serif;">Wyrażam zgodę na przetwarzanie moich danych osobowych przez Kreski Spółka Jawna Piotr Gałecki Łukasz Gałecki, ul. Mory 12, 01-303 Warszawa w celu i w zakresie niezbędnym do realizacji obsługi niniejszego zgłoszenia. Zapoznałam/em się z treścią informacji o sposobie przetwarzania moich danych osobowych znajdującą się <a href="#" style="color:#e30613;">tutaj</a>.</span>
+                </label>
+                <button style="background:#e30613;color:#fff;border:none;border-radius:5px;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;align-self:flex-start;">Wyślij wiadomość →</button>
+              </div>
             </div>
           </div>
         </div>
