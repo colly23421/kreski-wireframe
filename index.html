@@ -34,12 +34,12 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .hero::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.42); }
 .hero-inner { position:relative; z-index:2; max-width:1170px; width:100%; margin:0 auto; padding:0 20px; }
 .hero-text { max-width:520px; display:flex; flex-direction:column; gap:14px; }
-.hero-eyebrow { font-size:8px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:4px; }
-.hh { height:32px; background:rgba(255,255,255,0.92); border-radius:2px; }
-.hh2 { height:32px; background:rgba(255,255,255,0.92); width:78%; border-radius:2px; }
-.hp { height:10px; background:rgba(255,255,255,0.45); border-radius:2px; }
-.hp2 { height:10px; background:rgba(255,255,255,0.45); width:82%; border-radius:2px; }
-.hero-btn { height:42px; width:148px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:8px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:4px; }
+.hero-eyebrow { font-size:11px; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:4px; font-family:sans-serif; }
+.hero-h1 { font-size:32px; font-weight:800; color:#fff; line-height:1.2; font-family:sans-serif; }
+.hero-p { font-size:13px; color:rgba(255,255,255,0.85); line-height:1.7; font-family:sans-serif; max-width:480px; }
+.hero-btns { display:flex; gap:12px; margin-top:8px; flex-wrap:wrap; }
+.hero-btn { height:44px; padding:0 24px; background:#e30613; display:inline-flex; align-items:center; justify-content:center; font-size:11px; color:#fff; text-transform:uppercase; letter-spacing:2px; font-family:sans-serif; font-weight:600; white-space:nowrap; }
+.hero-btn.out { background:transparent; border:2px solid rgba(255,255,255,0.7); color:#fff; }
 .hero-arrows { position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 14px; z-index:3; pointer-events:none; }
 .harr { width:38px; height:38px; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-size:18px; color:rgba(255,255,255,.6); }
 .hero-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:3; }
@@ -76,24 +76,23 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .alt-img { background:repeating-linear-gradient(45deg,#eee,#eee 5px,#e5e5e5 5px,#e5e5e5 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#bbb; text-transform:uppercase; aspect-ratio:3/2; min-height:280px; }
 .alt-text { padding:50px 44px; display:flex; flex-direction:column; justify-content:center; gap:14px; background:white; }
 .alt-text.gray { background:#f8f8f8; }
-.at-eye { height:7px; width:70px; background:#e30613; border-radius:2px; }
-.at-h { height:22px; background:#1a1a1a; border-radius:2px; }
-.at-h2 { height:22px; background:#1a1a1a; width:72%; border-radius:2px; }
-.at-p { height:8.5px; background:#ddd; border-radius:2px; }
-.at-btn { height:40px; width:145px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:7.5px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:6px; }
+.at-eye { font-size:10px; color:#e30613; text-transform:uppercase; letter-spacing:3px; font-family:sans-serif; font-weight:600; }
+.at-h { font-size:22px; font-weight:800; color:#1a1a1a; font-family:sans-serif; line-height:1.2; }
+.at-p { font-size:12px; color:#666; line-height:1.7; font-family:sans-serif; }
+.at-btn { height:42px; padding:0 22px; background:#e30613; display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:6px; font-family:sans-serif; font-weight:600; }
 
 /* STATS */
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#e8e8e8; }
 .stat-cell { background:white; padding:44px 16px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
-.stat-num { height:40px; width:120px; background:#e30613; border-radius:2px; }
-.stat-lbl { height:9px; width:90px; background:#ddd; border-radius:2px; }
-.stat-sub { height:7px; width:65px; background:#efefef; border-radius:2px; }
+.stat-num { font-size:36px; font-weight:800; color:#e30613; font-family:sans-serif; line-height:1; }
+.stat-lbl { font-size:13px; font-weight:700; color:#1a1a1a; font-family:sans-serif; margin-top:6px; }
+.stat-sub { font-size:11px; color:#888; font-family:sans-serif; line-height:1.4; text-align:center; margin-top:4px; }
 
 /* CALLOUT */
 .callout { background:#1c1c1c; padding:60px 20px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:16px; position:relative; }
-.callout-h { height:28px; width:380px; background:rgba(255,255,255,0.85); border-radius:2px; max-width:100%; }
-.callout-sub { height:10px; width:300px; background:rgba(255,255,255,0.28); border-radius:2px; max-width:100%; }
-.callout-btn { height:44px; width:160px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:8px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:4px; }
+.callout-h { font-size:26px; font-weight:800; color:#fff; font-family:sans-serif; max-width:700px; line-height:1.3; }
+.callout-sub { font-size:14px; color:rgba(255,255,255,0.7); font-family:sans-serif; max-width:500px; }
+.callout-btn { height:44px; padding:0 28px; background:#e30613; display:inline-flex; align-items:center; justify-content:center; font-size:11px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:8px; font-family:sans-serif; font-weight:600; }
 
 /* KATEGORIE */
 .cat-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
@@ -188,12 +187,13 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
       <div class="hero">
         <div class="hero-inner">
           <div class="hero-text">
-            <div class="hero-eyebrow">Lider rynku etykietowania i kodowania</div>
-            <div class="hh"></div>
-            <div class="hh2"></div>
-            <div class="hp"></div>
-            <div class="hp2"></div>
-            <div class="hero-btn">Zobacz produkty</div>
+            <div class="hero-eyebrow">Autoryzowany partner Zebra &amp; Honeywell</div>
+            <h1 class="hero-h1">KRESKI.pl – partner technologii<br>Auto ID dla przemysłu i logistyki</h1>
+            <p class="hero-p">Od ponad 20 lat dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe. Pełne wsparcie – od doboru sprzętu, przez wdrożenie, aż po serwis.</p>
+            <div class="hero-btns">
+              <a class="hero-btn" href="#">Zobacz ofertę</a>
+              <a class="hero-btn out" href="#">Skontaktuj się z ekspertem</a>
+            </div>
           </div>
         </div>
         <div class="hero-arrows"><div class="harr">&#8249;</div><div class="harr">&#8250;</div></div>
@@ -205,6 +205,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <div style="position:relative;">
       <div class="trust">
         <div class="trust-lbl">Zaufali nam</div>
+        <div style="text-align:center;font-size:13px;color:#999;font-family:sans-serif;margin-bottom:16px;">Współpracujemy wyłącznie z producentami wyznaczającymi standardy w branży</div>
         <div class="trust-row">
           <div class="trust-logo"><img src="firma 1.png" alt="Partner 1"></div><div class="trust-logo"><img src="firma 2.png" alt="Partner 2"></div><div class="trust-logo"><img src="firma_7.png" alt="Partner 3"></div><div class="trust-logo"><img src="firma 4.png" alt="Partner 4"></div><div class="trust-logo"><img src="firma 5.png" alt="Partner 5"></div><div class="trust-logo"><img src="firma 6.png" alt="Partner 6"></div>
         </div>
@@ -260,9 +261,10 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
       <div class="alt-row">
         <div class="alt-img">Katalog / Produkty</div>
         <div class="alt-text">
-          <div class="at-eye"></div><div class="at-h"></div><div class="at-h2"></div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;"><div class="at-p" style="width:100%;"></div><div class="at-p" style="width:88%;"></div><div class="at-p" style="width:94%;"></div><div class="at-p" style="width:76%;"></div></div>
-          <div class="at-btn">Poznaj oferte</div>
+          <div class="at-eye">Drukarki &amp; Skanery</div>
+          <h2 class="at-h">Profesjonalne urządzenia Auto ID dla każdej branży</h2>
+          <p class="at-p">Drukarki etykiet termiczne i termotransferowe, skanery kodów 1D i 2D, terminale mobilne z Androidem. Modele biurowe, przemysłowe i mobilne od Zebra, Honeywell, TSC i Citizen. Wydajność od 1&nbsp;000 do 50&nbsp;000 etykiet dziennie.</p>
+          <a class="at-btn" href="#">Poznaj ofertę</a>
         </div>
       </div>
     </div>
@@ -271,9 +273,10 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <div style="position:relative; border-top:1px solid #f0f0f0;">
       <div class="alt-row">
         <div class="alt-text gray">
-          <div class="at-eye"></div><div class="at-h"></div><div class="at-h2"></div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;"><div class="at-p" style="width:100%;"></div><div class="at-p" style="width:90%;"></div><div class="at-p" style="width:82%;"></div><div class="at-p" style="width:68%;"></div></div>
-          <div class="at-btn">Sprawdz branze</div>
+          <div class="at-eye">Serwis &amp; Wsparcie</div>
+          <h2 class="at-h">Autoryzowany serwis Zebra i Honeywell</h2>
+          <p class="at-p">Naprawy gwarancyjne i pogwarancyjne, kontrakty serwisowe oraz urządzenia zastępcze na czas naprawy. Czas reakcji od 24 godzin. Jedna z największych autoryzowanych placówek serwisowych w Polsce.</p>
+          <a class="at-btn" href="#">Zgłoś urządzenie</a>
         </div>
         <div class="alt-img">Rozwiazania / Branze</div>
       </div>
@@ -282,19 +285,19 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <!-- STATS -->
     <div style="position:relative; border-top:1px solid #eee;">
       <div class="stats-grid">
-        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
-        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
-        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
-        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
+        <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-lbl">lat na rynku</div><div class="stat-sub">doświadczenia w Auto ID i IT</div></div>
+        <div class="stat-cell"><div class="stat-num">1 100+</div><div class="stat-lbl">aktywnych klientów</div><div class="stat-sub">od małych firm po korporacje</div></div>
+        <div class="stat-cell"><div class="stat-num">80 000+</div><div class="stat-lbl">naprawionych urządzeń</div><div class="stat-sub">autoryzowany serwis Zebra i Honeywell</div></div>
+        <div class="stat-cell"><div class="stat-num">48h</div><div class="stat-lbl">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
       </div>
     </div>
 
     <!-- CALLOUT -->
     <div style="position:relative;">
       <div class="callout">
-        <div class="callout-h"></div>
-        <div class="callout-sub"></div>
-        <div class="callout-btn">Pobierz katalog</div>
+        <div class="callout-h">Potrzebujesz rozwiązania Auto ID lub infrastruktury IT dla swojej firmy?</div>
+        <div class="callout-sub">Nasi eksperci dobiorą technologię dopasowaną do Twojej branży i skali działalności.</div>
+        <a class="callout-btn" href="#">Skontaktuj się z ekspertem</a>
       </div>
     </div>
 
@@ -302,7 +305,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <div class="sec">
       <div class="con">
         <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:28px;">
-          <div><div class="sec-eyebrow">Aktualnosci</div><br><div class="sec-h" style="width:200px;"></div><div class="sec-line"></div></div>
+          <div><div class="sec-eyebrow">Aktualności</div><div style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:sans-serif;margin-top:6px;">Centrum wiedzy Kreski</div><div class="sec-line"></div></div>
           <div style="margin-left:auto; height:8px; width:55px; background:#e30613; border-radius:2px; opacity:.7; align-self:center;"></div>
         </div>
         <div class="blog-grid">
@@ -336,20 +339,20 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
               </div>
             </div>
             <div>
-              <div class="f-ct"></div>
+              <div class="f-ct" style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;height:auto;background:none;width:auto;margin-bottom:14px;">Aktualności</div>
               <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:100%;"></div></div>
               <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:85%;"></div></div>
               <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:90%;"></div></div>
               <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:78%;"></div></div>
             </div>
             <div>
-              <div class="f-ct"></div>
+              <div class="f-ct" style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;height:auto;background:none;width:auto;margin-bottom:14px;">Kategorie produktów</div>
               <div class="f-tags">
                 <div class="f-tag" style="width:44px;"></div><div class="f-tag" style="width:58px;"></div><div class="f-tag" style="width:36px;"></div><div class="f-tag" style="width:52px;"></div><div class="f-tag" style="width:42px;"></div><div class="f-tag" style="width:64px;"></div><div class="f-tag" style="width:38px;"></div><div class="f-tag" style="width:50px;"></div><div class="f-tag" style="width:46px;"></div><div class="f-tag" style="width:56px;"></div>
               </div>
             </div>
             <div>
-              <div class="f-ct"></div>
+              <div class="f-ct" style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;height:auto;background:none;width:auto;margin-bottom:14px;">Newsletter</div>
               <div style="height:8px;background:#e8e8e8;border-radius:2px;margin-bottom:10px;width:90%;"></div>
               <div class="f-nl-input"></div>
               <div class="f-nl-btn">Zapisz sie</div>
