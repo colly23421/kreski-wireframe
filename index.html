@@ -73,7 +73,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 
 /* ALTERNATING 50/50 */
 .alt-row { display:grid; grid-template-columns:1fr 1fr; gap:0; }
-.alt-img { background:repeating-linear-gradient(45deg,#eee,#eee 5px,#e5e5e5 5px,#e5e5e5 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#bbb; text-transform:uppercase; aspect-ratio:3/2; min-height:280px; }
+.alt-img { aspect-ratio:3/2; min-height:280px; overflow:hidden; } .alt-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .alt-text { padding:50px 44px; display:flex; flex-direction:column; justify-content:center; gap:14px; background:white; }
 .alt-text.gray { background:#f8f8f8; }
 .at-eye { font-size:10px; color:#e30613; text-transform:uppercase; letter-spacing:3px; font-family:sans-serif; font-weight:600; }
@@ -105,7 +105,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .blog-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
 .blog-card { border:1px solid #eee; overflow:hidden; }
 .blog-img-w { position:relative; }
-.blog-img { width:100%; aspect-ratio:3/2; background:repeating-linear-gradient(45deg,#f5f5f5,#f5f5f5 5px,#ececec 5px,#ececec 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; }
+.blog-img { width:100%; aspect-ratio:3/2; background:#eee; overflow:hidden; } .blog-img img { width:100%; height:100%; object-fit:cover; display:block; }
 .blog-date { position:absolute; bottom:0; left:0; background:#e30613; padding:5px 9px; display:flex; flex-direction:column; align-items:center; gap:2px; }
 .bdd { height:14px; width:20px; background:rgba(255,255,255,0.85); border-radius:1px; }
 .bdm { height:8px; width:16px; background:rgba(255,255,255,0.5); border-radius:1px; }
@@ -262,7 +262,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <!-- ALT #1 image left -->
     <div style="position:relative; border-top:1px solid #f0f0f0;">
       <div class="alt-row">
-        <div class="alt-img">Katalog / Produkty</div>
+        <div class="alt-img"><img src="Sekcja_1__Drukarki_Skanery.jpeg" alt="Drukarki i skanery - magazyn"></div>
         <div class="alt-text">
           <div class="at-eye">Drukarki &amp; Skanery</div>
           <h2 class="at-h">Profesjonalne urządzenia Auto ID dla każdej branży</h2>
@@ -281,7 +281,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
           <p class="at-p">Naprawy gwarancyjne i pogwarancyjne, kontrakty serwisowe oraz urządzenia zastępcze na czas naprawy. Czas reakcji od 24 godzin. Jedna z największych autoryzowanych placówek serwisowych w Polsce.</p>
           <a class="at-btn" href="#">Zgłoś urządzenie</a>
         </div>
-        <div class="alt-img">Rozwiazania / Branze</div>
+        <div class="alt-img"><img src="Serwis_Zebra_Honeywell.jpeg" alt="Serwis Zebra Honeywell"></div>
       </div>
     </div>
 
@@ -347,10 +347,10 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
           <div style="margin-left:auto; height:8px; width:55px; background:#e30613; border-radius:2px; opacity:.7; align-self:center;"></div>
         </div>
         <div class="blog-grid">
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Zdjęcie wpisu</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">02.12.2025</div><div class="blog-title">Inteligentne terminale mobilne z obsługą AI — Zebra TC501 i TC701</div><div class="blog-excerpt">Grzegorz z Kresek rozpakowuje terminale mobilne Zebra TC501 i TC701, które bezpośrednio zastępują poprzednią generację urządzeń...</div></div></div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="Terminale_Zebra_TC501_TC701.jpeg" alt="Terminale Zebra TC501 TC701"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">02.12.2025</div><div class="blog-title">Inteligentne terminale mobilne z obsługą AI — Zebra TC501 i TC701</div><div class="blog-excerpt">Grzegorz z Kresek rozpakowuje terminale mobilne Zebra TC501 i TC701, które bezpośrednio zastępują poprzednią generację urządzeń...</div></div></div>
           <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Zdjęcie wpisu</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">02.12.2025</div><div class="blog-title">Zebra ET401 – tablet, który zmienia zasady gry w biznesie!</div><div class="blog-excerpt">Najnowszy tablet Zebra ET401 to mobilne centrum dowodzenia – wydajny, wytrzymały i gotowy na wyzwania nowoczesnego magazynu...</div></div></div>
           <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Zdjęcie wpisu</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">31.10.2025</div><div class="blog-title">Diamentowy Certyfikat Rzetelności dla Kresek</div><div class="blog-excerpt">W świecie biznesu są nagrody, które mają szczególne znaczenie — nie za spektakularne kampanie, ale za codzienną rzetelność...</div></div></div>
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Zdjęcie wpisu</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">26.08.2025</div><div class="blog-title">Kreski grają dalej z PGE Projektem Warszawa!</div><div class="blog-excerpt">Z wielką dumą ogłaszamy, że nasza firma w sezonie 2025/2026 kontynuuje współpracę z drużyną PGE Projekt Warszawa...</div></div></div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="PGE_Projekt_Warszawa.jpg" alt="PGE Projekt Warszawa"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">26.08.2025</div><div class="blog-title">Kreski grają dalej z PGE Projektem Warszawa!</div><div class="blog-excerpt">Z wielką dumą ogłaszamy, że nasza firma w sezonie 2025/2026 kontynuuje współpracę z drużyną PGE Projekt Warszawa...</div></div></div>
         </div>
       </div>
     </div>
