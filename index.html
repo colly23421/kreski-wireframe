@@ -3,998 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreski.pl — Strona Główna / Low-Fi Wireframe</title>
+<title>Kreski.pl v3 — Flatsome Corporate</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Courier New', monospace;
-    background: #edecea;
-    color: #333;
-  }
-
-  /* ── UTILS ── */
-  .section-tag {
-    position: absolute;
-    top: 6px; right: 8px;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #aaa;
-    background: rgba(255,255,255,0.9);
-    padding: 2px 6px;
-    border: 1px solid #ddd;
-    z-index: 10;
-  }
-
-  .question-tag {
-    position: absolute;
-    top: 6px; right: 8px;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #c0392b;
-    background: #fff5f5;
-    padding: 2px 6px;
-    border: 1px solid #e8b4b8;
-    z-index: 10;
-  }
-
-  .block-img {
-    background: repeating-linear-gradient(
-      45deg, #f5f5f5, #f5f5f5 5px, #ebebeb 5px, #ebebeb 10px
-    );
-    border: 1.5px dashed #d0d0d0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; color: #bbb;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-
-  .line { background: #e0e0e0; border-radius: 2px; }
-  .line.dark { background: #555; }
-  .line.red { background: #d42b2b; }
-  .line.light { background: #f0f0f0; }
-
-  /* ── CANVAS ── */
-  .canvas {
-    width: 100%;
-    background: white;
-  }
-
-  .page-wrap {
-    padding: 20px;
-    background: #edecea;
-  }
-
-  .page-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .page-title::after { content:''; flex:1; height:1px; background:#ccc; }
-
-  /* ── LEGEND ── */
-  .legend {
-    display: flex; flex-wrap: wrap;
-    gap: 14px; margin-bottom: 14px;
-    font-size: 9px; text-transform: uppercase;
-    letter-spacing: 1px; color: #777;
-  }
-  .legend-item { display: flex; align-items: center; gap: 5px; }
-  .legend-swatch { width: 14px; height: 14px; border: 1px solid #ccc; }
-
-  /* ══════════════════════════════
-     ① TOP BAR
-  ══════════════════════════════ */
-  .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    height: 38px;
-    background: #f8f8f8;
-    border-bottom: 1px solid #eee;
-    padding: 0 5%;
-  }
-
-  .tb-item {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 9px; color: #888;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-
-  .tb-icon {
-    width: 16px; height: 16px;
-    border: 1.5px dashed #ccc;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: #bbb;
-  }
-
-  .tb-text { height: 8px; background: #ddd; border-radius: 2px; }
-
-  .tb-sep { width: 1px; height: 18px; background: #ddd; }
-
-  .social-row { display: flex; gap: 5px; }
-  .social-box {
-    width: 20px; height: 20px;
-    border: 1.5px dashed #ccc;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 7px; color: #bbb;
-    background: white;
-  }
-
-  /* ══════════════════════════════
-     ② LOGO BAR
-  ══════════════════════════════ */
-  .logo-bar {
-    height: 76px;
-    background: white;
-    border-bottom: 1px solid #eee;
-    display: flex; align-items: center;
-    padding: 0 5%;
-  }
-
-  .logo-box {
-    width: 140px; height: 44px;
-    border: 2px dashed #ddd;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; color: #ccc;
-    text-transform: uppercase; letter-spacing: 2px;
-    background: #fafafa;
-  }
-
-  /* ══════════════════════════════
-     ③ MENU
-  ══════════════════════════════ */
-  .nav-bar {
-    height: 50px;
-    background: white;
-    border-bottom: 2px solid #d42b2b;
-    display: flex; align-items: center;
-    padding: 0 5%;
-    gap: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-
-  .nav-item {
-    display: flex; align-items: center; gap: 5px;
-    padding: 0 16px;
-    height: 100%;
-    font-size: 9px; color: #666;
-    text-transform: uppercase; letter-spacing: 1px;
-    border-right: 1px solid #f0f0f0;
-    cursor: pointer;
-  }
-
-  .nav-icon-sm {
-    width: 14px; height: 14px;
-    border: 1.5px dashed #ccc;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 7px; color: #ccc;
-  }
-
-  .nav-arrow { font-size: 7px; color: #ccc; margin-left: 2px; }
-
-  .nav-item.red-item {
-    color: #d42b2b;
-    font-weight: bold;
-    border-right: none;
-    margin-left: auto;
-  }
-
-  .nav-hint {
-    font-size: 8px; color: #bbb;
-    font-style: italic;
-    margin-left: auto;
-    padding-right: 8px;
-  }
-
-  /* ══════════════════════════════
-     ④ HERO SLIDER
-  ══════════════════════════════ */
-  .hero {
-    height: 50vh;
-    min-height: 260px;
-    position: relative;
-    background: url('https://raw.githubusercontent.com/colly23421/kreski-wireframe/main/kreski-skaner.jpeg') center center / cover no-repeat;
-    border-bottom: 1px solid #eee;
-    display: flex; align-items: center;
-    padding: 0 40px;
-  }
-
-  .hero-content {
-    width: 320px;
-    background: rgba(255,255,255,0.92);
-    border: 1.5px dashed #ddd;
-    padding: 18px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-
-  .hero-label {
-    font-size: 8px; color: #bbb;
-    text-transform: uppercase; letter-spacing: 2px;
-  }
-
-  .hero-h1 { height: 18px; background: #444; border-radius: 2px; }
-  .hero-h1b { height: 18px; background: #444; width: 75%; border-radius: 2px; }
-  .hero-sub { height: 9px; background: #e0e0e0; width: 85%; border-radius: 2px; }
-
-  .hero-cta {
-    height: 32px; width: 110px;
-    background: #d42b2b;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: rgba(255,255,255,0.7);
-    text-transform: uppercase; letter-spacing: 1px;
-    margin-top: 4px;
-  }
-
-  .hero-arrows {
-    position: absolute; left: 0; right: 0; top: 50%;
-    transform: translateY(-50%);
-    display: flex; justify-content: space-between;
-    padding: 0 12px; pointer-events: none;
-  }
-
-  .hero-arrow {
-    width: 34px; height: 34px;
-    background: rgba(255,255,255,0.8);
-    border: 1.5px dashed #ccc;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; color: #bbb;
-  }
-
-  .hero-dots {
-    position: absolute; bottom: 14px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; gap: 6px;
-  }
-
-  .dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: #ddd; border: 1px solid #ccc;
-  }
-  .dot.active { background: #d42b2b; border-color: #d42b2b; }
-
-  .hero-note {
-    position: absolute; bottom: 10px; right: 14px;
-    font-size: 8px; color: #bbb;
-    text-transform: uppercase; letter-spacing: 1px;
-  }
-
-  /* ══════════════════════════════
-     ⑤ PARTNERZY
-  ══════════════════════════════ */
-  .section-wrap {
-    padding: 20px 5%;
-    background: white;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-  }
-
-  .section-wrap.gray { background: #fafafa; }
-
-  .sec-heading {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 14px;
-  }
-
-  .sec-title-bar { height: 12px; background: #444; border-radius: 2px; }
-  .sec-line { flex:1; height: 1px; background: #eee; }
-  .sec-label {
-    font-size: 8px; color: #bbb;
-    text-transform: uppercase; letter-spacing: 1px;
-    white-space: nowrap;
-  }
-
-  .partners-row {
-    display: flex; gap: 12px; align-items: center;
-  }
-
-  .partner-logo {
-    width: 88px; height: 40px;
-    border: 1.5px dashed #ddd;
-    background: #fafafa;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: #ccc;
-    text-transform: uppercase; flex-shrink: 0;
-  }
-
-  /* ══════════════════════════════
-     ⑥ OFERTA — KATEGORIE
-  ══════════════════════════════ */
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 1px;
-    background: #eee;
-  }
-
-  .cat-tile {
-    background: white;
-    padding: 28px 16px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 12px;
-  }
-
-  .cat-icon {
-    width: 60px; height: 60px;
-    border: 1.5px dashed #ddd;
-    background: #fafafa;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px; color: #ddd;
-  }
-
-  .cat-name { width: 68px; height: 9px; background: #e8e8e8; border-radius: 2px; }
-  .cat-sub { width: 50px; height: 7px; background: #f0f0f0; border-radius: 2px; }
-
-  /* ══════════════════════════════
-     ⑦ BRANŻE — 6 kafelków
-  ══════════════════════════════ */
-  .branze-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-  }
-
-  .branza-tile {
-    height: 220px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #eee;
-  }
-
-  .branza-bg {
-    width: 100%; height: 100%;
-    background: repeating-linear-gradient(
-      45deg, #f5f5f5, #f5f5f5 6px, #ececec 6px, #ececec 12px
-    );
-  }
-
-  .branza-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 52px;
-    background: rgba(212,43,43,0.85);
-    display: flex; align-items: center;
-    padding: 0 14px; gap: 6px;
-  }
-
-  .branza-label { height: 8px; background: rgba(255,255,255,0.5); flex: 1; border-radius: 2px; }
-
-  /* ══════════════════════════════
-     ⑧ LICZBY
-  ══════════════════════════════ */
-  .liczby-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1px;
-    background: #eee;
-  }
-
-  .liczba-tile {
-    background: #fafafa;
-    padding: 36px 16px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 10px;
-    border-top: 3px solid #d42b2b;
-  }
-
-  .liczba-big { width: 100px; height: 36px; background: #d42b2b; border-radius: 2px; }
-  .liczba-desc { height: 8px; background: #e0e0e0; border-radius: 2px; }
-
-  /* ══════════════════════════════
-     ⑨ BLOG
-  ══════════════════════════════ */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 14px;
-  }
-
-  .blog-card {
-    background: white;
-    border: 1px solid #eee;
-    overflow: hidden;
-  }
-
-  .blog-img {
-    height: 190px;
-    background: repeating-linear-gradient(
-      45deg, #f5f5f5, #f5f5f5 5px, #ececec 5px, #ececec 10px
-    );
-    border-bottom: 1px solid #eee;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: #ccc; text-transform: uppercase;
-  }
-
-  .blog-body { padding: 16px; display: flex; flex-direction: column; gap: 7px; }
-
-  .blog-date { width: 55px; height: 7px; background: #eee; border-radius: 2px; }
-  .blog-t1 { height: 10px; background: #555; border-radius: 2px; }
-  .blog-t2 { height: 10px; width: 70%; background: #555; border-radius: 2px; }
-  .blog-e1 { height: 7px; background: #e8e8e8; border-radius: 2px; }
-  .blog-e2 { height: 7px; width: 80%; background: #e8e8e8; border-radius: 2px; }
-  .blog-cta { height: 22px; width: 80px; background: #d42b2b; margin-top: 4px; border-radius: 2px; }
-
-  /* ══════════════════════════════
-     ⑩ KONTAKT PANEL
-  ══════════════════════════════ */
-  .contact-panel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: #fafafa;
-    border-top: 1px solid #eee;
-  }
-
-  .contact-col {
-    padding: 22px 5%;
-  }
-
-  .contact-col:first-child { border-right: 1px solid #eee; }
-
-  .form-row { margin-bottom: 10px; }
-  .form-lbl { height: 7px; width: 60px; background: #ddd; border-radius: 2px; margin-bottom: 4px; }
-  .form-input {
-    height: 32px; width: 100%;
-    border: 1.5px dashed #ccc;
-    background: white; border-radius: 2px;
-  }
-  .form-textarea {
-    height: 120px; width: 100%;
-    border: 1.5px dashed #ccc;
-    background: white; border-radius: 2px;
-  }
-
-  .form-check {
-    display: flex; gap: 6px; align-items: center; margin-bottom: 8px;
-  }
-  .checkbox { width: 13px; height: 13px; border: 1.5px solid #ccc; flex-shrink: 0; }
-  .check-text { height: 7px; background: #e8e8e8; flex:1; border-radius: 2px; }
-
-  .form-submit {
-    height: 38px; width: 100%;
-    background: #d42b2b;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 9px; color: rgba(255,255,255,0.75);
-    text-transform: uppercase; letter-spacing: 2px; border-radius: 2px;
-  }
-
-  .ci-item { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
-  .ci-icon {
-    width: 30px; height: 30px;
-    border: 1.5px dashed #ddd;
-    background: white; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: #ccc; border-radius: 2px;
-  }
-  .ci-lines { display: flex; flex-direction: column; gap: 4px; }
-  .ci-l { height: 8px; background: #e0e0e0; border-radius: 2px; }
-
-  .map-box {
-    height: 180px; margin-top: 16px;
-    background: repeating-linear-gradient(
-      45deg, #f0f0f0, #f0f0f0 5px, #e8e8e8 5px, #e8e8e8 10px
-    );
-    border: 1.5px dashed #ccc;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: #bbb; text-transform: uppercase; letter-spacing: 1px;
-    border-radius: 2px;
-  }
-
-  /* ══════════════════════════════
-     ⑪ FOOTER
-  ══════════════════════════════ */
-  .footer {
-    background: #f8f8f8;
-    border-top: 2px solid #d42b2b;
-    padding: 22px 5%;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 20px;
-  }
-
-  .footer-logo { width: 110px; height: 34px; border: 2px dashed #ddd; background: white;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 8px; color: #ccc; text-transform: uppercase; margin-bottom: 10px;
-  }
-
-  .f-desc { height: 7px; background: #e0e0e0; border-radius: 2px; margin-bottom: 5px; }
-  .f-social { display: flex; gap: 5px; margin-top: 8px; }
-  .f-soc {
-    width: 20px; height: 20px;
-    border: 1.5px dashed #ccc; background: white;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 7px; color: #bbb;
-  }
-
-  .f-col-title { height: 9px; background: #555; width: 70%; border-radius: 2px; margin-bottom: 10px; }
-  .f-link { height: 7px; background: #ddd; border-radius: 2px; margin-bottom: 6px; }
-
-  .footer-bottom {
-    background: white;
-    border-top: 1px solid #eee;
-    padding: 10px 24px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .f-copy { height: 7px; width: 140px; background: #e8e8e8; border-radius: 2px; }
-  .f-bottom-links { display: flex; gap: 10px; }
-  .f-bl { height: 7px; width: 50px; background: #e8e8e8; border-radius: 2px; }
-
-  /* ══════════════════════════════
-     ANNOTATIONS
-  ══════════════════════════════ */
-  .annotations {
-    max-width: 980px;
-    margin: 12px auto 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .ann {
-    background: white;
-    border: 1px solid #e0e0e0;
-    padding: 12px 14px;
-    font-size: 9px; line-height: 1.7;
-  }
-
-  .ann h3 {
-    font-size: 9px; letter-spacing: 2px;
-    text-transform: uppercase; margin-bottom: 7px;
-  }
-
-  .ann.ok h3 { color: #27ae60; }
-  .ann.q h3 { color: #c0392b; }
-
-  .ann li {
-    list-style: none;
-    padding-left: 14px; position: relative;
-    color: #555; margin-bottom: 2px;
-  }
-  .ann li::before { content:'→'; position:absolute; left:0; color:#ccc; }
-
-  /* ══════════════════════════════
-     RESPONSIVE — TABLET (≤768px)
-  ══════════════════════════════ */
-  @media (max-width: 768px) {
-
-    .wrapper { width: 100%; padding: 0 12px; }
-
-    /* Top bar */
-    .topbar { flex-direction: column; gap: 6px; padding: 8px 12px; text-align: center; }
-    .tb-right { flex-wrap: wrap; justify-content: center; }
-    .tb-sep { display: none; }
-
-    /* Logo bar */
-    .logobar { padding: 12px 16px; }
-    .logo-box { width: 100px; height: 28px; }
-
-    /* Nav */
-    .nav { padding: 0 12px; overflow-x: auto; }
-    .nav-items { gap: 0; }
-    .nav-item { padding: 10px 12px; font-size: 9px; white-space: nowrap; }
-
-    /* Hero */
-    .hero { height: 40vh; padding: 0 16px; }
-    .hero-content { width: 100%; max-width: 100%; padding: 16px; }
-
-    /* Partners */
-    .partners-track { gap: 16px; }
-    .partner-logo { width: 80px; height: 28px; }
-
-    /* Kategorie — 2 kolumny */
-    .cat-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
-
-    /* Branże — 2 kolumny */
-    .branze-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
-    .branza-card { height: 160px; }
-
-    /* Liczby — 2 kolumny */
-    .liczby-grid { grid-template-columns: repeat(2, 1fr) !important; }
-
-    /* Blog — 1 kolumna */
-    .blog-grid { grid-template-columns: 1fr !important; }
-
-    /* Kontakt */
-    .contact-panel { grid-template-columns: 1fr !important; }
-    .contact-col:first-child { border-right: none; border-bottom: 1px solid #eee; }
-
-    /* Footer */
-    .footer { grid-template-columns: 1fr !important; gap: 24px; padding: 20px 16px; }
-
-    /* Sekcje */
-    .section-wrap { padding: 32px 0; }
-    .sec-title { font-size: 13px; }
-  }
-
-  /* ══════════════════════════════
-     RESPONSIVE — MOBILE (≤480px)
-  ══════════════════════════════ */
-  @media (max-width: 480px) {
-
-    /* Top bar — schowaj na bardzo małych */
-    .topbar { display: none; }
-
-    /* Hero */
-    .hero { height: 50vw; min-height: 180px; }
-    .hero-content { padding: 12px; }
-    .hero-h1 { height: 14px; }
-    .hero-h1b { height: 14px; }
-    .hero-cta { padding: 8px 14px; font-size: 9px; }
-
-    /* Nav — hamburger hint */
-    .nav { position: relative; }
-    .nav-items { display: none; }
-    .nav::after {
-      content: '☰ Menu';
-      display: block;
-      padding: 12px 16px;
-      font-size: 11px;
-      color: #d42b2b;
-      font-family: monospace;
-      cursor: pointer;
-    }
-
-    /* Kategorie — 1 kolumna */
-    .cat-grid { grid-template-columns: 1fr !important; }
-
-    /* Branże — 1 kolumna */
-    .branze-grid { grid-template-columns: 1fr !important; }
-
-    /* Liczby — 1 kolumna */
-    .liczby-grid { grid-template-columns: 1fr !important; }
-
-    .wrapper { padding: 0 8px; }
-    .section-wrap { padding: 24px 0; }
-
-    /* Annotations — schowaj na mobile */
-    .ann { font-size: 8px; padding: 8px; }
-  }
-
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
+.stag { position:absolute; top:5px; right:8px; font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#aaa; background:rgba(255,255,255,0.93); padding:2px 6px; border:1px solid #ddd; z-index:20; }
+.qtag { position:absolute; top:5px; right:8px; font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#c0392b; background:#fff5f5; padding:2px 6px; border:1px solid #e8b4b8; z-index:20; }
+.con { max-width:1170px; margin:0 auto; padding:0 20px; }
+.wrap { padding:20px; background:#edecea; }
+.ptitle { font-size:9.5px; letter-spacing:3px; text-transform:uppercase; color:#999; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+.ptitle::after { content:''; flex:1; height:1px; background:#ccc; }
+.canvas { width:100%; background:white; }
+.legend { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; font-size:8.5px; text-transform:uppercase; letter-spacing:1px; color:#777; }
+.li2 { display:flex; align-items:center; gap:5px; }
+.ls { width:13px; height:13px; border:1px solid #ccc; }
+
+/* HEADER */
+.hdr { height:78px; background:white; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.07); }
+.hdr-logo { width:148px; height:44px; border:2px dashed #ddd; display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; letter-spacing:2px; background:#fafafa; flex-shrink:0; }
+.hdr-nav { display:flex; align-items:center; height:100%; margin-left:auto; }
+.nav-i { padding:0 16px; height:78px; display:flex; align-items:center; font-size:8.5px; color:#444; text-transform:uppercase; letter-spacing:.8px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:3px; }
+.nav-i:first-child { border-left:none; }
+.arr { font-size:7px; color:#aaa; }
+.hdr-right { display:flex; align-items:center; gap:12px; padding-left:16px; border-left:1px solid #f2f2f2; height:78px; }
+.hdr-icon { width:26px; height:26px; border:1.5px dashed #ccc; display:flex; align-items:center; justify-content:center; font-size:11px; color:#bbb; }
+.hdr-tel { font-size:8.5px; color:#e30613; font-weight:bold; letter-spacing:.5px; white-space:nowrap; }
+
+/* HERO - 470px = ratio 1000:392 */
+.hero { height:470px; position:relative; background:url('https://raw.githubusercontent.com/colly23421/kreski-wireframe/main/kreski-skaner.jpeg') center center/cover no-repeat; display:flex; align-items:center; }
+.hero::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.42); }
+.hero-inner { position:relative; z-index:2; max-width:1170px; width:100%; margin:0 auto; padding:0 20px; }
+.hero-text { max-width:520px; display:flex; flex-direction:column; gap:14px; }
+.hero-eyebrow { font-size:8px; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:4px; }
+.hh { height:32px; background:rgba(255,255,255,0.92); border-radius:2px; }
+.hh2 { height:32px; background:rgba(255,255,255,0.92); width:78%; border-radius:2px; }
+.hp { height:10px; background:rgba(255,255,255,0.45); border-radius:2px; }
+.hp2 { height:10px; background:rgba(255,255,255,0.45); width:82%; border-radius:2px; }
+.hero-btn { height:42px; width:148px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:8px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:4px; }
+.hero-arrows { position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 14px; z-index:3; pointer-events:none; }
+.harr { width:38px; height:38px; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; font-size:18px; color:rgba(255,255,255,.6); }
+.hero-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:3; }
+.hdot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); border:1px solid rgba(255,255,255,0.5); }
+.hdot.on { background:#e30613; border-color:#e30613; }
+
+/* TRUST */
+.trust { padding:18px 0; background:#f8f8f8; border-bottom:1px solid #eee; }
+.trust-row { display:flex; align-items:center; justify-content:center; }
+.trust-logo { width:155px; height:52px; border-right:1px solid #ebebeb; display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; flex-shrink:0; }
+.trust-logo:last-child { border-right:none; }
+.trust-lbl { text-align:center; font-size:7.5px; color:#bbb; text-transform:uppercase; letter-spacing:2px; margin-bottom:10px; }
+
+/* SECTIONS */
+.sec { padding:50px 0; background:white; position:relative; border-top:1px solid #f0f0f0; }
+.sec.gray { background:#f8f8f8; }
+.sec.dark { background:#1c1c1c; border-top:none; }
+.sec-eyebrow { font-size:7.5px; color:#e30613; text-transform:uppercase; letter-spacing:3px; display:inline-block; margin-bottom:7px; }
+.sec-h { height:26px; background:#1a1a1a; border-radius:2px; }
+.sec-sub { height:9px; background:#ddd; border-radius:2px; margin-top:8px; }
+.sec-line { width:44px; height:3px; background:#e30613; margin-top:12px; }
+
+/* 3 FEATURES */
+.feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.feat-col { display:flex; flex-direction:column; gap:10px; padding:20px 0; }
+.feat-icon { width:52px; height:52px; border:2px dashed #ddd; background:#fafafa; display:flex; align-items:center; justify-content:center; font-size:22px; color:#ddd; margin-bottom:4px; }
+.feat-title { height:13px; background:#1a1a1a; border-radius:2px; width:70%; }
+.feat-body { height:8px; background:#ddd; border-radius:2px; }
+.feat-body.s { background:#e8e8e8; }
+
+/* ALTERNATING 50/50 */
+.alt-row { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+.alt-img { background:repeating-linear-gradient(45deg,#eee,#eee 5px,#e5e5e5 5px,#e5e5e5 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#bbb; text-transform:uppercase; aspect-ratio:3/2; min-height:280px; }
+.alt-text { padding:50px 44px; display:flex; flex-direction:column; justify-content:center; gap:14px; background:white; }
+.alt-text.gray { background:#f8f8f8; }
+.at-eye { height:7px; width:70px; background:#e30613; border-radius:2px; }
+.at-h { height:22px; background:#1a1a1a; border-radius:2px; }
+.at-h2 { height:22px; background:#1a1a1a; width:72%; border-radius:2px; }
+.at-p { height:8.5px; background:#ddd; border-radius:2px; }
+.at-btn { height:40px; width:145px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:7.5px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:6px; }
+
+/* STATS */
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#e8e8e8; }
+.stat-cell { background:white; padding:44px 16px; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
+.stat-num { height:40px; width:120px; background:#e30613; border-radius:2px; }
+.stat-lbl { height:9px; width:90px; background:#ddd; border-radius:2px; }
+.stat-sub { height:7px; width:65px; background:#efefef; border-radius:2px; }
+
+/* CALLOUT */
+.callout { background:#1c1c1c; padding:60px 20px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:16px; position:relative; }
+.callout-h { height:28px; width:380px; background:rgba(255,255,255,0.85); border-radius:2px; max-width:100%; }
+.callout-sub { height:10px; width:300px; background:rgba(255,255,255,0.28); border-radius:2px; max-width:100%; }
+.callout-btn { height:44px; width:160px; background:#e30613; display:flex; align-items:center; justify-content:center; font-size:8px; color:rgba(255,255,255,.85); text-transform:uppercase; letter-spacing:2px; margin-top:4px; }
+
+/* KATEGORIE */
+.cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.cat-card { border:1px solid #eee; overflow:hidden; display:flex; flex-direction:column; align-items:center; gap:10px; padding-bottom:20px; }
+.cat-img { width:100%; aspect-ratio:4/3; background:repeating-linear-gradient(45deg,#f5f5f5,#f5f5f5 5px,#ebebeb 5px,#ebebeb 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; }
+.cat-name { height:10px; width:100px; background:#1a1a1a; border-radius:2px; }
+.cat-sub { height:8px; width:70px; background:#e0e0e0; border-radius:2px; }
+.cat-link { height:7px; width:60px; background:#e30613; border-radius:2px; opacity:.7; }
+
+/* BLOG - 4 cols with date badge */
+.blog-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.blog-card { border:1px solid #eee; overflow:hidden; }
+.blog-img-w { position:relative; }
+.blog-img { width:100%; aspect-ratio:3/2; background:repeating-linear-gradient(45deg,#f5f5f5,#f5f5f5 5px,#ececec 5px,#ececec 10px); display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; }
+.blog-date { position:absolute; bottom:0; left:0; background:#e30613; padding:5px 9px; display:flex; flex-direction:column; align-items:center; gap:2px; }
+.bdd { height:14px; width:20px; background:rgba(255,255,255,0.85); border-radius:1px; }
+.bdm { height:8px; width:16px; background:rgba(255,255,255,0.5); border-radius:1px; }
+.blog-body { padding:14px; display:flex; flex-direction:column; gap:7px; }
+.bt { height:11px; background:#1a1a1a; border-radius:2px; }
+.bt2 { height:11px; background:#1a1a1a; width:70%; border-radius:2px; }
+.be { height:7.5px; background:#e8e8e8; border-radius:2px; }
+.be2 { height:7.5px; background:#e8e8e8; width:80%; border-radius:2px; }
+
+/* FOOTER - light gray (Corporate style, NOT dark) */
+.footer { background:#f5f5f5; border-top:1px solid #e8e8e8; padding:44px 0 0; }
+.footer-grid { display:grid; grid-template-columns:2fr 1.2fr 1.5fr 1.5fr; gap:32px; }
+.f-logo { width:120px; height:36px; border:2px dashed #ddd; display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+.f-desc { height:8px; background:#ddd; border-radius:2px; margin-bottom:6px; }
+.f-social { display:flex; gap:5px; margin-top:10px; }
+.f-soc { width:28px; height:28px; border:1.5px solid #ddd; background:white; display:flex; align-items:center; justify-content:center; font-size:8px; color:#aaa; }
+.f-ct { height:10px; background:#444; width:65%; border-radius:2px; margin-bottom:14px; }
+.f-news-item { display:flex; gap:8px; align-items:flex-start; margin-bottom:10px; }
+.f-nd { background:#e30613; padding:4px 6px; display:flex; flex-direction:column; align-items:center; flex-shrink:0; gap:2px; }
+.fnd-d { height:11px; width:14px; background:rgba(255,255,255,0.85); border-radius:1px; }
+.fnd-m { height:7px; width:12px; background:rgba(255,255,255,0.5); border-radius:1px; }
+.f-nt { height:8px; background:#555; border-radius:2px; flex:1; }
+.f-tags { display:flex; flex-wrap:wrap; gap:5px; }
+.f-tag { height:20px; border:1px solid #ddd; background:white; border-radius:2px; }
+.f-nl-input { height:36px; width:100%; border:1.5px solid #ddd; background:white; border-radius:2px; margin-bottom:8px; }
+.f-nl-btn { height:36px; width:100%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; font-size:8px; color:rgba(255,255,255,.7); text-transform:uppercase; letter-spacing:2px; border-radius:2px; }
+.f-pay-row { display:flex; gap:6px; margin-top:14px; }
+.f-pay { width:36px; height:22px; border:1px solid #ddd; background:white; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:7px; color:#bbb; }
+.footer-bar { border-top:1px solid #e0e0e0; padding:14px 20px; margin-top:32px; display:flex; justify-content:space-between; align-items:center; background:white; }
+.fb-copy { height:8px; width:170px; background:#ddd; border-radius:2px; }
+.fb-links { display:flex; gap:14px; }
+.fb-l { height:8px; width:50px; background:#ddd; border-radius:2px; }
+
+/* ANNOTATIONS */
+.ann-wrap { max-width:1170px; margin:14px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.ann { background:white; border:1px solid #e0e0e0; padding:11px 13px; font-size:8.5px; line-height:1.75; }
+.ann h3 { font-size:8px; letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+.ann.ok h3 { color:#27ae60; }
+.ann.q h3 { color:#c0392b; }
+.ann.info h3 { color:#2980b9; }
+.ann li { list-style:none; padding-left:13px; position:relative; color:#555; margin-bottom:2px; }
+.ann li::before { content:'&#x2192;'; position:absolute; left:0; color:#ccc; }
 </style>
 </head>
 <body>
-<div class="page-wrap">
-
-  <div class="page-title">Kreski.pl — Strona Główna — Low-Fi Wireframe v2</div>
-
+<div class="wrap">
+  <div class="ptitle">Kreski.pl &#x2014; Low-Fi Wireframe v3 &#x2014; Flatsome Corporate (exact proportions)<span style="font-size:8px;color:#e30613;font-weight:bold;margin-left:10px;">demos.flatsome.com/demos/business-demos/simple-corporate/</span></div>
   <div class="legend">
-    <div class="legend-item"><div class="legend-swatch" style="background:white;border:1.5px dashed #ccc;"></div>Treść</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:repeating-linear-gradient(45deg,#f5f5f5,#f5f5f5 4px,#ebebeb 4px,#ebebeb 8px);"></div>Zdjęcie</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#d42b2b;"></div>CTA / akcent</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#555;"></div>Tekst / nagłówek</div>
-    <div class="legend-item"><div class="legend-swatch" style="background:#fafafa;border:1px solid #eee;"></div>Sekcja tło</div>
-    <div class="legend-item" style="color:#c0392b;">⚑ = do decyzji</div>
+    <div class="li2"><div class="ls" style="background:#e30613;border-color:#e30613;"></div> #e30613 Czerwien</div>
+    <div class="li2"><div class="ls" style="background:#1a1a1a;border-color:#333;"></div> #1a1a1a Czern</div>
+    <div class="li2"><div class="ls" style="background:#ddd;"></div> Placeholder tekstu</div>
+    <div class="li2"><div class="ls" style="background:repeating-linear-gradient(45deg,#eee,#eee 4px,#e6e6e6 4px,#e6e6e6 8px);border:1px solid #ddd;"></div> Placeholder zdjecia</div>
   </div>
-
   <div class="canvas">
 
-    <!-- ① TOP BAR -->
+    <!-- HEADER -->
     <div style="position:relative;">
-      <div class="section-tag">① TOP BAR</div>
-      <div class="top-bar">
-        <div class="tb-item">
-          <div class="tb-icon">☏</div>
-          <div class="tb-text" style="width:95px;"></div>
-        </div>
-        <div class="tb-sep"></div>
-        <div class="tb-item">
-          <div class="tb-icon">@</div>
-          <div class="tb-text" style="width:120px;"></div>
-        </div>
-        <div class="tb-sep"></div>
-        <div class="social-row">
-          <div class="social-box">in</div>
-          <div class="social-box">fb</div>
-          <div class="social-box">yt</div>
-          <div class="social-box">ig</div>
-          <div class="social-box">𝕏</div>
+      <div class="stag">&#9312; HEADER &#x2014; 78px &#x2022; logo left &#x2022; nav right (Flatsome Corporate)</div>
+      <div class="hdr">
+        <div class="hdr-logo">LOGO KRESKI</div>
+        <div class="hdr-nav">
+          <div class="nav-i">O firmie</div>
+          <div class="nav-i">Produkty <span class="arr">&#9660;</span></div>
+          <div class="nav-i">Rozwiazania <span class="arr">&#9660;</span></div>
+          <div class="nav-i">Do pobrania</div>
+          <div class="nav-i">Blog</div>
+          <div class="nav-i">Kontakt</div>
+          <div class="hdr-right">
+            <div class="hdr-icon">&#128269;</div>
+            <div class="hdr-tel">+48 789 868 803</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ② LOGO -->
+    <!-- HERO 470px -->
     <div style="position:relative;">
-      <div class="section-tag">② LOGO — po lewej</div>
-      <div class="logo-bar">
-        <div class="logo-box">LOGO KRESKI</div>
-      </div>
-    </div>
-
-    <!-- ③ MENU -->
-    <div style="position:relative;">
-      <div class="section-tag">③ MENU — hover = dropdown z ikonkami</div>
-      <div class="nav-bar">
-        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 1 <span class="nav-arrow">▾</span></div>
-        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 2 <span class="nav-arrow">▾</span></div>
-        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 3 <span class="nav-arrow">▾</span></div>
-        <div class="nav-item"><div class="nav-icon-sm">□</div> Kat. 4 <span class="nav-arrow">▾</span></div>
-        <div class="nav-item">O nas</div>
-        <div class="nav-item">Blog</div>
-        <div class="nav-item red-item">Kontakt</div>
-        <div class="nav-hint">← po najechaniu: dropdown z ikonkami subkategorii</div>
-      </div>
-    </div>
-
-    <!-- ④ HERO SLIDER -->
-    <div style="position:relative;">
-      <div class="question-tag">⚑ H1 + tekst + CTA? czy tylko grafika? — do decyzji</div>
+      <div class="stag">&#9313; HERO &#x2014; 470px (ratio 1000:392) &#x2022; text overlay left &#x2022; 3 slajdy (Flatsome Corporate)</div>
       <div class="hero">
-        <div class="hero-content">
-          <div class="hero-label">H1 — główne hasło strony?</div>
-          <div class="hero-h1"></div>
-          <div class="hero-h1b"></div>
-          <div class="hero-sub"></div>
-          <div class="hero-cta">CTA?</div>
+        <div class="hero-inner">
+          <div class="hero-text">
+            <div class="hero-eyebrow">Lider rynku etykietowania i kodowania</div>
+            <div class="hh"></div>
+            <div class="hh2"></div>
+            <div class="hp"></div>
+            <div class="hp2"></div>
+            <div class="hero-btn">Zobacz produkty</div>
+          </div>
         </div>
-        <div class="hero-arrows">
-          <div class="hero-arrow">‹</div>
-          <div class="hero-arrow">›</div>
-        </div>
-        <div class="hero-dots">
-          <div class="dot active"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-        </div>
-        <div class="hero-note">50% wys. ekranu laptopa</div>
+        <div class="hero-arrows"><div class="harr">&#8249;</div><div class="harr">&#8250;</div></div>
+        <div class="hero-dots"><div class="hdot on"></div><div class="hdot"></div><div class="hdot"></div></div>
       </div>
     </div>
 
-    <!-- ⑤ PARTNERZY -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="question-tag">⚑ ta sekcja — zostawiamy czy wycinamy?</div>
-      <div class="section-wrap">
-        <div class="sec-heading">
-          <div class="sec-title-bar" style="width:180px;"></div>
-          <div class="sec-label" style="margin-left:6px;">"Poznaj naszych partnerów"</div>
-          <div class="sec-line"></div>
-        </div>
-        <div class="partners-row">
-          <div class="partner-logo">Partner 1</div>
-          <div class="partner-logo">Partner 2</div>
-          <div class="partner-logo">Partner 3</div>
-          <div class="partner-logo">Partner 4</div>
-          <div class="partner-logo">Partner 5</div>
-          <div class="partner-logo">Partner 6</div>
-          <div style="margin-left:auto;font-size:8px;color:#ccc;font-style:italic;">← auto-slider →</div>
+    <!-- TRUST BAR -->
+    <div style="position:relative;">
+      <div class="stag">&#9314; TRUST BAR &#x2014; logotypy klientow (Kreski B2B addition)</div>
+      <div class="trust">
+        <div class="trust-lbl">Zaufali nam</div>
+        <div class="trust-row">
+          <div class="trust-logo">Logo A</div><div class="trust-logo">Logo B</div><div class="trust-logo">Logo C</div><div class="trust-logo">Logo D</div><div class="trust-logo">Logo E</div><div class="trust-logo">Logo F</div><div class="trust-logo">Logo G</div>
         </div>
       </div>
     </div>
 
-    <!-- ⑥ OFERTA -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="section-tag">⑥ OFERTA — kategorie z ikonkami</div>
-      <div class="section-wrap">
-        <div class="sec-heading">
-          <div class="sec-title-bar" style="width:120px;"></div>
-          <div class="sec-label" style="margin-left:6px;">"Nasza oferta"</div>
-          <div class="sec-line"></div>
+    <!-- 3 FEATURE COLUMNS -->
+    <div class="sec" style="border-top:none;">
+      <div class="stag">&#9315; 3 WYROZNIKI &#x2014; icon + h5 + tekst, bez obrazkow (Flatsome Corporate "Company Features")</div>
+      <div class="con">
+        <div class="feat-grid">
+          <div class="feat-col"><div class="feat-icon">&#9675;</div><div class="feat-title"></div><div class="feat-body" style="width:100%;"></div><div class="feat-body s" style="width:88%;"></div><div class="feat-body s" style="width:94%;"></div><div class="feat-body s" style="width:72%;"></div></div>
+          <div class="feat-col"><div class="feat-icon">&#9679;</div><div class="feat-title"></div><div class="feat-body" style="width:100%;"></div><div class="feat-body s" style="width:82%;"></div><div class="feat-body s" style="width:90%;"></div><div class="feat-body s" style="width:66%;"></div></div>
+          <div class="feat-col"><div class="feat-icon">&#9672;</div><div class="feat-title"></div><div class="feat-body" style="width:100%;"></div><div class="feat-body s" style="width:86%;"></div><div class="feat-body s" style="width:92%;"></div><div class="feat-body s" style="width:75%;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALT #1 image left -->
+    <div style="position:relative; border-top:1px solid #f0f0f0;">
+      <div class="stag">&#9316; SEKCJA 2-kol #1 &#x2014; image left 3:2 / text right &#x2022; 50/50 no-gap (Flatsome Corporate)</div>
+      <div class="alt-row">
+        <div class="alt-img">Katalog / Produkty</div>
+        <div class="alt-text">
+          <div class="at-eye"></div><div class="at-h"></div><div class="at-h2"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;"><div class="at-p" style="width:100%;"></div><div class="at-p" style="width:88%;"></div><div class="at-p" style="width:94%;"></div><div class="at-p" style="width:76%;"></div></div>
+          <div class="at-btn">Poznaj oferte</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALT #2 image right -->
+    <div style="position:relative; border-top:1px solid #f0f0f0;">
+      <div class="stag">&#9317; SEKCJA 2-kol #2 &#x2014; text left / image right 3:2 &#x2022; 50/50 no-gap (Flatsome Corporate)</div>
+      <div class="alt-row">
+        <div class="alt-text gray">
+          <div class="at-eye"></div><div class="at-h"></div><div class="at-h2"></div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;"><div class="at-p" style="width:100%;"></div><div class="at-p" style="width:90%;"></div><div class="at-p" style="width:82%;"></div><div class="at-p" style="width:68%;"></div></div>
+          <div class="at-btn">Sprawdz branze</div>
+        </div>
+        <div class="alt-img">Rozwiazania / Branze</div>
+      </div>
+    </div>
+
+    <!-- KATEGORIE -->
+    <div class="sec gray">
+      <div class="stag">&#9318; KATEGORIE PRODUKTOW &#x2014; 4 kafelki 4:3 (Kreski B2B addition)</div>
+      <div class="con">
+        <div style="text-align:center; margin-bottom:32px;">
+          <div class="sec-eyebrow">Nasza oferta</div><br>
+          <div class="sec-h" style="width:240px; display:inline-block;"></div>
+          <div class="sec-sub" style="width:360px; margin:8px auto 0;"></div>
+          <div class="sec-line" style="margin:12px auto 0;"></div>
         </div>
         <div class="cat-grid">
-          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
-          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
-          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
-          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
-          <div class="cat-tile"><div class="cat-icon">□</div><div class="cat-name"></div><div class="cat-sub"></div></div>
+          <div class="cat-card"><div class="cat-img">Kategoria A</div><div class="cat-name"></div><div class="cat-sub"></div><div class="cat-link"></div></div>
+          <div class="cat-card"><div class="cat-img">Kategoria B</div><div class="cat-name"></div><div class="cat-sub"></div><div class="cat-link"></div></div>
+          <div class="cat-card"><div class="cat-img">Kategoria C</div><div class="cat-name"></div><div class="cat-sub"></div><div class="cat-link"></div></div>
+          <div class="cat-card"><div class="cat-img">Kategoria D</div><div class="cat-name"></div><div class="cat-sub"></div><div class="cat-link"></div></div>
         </div>
       </div>
     </div>
 
-    <!-- ⑦ BRANŻE -->
+    <!-- STATS -->
     <div style="position:relative; border-top:1px solid #eee;">
-      <div class="section-tag">⑦ ROZWIĄZANIA DLA TWOJEJ BRANŻY — 6 kafelków</div>
-      <div class="section-wrap gray">
-        <div class="sec-heading">
-          <div class="sec-title-bar" style="width:240px;"></div>
-          <div class="sec-label" style="margin-left:6px;">"Rozwiązania dla Twojej branży"</div>
-          <div class="sec-line"></div>
-        </div>
-        <div class="branze-grid">
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-          <div class="branza-tile"><div class="branza-bg"></div><div class="branza-overlay"><div class="branza-label"></div></div></div>
-        </div>
+      <div class="stag">&#9319; KRESKI W LICZBACH &#x2014; 4 staty (Kreski addition)</div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
+        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
+        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
+        <div class="stat-cell"><div class="stat-num"></div><div class="stat-lbl"></div><div class="stat-sub"></div></div>
       </div>
     </div>
 
-    <!-- ⑧ LICZBY -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="section-tag">⑧ KRESKI W LICZBACH</div>
-      <div class="liczby-grid">
-        <div class="liczba-tile">
-          <div class="liczba-big"></div>
-          <div class="liczba-desc" style="width:70px;"></div>
-          <div class="liczba-desc" style="width:90px;"></div>
-        </div>
-        <div class="liczba-tile">
-          <div class="liczba-big"></div>
-          <div class="liczba-desc" style="width:70px;"></div>
-          <div class="liczba-desc" style="width:90px;"></div>
-        </div>
-        <div class="liczba-tile">
-          <div class="liczba-big"></div>
-          <div class="liczba-desc" style="width:70px;"></div>
-          <div class="liczba-desc" style="width:90px;"></div>
-        </div>
-        <div class="liczba-tile">
-          <div class="liczba-big"></div>
-          <div class="liczba-desc" style="width:70px;"></div>
-          <div class="liczba-desc" style="width:90px;"></div>
-        </div>
+    <!-- CALLOUT -->
+    <div style="position:relative;">
+      <div class="stag" style="color:#888;background:rgba(0,0,0,0.4);border-color:rgba(255,255,255,.1);">&#9320; CTA CALLOUT &#x2014; full-width dark &#x2022; centered (Flatsome Corporate "callout header")</div>
+      <div class="callout">
+        <div class="callout-h"></div>
+        <div class="callout-sub"></div>
+        <div class="callout-btn">Pobierz katalog</div>
       </div>
     </div>
 
-    <!-- ⑨ BLOG -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="section-tag">⑨ 3 NAJNOWSZE WPISY BLOGOWE</div>
-      <div class="section-wrap">
-        <div class="sec-heading">
-          <div class="sec-title-bar" style="width:160px;"></div>
-          <div class="sec-label" style="margin-left:6px;">"Aktualności / Blog"</div>
-          <div class="sec-line"></div>
+    <!-- BLOG 4 col -->
+    <div class="sec">
+      <div class="stag">&#9321; BLOG &#x2014; 4 kolumny &#x2022; date badge bottom-left &#x2022; heading left + link right (Flatsome Corporate)</div>
+      <div class="con">
+        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:28px;">
+          <div><div class="sec-eyebrow">Aktualnosci</div><br><div class="sec-h" style="width:200px;"></div><div class="sec-line"></div></div>
+          <div style="margin-left:auto; height:8px; width:55px; background:#e30613; border-radius:2px; opacity:.7; align-self:center;"></div>
         </div>
         <div class="blog-grid">
-          <div class="blog-card">
-            <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-body">
-              <div class="blog-date"></div>
-              <div class="blog-t1"></div>
-              <div class="blog-t2"></div>
-              <div class="blog-e1"></div>
-              <div class="blog-e2"></div>
-              <div class="blog-cta"></div>
-            </div>
-          </div>
-          <div class="blog-card">
-            <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-body">
-              <div class="blog-date"></div>
-              <div class="blog-t1"></div>
-              <div class="blog-t2"></div>
-              <div class="blog-e1"></div>
-              <div class="blog-e2"></div>
-              <div class="blog-cta"></div>
-            </div>
-          </div>
-          <div class="blog-card">
-            <div class="blog-img">Zdjęcie artykułu</div>
-            <div class="blog-body">
-              <div class="blog-date"></div>
-              <div class="blog-t1"></div>
-              <div class="blog-t2"></div>
-              <div class="blog-e1"></div>
-              <div class="blog-e2"></div>
-              <div class="blog-cta"></div>
-            </div>
-          </div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Wpis 1</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="bt"></div><div class="bt2"></div><div class="be"></div><div class="be2"></div></div></div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Wpis 2</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="bt"></div><div class="bt2"></div><div class="be"></div><div class="be2"></div></div></div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Wpis 3</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="bt"></div><div class="bt2"></div><div class="be"></div><div class="be2"></div></div></div>
+          <div class="blog-card"><div class="blog-img-w"><div class="blog-img">Wpis 4</div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="bt"></div><div class="bt2"></div><div class="be"></div><div class="be2"></div></div></div>
         </div>
       </div>
     </div>
 
-    <!-- ⑩ KONTAKT -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="question-tag">⚑ mapa — tak/nie?</div>
-      <div class="contact-panel">
-        <div class="contact-col">
-          <div class="sec-heading" style="margin-bottom:12px;">
-            <div class="sec-title-bar" style="width:130px;"></div>
-            <div class="sec-label" style="margin-left:6px;">"Napisz do nas"</div>
-          </div>
-          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-lbl"></div><div class="form-input"></div></div>
-          <div class="form-row"><div class="form-lbl"></div><div class="form-textarea"></div></div>
-          <div class="form-check">
-            <div class="checkbox"></div>
-            <div class="check-text"></div>
-          </div>
-          <div class="form-submit">Wyślij wiadomość</div>
-        </div>
-        <div class="contact-col">
-          <div class="sec-heading" style="margin-bottom:12px;">
-            <div class="sec-title-bar" style="width:110px;"></div>
-            <div class="sec-label" style="margin-left:6px;">"Dane kontaktowe"</div>
-          </div>
-          <div class="ci-item"><div class="ci-icon">☏</div><div class="ci-lines"><div class="ci-l" style="width:100px;"></div><div class="ci-l" style="width:70px;"></div></div></div>
-          <div class="ci-item"><div class="ci-icon">@</div><div class="ci-lines"><div class="ci-l" style="width:130px;"></div></div></div>
-          <div class="ci-item"><div class="ci-icon">⌖</div><div class="ci-lines"><div class="ci-l" style="width:110px;"></div><div class="ci-l" style="width:80px;"></div></div></div>
-          <div class="ci-item"><div class="ci-icon">⊙</div><div class="ci-lines"><div class="ci-l" style="width:80px;"></div></div></div>
-          <div class="map-box">Mapa (opcjonalnie)</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ⑪ FOOTER -->
+    <!-- FOOTER -->
     <div style="position:relative;">
-      <div class="section-tag">⑪ FOOTER</div>
+      <div class="stag">&#9322; FOOTER &#x2014; jasny szary &#x2022; 4 kol: about|news+date|tags|newsletter+payment (Flatsome Corporate)</div>
       <div class="footer">
-        <div>
-          <div class="footer-logo">LOGO</div>
-          <div class="f-desc" style="width:100%;"></div>
-          <div class="f-desc" style="width:80%;"></div>
-          <div class="f-desc" style="width:60%;"></div>
-          <div class="f-social">
-            <div class="f-soc">in</div>
-            <div class="f-soc">fb</div>
-            <div class="f-soc">yt</div>
-            <div class="f-soc">ig</div>
-            <div class="f-soc">𝕏</div>
+        <div class="con">
+          <div class="footer-grid">
+            <div>
+              <div class="f-logo">LOGO KRESKI</div>
+              <div class="f-desc" style="width:100%;"></div><div class="f-desc" style="width:85%;"></div><div class="f-desc" style="width:70%;"></div>
+              <div class="f-social"><div class="f-soc">in</div><div class="f-soc">fb</div><div class="f-soc">yt</div><div class="f-soc">ig</div><div class="f-soc">X</div></div>
+            </div>
+            <div>
+              <div class="f-ct"></div>
+              <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:100%;"></div></div>
+              <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:85%;"></div></div>
+              <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:90%;"></div></div>
+              <div class="f-news-item"><div class="f-nd"><div class="fnd-d"></div><div class="fnd-m"></div></div><div class="f-nt" style="width:78%;"></div></div>
+            </div>
+            <div>
+              <div class="f-ct"></div>
+              <div class="f-tags">
+                <div class="f-tag" style="width:44px;"></div><div class="f-tag" style="width:58px;"></div><div class="f-tag" style="width:36px;"></div><div class="f-tag" style="width:52px;"></div><div class="f-tag" style="width:42px;"></div><div class="f-tag" style="width:64px;"></div><div class="f-tag" style="width:38px;"></div><div class="f-tag" style="width:50px;"></div><div class="f-tag" style="width:46px;"></div><div class="f-tag" style="width:56px;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="f-ct"></div>
+              <div style="height:8px;background:#e8e8e8;border-radius:2px;margin-bottom:10px;width:90%;"></div>
+              <div class="f-nl-input"></div>
+              <div class="f-nl-btn">Zapisz sie</div>
+              <div class="f-pay-row"><div class="f-pay">VISA</div><div class="f-pay">PP</div><div class="f-pay">MC</div><div class="f-pay">STR</div></div>
+            </div>
           </div>
         </div>
-        <div>
-          <div class="f-col-title"></div>
-          <div class="f-link"></div>
-          <div class="f-link" style="width:60%;"></div>
-          <div class="f-link" style="width:80%;"></div>
-          <div class="f-link" style="width:55%;"></div>
-          <div class="f-link"></div>
-        </div>
-        <div>
-          <div class="f-col-title"></div>
-          <div class="f-link" style="width:80%;"></div>
-          <div class="f-link" style="width:55%;"></div>
-          <div class="f-link"></div>
-          <div class="f-link" style="width:70%;"></div>
-        </div>
-        <div>
-          <div class="f-col-title"></div>
-          <div class="f-link" style="width:55%;"></div>
-          <div class="f-link"></div>
-          <div class="f-link" style="width:75%;"></div>
-          <div class="f-link" style="width:60%;"></div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="f-copy"></div>
-        <div class="f-bottom-links">
-          <div class="f-bl"></div>
-          <div class="f-bl"></div>
-          <div class="f-bl"></div>
+        <div class="footer-bar">
+          <div class="fb-copy"></div>
+          <div class="fb-links"><div class="fb-l"></div><div class="fb-l"></div><div class="fb-l"></div><div class="fb-l"></div></div>
         </div>
       </div>
     </div>
 
-  </div><!-- /canvas -->
+  </div>
 
-  <!-- ANNOTATIONS -->
-  <div class="annotations">
+  <div class="ann-wrap">
     <div class="ann ok">
-      <h3>✓ Sekcje zgodnie z wytycznymi</h3>
+      <h3>&#10003; v3 Changes &#x2014; Flatsome Corporate (exact)</h3>
       <ul>
-        <li>① Top bar: telefon, e-mail, social (LinkedIn, FB, YT, IG, X) — po prawej</li>
-        <li>② Logo bar — tylko logo po lewej, biały pasek</li>
-        <li>③ Menu z ikonkami + dropdown po najechaniu, podkreślony czerwienią</li>
-        <li>④ Hero slider — pełna szerokość, 50% wys. ekranu</li>
-        <li>⑤ Slider partnerów z headingiem</li>
-        <li>⑥ Oferta — kategorie z ikonkami (5 kolumn)</li>
-        <li>⑦ Rozwiązania dla branży — 6 kafelków ze zdjęciami + red overlay</li>
-        <li>⑧ Kreski w liczbach — 4 kafelki, bordowy akcent</li>
-        <li>⑨ Blog — 3 zajawki artykułów</li>
-        <li>⑩ Panel kontaktowy — formularz + dane kontaktowe</li>
-        <li>⑪ Footer — logo, social, 3 kolumny linków, copyright</li>
+        <li>HERO: 470px (ratio 1000:392) &#x2014; nie 65vh jak w v2!</li>
+        <li>HERO: tekst overlay na zdjeciu, bez bialego boxa</li>
+        <li>Container: max-width 1170px (Flatsome standard)</li>
+        <li>Sekcja padding: 50px v (nie 64px)</li>
+        <li>3 feature cols: tylko icon + h5 + tekst, BEZ obrazkow</li>
+        <li>2x sekcje 50/50: aspect-ratio 3:2, zero gap miedzy img/text</li>
+        <li>Blog: 4 kolumny + date badge bottom-left (jak Corporate)</li>
+        <li>CTA callout: centered w ciemnym tle (jak Corporate)</li>
+        <li>Footer: JASNY szary (nie ciemny!) + news lista z datami</li>
+        <li>Czerwien: #e30613</li>
       </ul>
     </div>
     <div class="ann q">
-      <h3>⚑ Otwarte pytania — do Twojej decyzji</h3>
+      <h3>&#9873; Otwarte pytania</h3>
       <ul>
-        <li>Slider hero: H1 + tekst + CTA? czy tylko duże zdjęcie?</li>
-        <li>Partnerzy: zostawiamy sekcję czy wycinamy?</li>
-        <li>Partnerzy: auto-slider czy statyczny rząd?</li>
-        <li>Kategorie w ofercie: ile? (teraz 5)</li>
-        <li>Kafelki branż: tylko nazwa czy też krótki opis?</li>
-        <li>Liczby: ile pokazujemy? (teraz 4)</li>
-        <li>Kontakt: mapa tak/nie?</li>
+        <li>Hero: 1 button czy 2 ("Produkty" + "Kontakt")?</li>
+        <li>Trust bar: ile logotypow? auto-scroll czy statyczne?</li>
+        <li>3 wyrozniki: jakie tresci? (dostawa, doswiadczenie, support...)</li>
+        <li>Sekcja #1 (image left): co pokazujemy? katalog? featured produkt?</li>
+        <li>Sekcja #2 (image right): branze? o firmie?</li>
+        <li>Kategorie: 4 czy 5 kafelkow? Jakie nazwy?</li>
+        <li>Blog: 4 wpisy (jak Corporate) czy 3?</li>
+        <li>Footer col 3: zostawic tagi czy linki do kategorii produktow?</li>
+        <li>Dodac sekcje kontaktu na homepage czy tylko podstrona?</li>
+      </ul>
+    </div>
+    <div class="ann info" style="grid-column:1/-1;">
+      <h3>i Mapowanie Flatsome Corporate &#x2192; Kreski</h3>
+      <ul style="columns:2; gap:20px;">
+        <li>&#9312; Header (78px, logo left, nav right) = Corporate header</li>
+        <li>&#9313; Hero 470px, overlay text = Corporate slider (ratio 1000:392)</li>
+        <li>&#9314; Trust bar = Kreski B2B addition</li>
+        <li>&#9315; 3 Feature columns = Corporate "Company Features"</li>
+        <li>&#9316; Image left + text right = Corporate "Section with image left"</li>
+        <li>&#9317; Text left + image right = Corporate "Section with Image right"</li>
+        <li>&#9318; Kategorie 4 tiles = Kreski addition (katalog B2B)</li>
+        <li>&#9319; Stats 4-cell = Kreski addition</li>
+        <li>&#9320; CTA callout = Corporate "callout header"</li>
+        <li>&#9321; Blog 4 col + date badge = Corporate "Latest News"</li>
+        <li>&#9322; Footer jasny szary, 4 col = Corporate footer</li>
       </ul>
     </div>
   </div>
-
 </div>
 </body>
 </html>
