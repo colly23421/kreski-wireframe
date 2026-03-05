@@ -20,7 +20,8 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 
 /* HEADER */
 .hdr { height:78px; background:white; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.07); }
-.hdr-logo { width:148px; height:44px; border:2px dashed #ddd; display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; letter-spacing:2px; background:#fafafa; flex-shrink:0; }
+.hdr-logo { display:flex; align-items:center; flex-shrink:0; }
+.hdr-logo img { height:40px; width:auto; display:block; }
 .hdr-nav { display:flex; align-items:center; height:100%; margin-left:auto; }
 .nav-i { padding:0 16px; height:78px; display:flex; align-items:center; font-size:8.5px; color:#444; text-transform:uppercase; letter-spacing:.8px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:3px; }
 .nav-i:first-child { border-left:none; }
@@ -119,7 +120,8 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 /* FOOTER - light gray (Corporate style, NOT dark) */
 .footer { background:#f5f5f5; border-top:1px solid #e8e8e8; padding:44px 0 0; }
 .footer-grid { display:grid; grid-template-columns:2fr 1.2fr 1.5fr 1.5fr; gap:32px; }
-.f-logo { width:120px; height:36px; border:2px dashed #ddd; display:flex; align-items:center; justify-content:center; font-size:8px; color:#ccc; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+.f-logo { margin-bottom:12px; }
+.f-logo img { height:32px; width:auto; display:block; }
 .f-desc { height:8px; background:#ddd; border-radius:2px; margin-bottom:6px; }
 .f-social { display:flex; gap:6px; margin-top:10px; }
 .f-soc { width:32px; height:32px; background:#e30613; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
@@ -167,7 +169,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <div style="position:relative;">
       <div class="stag">&#9312; HEADER &#x2014; 78px &#x2022; logo left &#x2022; nav right (Flatsome Corporate)</div>
       <div class="hdr">
-        <div class="hdr-logo">LOGO KRESKI</div>
+        <div class="hdr-logo"><img src="kreski_logo_transparent.png" alt="Kreski"></div>
         <div class="hdr-nav">
           <div class="nav-i">O firmie</div>
           <div class="nav-i">Produkty <span class="arr">&#9660;</span></div>
@@ -315,7 +317,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
         <div class="con">
           <div class="footer-grid">
             <div>
-              <div class="f-logo">LOGO KRESKI</div>
+              <div class="f-logo"><img src="kreski_logo_transparent.png" alt="Kreski"></div>
               <div class="f-desc" style="width:100%;"></div><div class="f-desc" style="width:85%;"></div><div class="f-desc" style="width:70%;"></div>
               <div class="f-social">
                 <!-- Instagram -->
