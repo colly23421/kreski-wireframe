@@ -285,12 +285,47 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     <!-- STATS -->
     <div style="position:relative; border-top:1px solid #eee;">
       <div class="stats-grid">
-        <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-lbl">lat na rynku</div><div class="stat-sub">doświadczenia w Auto ID i IT</div></div>
-        <div class="stat-cell"><div class="stat-num">1 100+</div><div class="stat-lbl">aktywnych klientów</div><div class="stat-sub">od małych firm po korporacje</div></div>
-        <div class="stat-cell"><div class="stat-num">80 000+</div><div class="stat-lbl">naprawionych urządzeń</div><div class="stat-sub">autoryzowany serwis Zebra i Honeywell</div></div>
-        <div class="stat-cell"><div class="stat-num">48h</div><div class="stat-lbl">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
+        <div class="stat-cell"><div class="stat-num" data-target="20" data-suffix="+">0+</div><div class="stat-lbl">lat na rynku</div><div class="stat-sub">doświadczenia w Auto ID i IT</div></div>
+        <div class="stat-cell"><div class="stat-num" data-target="1100" data-suffix="+" data-format="space">0+</div><div class="stat-lbl">aktywnych klientów</div><div class="stat-sub">od małych firm po korporacje</div></div>
+        <div class="stat-cell"><div class="stat-num" data-target="80000" data-suffix="+" data-format="space">0+</div><div class="stat-lbl">naprawionych urządzeń</div><div class="stat-sub">autoryzowany serwis Zebra i Honeywell</div></div>
+        <div class="stat-cell"><div class="stat-num" data-target="48" data-suffix="h">0h</div><div class="stat-lbl">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
       </div>
     </div>
+
+    <script>
+    function formatNum(n, fmt) {
+      if (fmt === 'space') return n.toLocaleString('pl-PL').replace(/,/g, ' ');
+      return n;
+    }
+    function animateCounters() {
+      const els = document.querySelectorAll('.stat-num[data-target]');
+      els.forEach(el => {
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const fmt = el.dataset.format || '';
+        const duration = 1800;
+        const start = performance.now();
+        function step(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const val = Math.floor(ease * target);
+          el.textContent = formatNum(val, fmt) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = formatNum(target, fmt) + suffix;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    const statsSection = document.querySelector('.stats-grid');
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+    observer.observe(statsSection);
+    </script>
 
     <!-- CALLOUT -->
     <div style="position:relative;">
