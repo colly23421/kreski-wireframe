@@ -14,13 +14,20 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .canvas { width:100%; background:white; }
 
 /* HEADER */
-.hdr { height:78px; background:white; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.07); }
+.hdr { height:78px; background:white; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.07); position:relative; }
 .hdr-logo img { height:40px; width:auto; display:block; }
 .hdr-nav { display:flex; align-items:center; height:100%; margin-left:auto; }
 .nav-i { padding:0 18px; height:78px; display:flex; align-items:center; font-size:13px; color:#222; font-weight:600; letter-spacing:.3px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:4px; font-family:sans-serif; cursor:pointer; transition:color .15s; }
 .hdr-right { display:flex; align-items:center; gap:12px; padding-left:16px; border-left:1px solid #f2f2f2; height:78px; }
 .hdr-tel { font-size:13px; color:#e30613; font-weight:700; letter-spacing:.3px; font-family:sans-serif; }
 .arr { font-size:6px; color:#bbb; }
+/* HAMBURGER */
+.hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; cursor:pointer; margin-left:auto; padding:4px; }
+.hamburger span { display:block; height:2px; background:#222; border-radius:2px; }
+.mob-menu { display:none; position:absolute; top:78px; left:0; right:0; background:white; border-top:2px solid #e30613; box-shadow:0 4px 16px rgba(0,0,0,0.12); z-index:100; }
+.mob-menu.open { display:block; }
+.mob-nav-i { display:block; padding:14px 20px; font-size:14px; font-weight:600; color:#222; border-bottom:1px solid #f2f2f2; font-family:sans-serif; cursor:pointer; }
+.mob-tel { display:block; padding:12px 20px; font-size:13px; font-weight:700; color:#e30613; font-family:sans-serif; background:#fff5f5; }
 
 /* BREADCRUMB */
 .breadcrumb { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
@@ -114,6 +121,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
   .products-grid { grid-template-columns:1fr 1fr; }
   .tabs-nav { overflow-x:auto; }
   .hdr-nav { display:none; }
+  .hamburger { display:flex; }
 }
 
     /* ACCORDION FORM */
@@ -159,6 +167,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
   <div class="canvas">
 
     <!-- HEADER -->
+    <div style="position:relative;">
     <div class="hdr">
       <div class="hdr-logo">
         <img src="kreski_logo_transparent.png" alt="Kreski">
@@ -175,6 +184,19 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
           <div class="hdr-tel">+48 22 666 22 40</div>
         </div>
       </div>
+      <div class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobMenuP').classList.toggle('open');">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mob-menu" id="mobMenuP">
+      <div class="mob-nav-i">O firmie</div>
+      <div class="mob-nav-i">Produkty &#9660;</div>
+      <div class="mob-nav-i">Rozwiązania &#9660;</div>
+      <div class="mob-nav-i">Do pobrania</div>
+      <div class="mob-nav-i">Blog</div>
+      <div class="mob-nav-i">Kontakt</div>
+      <div class="mob-tel">+48 22 666 22 40</div>
+    </div>
     </div>
 
     <!-- BREADCRUMB -->
