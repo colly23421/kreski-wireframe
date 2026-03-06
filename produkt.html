@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kreski.pl — Karta Produktu (Low-Fi)</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
+.con { max-width:1170px; margin:0 auto; padding:0 20px; }
+.wrap { padding:20px; background:#edecea; }
+.ptitle { font-size:9.5px; letter-spacing:3px; text-transform:uppercase; color:#999; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+.ptitle::after { content:''; flex:1; height:1px; background:#ccc; }
+.canvas { width:100%; background:white; }
+
+/* HEADER */
+.hdr { height:78px; background:white; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee; box-shadow:0 1px 3px rgba(0,0,0,0.07); }
+.hdr-logo img { height:40px; width:auto; display:block; }
+.hdr-nav { display:flex; align-items:center; height:100%; margin-left:auto; }
+.nav-i { padding:0 16px; height:78px; display:flex; align-items:center; font-size:8.5px; color:#444; text-transform:uppercase; letter-spacing:.8px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:3px; }
+.hdr-right { display:flex; align-items:center; gap:12px; padding-left:16px; border-left:1px solid #f2f2f2; height:78px; }
+.hdr-tel { font-size:8.5px; color:#e30613; font-weight:bold; letter-spacing:.5px; }
+.arr { font-size:6px; color:#bbb; }
+
+/* BREADCRUMB */
+.breadcrumb { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
+.bc-inner { display:flex; align-items:center; gap:6px; font-size:11px; color:#888; font-family:sans-serif; }
+.bc-inner a { color:#888; text-decoration:none; }
+.bc-inner a:hover { color:#e30613; }
+.bc-sep { color:#ccc; font-size:10px; }
+.bc-current { color:#333; font-weight:600; }
+
+/* PRODUCT LAYOUT */
+.product-main { padding:40px 0 48px; }
+.product-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+
+/* GALLERY */
+.gallery-main { aspect-ratio:4/3; background:#f4f4f4; border:1px solid #e8e8e8; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; overflow:hidden; }
+.gallery-main img { width:100%; height:100%; object-fit:contain; padding:24px; }
+.gallery-thumbs { display:flex; gap:8px; }
+.thumb { width:72px; height:72px; background:#f4f4f4; border:1.5px solid #e0e0e0; border-radius:6px; cursor:pointer; flex-shrink:0; }
+.thumb.active { border-color:#e30613; }
+
+/* PRODUCT INFO */
+.prod-category { font-size:11px; font-weight:700; color:#e30613; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; font-family:sans-serif; }
+.prod-name { font-size:26px; font-weight:800; color:#111; line-height:1.2; margin-bottom:8px; font-family:sans-serif; }
+.prod-sku { font-size:11px; color:#aaa; font-family:sans-serif; margin-bottom:16px; }
+.prod-short { font-size:14px; color:#555; line-height:1.7; font-family:sans-serif; margin-bottom:24px; border-left:3px solid #e30613; padding-left:14px; }
+
+/* SPEC TABLE */
+.spec-table { width:100%; border-collapse:collapse; margin-bottom:24px; font-family:sans-serif; }
+.spec-table tr { border-bottom:1px solid #f0f0f0; }
+.spec-table tr:last-child { border-bottom:none; }
+.spec-table td { padding:9px 12px; font-size:13px; }
+.spec-table td:first-child { color:#888; font-size:12px; width:45%; background:#fafafa; }
+.spec-table td:last-child { color:#222; font-weight:600; }
+
+/* ACTIONS */
+.prod-actions { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+.btn-primary { background:#e30613; color:#fff; border:none; border-radius:6px; padding:14px 28px; font-size:13px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; width:100%; }
+.btn-secondary { background:#fff; color:#333; border:2px solid #ddd; border-radius:6px; padding:12px 28px; font-size:13px; font-weight:600; font-family:sans-serif; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:8px; }
+
+/* PDF DOWNLOADS */
+.downloads-box { background:#f8f8f8; border:1px solid #eee; border-radius:8px; padding:16px 20px; }
+.downloads-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#999; font-family:sans-serif; margin-bottom:12px; }
+.download-item { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #eee; font-family:sans-serif; font-size:13px; color:#444; }
+.download-item:last-child { border-bottom:none; }
+.dl-icon { width:32px; height:32px; background:#e30613; border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.dl-icon svg { fill:white; }
+.dl-name { flex:1; }
+.dl-link { font-size:11px; color:#e30613; font-weight:700; text-decoration:none; }
+
+/* TABS */
+.tabs-section { border-top:3px solid #f0f0f0; padding:40px 0; }
+.tabs-nav { display:flex; gap:0; border-bottom:2px solid #e8e8e8; margin-bottom:32px; }
+.tab-btn { padding:12px 28px; font-size:13px; font-weight:700; font-family:sans-serif; color:#888; border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px; }
+.tab-btn.active { color:#e30613; border-bottom-color:#e30613; }
+
+/* TAB CONTENT */
+.tab-content { font-family:sans-serif; font-size:14px; color:#555; line-height:1.8; }
+.tab-content h3 { font-size:16px; font-weight:700; color:#111; margin-bottom:12px; margin-top:24px; }
+.tab-content h3:first-child { margin-top:0; }
+.spec-full { width:100%; border-collapse:collapse; }
+.spec-full tr { border-bottom:1px solid #f0f0f0; }
+.spec-full td { padding:10px 16px; font-size:13px; }
+.spec-full td:first-child { color:#666; width:35%; background:#fafafa; font-weight:500; }
+.spec-full td:last-child { color:#222; }
+.spec-full tr:nth-child(even) td { background:#f5f5f5; }
+.spec-full tr:nth-child(even) td:first-child { background:#efefef; }
+
+/* RELATED PRODUCTS */
+.related-section { background:#f9f9f9; border-top:1px solid #eee; padding:48px 0; }
+.section-header { text-align:center; margin-bottom:32px; }
+.section-eyebrow { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; font-family:sans-serif; margin-bottom:8px; }
+.section-title { font-size:24px; font-weight:800; color:#111; font-family:sans-serif; }
+.products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.prod-card { background:white; border:1px solid #eee; border-radius:8px; overflow:hidden; transition:box-shadow .2s; }
+.prod-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.1); }
+.prod-card-img { aspect-ratio:1; background:#f4f4f4; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.prod-card-img img { width:80%; height:80%; object-fit:contain; }
+.prod-card-body { padding:14px 16px; }
+.prod-card-cat { font-size:10px; color:#e30613; font-weight:700; text-transform:uppercase; letter-spacing:1px; font-family:sans-serif; margin-bottom:4px; }
+.prod-card-name { font-size:13px; font-weight:700; color:#222; font-family:sans-serif; margin-bottom:8px; line-height:1.3; }
+.prod-card-btn { font-size:11px; color:#e30613; font-weight:700; text-decoration:none; font-family:sans-serif; }
+
+/* FOOTER (simplified) */
+.footer-simple { background:#1a1a1a; padding:20px 0; }
+.footer-simple-inner { display:flex; justify-content:space-between; align-items:center; font-family:sans-serif; font-size:12px; color:#666; }
+.footer-simple-inner a { color:#e30613; text-decoration:none; font-weight:600; }
+
+/* MOBILE */
+@media (max-width:768px) {
+  .product-grid { grid-template-columns:1fr; gap:28px; }
+  .products-grid { grid-template-columns:1fr 1fr; }
+  .tabs-nav { overflow-x:auto; }
+  .hdr-nav { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="ptitle">Kreski.pl — Low-Fi Wireframe &nbsp;/&nbsp; Karta produktu (podstrona produktowa)</div>
+
+  <div class="canvas">
+
+    <!-- HEADER -->
+    <div class="hdr">
+      <div class="hdr-logo">
+        <img src="kreski_logo_transparent.png" alt="Kreski">
+      </div>
+      <div class="hdr-nav">
+        <div class="nav-i">O firmie</div>
+        <div class="nav-i">Produkty <span class="arr">&#9660;</span></div>
+        <div class="nav-i">Rozwiązania <span class="arr">&#9660;</span></div>
+        <div class="nav-i">Do pobrania</div>
+        <div class="nav-i">Blog</div>
+        <div class="nav-i">Kontakt</div>
+        <div class="hdr-right">
+          <div style="width:26px;height:26px;border:1.5px dashed #ccc;display:flex;align-items:center;justify-content:center;font-size:11px;color:#bbb;">&#128269;</div>
+          <div class="hdr-tel">+48 22 666 22 40</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <div class="con">
+        <div class="bc-inner">
+          <a href="#">Strona główna</a>
+          <span class="bc-sep">›</span>
+          <a href="#">Auto ID</a>
+          <span class="bc-sep">›</span>
+          <a href="#">Skanery kodów kreskowych</a>
+          <span class="bc-sep">›</span>
+          <span class="bc-current">Zebra DS2208 — Skaner 1D/2D USB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT MAIN -->
+    <div class="product-main">
+      <div class="con">
+        <div class="product-grid">
+
+          <!-- GALLERY -->
+          <div>
+            <div class="gallery-main">
+              <img src="Sekcja_1__Drukarki_Skanery.jpeg" alt="Zebra DS2208">
+            </div>
+            <div class="gallery-thumbs">
+              <div class="thumb active"></div>
+              <div class="thumb"></div>
+              <div class="thumb"></div>
+              <div class="thumb"></div>
+            </div>
+          </div>
+
+          <!-- PRODUCT INFO -->
+          <div>
+            <div class="prod-category">Skanery kodów kreskowych</div>
+            <div class="prod-name">Zebra DS2208</div>
+            <div class="prod-sku">SKU: DS2208-SR7U2100AZW &nbsp;|&nbsp; Kod producenta: DS2208</div>
+            <div class="prod-short">Przewodowy skaner 1D/2D przeznaczony do intensywnej eksploatacji w punktach sprzedaży, logistyce i obsłudze magazynowej. Obsługuje kody kreskowe 1D, 2D oraz kody QR z ekranów telefonów.</div>
+
+            <!-- KEY SPECS -->
+            <table class="spec-table">
+              <tr><td>Typ skanera</td><td>Prezentacyjny / ręczny</td></tr>
+              <tr><td>Kody kreskowe</td><td>1D, 2D, QR, PDF417</td></tr>
+              <tr><td>Interfejs</td><td>USB (kabel w zestawie)</td></tr>
+              <tr><td>Gwarancja</td><td>5 lat (serwis autoryzowany)</td></tr>
+              <tr><td>Dostępność</td><td style="color:#27ae60; font-weight:700;">Na stanie</td></tr>
+            </table>
+
+            <!-- ACTIONS -->
+            <div class="prod-actions">
+              <button class="btn-primary">&#128231; &nbsp;Zapytaj o produkt</button>
+              <button class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Pobierz kartę katalogową (PDF)
+              </button>
+            </div>
+
+            <!-- DOWNLOADS -->
+            <div class="downloads-box">
+              <div class="downloads-title">Materiały do pobrania</div>
+              <div class="download-item">
+                <div class="dl-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="dl-name">Karta katalogowa DS2208</div>
+                <a href="#" class="dl-link">Pobierz PDF</a>
+              </div>
+              <div class="download-item">
+                <div class="dl-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="dl-name">Instrukcja obsługi (EN)</div>
+                <a href="#" class="dl-link">Pobierz PDF</a>
+              </div>
+              <div class="download-item">
+                <div class="dl-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="dl-name">Karta gwarancyjna</div>
+                <a href="#" class="dl-link">Pobierz PDF</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-section">
+      <div class="con">
+        <div class="tabs-nav">
+          <button class="tab-btn active">Opis produktu</button>
+          <button class="tab-btn">Specyfikacja techniczna</button>
+          <button class="tab-btn">Pliki do pobrania</button>
+        </div>
+        <div class="tab-content">
+          <h3>O produkcie</h3>
+          <p>Zebra DS2208 to niezawodny skaner obrazowy przeznaczony do intensywnego użytkowania w środowiskach detalicznych, logistycznych i magazynowych. Dzięki technologii CMOS obsługuje wszystkie popularne kody jednowymiarowe (1D) oraz dwuwymiarowe (2D), w tym QR Code, Data Matrix i PDF417.</p>
+          <h3>Zastosowania</h3>
+          <p>Punkt sprzedaży (POS) &nbsp;·&nbsp; Obsługa klienta &nbsp;·&nbsp; Weryfikacja paczek &nbsp;·&nbsp; Przyjęcie i wydanie towaru &nbsp;·&nbsp; Skanowanie kodów z ekranów telefonów (e-bilety, kupony)</p>
+          <h3>Dlaczego Zebra DS2208?</h3>
+          <p>Autoryzowany serwis Zebra w Polsce — Kreski oferuje pełną obsługę gwarancyjną i pogwarancyjną, urządzenia zastępcze na czas naprawy oraz umowy serwisowe SLA.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED PRODUCTS -->
+    <div class="related-section">
+      <div class="con">
+        <div class="section-header">
+          <div class="section-eyebrow">Podobne produkty</div>
+          <div class="section-title">Może Cię zainteresować</div>
+        </div>
+        <div class="products-grid">
+          <div class="prod-card">
+            <div class="prod-card-img"><img src="Sekcja_1__Drukarki_Skanery.jpeg" alt=""></div>
+            <div class="prod-card-body">
+              <div class="prod-card-cat">Skanery</div>
+              <div class="prod-card-name">Zebra DS9308 — Skaner prezentacyjny</div>
+              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
+            </div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img"><img src="Terminale_Zebra_TC501_TC701.jpeg" alt=""></div>
+            <div class="prod-card-body">
+              <div class="prod-card-cat">Terminale mobilne</div>
+              <div class="prod-card-name">Zebra TC52 — Terminal mobilny Android</div>
+              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
+            </div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img"><img src="Tablet_Zebra_ET401.jpeg" alt=""></div>
+            <div class="prod-card-body">
+              <div class="prod-card-cat">Tablety przemysłowe</div>
+              <div class="prod-card-name">Zebra ET401 — Tablet Android 10"</div>
+              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
+            </div>
+          </div>
+          <div class="prod-card">
+            <div class="prod-card-img" style="background:#f0f0f0;"></div>
+            <div class="prod-card-body">
+              <div class="prod-card-cat">Drukarki etykiet</div>
+              <div class="prod-card-name">Zebra ZD421 — Drukarka biurkowa</div>
+              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER BAR -->
+    <div class="footer-simple">
+      <div class="con">
+        <div class="footer-simple-inner">
+          <span>© 2026 Kreski Spółka Jawna Piotr Gałecki Łukasz Gałecki. Wszelkie prawa zastrzeżone.</span>
+          <span>Realizacja: <a href="https://collytics.io" target="_blank">Collytics</a></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
