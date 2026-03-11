@@ -36,23 +36,33 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 
 /* MEGA MENU */
 .nav-i { position:relative; }
-.mega { display:none; position:absolute; top:78px; left:50%; transform:translateX(-40%); width:920px; background:white; border-top:3px solid #e30613; border:1px solid #ebebeb; border-top:3px solid #e30613; box-shadow:0 8px 32px rgba(0,0,0,0.11); z-index:200; padding:28px 28px 20px; }
+.mega { display:none; position:fixed; top:78px; left:50%; transform:translateX(-50%); width:1100px; max-width:calc(100vw - 40px); background:white; border-top:3px solid #e30613; border:1px solid #ebebeb; border-top:3px solid #e30613; box-shadow:0 8px 32px rgba(0,0,0,0.13); z-index:200; padding:28px 28px 20px; }
 .nav-i:hover .mega { display:block; }
-.mega-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
-.mega-col { padding:0 20px 0 0; border-right:1px solid #f0f0f0; }
-.mega-col:last-child { border-right:none; padding-right:0; padding-left:20px; }
+.mega-grid { display:grid; grid-template-columns:1.3fr 0.9fr 1.1fr 1.2fr 0.9fr; gap:0; }
+.mega-col { padding:0 18px 0 0; border-right:1px solid #f0f0f0; }
+.mega-col:last-child { border-right:none; padding-right:0; padding-left:18px; }
 .mega-col:first-child { padding-left:0; }
+.mega-col:nth-child(2) { padding-left:18px; }
+.mega-col:nth-child(3) { padding-left:18px; }
+.mega-col:nth-child(4) { padding-left:18px; }
 .mega-col-h { font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; border-bottom:1px solid #f0f0f0; padding-bottom:8px; margin-bottom:10px; font-family:sans-serif; }
 .mega-col ul { list-style:none; }
-.mega-col ul li a { display:block; padding:4px 6px; font-size:12px; color:#333; text-decoration:none; font-family:sans-serif; border-radius:2px; transition:all .1s; }
+.mega-col ul li a { display:block; padding:3px 6px; font-size:12px; color:#333; text-decoration:none; font-family:sans-serif; border-radius:2px; transition:all .1s; line-height:1.5; }
 .mega-col ul li a:hover { background:#f8f8f8; color:#e30613; padding-left:10px; }
 .mega-sub-h { font-size:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#aaa; padding:10px 6px 4px; font-family:sans-serif; }
-.mega-sub-lnk { padding-left:14px !important; color:#888 !important; font-size:11px !important; }
-.mega-sub-lnk:hover { color:#e30613 !important; }
-.mega-footer-bar { margin-top:16px; padding-top:12px; border-top:1px solid #f0f0f0; display:flex; align-items:center; gap:6px; font-size:9px; color:#aaa; font-family:sans-serif; letter-spacing:1px; text-transform:uppercase; }
+.mega-sub-lnk { padding-left:12px !important; color:#777 !important; font-size:11.5px !important; }
+.mega-sub-lnk:hover { color:#e30613 !important; background:#f8f8f8; }
+.mega-footer-bar { margin-top:16px; padding-top:12px; border-top:1px solid #f0f0f0; display:flex; align-items:center; gap:6px; font-size:9px; color:#aaa; font-family:sans-serif; letter-spacing:1px; text-transform:uppercase; flex-wrap:wrap; }
 .mega-tag { background:#f5f5f5; border:1px solid #e8e8e8; padding:3px 9px; border-radius:2px; font-size:10px; color:#555; text-decoration:none; font-family:sans-serif; transition:all .1s; }
 .mega-tag:hover { background:#e30613; color:white; border-color:#e30613; }
 .mega-tag.red { background:#e30613; color:white; border-color:#e30613; }
+/* DROPDOWN (simple) */
+.dropdown { display:none; position:absolute; top:78px; left:0; background:white; border-top:3px solid #e30613; border:1px solid #ebebeb; box-shadow:0 8px 24px rgba(0,0,0,0.10); z-index:200; min-width:260px; padding:8px 0; }
+.nav-i:hover .dropdown { display:block; }
+.dropdown a { display:block; padding:8px 20px; font-size:12.5px; color:#333; text-decoration:none; font-family:sans-serif; transition:all .1s; }
+.dropdown a:hover { background:#f8f8f8; color:#e30613; padding-left:28px; }
+.dropdown-sep { border:none; border-top:1px solid #f0f0f0; margin:6px 0; }
+.dropdown-h { padding:10px 20px 4px; font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#aaa; font-family:sans-serif; }
 
 /* MOBILE MEGA */
 .mob-sub { display:none; background:#fafafa; border-top:1px solid #f0f0f0; }
@@ -291,68 +301,78 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
         <div class="hdr-logo"><img src="kreski_logo_transparent.png" alt="Kreski"></div>
         <div class="hdr-nav">
 
-          <!-- PRODUKTY — MEGA MENU -->
+          <!-- PRODUKTY — MEGA MENU 5 kolumn -->
           <div class="nav-i">Produkty <span class="arr">&#9660;</span>
             <div class="mega">
               <div class="mega-grid">
 
-                <!-- K1: Auto ID -->
+                <!-- K1: AUTO ID główne -->
                 <div class="mega-col">
                   <div class="mega-col-h">Auto ID</div>
                   <ul>
                     <li><a href="/produkty/auto-id/czytniki-kodow-kreskowych/">Czytniki kodów kreskowych</a></li>
                     <li><a href="/produkty/auto-id/drukarki-etykiet/">Drukarki etykiet</a></li>
                     <li><a href="/produkty/auto-id/drukarki-kart/">Drukarki kart</a></li>
-                    <li><a href="/produkty/auto-id/terminale-przenosne/">Terminale przenośne</a></li>
+                    <li><a href="/produkty/auto-id/terminale-przenosne/">Terminale przenośne (kolektory)</a></li>
                     <li><a href="/produkty/auto-id/terminale-wozkowe/">Terminale wózkowe</a></li>
-                    <li><a href="/produkty/auto-id/weryfikatory-kodow/">Weryfikatory kodów / cen</a></li>
-                    <li><a href="/produkty/auto-id/wearables/">Wearables</a></li>
+                    <li><a href="/produkty/auto-id/weryfikatory-kodow/">Weryfikatory kodów</a></li>
+                    <li><a href="/produkty/auto-id/weryfikatory-cen/">Weryfikatory cen</a></li>
+                    <li><a href="/produkty/auto-id/aplikatory-etykiet/">Aplikatory etykiet</a></li>
+                    <li><a href="/produkty/auto-id/wearables/">Wearables (urządzenia ubieralne)</a></li>
                     <li><a href="/produkty/auto-id/rfid/">RFID</a></li>
                     <li><a href="/produkty/auto-id/systemy-wizyjne/">Systemy wizyjne</a></li>
                   </ul>
-                  <div class="mega-sub-h">Akcesoria</div>
+                </div>
+
+                <!-- K2: Akcesoria + Materiały eksploatacyjne -->
+                <div class="mega-col">
+                  <div class="mega-col-h">Akcesoria</div>
                   <ul>
-                    <li><a href="/produkty/auto-id/akcesoria/baterie/" class="mega-sub-lnk">Baterie i ładowarki</a></li>
-                    <li><a href="/produkty/auto-id/akcesoria/futeraly/" class="mega-sub-lnk">Futerały i etui</a></li>
-                    <li><a href="/produkty/auto-id/akcesoria/stacje-dokujace/" class="mega-sub-lnk">Stacje dokujące</a></li>
-                    <li><a href="/produkty/auto-id/akcesoria/uchwyty/" class="mega-sub-lnk">Uchwyty i podstawki</a></li>
+                    <li><a href="/produkty/akcesoria/baterie-i-ladowarki/">Baterie i ładowarki</a></li>
+                    <li><a href="/produkty/akcesoria/futeraly-i-etui/">Futerały i etui ochronne</a></li>
+                    <li><a href="/produkty/akcesoria/stacje-dokujace/">Stacje dokujące</a></li>
+                    <li><a href="/produkty/akcesoria/uchwyty-i-podstawki/">Uchwyty i podstawki</a></li>
+                    <li><a href="/produkty/akcesoria/przewody-i-adaptery/">Przewody i adaptery</a></li>
                   </ul>
-                  <div class="mega-sub-h">Materiały eksploatacyjne</div>
+                  <div class="mega-col-h" style="margin-top:14px">Materiały eksploatacyjne</div>
                   <ul>
-                    <li><a href="/produkty/materialy/etykiety/" class="mega-sub-lnk">Etykiety</a></li>
-                    <li><a href="/produkty/materialy/tasmy-ribbony/" class="mega-sub-lnk">Taśmy i Ribbony</a></li>
-                    <li><a href="/produkty/materialy/karty-plastikowe/" class="mega-sub-lnk">Karty plastikowe</a></li>
+                    <li><a href="/produkty/materialy/etykiety/">Etykiety</a></li>
+                    <li><a href="/produkty/materialy/tasmy-ribbony/">Taśmy i Ribbony do drukarek</a></li>
+                    <li><a href="/produkty/materialy/karty-plastikowe/">Karty plastikowe</a></li>
                   </ul>
                 </div>
 
-                <!-- K2: Przemysł + Oprogramowanie -->
+                <!-- K3: Rozwiązania dla przemysłu + Oprogramowanie -->
                 <div class="mega-col">
                   <div class="mega-col-h">Rozwiązania dla przemysłu</div>
                   <ul>
-                    <li><a href="/produkty/przemysl/tablety/">Tablety przemysłowe</a></li>
-                    <li><a href="/produkty/przemysl/komputery-monitory/">Komputery i monitory przem.</a></li>
-                    <li><a href="/produkty/przemysl/notebooki/">Notebooki przemysłowe</a></li>
-                    <li><a href="/produkty/przemysl/kioski/">Kioski informacyjne</a></li>
-                    <li><a href="/produkty/przemysl/atex/">Urządzenia ATEX</a></li>
-                    <li><a href="/produkty/przemysl/systemy-kontrolno-pomiarowe/">Syst. kontrolno-pomiarowe</a></li>
+                    <li><a href="/produkty/przemysl/tablety-przemyslowe/">Tablety przemysłowe</a></li>
+                    <li><a href="/produkty/przemysl/komputery-monitory-przemyslowe/">Komputery i monitory przem.</a></li>
+                    <li><a href="/produkty/przemysl/notebooki-laptopy-przemyslowe/">Notebooki i laptopy przem.</a></li>
+                    <li><a href="/produkty/przemysl/kioski-informacyjne/">Komputery kioskowe i kioski</a></li>
+                    <li><a href="/produkty/przemysl/urzadzenia-atex/">Urządzenia ATEX</a></li>
+                    <li><a href="/produkty/przemysl/systemy-kontrolno-pomiarowe/">Systemy kontrolno-pomiarowe</a></li>
                   </ul>
-                  <div class="mega-col-h" style="margin-top:16px">Oprogramowanie</div>
+                  <div class="mega-col-h" style="margin-top:14px">Oprogramowanie</div>
                   <ul>
-                    <li><a href="/produkty/oprogramowanie/zarzadzanie-etykietami/">Zarządzanie etykietami</a></li>
+                    <li><a href="/produkty/oprogramowanie/zarzadzanie-etykietami/">Tworzenie i zarządzanie etykietami</a></li>
                     <li><a href="/produkty/oprogramowanie/mdm/">Zarządzanie urządzeniami (MDM)</a></li>
                     <li><a href="/produkty/oprogramowanie/aplikacje-mobilne/">Aplikacje mobilne</a></li>
-                    <li><a href="/produkty/oprogramowanie/aplikacje-drukarki/">Aplikacje na drukarki</a></li>
-                    <li><a href="/produkty/oprogramowanie/aplikacje-skanery/">Aplikacje na skanery</a></li>
-                    <li><a href="/produkty/oprogramowanie/dedykowane/">Aplikacje dedykowane</a></li>
+                    <li><a href="/produkty/oprogramowanie/aplikacje-na-drukarki/">Aplikacje na drukarki</a></li>
+                    <li><a href="/produkty/oprogramowanie/aplikacje-na-skanery/">Aplikacje na skanery</a></li>
+                    <li><a href="/produkty/oprogramowanie/aplikacje-dedykowane/">Aplikacje dedykowane</a></li>
+                    <li><a href="/produkty/oprogramowanie/inne-aplikacje/">Inne aplikacje i skanery</a></li>
+                    <li><a href="/produkty/oprogramowanie/migracja-z-wing/">Migracja z Wing</a></li>
+                    <li><a href="/produkty/oprogramowanie/bezpieczenstwo-urzadzen/">Bezp. urządzeń mobilnych</a></li>
                   </ul>
                 </div>
 
-                <!-- K3: Infrastruktura IT -->
+                <!-- K4: Infrastruktura IT -->
                 <div class="mega-col">
                   <div class="mega-col-h">Infrastruktura IT</div>
                   <div class="mega-sub-h" style="padding-top:0">Sieci komputerowe</div>
                   <ul>
-                    <li><a href="/produkty/infrastruktura/sieci/" class="mega-sub-lnk">Sieci komputerowe</a></li>
+                    <li><a href="/produkty/infrastruktura/sieci-komputerowe/" class="mega-sub-lnk">Sieci komputerowe</a></li>
                     <li><a href="/produkty/infrastruktura/switche/" class="mega-sub-lnk">Switche</a></li>
                     <li><a href="/produkty/infrastruktura/access-pointy/" class="mega-sub-lnk">Access Pointy</a></li>
                     <li><a href="/produkty/infrastruktura/serwery/" class="mega-sub-lnk">Serwery</a></li>
@@ -371,26 +391,28 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
                     <li><a href="/produkty/bezpieczenstwo/email-security/" class="mega-sub-lnk">Email Security</a></li>
                     <li><a href="/produkty/bezpieczenstwo/web-security/" class="mega-sub-lnk">Web Security</a></li>
                     <li><a href="/produkty/bezpieczenstwo/backup/" class="mega-sub-lnk">Backup i archiwizacja</a></li>
+                    <li><a href="/produkty/bezpieczenstwo/zarzadzanie-infrastruktura/" class="mega-sub-lnk">Zarządzanie infrastrukturą IT</a></li>
                     <li><a href="/produkty/bezpieczenstwo/sse/" class="mega-sub-lnk">SSE</a></li>
                   </ul>
                 </div>
 
-                <!-- K4: Serwis + Popularne -->
+                <!-- K5: Serwis urządzeń -->
                 <div class="mega-col">
                   <div class="mega-col-h">Serwis urządzeń</div>
                   <ul>
                     <li><a href="/serwis/zgloszenie-naprawy/" style="color:#e30613;font-weight:700">&#8594; Zgłoś naprawę</a></li>
-                    <li><a href="/serwis/gwarancja/">Gwarancja i ochrona</a></li>
+                    <li><a href="/serwis/gwarancja-i-ochrona/">Gwarancja i ochrona urządzeń</a></li>
                     <li><a href="/serwis/mobilny/">Serwis mobilny</a></li>
-                    <li><a href="/serwis/czesci/">Sprzedaż części</a></li>
-                    <li><a href="/serwis/faq/">FAQ serwisowe</a></li>
+                    <li><a href="/serwis/sprzedaz-czesci/">Sprzedaż części</a></li>
+                    <li><a href="/serwis/faq/">FAQ</a></li>
                   </ul>
-                  <div class="mega-col-h" style="margin-top:16px">Popularne kategorie</div>
+                  <div class="mega-col-h" style="margin-top:20px">Popularne marki</div>
                   <ul>
-                    <li><a href="/produkty/auto-id/czytniki-kodow-kreskowych/">Czytniki Zebra</a></li>
-                    <li><a href="/produkty/auto-id/drukarki-etykiet/">Drukarki Honeywell</a></li>
-                    <li><a href="/produkty/auto-id/terminale-przenosne/">Terminale Datalogic</a></li>
-                    <li><a href="/produkty/materialy/etykiety/">Etykiety termiczne</a></li>
+                    <li><a href="/producenci/zebra/">Zebra Technologies</a></li>
+                    <li><a href="/producenci/honeywell/">Honeywell</a></li>
+                    <li><a href="/producenci/datalogic/">Datalogic</a></li>
+                    <li><a href="/producenci/toshiba/">Toshiba</a></li>
+                    <li><a href="/producenci/sick/">SICK</a></li>
                   </ul>
                 </div>
 
@@ -402,19 +424,53 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
                 <a href="/producenci/datalogic/" class="mega-tag">Datalogic</a>
                 <a href="/producenci/toshiba/" class="mega-tag">Toshiba</a>
                 <a href="/producenci/sick/" class="mega-tag">SICK</a>
-                <a href="/producenci/" class="mega-tag red">Wszyscy &#8594;</a>
+                <a href="/producenci/godex/" class="mega-tag">GoDEX</a>
+                <a href="/producenci/newland/" class="mega-tag">Newland</a>
+                <a href="/producenci/" class="mega-tag red">Wszyscy producenci &#8594;</a>
               </div>
             </div>
           </div>
 
-          <!-- USŁUGI -->
-          <div class="nav-i">Usługi <span class="arr">&#9660;</span></div>
+          <!-- USŁUGI — dropdown -->
+          <div class="nav-i">Usługi <span class="arr">&#9660;</span>
+            <div class="dropdown">
+              <div class="dropdown-h">Wdrożenia i integracje</div>
+              <a href="/uslugi/znakowanie-magazynow/">Znakowanie magazynów i stref logistycznych</a>
+              <a href="/uslugi/systemy-wizyjne-inspekcyjne/">Systemy wizyjne i inspekcyjne</a>
+              <a href="/uslugi/automatyka-przemyslowa/">Automatyka procesów przemysłowych</a>
+              <a href="/uslugi/okablowanie-strukturalne/">Okablowanie strukturalne</a>
+              <a href="/uslugi/systemy-lokalizacji-vlc/">Systemy lokalizacji (VLC)</a>
+              <hr class="dropdown-sep">
+              <div class="dropdown-h">Wsparcie i szkolenia</div>
+              <a href="/uslugi/audyty-wifi/">Audyty sieci WiFi i radiowych</a>
+              <a href="/uslugi/szkolenia-techniczne/">Szkolenia techniczne i produktowe</a>
+              <a href="/uslugi/wypozyczanie-sprzetu/">Wypożyczanie sprzętu IT i Auto ID</a>
+              <a href="/uslugi/oprogramowanie-dedykowane/">Oprogramowanie dedykowane</a>
+            </div>
+          </div>
 
-          <!-- CENTRUM WIEDZY -->
-          <div class="nav-i">Centrum wiedzy <span class="arr">&#9660;</span></div>
+          <!-- CENTRUM WIEDZY — dropdown -->
+          <div class="nav-i">Centrum wiedzy <span class="arr">&#9660;</span>
+            <div class="dropdown">
+              <a href="/baza-wiedzy/">Artykuły / Baza wiedzy</a>
+              <a href="/pliki-do-pobrania/">Pliki do pobrania</a>
+              <a href="/realizacje/">Realizacje</a>
+            </div>
+          </div>
 
-          <!-- O FIRMIE -->
-          <div class="nav-i">O firmie <span class="arr">&#9660;</span></div>
+          <!-- O FIRMIE — dropdown -->
+          <div class="nav-i">O firmie <span class="arr">&#9660;</span>
+            <div class="dropdown">
+              <a href="/o-nas/">O nas</a>
+              <a href="/nasi-partnerzy/">Nasi partnerzy</a>
+              <hr class="dropdown-sep">
+              <div class="dropdown-h">Partnerzy</div>
+              <a href="/producenci/zebra/">Zebra Technologies</a>
+              <a href="/producenci/honeywell/">Honeywell</a>
+              <hr class="dropdown-sep">
+              <a href="/kariera/">Kariera</a>
+            </div>
+          </div>
 
           <div class="nav-i" style="color:#e30613">Kontakt</div>
 
@@ -445,43 +501,112 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
             <div class="mob-sub-h">Auto ID</div>
             <a href="/produkty/auto-id/czytniki-kodow-kreskowych/">Czytniki kodów kreskowych</a>
             <a href="/produkty/auto-id/drukarki-etykiet/">Drukarki etykiet</a>
+            <a href="/produkty/auto-id/drukarki-kart/">Drukarki kart</a>
             <a href="/produkty/auto-id/terminale-przenosne/">Terminale przenośne</a>
+            <a href="/produkty/auto-id/terminale-wozkowe/">Terminale wózkowe</a>
+            <a href="/produkty/auto-id/weryfikatory-kodow/">Weryfikatory kodów</a>
+            <a href="/produkty/auto-id/weryfikatory-cen/">Weryfikatory cen</a>
+            <a href="/produkty/auto-id/aplikatory-etykiet/">Aplikatory etykiet</a>
+            <a href="/produkty/auto-id/wearables/">Wearables</a>
             <a href="/produkty/auto-id/rfid/">RFID</a>
             <a href="/produkty/auto-id/systemy-wizyjne/">Systemy wizyjne</a>
-            <a href="/produkty/auto-id/akcesoria/baterie/" class="mob-sub-l3">· Baterie i ładowarki</a>
+          </div>
+          <div class="mob-sub-group">
+            <div class="mob-sub-h">Akcesoria</div>
+            <a href="/produkty/akcesoria/baterie-i-ladowarki/" class="mob-sub-l3">· Baterie i ładowarki</a>
+            <a href="/produkty/akcesoria/futeraly-i-etui/" class="mob-sub-l3">· Futerały i etui ochronne</a>
+            <a href="/produkty/akcesoria/stacje-dokujace/" class="mob-sub-l3">· Stacje dokujące</a>
+            <a href="/produkty/akcesoria/uchwyty-i-podstawki/" class="mob-sub-l3">· Uchwyty i podstawki</a>
+            <a href="/produkty/akcesoria/przewody-i-adaptery/" class="mob-sub-l3">· Przewody i adaptery</a>
+          </div>
+          <div class="mob-sub-group">
+            <div class="mob-sub-h">Materiały eksploatacyjne</div>
             <a href="/produkty/materialy/etykiety/" class="mob-sub-l3">· Etykiety</a>
             <a href="/produkty/materialy/tasmy-ribbony/" class="mob-sub-l3">· Taśmy i Ribbony</a>
+            <a href="/produkty/materialy/karty-plastikowe/" class="mob-sub-l3">· Karty plastikowe</a>
           </div>
           <div class="mob-sub-group">
             <div class="mob-sub-h">Rozwiązania dla przemysłu</div>
-            <a href="/produkty/przemysl/tablety/">Tablety przemysłowe</a>
-            <a href="/produkty/przemysl/komputery-monitory/">Komputery przemysłowe</a>
-            <a href="/produkty/przemysl/atex/">Urządzenia ATEX</a>
+            <a href="/produkty/przemysl/tablety-przemyslowe/">Tablety przemysłowe</a>
+            <a href="/produkty/przemysl/komputery-monitory-przemyslowe/">Komputery i monitory przem.</a>
+            <a href="/produkty/przemysl/notebooki-laptopy-przemyslowe/">Notebooki przemysłowe</a>
+            <a href="/produkty/przemysl/kioski-informacyjne/">Kioski informacyjne</a>
+            <a href="/produkty/przemysl/urzadzenia-atex/">Urządzenia ATEX</a>
+            <a href="/produkty/przemysl/systemy-kontrolno-pomiarowe/">Systemy kontrolno-pomiarowe</a>
+          </div>
+          <div class="mob-sub-group">
+            <div class="mob-sub-h">Oprogramowanie</div>
+            <a href="/produkty/oprogramowanie/zarzadzanie-etykietami/" class="mob-sub-l3">· Zarządzanie etykietami</a>
+            <a href="/produkty/oprogramowanie/mdm/" class="mob-sub-l3">· MDM</a>
+            <a href="/produkty/oprogramowanie/aplikacje-mobilne/" class="mob-sub-l3">· Aplikacje mobilne</a>
+            <a href="/produkty/oprogramowanie/aplikacje-na-drukarki/" class="mob-sub-l3">· Aplikacje na drukarki</a>
+            <a href="/produkty/oprogramowanie/aplikacje-na-skanery/" class="mob-sub-l3">· Aplikacje na skanery</a>
+            <a href="/produkty/oprogramowanie/aplikacje-dedykowane/" class="mob-sub-l3">· Aplikacje dedykowane</a>
+            <a href="/produkty/oprogramowanie/migracja-z-wing/" class="mob-sub-l3">· Migracja z Wing</a>
           </div>
           <div class="mob-sub-group">
             <div class="mob-sub-h">Infrastruktura IT</div>
-            <a href="/produkty/infrastruktura/sieci/">Sieci komputerowe</a>
+            <a href="/produkty/infrastruktura/sieci-komputerowe/">Sieci komputerowe</a>
             <a href="/produkty/infrastruktura/switche/" class="mob-sub-l3">· Switche</a>
             <a href="/produkty/infrastruktura/access-pointy/" class="mob-sub-l3">· Access Pointy</a>
-            <a href="/produkty/bezpieczenstwo/ngfw/" class="mob-sub-l3">· NGFW / IPS / DLP</a>
-            <a href="/produkty/monitoring/kamery-ip/">Monitoring / Kamery IP</a>
+            <a href="/produkty/infrastruktura/serwery/" class="mob-sub-l3">· Serwery</a>
+            <a href="/produkty/infrastruktura/ups/" class="mob-sub-l3">· UPS / zasilanie awaryjne</a>
+            <a href="/produkty/monitoring/kamery-ip/">Monitoring — Kamery IP</a>
+            <a href="/produkty/monitoring/kontrola-dostepu/" class="mob-sub-l3">· Kontrola dostępu</a>
+            <a href="/produkty/bezpieczenstwo/ngfw/">Bezpieczeństwo IT — NGFW</a>
+            <a href="/produkty/bezpieczenstwo/ips/" class="mob-sub-l3">· IPS</a>
+            <a href="/produkty/bezpieczenstwo/dlp/" class="mob-sub-l3">· DLP</a>
+            <a href="/produkty/bezpieczenstwo/email-security/" class="mob-sub-l3">· Email Security</a>
+            <a href="/produkty/bezpieczenstwo/web-security/" class="mob-sub-l3">· Web Security</a>
+            <a href="/produkty/bezpieczenstwo/backup/" class="mob-sub-l3">· Backup i archiwizacja</a>
+            <a href="/produkty/bezpieczenstwo/sse/" class="mob-sub-l3">· SSE</a>
           </div>
           <div class="mob-sub-group">
-            <div class="mob-sub-h">Serwis</div>
+            <div class="mob-sub-h">Serwis urządzeń</div>
             <a href="/serwis/zgloszenie-naprawy/" style="color:#e30613;font-weight:700">&#8594; Zgłoś naprawę</a>
+            <a href="/serwis/gwarancja-i-ochrona/">Gwarancja i ochrona</a>
+            <a href="/serwis/mobilny/">Serwis mobilny</a>
+            <a href="/serwis/sprzedaz-czesci/">Sprzedaż części</a>
           </div>
         </div>
+
         <div class="mob-nav-i" onclick="toggleMob('mobUsl',this)">Usługi &#9660;</div>
         <div class="mob-sub" id="mobUsl">
           <div class="mob-sub-group">
+            <div class="mob-sub-h">Wdrożenia i integracje</div>
             <a href="/uslugi/znakowanie-magazynow/">Znakowanie magazynów</a>
+            <a href="/uslugi/systemy-wizyjne-inspekcyjne/">Systemy wizyjne i inspekcyjne</a>
+            <a href="/uslugi/automatyka-przemyslowa/">Automatyka procesów</a>
+            <a href="/uslugi/okablowanie-strukturalne/">Okablowanie strukturalne</a>
+            <a href="/uslugi/systemy-lokalizacji-vlc/">Systemy lokalizacji (VLC)</a>
+          </div>
+          <div class="mob-sub-group">
+            <div class="mob-sub-h">Wsparcie</div>
             <a href="/uslugi/audyty-wifi/">Audyty sieci WiFi</a>
-            <a href="/uslugi/szkolenia/">Szkolenia techniczne</a>
-            <a href="/uslugi/wypozyczanie/">Wypożyczanie sprzętu</a>
+            <a href="/uslugi/szkolenia-techniczne/">Szkolenia techniczne</a>
+            <a href="/uslugi/wypozyczanie-sprzetu/">Wypożyczanie sprzętu</a>
+            <a href="/uslugi/oprogramowanie-dedykowane/">Oprogramowanie dedykowane</a>
           </div>
         </div>
-        <div class="mob-nav-i">Centrum wiedzy</div>
-        <div class="mob-nav-i">O firmie</div>
+
+        <div class="mob-nav-i" onclick="toggleMob('mobWiedza',this)">Centrum wiedzy &#9660;</div>
+        <div class="mob-sub" id="mobWiedza">
+          <div class="mob-sub-group">
+            <a href="/baza-wiedzy/">Artykuły / Baza wiedzy</a>
+            <a href="/pliki-do-pobrania/">Pliki do pobrania</a>
+            <a href="/realizacje/">Realizacje</a>
+          </div>
+        </div>
+
+        <div class="mob-nav-i" onclick="toggleMob('mobFirma',this)">O firmie &#9660;</div>
+        <div class="mob-sub" id="mobFirma">
+          <div class="mob-sub-group">
+            <a href="/o-nas/">O nas</a>
+            <a href="/nasi-partnerzy/">Nasi partnerzy</a>
+            <a href="/kariera/">Kariera</a>
+          </div>
+        </div>
+
         <div class="mob-nav-i" style="color:#e30613">Kontakt</div>
         <div class="mob-tel">+48 789 868 803</div>
       </div>
