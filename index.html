@@ -42,7 +42,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
    ============================ */
 
 /* L1 — nav items */
-.nav-i { position:relative; padding:0 18px; height:78px; display:flex; align-items:center; font-size:13px; color:#222; font-weight:600; letter-spacing:.3px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:4px; font-family:sans-serif; cursor:pointer; transition:color .15s; border-bottom:3px solid transparent; }
+.nav-i { position:static; padding:0 18px; height:78px; display:flex; align-items:center; font-size:13px; color:#222; font-weight:600; letter-spacing:.3px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:4px; font-family:sans-serif; cursor:pointer; transition:color .15s; border-bottom:3px solid transparent; }
 .nav-i:first-child { border-left:none; }
 .nav-i.open { color:#e30613; border-bottom-color:#e30613; }
 .nav-i:hover { color:#e30613; }
@@ -985,6 +985,15 @@ function toggleNav(id) {
 
   if (!isOpen) {
     navItem.classList.add('open');
+
+    // Position dropdown panels under their nav-i (mega stays at left:0 via CSS)
+    if (panel && panel.classList.contains('dropdown')) {
+      var hdr = document.querySelector('.hdr');
+      var navRect = navItem.getBoundingClientRect();
+      var hdrRect = hdr.getBoundingClientRect();
+      panel.style.left = (navRect.left - hdrRect.left) + 'px';
+    }
+
     // Auto-activate first L2 item if mega
     if (panel && panel.classList.contains('mega')) {
       var firstL2 = panel.querySelector('.l2-item');
