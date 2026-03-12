@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreski.pl — Low-Fi Wireframe v3</title>
+<title>Subkategoria — Czytniki kodów kreskowych — Kreski.pl | Low-Fi Wireframe</title>
 <style>
+
 * { margin:0; padding:0; box-sizing:border-box; }
-body { padding-bottom:34px; font-family:'Courier New',monospace; background:#edecea; color:#333; }
+body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .qtag { position:absolute; top:5px; right:8px; font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#c0392b; background:#fff5f5; padding:2px 6px; border:1px solid #e8b4b8; z-index:20; }
 .con { max-width:1170px; margin:0 auto; padding:0 20px; }
 .wrap { padding:20px; background:#edecea; }
@@ -153,7 +154,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 .feat-col { display:flex; flex-direction:column; gap:10px; padding:20px 0; }
 .feat-icon { width:52px; height:52px; border:2px dashed #ddd; background:#fafafa; display:flex; align-items:center; justify-content:center; font-size:22px; color:#ddd; margin-bottom:4px; }
 .feat-title { height:13px; background:#1a1a1a; border-radius:2px; width:70%; }
-.feat-body { padding-bottom:34px; height:8px; background:#ddd; border-radius:2px; }
+.feat-body { height:8px; background:#ddd; border-radius:2px; }
 .feat-body.s { background:#e8e8e8; }
 
 /* ALTERNATING 50/50 */
@@ -194,7 +195,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 .blog-date { position:absolute; bottom:0; left:0; background:#e30613; padding:5px 9px; display:flex; flex-direction:column; align-items:center; gap:2px; }
 .bdd { height:14px; width:20px; background:rgba(255,255,255,0.85); border-radius:1px; }
 .bdm { height:8px; width:16px; background:rgba(255,255,255,0.5); border-radius:1px; }
-.blog-body { padding-bottom:34px; padding:14px; display:flex; flex-direction:column; gap:7px; }
+.blog-body { padding:14px; display:flex; flex-direction:column; gap:7px; }
 .bt { height:11px; background:#1a1a1a; border-radius:2px; }
 .bt2 { height:11px; background:#1a1a1a; width:70%; border-radius:2px; }
 .be { height:7.5px; background:#e8e8e8; border-radius:2px; }
@@ -252,7 +253,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
   @media (max-width: 768px) {
 
     /* GLOBAL - zapobieganie overflow */
-    body { padding-bottom:34px; overflow-x: hidden; }
+    body { overflow-x: hidden; }
     .wrap { padding: 8px; }
     .canvas { overflow-x: hidden; }
 
@@ -314,21 +315,6 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
   }
 
   
-/* ===== PAGE SWITCHER ===== */
-.pg-sw { position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; display:flex; align-items:center; gap:0; border-bottom:2px solid #e30613; height:36px; }
-.pg-sw-lbl { font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; font-family:sans-serif; padding:0 14px; border-right:1px solid #333; height:100%; display:flex; align-items:center; white-space:nowrap; }
-.pg-btn { height:100%; padding:0 16px; background:transparent; border:none; border-right:1px solid #2a2a2a; color:#888; font-size:10px; font-family:sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all .15s; white-space:nowrap; }
-.pg-btn:hover { background:#222; color:#fff; }
-.pg-btn.active { background:#e30613; color:#fff; }
-.pg-note { font-size:8px; color:#555; font-family:sans-serif; padding:0 16px; margin-left:auto; letter-spacing:.5px; }
-
-/* ===== PAGE VISIBILITY ===== */
-.page-view { display:none; }
-.page-view.active { display:block; }
-
-/* Fix wrap to account for switcher bar */
-.wrap { padding-top: 56px !important; }
-
 /* ===== SHARED ELEMENTS ===== */
 .bc { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
 .bc-inner { max-width:1170px; margin:0 auto; padding:0 20px; display:flex; align-items:center; gap:6px; font-size:11px; color:#999; font-family:sans-serif; }
@@ -351,7 +337,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 .filter-group { border-bottom:1px solid #f0f0f0; }
 .filter-group-h { padding:12px 16px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#333; font-family:sans-serif; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
 .filter-group-h .fg-arr { color:#ccc; font-size:10px; }
-.filter-body { padding-bottom:34px; padding:8px 16px 12px; }
+.filter-body { padding:8px 16px 12px; }
 .filter-item { display:flex; align-items:center; gap:8px; padding:4px 0; font-size:12px; color:#555; font-family:sans-serif; cursor:pointer; }
 .filter-item:hover { color:#e30613; }
 .fcheck { width:14px; height:14px; border:1.5px solid #ccc; flex-shrink:0; border-radius:2px; }
@@ -366,7 +352,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 .prod-img { aspect-ratio:4/3; background:#f5f5f5; display:flex; align-items:center; justify-content:center; overflow:hidden; border-bottom:1px solid #f0f0f0; position:relative; }
 .prod-img img { max-width:75%; max-height:75%; object-fit:contain; }
 .prod-badge { position:absolute; top:8px; left:8px; background:#e30613; color:white; font-size:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 7px; font-family:sans-serif; }
-.prod-body { padding-bottom:34px; padding:14px; flex:1; display:flex; flex-direction:column; gap:6px; }
+.prod-body { padding:14px; flex:1; display:flex; flex-direction:column; gap:6px; }
 .prod-brand { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; font-family:sans-serif; }
 .prod-name { font-size:13px; font-weight:700; color:#1a1a1a; font-family:sans-serif; line-height:1.35; }
 .prod-sku { font-size:10px; color:#aaa; font-family:sans-serif; }
@@ -493,33 +479,22 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
   .subcat-grid { grid-template-columns:repeat(2,1fr); }
 }
 
+
+
+body { padding-bottom: 34px; }
+.bc { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
+.bc-inner { display:flex; align-items:center; gap:6px; font-size:11px; color:#999; font-family:sans-serif; }
+.bc-sep { color:#ddd; }
+.bc-cur { color:#1a1a1a; font-weight:600; }
+.bc-link { color:#666; text-decoration:none; cursor:pointer; }
+.bc-link:hover { color:#e30613; }
+
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="ptitle">Kreski.pl &#x2014; Low-Fi Wireframe v3</div>
-  <div class="legend">
-    <div class="li2"><div class="ls" style="background:#e30613;border-color:#e30613;"></div> #e30613 Czerwien</div>
-    <div class="li2"><div class="ls" style="background:#1a1a1a;border-color:#333;"></div> #1a1a1a Czern</div>
-    <div class="li2"><div class="ls" style="background:#ddd;"></div> Placeholder tekstu</div>
-    <div class="li2"><div class="ls" style="background:repeating-linear-gradient(45deg,#eee,#eee 4px,#e6e6e6 4px,#e6e6e6 8px);border:1px solid #ddd;"></div> Placeholder zdjecia</div>
-  </div>
+  <div class="ptitle">Kreski.pl — Low-Fi Wireframe v4 &nbsp;/&nbsp; Subkategoria — Czytniki kodów kreskowych</div>
   <div class="canvas">
-
-    <!-- ===== PAGE SWITCHER ===== -->
-    <div class="pg-sw">
-      <div class="pg-sw-lbl">Widok:</div>
-      <button class="pg-btn active" onclick="showPage('home',this)">Strona główna</button>
-      <button class="pg-btn" onclick="showPage('kategoria',this)">Kategoria</button>
-      <button class="pg-btn" onclick="showPage('subkategoria',this)">Subkategoria</button>
-      <button class="pg-btn" onclick="showPage('produkt',this)">Karta produktu</button>
-      <button class="pg-btn" onclick="showPage('kontakt',this)">Kontakt</button>
-      <span class="pg-note">Low-Fi Wireframe v4 · Kreski.pl</span>
-    </div>
-
-    <!-- ===== PAGE: STRONA GŁÓWNA ===== -->
-    <div class="page-view active" id="page-home">
-
     <!-- HEADER -->
     <div style="position:relative;">
       <div class="hdr">
@@ -894,196 +869,198 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
         <div class="hero-dots"><div class="hdot on"></div><div class="hdot"></div><div class="hdot"></div></div>
       </div>
     </div>
-
-    <!-- TRUST BAR -->
-    <div style="position:relative;">
-      <div class="trust">
-        <div class="trust-lbl">Zaufali nam</div>
-        <div style="text-align:center;font-size:13px;color:#999;font-family:sans-serif;margin-bottom:16px;">Współpracujemy wyłącznie z producentami wyznaczającymi standardy w branży</div>
-        <div class="trust-row">
-          <div class="trust-logo"><img src="firma 1.png" alt="Partner 1"></div><div class="trust-logo"><img src="firma 2.png" alt="Partner 2"></div><div class="trust-logo"><img src="firma_7.png" alt="Partner 3"></div><div class="trust-logo"><img src="firma 4.png" alt="Partner 4"></div><div class="trust-logo"><img src="firma 5.png" alt="Partner 5"></div><div class="trust-logo"><img src="firma 6.png" alt="Partner 6"></div>
+    <div class="bc"><div style="max-width:1170px;margin:0 auto;padding:0 20px;"><div class="bc-inner"><a href="index.html" class="bc-link">Strona główna</a> <span class="bc-sep">›</span> <a href="kategoria.html" class="bc-link">AUTO ID</a> <span class="bc-sep">›</span> <span class="bc-cur">Czytniki kodów kreskowych</span></div></div></div>
+    
+    <!-- PAGE HERO -->
+    <div style="background:#f4f4f4;border-bottom:1px solid #e8e8e8;padding:36px 0 28px;">
+      <div style="max-width:1170px;margin:0 auto;padding:0 20px;display:flex;align-items:flex-end;justify-content:space-between;">
+        <div>
+          <div style="font-size:10px;color:#e30613;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-family:sans-serif;margin-bottom:6px;">AUTO ID › Podkategoria</div>
+          <h1 style="font-size:26px;font-weight:800;color:#1a1a1a;font-family:sans-serif;margin-bottom:8px;">Czytniki kodów kreskowych</h1>
+          <p style="font-size:13px;color:#666;font-family:sans-serif;max-width:580px;line-height:1.6;">Skanery QR, czytniki 1D/2D — przewodowe, bezprzewodowe, prezentacyjne. Do magazynu, retail i produkcji. Zebra, Honeywell, Datalogic, Newland.</p>
+        </div>
+        <div style="text-align:right;flex-shrink:0;padding-left:32px;">
+          <div style="font-size:32px;font-weight:800;color:#e30613;font-family:sans-serif;line-height:1;">142</div>
+          <div style="font-size:11px;color:#aaa;font-family:sans-serif;">produktów</div>
         </div>
       </div>
     </div>
 
-    <!-- BRANŻE / NASZA OFERTA -->
-    <div style="background:#f9f9f9; border-top:1px solid #eee; padding:64px 0 72px;">
-      <div class="con">
-        <div style="text-align:center; margin-bottom:12px;">
-          <span style="font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#e30613; font-family:sans-serif;">Dla kogo pracujemy</span>
+    <!-- LAYOUT: FILTRY + GRID -->
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;max-width:1170px;margin:0 auto;padding:32px 20px 48px;">
+
+      <!-- FILTRY -->
+      <div style="background:white;border:1px solid #eee;">
+        <div style="padding:12px 16px;background:#1a1a1a;display:flex;align-items:center;justify-content:space-between;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;font-family:sans-serif;">Filtry</div>
+          <div style="font-size:9px;color:#e30613;font-family:sans-serif;cursor:pointer;">Wyczyść wszystkie</div>
         </div>
-        <div style="text-align:center; font-size:30px; font-weight:800; color:#1a1a1a; margin-bottom:10px; font-family:sans-serif;">Nasza oferta według branży</div>
-        <div style="text-align:center; font-size:14px; color:#666; margin-bottom:48px; max-width:580px; margin-left:auto; margin-right:auto; font-family:sans-serif; line-height:1.7;">Dostarczamy kompletne rozwiązania Auto ID dopasowane do specyfiki każdej branży — od magazynu po aptekę i salę produkcyjną.</div>
 
-        <div class="branza-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            </div>
-            <div class="bk-name">E-commerce i fulfillment</div>
-            <div class="bk-desc">Drukarki etykiet kurierskich InPost/DPD/DHL, skanery paczek i integracje z Baselinker, WooCommerce i Shoper.</div>
+        <!-- Producent -->
+        <div style="border-bottom:1px solid #f0f0f0;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;cursor:pointer;">Producent <span style="color:#ccc;font-size:10px;">▲</span></div>
+          <div style="padding:8px 16px 12px;">
+            <input style="width:100%;border:1.5px solid #e0e0e0;padding:6px 10px;font-size:11px;margin-bottom:8px;font-family:sans-serif;box-sizing:border-box;" placeholder="Szukaj producenta...">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;background:#e30613;border:1.5px solid #e30613;flex-shrink:0;"></div> Zebra <span style="font-size:10px;color:#bbb;margin-left:auto;">48</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Honeywell <span style="font-size:10px;color:#bbb;margin-left:auto;">31</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Datalogic <span style="font-size:10px;color:#bbb;margin-left:auto;">24</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;background:#e30613;border:1.5px solid #e30613;flex-shrink:0;"></div> Newland <span style="font-size:10px;color:#bbb;margin-left:auto;">18</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> CipherLab <span style="font-size:10px;color:#bbb;margin-left:auto;">12</span></div>
           </div>
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div class="bk-name">Logistyka i magazyny</div>
-            <div class="bk-desc">Terminale mobilne Zebra, kolektory danych, systemy RFID UHF i drukarki przemysłowe do obsługi WMS.</div>
-          </div>
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <div class="bk-name">Transport i spedycja</div>
-            <div class="bk-desc">Mobilne drukarki Bluetooth do druku listów przewozowych, terminale Android do POD i skanery na rampę.</div>
-          </div>
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12l2 6H4L6 2z"/><path d="M3 8h18v13a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/><line x1="9" y1="8" x2="9" y2="21"/><line x1="15" y1="8" x2="15" y2="21"/></svg>
-            </div>
-            <div class="bk-name">Handel detaliczny i retail</div>
-            <div class="bk-desc">Skanery do kasy, kolektory sklepowe do inwentaryzacji i drukarki etykiet cenowych dla sklepów i sieci handlowych.</div>
-          </div>
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <div class="bk-name">Ochrona zdrowia i farmacja</div>
-            <div class="bk-desc">Drukarki opasek pacjenta, skanery do serializacji leków (DataMatrix) i RFID do śledzenia aktywów medycznych.</div>
-          </div>
-
-          <div class="branza-karta">
-            <div class="bk-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2m0 16v2m7.07-4.93l-1.41-1.41M4.93 19.07l1.41-1.41M2 12h2m16 0h2"/></svg>
-            </div>
-            <div class="bk-name">Produkcja i przemysł</div>
-            <div class="bk-desc">Drukarki przemysłowe IP65, aplikatory etykiet, urządzenia ATEX do stref Ex i systemy wizyjne MVS do kontroli jakości.</div>
-          </div>
-
         </div>
-      </div>
-    </div>
-    <!-- /BRANŻE -->
 
-    <!-- ALT #1 image left -->
-    <div style="position:relative; border-top:1px solid #f0f0f0;">
-      <div class="alt-row">
-        <div class="alt-img"><img src="Sekcja_1__Drukarki_Skanery.jpeg" alt="Drukarki i skanery - magazyn"></div>
-        <div class="alt-text">
-          <div class="at-eye">Drukarki &amp; Skanery</div>
-          <h2 class="at-h">Profesjonalne urządzenia Auto ID dla każdej branży</h2>
-          <p class="at-p">Drukarki etykiet termiczne i termotransferowe, skanery kodów 1D i 2D, terminale mobilne z Androidem. Modele biurowe, przemysłowe i mobilne od Zebra, Honeywell, TSC i Citizen. Wydajność od 1&nbsp;000 do 50&nbsp;000 etykiet dziennie.</p>
-          <a class="at-btn" href="#">Poznaj ofertę</a>
+        <!-- Typ skanera -->
+        <div style="border-bottom:1px solid #f0f0f0;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;cursor:pointer;">Typ skanera <span style="color:#ccc;font-size:10px;">▲</span></div>
+          <div style="padding:8px 16px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;background:#e30613;border:1.5px solid #e30613;flex-shrink:0;"></div> Skaner ręczny 1D/2D <span style="font-size:10px;color:#bbb;margin-left:auto;">67</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Prezentacyjny <span style="font-size:10px;color:#bbb;margin-left:auto;">22</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Wbudowany <span style="font-size:10px;color:#bbb;margin-left:auto;">15</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Stacjonarny QR <span style="font-size:10px;color:#bbb;margin-left:auto;">11</span></div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ALT #2 image right -->
-    <div style="position:relative; border-top:1px solid #f0f0f0;">
-      <div class="alt-row">
-        <div class="alt-text gray">
-          <div class="at-eye">Serwis &amp; Wsparcie</div>
-          <h2 class="at-h">Autoryzowany serwis Zebra i Honeywell</h2>
-          <p class="at-p">Naprawy gwarancyjne i pogwarancyjne, kontrakty serwisowe oraz urządzenia zastępcze na czas naprawy. Czas reakcji od 24 godzin. Jedna z największych autoryzowanych placówek serwisowych w Polsce.</p>
-          <a class="at-btn" href="#">Zgłoś urządzenie</a>
+        <!-- Łączność -->
+        <div style="border-bottom:1px solid #f0f0f0;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;cursor:pointer;">Łączność <span style="color:#ccc;font-size:10px;">▲</span></div>
+          <div style="padding:8px 16px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> USB <span style="font-size:10px;color:#bbb;margin-left:auto;">89</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Bluetooth <span style="font-size:10px;color:#bbb;margin-left:auto;">54</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> WiFi 802.11 <span style="font-size:10px;color:#bbb;margin-left:auto;">31</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> RS-232 <span style="font-size:10px;color:#bbb;margin-left:auto;">18</span></div>
+          </div>
         </div>
-        <div class="alt-img"><img src="Serwis_Zebra_Honeywell.jpeg" alt="Serwis Zebra Honeywell"></div>
-      </div>
-    </div>
 
-    <!-- STATS -->
-    <div style="position:relative; border-top:1px solid #eee;">
-      <div class="stats-grid">
-        <div class="stat-cell"><div class="stat-num" data-target="20" data-suffix="+">0+</div><div class="stat-lbl">lat na rynku</div><div class="stat-sub">doświadczenia w Auto ID i IT</div></div>
-        <div class="stat-cell"><div class="stat-num" data-target="1100" data-suffix="+" data-format="space">0+</div><div class="stat-lbl">aktywnych klientów</div><div class="stat-sub">od małych firm po korporacje</div></div>
-        <div class="stat-cell"><div class="stat-num" data-target="80000" data-suffix="+" data-format="space">0+</div><div class="stat-lbl">naprawionych urządzeń</div><div class="stat-sub">autoryzowany serwis Zebra i Honeywell</div></div>
-        <div class="stat-cell"><div class="stat-num" data-target="48" data-suffix="h">0h</div><div class="stat-lbl">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
-      </div>
-    </div>
-
-    <script>
-    function formatNum(n, fmt) {
-      if (fmt === 'space') return n.toLocaleString('pl-PL').replace(/,/g, ' ');
-      return n;
-    }
-    function animateCounters() {
-      const els = document.querySelectorAll('.stat-num[data-target]');
-      els.forEach(el => {
-        const target = +el.dataset.target;
-        const suffix = el.dataset.suffix || '';
-        const fmt = el.dataset.format || '';
-        const duration = 1800;
-        const start = performance.now();
-        function step(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const ease = 1 - Math.pow(1 - progress, 3);
-          const val = Math.floor(ease * target);
-          el.textContent = formatNum(val, fmt) + suffix;
-          if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = formatNum(target, fmt) + suffix;
-        }
-        requestAnimationFrame(step);
-      });
-    }
-    const statsSection = document.querySelector('.stats-grid');
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        animateCounters();
-        observer.disconnect();
-      }
-    }, { threshold: 0.3 });
-    observer.observe(statsSection);
-    </script>
-
-    <!-- CALLOUT -->
-    <div style="position:relative;">
-      <div class="callout">
-        <div class="callout-h">Potrzebujesz rozwiązania Auto ID lub infrastruktury IT dla swojej firmy?</div>
-        <div class="callout-sub">Nasi eksperci dobiorą technologię dopasowaną do Twojej branży i skali działalności.</div>
-        <a class="callout-btn" href="#">Skontaktuj się z ekspertem</a>
-      </div>
-    </div>
-
-    <!-- BLOG 4 col -->
-    <div class="sec">
-      <div class="con">
-        <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:28px;">
-          <div><div class="sec-eyebrow">Aktualności</div><div style="font-size:22px;font-weight:800;color:#1a1a1a;font-family:sans-serif;margin-top:6px;">Centrum wiedzy Kreski</div><div class="sec-line"></div></div>
-          <div style="margin-left:auto; height:8px; width:55px; background:#e30613; border-radius:2px; opacity:.7; align-self:center;"></div>
+        <!-- Przeznaczenie -->
+        <div style="border-bottom:1px solid #f0f0f0;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;cursor:pointer;">Przeznaczenie <span style="color:#ccc;font-size:10px;">▲</span></div>
+          <div style="padding:8px 16px 12px;">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Magazyn / WMS <span style="font-size:10px;color:#bbb;margin-left:auto;">61</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Retail / kasa <span style="font-size:10px;color:#bbb;margin-left:auto;">38</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Produkcja <span style="font-size:10px;color:#bbb;margin-left:auto;">29</span></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px;color:#555;font-family:sans-serif;cursor:pointer;"><div style="width:14px;height:14px;border-radius:2px;border:1.5px solid #ccc;flex-shrink:0;"></div> Ochrona zdrowia <span style="font-size:10px;color:#bbb;margin-left:auto;">14</span></div>
+          </div>
         </div>
-        <div class="blog-grid">
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="Terminale_Zebra_TC501_TC701.jpeg" alt="Terminale Zebra TC501 TC701"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">02.12.2025</div><div class="blog-title">Inteligentne terminale mobilne z obsługą AI — Zebra TC501 i TC701</div><div class="blog-excerpt">Grzegorz z Kresek rozpakowuje terminale mobilne Zebra TC501 i TC701, które bezpośrednio zastępują poprzednią generację urządzeń...</div></div></div>
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="Tablet_Zebra_ET401.jpeg" alt="Zebra ET401"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">02.12.2025</div><div class="blog-title">Zebra ET401 – tablet, który zmienia zasady gry w biznesie!</div><div class="blog-excerpt">Najnowszy tablet Zebra ET401 to mobilne centrum dowodzenia – wydajny, wytrzymały i gotowy na wyzwania nowoczesnego magazynu...</div></div></div>
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="certyfikat.png" alt="Certyfikat"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">31.10.2025</div><div class="blog-title">Diamentowy Certyfikat Rzetelności dla Kresek</div><div class="blog-excerpt">W świecie biznesu są nagrody, które mają szczególne znaczenie — nie za spektakularne kampanie, ale za codzienną rzetelność...</div></div></div>
-          <div class="blog-card"><div class="blog-img-w"><div class="blog-img"><img src="PGE_Projekt_Warszawa.jpg" alt="PGE Projekt Warszawa"></div><div class="blog-date"><div class="bdd"></div><div class="bdm"></div></div></div><div class="blog-body"><div class="blog-date-txt">26.08.2025</div><div class="blog-title">Kreski grają dalej z PGE Projektem Warszawa!</div><div class="blog-excerpt">Z wielką dumą ogłaszamy, że nasza firma w sezonie 2025/2026 kontynuuje współpracę z drużyną PGE Projekt Warszawa...</div></div></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- WYRÓŻNIENIA -->
-    <div style="background:#fff; border-top:1px solid #eee; border-bottom:1px solid #eee; padding:36px 0;">
-      <div class="con">
-        <div style="text-align:center; font-family:sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#aaa; margin-bottom:28px;">Nasze wyróżnienia</div>
-        <div style="display:flex; align-items:center; justify-content:center; gap:56px; flex-wrap:wrap;">
-          <a href="#" target="_blank">
-            <img src="https://aktywnybaner.rzetelnafirma.pl/ActiveBanner/GetActiveBannerImage/1/J6TJ7SCA" alt="Diamentowy Certyfikat Rzetelności 2025" style="height:80px; width:auto; object-fit:contain; display:block;">
+        <!-- Odporność (zwinięty) -->
+        <div style="border-bottom:1px solid #f0f0f0;cursor:pointer;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;">Odporność IP <span style="color:#ccc;font-size:10px;">▼</span></div>
+        </div>
+        <div style="cursor:pointer;">
+          <div style="padding:12px 16px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;display:flex;justify-content:space-between;">Kod kreskowy <span style="color:#ccc;font-size:10px;">▼</span></div>
+        </div>
+        <div style="padding:10px 16px;"><div style="font-size:8px;color:#aaa;font-family:sans-serif;font-style:italic;">* Filtry i producenci edytowalni z CMS</div></div>
+      </div>
+
+      <!-- PRODUKTY GRID -->
+      <div>
+        <!-- TOP BAR -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div style="font-size:12px;color:#666;font-family:sans-serif;"><strong>142</strong> produktów &nbsp;·&nbsp; Aktywne filtry: <span style="color:#e30613;font-weight:600;">Zebra, Newland, Skaner ręczny</span></div>
+          <select style="margin-left:auto;border:1.5px solid #e0e0e0;padding:6px 12px;font-size:11px;color:#555;font-family:sans-serif;background:white;">
+            <option>Sortuj: Popularność</option><option>Nazwa A–Z</option>
+          </select>
+          <div style="display:flex;gap:4px;">
+            <div style="width:30px;height:30px;border:1.5px solid #e30613;display:flex;align-items:center;justify-content:center;font-size:12px;color:#e30613;cursor:pointer;">⊞</div>
+            <div style="width:30px;height:30px;border:1.5px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa;cursor:pointer;">≡</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;position:relative;">
+              <img src="Zebra_DS2208.jpg" style="max-width:70%;max-height:70%;object-fit:contain;" onerror="this.style.display='none'">
+              <div style="position:absolute;top:8px;left:8px;background:#e30613;color:white;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;font-family:sans-serif;">Bestseller</div>
+            </div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">Zebra</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">Zebra DS2208 Skaner 1D/2D USB</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: DS2208-SR7U2100AZW</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">Przewodowy skaner 1D/2D do intensywnej eksploatacji w magazynie i retail. USB plug & play.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;display:flex;gap:8px;align-items:center;">
+              <button style="flex:1;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
           </a>
-          <a href="#" target="_blank">
-            <img src="https://www.kreski.pl/img/footer-logo-01.png" alt="GS1 Polska Partner Gold" style="height:80px; width:auto; object-fit:contain; display:block;">
+
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;font-size:10px;color:#ccc;font-family:sans-serif;">[zdjęcie]</div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">Honeywell</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">Honeywell Voyager 1452g Bezprzewodowy</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: 1452G2D-2USB-5</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">Bluetooth, zasięg 10m, bateria 14h. Baza ładująca w zestawie.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;">
+              <button style="width:100%;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
           </a>
-          <a href="#" target="_blank">
-            <img src="https://www.kreski.pl/edc_media/Manager/Gazele-2025-logo-cmyk.png" alt="Gazele Biznesu 2025" style="height:80px; width:auto; object-fit:contain; display:block;">
+
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;position:relative;font-size:10px;color:#ccc;font-family:sans-serif;">[zdjęcie]<div style="position:absolute;top:8px;left:8px;background:#1a1a1a;color:white;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;font-family:sans-serif;">Nowość</div></div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">Datalogic</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">Datalogic Gryphon GBT4500 Cordless</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: GBT4500-HBKK10EU</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">Bluetooth 2D, obsługa kodów na niskim kontraście i plastiku.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;">
+              <button style="width:100%;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
+          </a>
+
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;font-size:10px;color:#ccc;font-family:sans-serif;">[zdjęcie]</div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">Newland</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">Newland NLS-FR4080 Fixed Mount</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: FR4080-20</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">Stacjonarny 2D do linii produkcyjnej. Ultra szybki odczyt.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;">
+              <button style="width:100%;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
+          </a>
+
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;font-size:10px;color:#ccc;font-family:sans-serif;">[zdjęcie]</div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">Zebra</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">Zebra LI3608-ER Rugged Linear Imager</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: LI3608-SR10003VZWW</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">IP65, upadek z 2m. Long range 1D do magazynu wysokiego składowania.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;">
+              <button style="width:100%;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
+          </a>
+
+          <a href="produkt.html" style="text-decoration:none;background:white;border:1px solid #eee;display:flex;flex-direction:column;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)'" onmouseout="this.style.boxShadow='none'">
+            <div style="aspect-ratio:4/3;background:#f5f5f5;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #f0f0f0;font-size:10px;color:#ccc;font-family:sans-serif;">[zdjęcie]</div>
+            <div style="padding:14px;flex:1;display:flex;flex-direction:column;gap:5px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;font-family:sans-serif;">CipherLab</div>
+              <div style="font-size:13px;font-weight:700;color:#1a1a1a;font-family:sans-serif;line-height:1.35;">CipherLab 1000A Linear Imager USB</div>
+              <div style="font-size:10px;color:#aaa;font-family:sans-serif;">SKU: A1000RSU00001</div>
+              <div style="font-size:11px;color:#666;font-family:sans-serif;line-height:1.5;flex:1;">Ekonomiczny 1D do biura i magazynu. Plug & Play USB.</div>
+            </div>
+            <div style="padding:10px 14px;border-top:1px solid #f0f0f0;">
+              <button style="width:100%;height:34px;background:#e30613;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj o cenę</button>
+            </div>
           </a>
         </div>
+
+        <!-- PAGINACJA -->
+        <div style="display:flex;align-items:center;gap:4px;margin-top:28px;justify-content:center;">
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">‹</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e30613;background:#e30613;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:white;">1</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">2</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">3</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">…</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">12</div>
+          <div style="width:34px;height:34px;border:1.5px solid #e0e0e0;background:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:sans-serif;cursor:pointer;color:#555;">›</div>
+        </div>
       </div>
     </div>
-
     <!-- FOOTER -->
     <div style="position:relative;">
       <div class="footer">
@@ -1826,79 +1803,52 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
       </div><!-- /contact-layout -->
 
     </div><!-- /page-kontakt -->
-
-
+  </div>
+</div>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;display:flex;gap:0;border-top:2px solid #e30613;height:34px;align-items:center;">
+  <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;font-family:sans-serif;padding:0 14px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;">Wireframe v4</div>
+  <a href="index.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Strona główna</a>
+  <a href="kategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kategoria</a>
+  <a href="subkategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#e30613;background:#1a0000;">Subkategoria</a>
+  <a href="produkt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Karta produktu</a>
+  <a href="kontakt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kontakt</a>
+  
+  <span style="font-size:8px;color:#444;font-family:sans-serif;padding:0 16px;margin-left:auto;letter-spacing:.5px;">kreski.pl</span>
+</div>
 <script>
-// L1 — toggle panel on click
 function toggleNav(id) {
   var allNavItems = document.querySelectorAll('.nav-i');
   var panel = document.getElementById('panel-' + id);
   var navItem = document.getElementById('nav-' + id);
   var isOpen = navItem.classList.contains('open');
-
-  // Close all
   allNavItems.forEach(function(ni) { ni.classList.remove('open'); });
-
   if (!isOpen) {
     navItem.classList.add('open');
-
-    // Position dropdown panels under their nav-i (mega stays at left:0 via CSS)
     if (panel && panel.classList.contains('dropdown')) {
       var hdr = document.querySelector('.hdr');
       var navRect = navItem.getBoundingClientRect();
       var hdrRect = hdr.getBoundingClientRect();
       panel.style.left = (navRect.left - hdrRect.left) + 'px';
     }
-
-    // Auto-activate first L2 item if mega
     if (panel && panel.classList.contains('mega')) {
       var firstL2 = panel.querySelector('.l2-item');
-      if (firstL2) {
-        var firstId = firstL2.id.replace('l2-', '');
-        showL3(firstId);
-      }
+      if (firstL2) { var firstId = firstL2.id.replace('l2-', ''); showL3(firstId); }
     }
   }
 }
-
-// L2 — show L3 panel on hover
 function showL3(id) {
-  // Deactivate all L2
   document.querySelectorAll('.l2-item').forEach(function(el) { el.classList.remove('active'); });
-  // Hide all L3
   document.querySelectorAll('.l3-col').forEach(function(el) { el.classList.remove('active'); });
-  // Activate selected
   var l2 = document.getElementById('l2-' + id);
   var l3 = document.getElementById('l3-' + id);
   if (l2) l2.classList.add('active');
   if (l3) l3.classList.add('active');
 }
-
-// Close on outside click
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.nav-i') && !e.target.closest('.hdr-nav')) {
     document.querySelectorAll('.nav-i').forEach(function(ni) { ni.classList.remove('open'); });
   }
 });
-
-// Page switcher
-function showPage(id, btn) {
-  document.querySelectorAll('.page-view').forEach(function(p){ p.classList.remove('active'); });
-  document.querySelectorAll('.pg-btn').forEach(function(b){ b.classList.remove('active'); });
-  document.getElementById('page-' + id).classList.add('active');
-  if(btn) btn.classList.add('active');
-  window.scrollTo(0,0);
-}
-
-// Product tabs
-function switchTab(btn, tabId) {
-  btn.closest('.prod-tabs-section').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.closest('.prod-tabs-section').querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
-  btn.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
-}
-
-// Mobile accordion
 function toggleMob(id, el) {
   var sub = document.getElementById(id);
   var isOpen = sub.classList.contains('open');
@@ -1906,16 +1856,12 @@ function toggleMob(id, el) {
   document.querySelectorAll('.mob-nav-i').forEach(function(n){ n.classList.remove('active'); });
   if (!isOpen) { sub.classList.add('open'); el.classList.add('active'); }
 }
+function switchTab(btn, tabId) {
+  btn.closest('.prod-tabs-section').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.closest('.prod-tabs-section').querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
 </script>
-<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;display:flex;gap:0;border-top:2px solid #e30613;height:34px;align-items:center;">
-  <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;font-family:sans-serif;padding:0 14px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;">Wireframe v4</div>
-  <a href="index.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#e30613;background:#1a0000;">Strona główna</a>
-  <a href="kategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kategoria</a>
-  <a href="subkategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Subkategoria</a>
-  <a href="produkt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Karta produktu</a>
-  <a href="kontakt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kontakt</a>
-  
-  <span style="font-size:8px;color:#444;font-family:sans-serif;padding:0 16px;margin-left:auto;letter-spacing:.5px;">kreski.pl</span>
-</div>
 </body>
 </html>
