@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karta produktu — Zebra DS2208 | Kreski.pl | Low-Fi Wireframe</title>
+<title>Karta produktu — Zebra DS2208 — Kreski.pl | Low-Fi Wireframe</title>
 <style>
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -490,25 +490,20 @@ body { padding-bottom: 34px; }
 .bc-link:hover { color:#e30613; }
 
 
-/* Accordion inquiry form */
 .inquiry-wrap { margin-bottom:24px; }
-.inquiry-form { display:none; margin-top:0; overflow:hidden; border:2px solid #e30613; border-top:none; border-radius:0 0 8px 8px; background:#fff; padding:20px 22px 22px; }
-.inquiry-form.open { display:block; animation:slideDown .25s ease; }
-@keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
-.btn-primary { border-radius:6px; transition:border-radius .25s; background:#e30613; color:#fff; border:none; padding:14px 28px; font-size:13px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; width:100%; }
+.inquiry-form { display:none; overflow:hidden; border:2px solid #e30613; border-top:none; border-radius:0 0 8px 8px; background:#fff; padding:20px 22px 22px; }
+.inquiry-form.open { display:block; }
+.btn-primary { border-radius:6px; background:#e30613; color:#fff; border:none; padding:14px 28px; font-size:13px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; width:100%; }
 .btn-primary.active { border-radius:6px 6px 0 0; }
 .btn-secondary { background:#fff; color:#333; border:2px solid #ddd; border-radius:6px; padding:12px 28px; font-size:13px; font-weight:600; font-family:sans-serif; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:8px; }
 .inq-row { display:flex; gap:12px; margin-bottom:10px; }
 .inq-field { display:flex; flex-direction:column; flex:1; gap:4px; }
 .inq-field label { font-size:11px; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:.8px; font-family:sans-serif; }
-.inq-field input, .inq-field textarea, .inq-field select { padding:9px 12px; border:1px solid #ddd; border-radius:5px; font-size:13px; font-family:sans-serif; outline:none; width:100%; resize:none; }
-.inq-field input:focus, .inq-field textarea:focus { border-color:#e30613; }
-.inq-subject { background:#fff8f8; border-color:#f5c0c0 !important; color:#c00; font-weight:600; }
+.inq-field input, .inq-field textarea { padding:9px 12px; border:1px solid #ddd; border-radius:5px; font-size:13px; font-family:sans-serif; outline:none; width:100%; resize:none; box-sizing:border-box; }
 .inq-actions { display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
 .inq-rodo { font-size:10px; color:#aaa; line-height:1.5; font-family:sans-serif; flex:1; margin-right:16px; }
 .inq-rodo a { color:#e30613; }
 .inq-submit { background:#e30613; color:#fff; border:none; border-radius:6px; padding:11px 24px; font-size:12px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; white-space:nowrap; }
-/* Product page specific */
 .product-main { padding:40px 0 48px; }
 .product-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
 .gallery-main { aspect-ratio:4/3; background:#f4f4f4; border:1px solid #e8e8e8; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; overflow:hidden; }
@@ -535,8 +530,8 @@ body { padding-bottom: 34px; }
 .dl-name { flex:1; }
 .dl-link { font-size:11px; color:#e30613; font-weight:700; text-decoration:none; }
 .tabs-section { border-top:3px solid #f0f0f0; padding:40px 0; }
-.tabs-nav { display:flex; gap:0; border-bottom:2px solid #e8e8e8; margin-bottom:32px; }
-.tab-btn { padding:12px 28px; font-size:13px; font-weight:700; font-family:sans-serif; color:#888; border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px; }
+.tabs-nav { display:flex; border-bottom:2px solid #e8e8e8; margin-bottom:32px; overflow-x:auto; }
+.tab-btn { padding:12px 24px; font-size:13px; font-weight:700; font-family:sans-serif; color:#888; border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px; white-space:nowrap; }
 .tab-btn.active { color:#e30613; border-bottom-color:#e30613; }
 .tab-content { font-family:sans-serif; font-size:14px; color:#555; line-height:1.8; display:none; }
 .tab-content.active { display:block; }
@@ -545,12 +540,23 @@ body { padding-bottom: 34px; }
 .spec-full td { padding:10px 16px; font-size:13px; }
 .spec-full td:first-child { color:#666; width:35%; background:#fafafa; font-weight:500; }
 .spec-full td:last-child { color:#222; }
+/* SKU table */
+.sku-module { background:#f8f8f8; border:1px solid #e8e8e8; border-radius:6px; overflow:hidden; }
+.sku-module-h { background:#1a1a1a; padding:10px 16px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:white; font-family:sans-serif; }
+.sku-tbl { width:100%; border-collapse:collapse; font-family:sans-serif; font-size:12px; }
+.sku-tbl th { background:#e30613; color:white; padding:8px 12px; text-align:left; font-size:10px; font-weight:700; letter-spacing:.5px; }
+.sku-tbl td { padding:8px 12px; border-bottom:1px solid #eee; color:#444; vertical-align:middle; }
+.sku-tbl tr:last-child td { border-bottom:none; }
+.sku-tbl tr.selected td { background:#fff8f8; }
+.sku-radio { accent-color:#e30613; width:15px; height:15px; cursor:pointer; }
+.sku-note { font-size:9px; color:#aaa; font-family:sans-serif; padding:8px 12px; font-style:italic; border-top:1px solid #f0f0f0; }
 .related-section { background:#f9f9f9; border-top:1px solid #eee; padding:48px 0; }
 .section-header { text-align:center; margin-bottom:32px; }
 .section-eyebrow { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; font-family:sans-serif; margin-bottom:8px; }
 .section-title { font-size:24px; font-weight:800; color:#111; font-family:sans-serif; }
 .products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
 .prod-card { background:white; border:1px solid #eee; border-radius:8px; overflow:hidden; }
+.prod-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.1); }
 .prod-card-img { aspect-ratio:1; background:#f4f4f4; display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .prod-card-img img { width:80%; height:80%; object-fit:contain; }
 .prod-card-body { padding:14px 16px; }
@@ -560,16 +566,14 @@ body { padding-bottom: 34px; }
 @media (max-width:768px) {
   .product-grid { grid-template-columns:1fr; gap:28px; }
   .products-grid { grid-template-columns:1fr 1fr; }
-  .tabs-nav { overflow-x:auto; }
 }
 
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="ptitle">Kreski.pl — Low-Fi Wireframe v4 &nbsp;/&nbsp; Karta produktu</div>
+  <div class="ptitle">Kreski.pl — Low-Fi Wireframe v4 &nbsp;/&nbsp; Karta produktu — Zebra DS2208</div>
   <div class="canvas">
-
     <!-- HEADER -->
     <div style="position:relative;">
       <div class="hdr">
@@ -924,8 +928,8 @@ body { padding-bottom: 34px; }
         <div class="mob-nav-i" style="color:#e30613;">Kontakt</div>
         <div class="mob-tel">+48 789 868 803</div>
       </div>
-
     <div class="bc"><div style="max-width:1170px;margin:0 auto;padding:0 20px;"><div class="bc-inner"><a href="index.html" class="bc-link">Strona główna</a> <span class="bc-sep">›</span> <a href="kategoria.html" class="bc-link">AUTO ID</a> <span class="bc-sep">›</span> <a href="subkategoria.html" class="bc-link">Czytniki kodów</a> <span class="bc-sep">›</span> <span class="bc-cur">Zebra DS2208</span></div></div></div>
+    
     <!-- PRODUCT MAIN -->
     <div class="product-main">
       <div class="con">
@@ -946,12 +950,11 @@ body { padding-bottom: 34px; }
 
           <!-- PRODUCT INFO -->
           <div>
-            <div class="prod-category">Skanery kodów kreskowych</div>
+            <div class="prod-category">Czytniki kodów kreskowych</div>
             <div class="prod-name">Zebra DS2208</div>
             <div class="prod-sku">SKU: DS2208-SR7U2100AZW &nbsp;|&nbsp; Kod producenta: DS2208</div>
             <div class="prod-short">Przewodowy skaner 1D/2D przeznaczony do intensywnej eksploatacji w punktach sprzedaży, logistyce i obsłudze magazynowej. Obsługuje kody kreskowe 1D, 2D oraz kody QR z ekranów telefonów.</div>
 
-            <!-- KEY SPECS -->
             <table class="spec-table">
               <tr><td>Typ skanera</td><td>Prezentacyjny / ręczny</td></tr>
               <tr><td>Kody kreskowe</td><td>1D, 2D, QR, PDF417</td></tr>
@@ -960,30 +963,20 @@ body { padding-bottom: 34px; }
               <tr><td>Dostępność</td><td style="color:#27ae60; font-weight:700;">Na stanie</td></tr>
             </table>
 
-            <!-- ACTIONS -->
             <div class="prod-actions">
               <div class="inquiry-wrap">
-                <button class="btn-primary" id="inquiryBtn" onclick="toggleInquiry()">&#128231; &nbsp;Zapytaj o produkt</button>
+                <button class="btn-primary" id="inquiryBtn" onclick="toggleInquiry()">&#9993; &nbsp;Zapytaj o produkt</button>
                 <div class="inquiry-form" id="inquiryForm">
                   <div class="inq-row">
-                    <div class="inq-field">
-                      <label>Imię i nazwisko *</label>
-                      <input type="text" placeholder="Jan Kowalski">
-                    </div>
+                    <div class="inq-field"><label>Imię i nazwisko *</label><input type="text" placeholder="Jan Kowalski"></div>
                   </div>
                   <div class="inq-row">
-                    <div class="inq-field">
-                      <label>E-mail *</label>
-                      <input type="email" placeholder="jan@firma.pl">
-                    </div>
-                    <div class="inq-field">
-                      <label>Telefon</label>
-                      <input type="tel" placeholder="+48 000 000 000">
-                    </div>
+                    <div class="inq-field"><label>E-mail *</label><input type="email" placeholder="jan@firma.pl"></div>
+                    <div class="inq-field"><label>Telefon</label><input type="tel" placeholder="+48 000 000 000"></div>
                   </div>
                   <div class="inq-field" style="margin-bottom:10px;">
                     <label>Temat zapytania</label>
-                    <input type="text" class="inq-subject" id="inquirySubject" value="Zapytanie o produkt: Zebra DS2208" readonly>
+                    <input type="text" style="background:#fff8f8;border-color:#f5c0c0;color:#c00;font-weight:600;" value="Zapytanie o produkt: Zebra DS2208" readonly>
                   </div>
                   <div class="inq-field">
                     <label>Treść wiadomości</label>
@@ -993,7 +986,7 @@ body { padding-bottom: 34px; }
                     <div class="inq-rodo">
                       <label style="display:flex;gap:6px;align-items:flex-start;">
                         <input type="checkbox" style="margin-top:2px;flex-shrink:0;accent-color:#e30613;">
-                        <span>Wyrażam zgodę na przetwarzanie danych przez Kreski Sp. J., ul. Mory 12, 01-303 Warszawa. <a href="#">Polityka prywatności</a>.</span>
+                        <span>Wyrażam zgodę na przetwarzanie danych przez Kreski Sp. J. <a href="#">Polityka prywatności</a>.</span>
                       </label>
                     </div>
                     <button class="inq-submit">Wyślij zapytanie →</button>
@@ -1006,32 +999,11 @@ body { padding-bottom: 34px; }
               </button>
             </div>
 
-            <!-- DOWNLOADS -->
             <div class="downloads-box">
               <div class="downloads-title">Materiały do pobrania</div>
-              <div class="download-item">
-                <div class="dl-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <div class="dl-name">Karta katalogowa DS2208</div>
-                <a href="#" class="dl-link">Pobierz PDF</a>
-              </div>
-              <div class="download-item">
-                <div class="dl-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <div class="dl-name">Instrukcja obsługi (EN)</div>
-                <a href="#" class="dl-link">Pobierz PDF</a>
-              </div>
-              <div class="download-item">
-                <div class="dl-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </div>
-                <div class="dl-name">Karta gwarancyjna</div>
-                <a href="#" class="dl-link">Pobierz PDF</a>
-              </div>
+              <div class="download-item"><div class="dl-icon"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dl-name">Karta katalogowa DS2208</div><a href="#" class="dl-link">Pobierz PDF</a></div>
+              <div class="download-item"><div class="dl-icon"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dl-name">Instrukcja obsługi (EN)</div><a href="#" class="dl-link">Pobierz PDF</a></div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1040,23 +1012,114 @@ body { padding-bottom: 34px; }
     <!-- TABS -->
     <div class="tabs-section">
       <div class="con">
-        <div class="tabs-nav">
-          <button class="tab-btn active">Opis produktu</button>
-          <button class="tab-btn">Specyfikacja techniczna</button>
-          <button class="tab-btn">Pliki do pobrania</button>
-        </div>
-        <div class="tab-content">
-          <h3>O produkcie</h3>
-          <p>Zebra DS2208 to niezawodny skaner obrazowy przeznaczony do intensywnego użytkowania w środowiskach detalicznych, logistycznych i magazynowych. Dzięki technologii CMOS obsługuje wszystkie popularne kody jednowymiarowe (1D) oraz dwuwymiarowe (2D), w tym QR Code, Data Matrix i PDF417.</p>
-          <h3>Zastosowania</h3>
-          <p>Punkt sprzedaży (POS) &nbsp;·&nbsp; Obsługa klienta &nbsp;·&nbsp; Weryfikacja paczek &nbsp;·&nbsp; Przyjęcie i wydanie towaru &nbsp;·&nbsp; Skanowanie kodów z ekranów telefonów (e-bilety, kupony)</p>
-          <h3>Dlaczego Zebra DS2208?</h3>
-          <p>Autoryzowany serwis Zebra w Polsce — Kreski oferuje pełną obsługę gwarancyjną i pogwarancyjną, urządzenia zastępcze na czas naprawy oraz umowy serwisowe SLA.</p>
-        </div>
+        <div class="tabs-wrap">
+          <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(this,'tab-opis')">Opis produktu</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-sku')">SKU / Warianty</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-spec')">Specyfikacja techniczna</button>
+            <button class="tab-btn" onclick="switchTab(this,'tab-dokumenty')">Pliki do pobrania</button>
+          </div>
+
+          <div class="tab-content active" id="tab-opis">
+            <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:12px;font-family:sans-serif;">O produkcie</h3>
+            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;margin-bottom:14px;">Zebra DS2208 to niezawodny skaner obrazowy przeznaczony do intensywnego użytkowania w środowiskach detalicznych, logistycznych i magazynowych. Dzięki technologii CMOS obsługuje wszystkie popularne kody 1D oraz 2D, w tym QR Code, Data Matrix i PDF417.</p>
+            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;margin-bottom:14px;"><strong style="color:#111;">Zastosowania:</strong> Punkt sprzedaży (POS) · Obsługa klienta · Weryfikacja paczek · Przyjęcie i wydanie towaru · Skanowanie kodów z ekranów telefonów</p>
+            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;">Kreski.pl oferuje pełną obsługę gwarancyjną i pogwarancyjną, urządzenia zastępcze na czas naprawy oraz umowy serwisowe SLA.</p>
+          </div>
+
+          <div class="tab-content" id="tab-sku">
+            <div style="margin-bottom:20px;">
+              <p style="font-size:13px;color:#666;font-family:sans-serif;line-height:1.7;margin-bottom:16px;">Produkt dostępny w kilku wariantach (Part Numbers). Każdy wariant różni się interfejsem, kolorem lub zestawem akcesoriów — <strong style="color:#1a1a1a;">nie generują osobnych URL-i</strong>. Wybór wariantu aktualizuje tylko SKU w zapytaniu.</p>
+              <div class="sku-module">
+                <div class="sku-module-h">Wybierz wariant — Part Number</div>
+                <table class="sku-tbl">
+                  <thead>
+                    <tr>
+                      <th style="width:36px;"></th>
+                      <th>Part Number / SKU</th>
+                      <th>Interfejs</th>
+                      <th>Kolor</th>
+                      <th>W zestawie</th>
+                      <th>Uwagi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="selected">
+                      <td><input type="radio" class="sku-radio" name="sku" checked></td>
+                      <td style="font-family:monospace;font-size:11px;font-weight:700;">DS2208-SR7U2100AZW</td>
+                      <td>USB</td>
+                      <td>Czarny</td>
+                      <td>Kabel USB 2m</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td><input type="radio" class="sku-radio" name="sku"></td>
+                      <td style="font-family:monospace;font-size:11px;">DS2208-SR7U2100EZW</td>
+                      <td>USB</td>
+                      <td>Biały</td>
+                      <td>Kabel USB 2m</td>
+                      <td>Wersja retail</td>
+                    </tr>
+                    <tr>
+                      <td><input type="radio" class="sku-radio" name="sku"></td>
+                      <td style="font-family:monospace;font-size:11px;">DS2208-SRBU2100SGW</td>
+                      <td>RS-232</td>
+                      <td>Czarny</td>
+                      <td>Zasilacz, kabel RS</td>
+                      <td>Do starszych kas</td>
+                    </tr>
+                    <tr>
+                      <td><input type="radio" class="sku-radio" name="sku"></td>
+                      <td style="font-family:monospace;font-size:11px;">DS2208-SR7U2100SGW</td>
+                      <td>USB</td>
+                      <td>Czarny</td>
+                      <td>Kabel USB, stojak</td>
+                      <td>Kit z podstawką</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="sku-note">* Warianty edytowalne z poziomu CMS. Wybór wariantu nie zmienia URL strony — jeden produkt, wiele Part Numbers.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-spec">
+            <table class="spec-full" style="max-width:760px;">
+              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Parametry skanowania</td></tr>
+              <tr><td>Technologia</td><td>CMOS 2D Imager</td></tr>
+              <tr><td>Obsługiwane kody</td><td>1D, 2D, QR Code, DataMatrix, PDF417, Aztec</td></tr>
+              <tr><td>Głębokość pola</td><td>0–25 cm</td></tr>
+              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Elektryczne</td></tr>
+              <tr><td>Interfejs</td><td>USB, RS-232, IBM, OPOS/JPOS</td></tr>
+              <tr><td>Zasilanie</td><td>5V DC przez hosta</td></tr>
+              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Mechaniczne</td></tr>
+              <tr><td>Wymiary</td><td>155 × 97 × 83 mm</td></tr>
+              <tr><td>Waga</td><td>312 g</td></tr>
+              <tr><td>Temperatura pracy</td><td>0°C do +40°C</td></tr>
+              <tr><td>Certyfikaty</td><td>CE, FCC, UL, RoHS, IP52</td></tr>
+            </table>
+          </div>
+
+          <div class="tab-content" id="tab-dokumenty">
+            <div style="display:flex;flex-direction:column;gap:10px;max-width:500px;">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
+                <div style="width:32px;height:32px;background:#e30613;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Karta katalogowa DS2208</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">2.4 MB</div></div>
+                <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;font-weight:700;">Pobierz</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
+                <div style="width:32px;height:32px;background:#555;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
+                <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Instrukcja obsługi (EN)</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">8.1 MB</div></div>
+                <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;font-weight:700;">Pobierz</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tabs-wrap -->
       </div>
     </div>
 
-    <!-- RELATED PRODUCTS -->
+    <!-- RELATED -->
     <div class="related-section">
       <div class="con">
         <div class="section-header">
@@ -1064,41 +1127,26 @@ body { padding-bottom: 34px; }
           <div class="section-title">Może Cię zainteresować</div>
         </div>
         <div class="products-grid">
-          <div class="prod-card">
+          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
             <div class="prod-card-img"><img src="Sekcja_1__Drukarki_Skanery.jpeg" alt=""></div>
-            <div class="prod-card-body">
-              <div class="prod-card-cat">Skanery</div>
-              <div class="prod-card-name">Zebra DS9308 — Skaner prezentacyjny</div>
-              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
-            </div>
-          </div>
-          <div class="prod-card">
+            <div class="prod-card-body"><div class="prod-card-cat">Skanery</div><div class="prod-card-name">Zebra DS9308 — Skaner prezentacyjny</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
+          </a>
+          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
             <div class="prod-card-img"><img src="Terminale_Zebra_TC501_TC701.jpeg" alt=""></div>
-            <div class="prod-card-body">
-              <div class="prod-card-cat">Terminale mobilne</div>
-              <div class="prod-card-name">Zebra TC52 — Terminal mobilny Android</div>
-              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
-            </div>
-          </div>
-          <div class="prod-card">
+            <div class="prod-card-body"><div class="prod-card-cat">Terminale mobilne</div><div class="prod-card-name">Zebra TC52 — Terminal mobilny Android</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
+          </a>
+          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
             <div class="prod-card-img"><img src="Tablet_Zebra_ET401.jpeg" alt=""></div>
-            <div class="prod-card-body">
-              <div class="prod-card-cat">Tablety przemysłowe</div>
-              <div class="prod-card-name">Zebra ET401 — Tablet Android 10"</div>
-              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
-            </div>
-          </div>
-          <div class="prod-card">
+            <div class="prod-card-body"><div class="prod-card-cat">Tablety przemysłowe</div><div class="prod-card-name">Zebra ET401 — Tablet Android 10"</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
+          </a>
+          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
             <div class="prod-card-img" style="background:#f0f0f0;"></div>
-            <div class="prod-card-body">
-              <div class="prod-card-cat">Drukarki etykiet</div>
-              <div class="prod-card-name">Zebra ZD421 — Drukarka biurkowa</div>
-              <a href="#" class="prod-card-btn">Zapytaj o produkt →</a>
-            </div>
-          </div>
+            <div class="prod-card-body"><div class="prod-card-cat">Drukarki etykiet</div><div class="prod-card-name">Zebra ZD421 — Drukarka biurkowa</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
+          </a>
         </div>
       </div>
     </div>
+
     <!-- FOOTER -->
     <div style="position:relative;">
       <div class="footer">
@@ -1175,684 +1223,9 @@ body { padding-bottom: 34px; }
 
   </div>
 </div>
-    </div><!-- /page-home -->
-
-    <!-- ===== PAGE: KATEGORIA ===== -->
-    <div class="page-view" id="page-kategoria">
-
-      <!-- Shared header block is rendered above, same hdr + floating -->
-
-      <!-- BREADCRUMB -->
-      <div class="bc">
-        <div class="bc-inner">
-          <span class="bc-link">Strona główna</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-cur">AUTO ID — Sprzęt do automatycznej identyfikacji</span>
-        </div>
-      </div>
-
-      <!-- PAGE HERO -->
-      <div class="pg-hero">
-        <div class="pg-hero-inner">
-          <div>
-            <div class="pg-hero-breadcrumb">Kategoria produktów</div>
-            <h1>AUTO ID — Sprzęt do automatycznej identyfikacji</h1>
-            <p class="pg-hero-sub">Czytniki kodów, drukarki etykiet, terminale mobilne, RFID i systemy wizyjne. Pełna gama urządzeń Auto ID od wiodących producentów — Zebra, Honeywell, Datalogic, TSC.</p>
-          </div>
-          <div class="pg-hero-meta">
-            <div style="font-size:24px;font-weight:800;color:#e30613;font-family:sans-serif;">11</div>
-            <div style="font-size:11px;color:#aaa;font-family:sans-serif;">podkategorii</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SUBKATEGORIE GRID -->
-      <div style="max-width:1170px;margin:0 auto;padding:36px 20px 0;">
-        <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;margin-bottom:20px;">Wybierz podkategorię</div>
-        <div class="subcat-grid">
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 8h10M7 12h6"/></svg></div>
-            <div class="subcat-name">Czytniki kodów kreskowych</div>
-            <div class="subcat-count">142 produkty</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-            <div class="subcat-name">Drukarki etykiet</div>
-            <div class="subcat-count">98 produktów</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="10" rx="2"/><path d="M7 17h.01M12 17h.01M17 17h.01"/></svg></div>
-            <div class="subcat-name">Drukarki kart</div>
-            <div class="subcat-count">24 produkty</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
-            <div class="subcat-name">Terminale przenośne</div>
-            <div class="subcat-count">67 produktów</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg></div>
-            <div class="subcat-name">Terminale wózkowe</div>
-            <div class="subcat-count">19 produktów</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
-            <div class="subcat-name">RFID</div>
-            <div class="subcat-count">41 produktów</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M3 12h2M19 12h2M12 3v2M12 19v2"/></svg></div>
-            <div class="subcat-name">Systemy wizyjne</div>
-            <div class="subcat-count">33 produkty</div>
-          </a>
-          <a class="subcat-card" href="#">
-            <div class="subcat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4l3 3"/></svg></div>
-            <div class="subcat-name">Weryfikatory cen</div>
-            <div class="subcat-count">12 produktów</div>
-          </a>
-        </div>
-      </div>
-
-      <!-- SEO TEXT + CTA -->
-      <div style="max-width:1170px;margin:24px auto 0;padding:0 20px 48px;display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;">
-        <div>
-          <div style="font-size:12px;color:#666;font-family:sans-serif;line-height:1.8;max-width:700px;">
-            <p style="margin-bottom:12px;">Technologie Auto ID (automatycznej identyfikacji) to systemy służące do automatycznego odczytu, rejestracji i przetwarzania danych — w formie kodów kreskowych, RFID, systemów wizyjnych i innych. W Kreski.pl oferujemy pełen przekrój urządzeń do każdej branży i skali działalności.</p>
-            <p>Nasi eksperci doradzą w doborze odpowiedniego rozwiązania — od testów i pilotażu, przez dostawę i konfigurację, aż po autoryzowany serwis pogwarancyjny.</p>
-          </div>
-        </div>
-        <div style="background:#f4f4f4;border:1px solid #e0e0e0;padding:20px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;margin-bottom:12px;">Potrzebujesz doradztwa?</div>
-          <div style="font-size:13px;color:#e30613;font-weight:700;font-family:sans-serif;margin-bottom:4px;">+48 789 868 803</div>
-          <div style="font-size:11px;color:#888;font-family:sans-serif;margin-bottom:14px;">Pon–Pt 8:00–17:00</div>
-          <button style="width:100%;height:38px;background:#1a1a1a;color:white;border:none;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Zapytaj eksperta</button>
-        </div>
-      </div>
-
-    </div><!-- /page-kategoria -->
-
-    <!-- ===== PAGE: SUBKATEGORIA ===== -->
-    <div class="page-view" id="page-subkategoria">
-
-      <!-- BREADCRUMB -->
-      <div class="bc">
-        <div class="bc-inner">
-          <span class="bc-link">Strona główna</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-link">AUTO ID</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-cur">Czytniki kodów kreskowych</span>
-        </div>
-      </div>
-
-      <!-- PAGE HERO -->
-      <div class="pg-hero">
-        <div class="pg-hero-inner">
-          <div>
-            <div class="pg-hero-breadcrumb">Podkategoria → AUTO ID</div>
-            <h1>Czytniki kodów kreskowych</h1>
-            <p class="pg-hero-sub">Skanery 1D i 2D, czytniki QR, urządzenia przewodowe, bezprzewodowe i prezentacyjne. Do magazynu, retail i produkcji. Zebra, Honeywell, Datalogic, Newland.</p>
-          </div>
-          <div class="pg-hero-meta">
-            <div style="font-size:24px;font-weight:800;color:#e30613;font-family:sans-serif;">142</div>
-            <div style="font-size:11px;color:#aaa;font-family:sans-serif;">produktów</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- LAYOUT: FILTRY + GRID -->
-      <div class="cat-layout">
-
-        <!-- FILTRY SIDEBAR -->
-        <div class="filter-panel">
-
-          <div style="padding:12px 16px;background:#1a1a1a;display:flex;align-items:center;justify-content:space-between;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;font-family:sans-serif;">Filtry</div>
-            <div style="font-size:9px;color:#e30613;font-family:sans-serif;cursor:pointer;">Wyczyść wszystkie</div>
-          </div>
-
-          <!-- Filter: Producent -->
-          <div class="filter-group">
-            <div class="filter-group-h">Producent <span class="fg-arr">▲</span></div>
-            <div class="filter-body">
-              <input class="filter-search" placeholder="Szukaj producenta...">
-              <div class="filter-item"><div class="fcheck on"></div> Zebra <span class="filter-count">48</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Honeywell <span class="filter-count">31</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Datalogic <span class="filter-count">24</span></div>
-              <div class="filter-item"><div class="fcheck on"></div> Newland <span class="filter-count">18</span></div>
-              <div class="filter-item"><div class="fcheck"></div> CipherLab <span class="filter-count">12</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Champtek <span class="filter-count">9</span></div>
-            </div>
-          </div>
-
-          <!-- Filter: Typ -->
-          <div class="filter-group">
-            <div class="filter-group-h">Typ skanera <span class="fg-arr">▲</span></div>
-            <div class="filter-body">
-              <div class="filter-item"><div class="fcheck on"></div> Skaner ręczny 1D/2D <span class="filter-count">67</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Skaner prezentacyjny <span class="filter-count">22</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Skaner wbudowany <span class="filter-count">15</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Czytnik QR stacjonarny <span class="filter-count">11</span></div>
-            </div>
-          </div>
-
-          <!-- Filter: Łączność -->
-          <div class="filter-group">
-            <div class="filter-group-h">Łączność <span class="fg-arr">▲</span></div>
-            <div class="filter-body">
-              <div class="filter-item"><div class="fcheck"></div> USB (kabel) <span class="filter-count">89</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Bluetooth <span class="filter-count">54</span></div>
-              <div class="filter-item"><div class="fcheck"></div> WiFi 802.11 <span class="filter-count">31</span></div>
-              <div class="filter-item"><div class="fcheck"></div> RS-232 <span class="filter-count">18</span></div>
-            </div>
-          </div>
-
-          <!-- Filter: Przeznaczenie -->
-          <div class="filter-group">
-            <div class="filter-group-h">Przeznaczenie <span class="fg-arr">▲</span></div>
-            <div class="filter-body">
-              <div class="filter-item"><div class="fcheck"></div> Magazyn / WMS <span class="filter-count">61</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Retail / kasa <span class="filter-count">38</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Produkcja <span class="filter-count">29</span></div>
-              <div class="filter-item"><div class="fcheck"></div> Ochrona zdrowia <span class="filter-count">14</span></div>
-            </div>
-          </div>
-
-          <!-- Filter: Stopień ochrony -->
-          <div class="filter-group">
-            <div class="filter-group-h">Odporność <span class="fg-arr">▼</span></div>
-          </div>
-
-          <!-- Filter: Kod kreskowy -->
-          <div class="filter-group">
-            <div class="filter-group-h">Kod kreskowy <span class="fg-arr">▼</span></div>
-          </div>
-
-          <div style="padding:12px 16px;">
-            <div style="font-size:8px;color:#aaa;font-family:sans-serif;font-style:italic;">* Filtry edytowalne z poziomu CMS (producentów i parametrów)</div>
-          </div>
-        </div>
-
-        <!-- PRODUKT GRID -->
-        <div>
-          <!-- TOP BAR -->
-          <div class="listing-bar">
-            <div class="listing-count"><strong>142</strong> produktów · Aktywne filtry: <span style="color:#e30613;font-weight:600;">Zebra, Newland, Skaner ręczny</span></div>
-            <select class="listing-sort">
-              <option>Sortuj: Popularność</option>
-              <option>Cena: rosnąco</option>
-              <option>Nazwa A–Z</option>
-            </select>
-            <div class="listing-view-btns">
-              <div class="view-btn on">⊞</div>
-              <div class="view-btn">≡</div>
-            </div>
-          </div>
-
-          <div class="prod-grid">
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <img src="https://www.kreski.pl/media/2024/zebra-ds9308-skaner-ladowarka.jpg" alt="Zebra DS9308" onerror="this.style.display='none'">
-                <div class="prod-badge">Bestseller</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">Zebra</div>
-                <div class="prod-name">Zebra DS9308 Skaner prezentacyjny 1D/2D</div>
-                <div class="prod-sku">SKU: DS9308-SR4U2100AZE</div>
-                <div class="prod-desc">Kompaktowy skaner omnidirectional do kasy i obsługi klienta. Odczyt 1D, 2D, PDF417, kodów na ekranach telefonów.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#ccc;font-family:sans-serif;">[zdjęcie produktu]</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">Honeywell</div>
-                <div class="prod-name">Honeywell Voyager 1452g Bezprzewodowy</div>
-                <div class="prod-sku">SKU: 1452G2D-2USB-5</div>
-                <div class="prod-desc">Skaner bezprzewodowy Bluetooth z bazą ładującą. Zasięg do 10m, czas pracy na baterii 14h.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#ccc;font-family:sans-serif;">[zdjęcie produktu]</div>
-                <div class="prod-badge" style="background:#1a1a1a;">Nowość</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">Datalogic</div>
-                <div class="prod-name">Datalogic Gryphon GBT4500 Cordless 2D</div>
-                <div class="prod-sku">SKU: GBT4500-HBKK10EU</div>
-                <div class="prod-desc">Skaner z Bluetooth i stacją bazą. Obsługa kodów 2D na niskim kontraście i plastikowych powierzchniach.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#ccc;font-family:sans-serif;">[zdjęcie produktu]</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">Zebra</div>
-                <div class="prod-name">Zebra LI3608-ER Rugged Linear Imager</div>
-                <div class="prod-sku">SKU: LI3608-SR10003VZWW</div>
-                <div class="prod-desc">Wzmocniony skaner do odczytu kodów 1D z długiego dystansu. IP65, odporność na upadek z 2m.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#ccc;font-family:sans-serif;">[zdjęcie produktu]</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">Newland</div>
-                <div class="prod-name">Newland NLS-FR4080 Fixed Mount</div>
-                <div class="prod-sku">SKU: FR4080-20</div>
-                <div class="prod-desc">Skaner stacjonarny do linii produkcyjnej. Ultra szybki odczyt 2D, do zabudowania w przenośnik.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-            <div class="prod-card">
-              <div class="prod-img">
-                <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#ccc;font-family:sans-serif;">[zdjęcie produktu]</div>
-              </div>
-              <div class="prod-body">
-                <div class="prod-brand">CipherLab</div>
-                <div class="prod-name">CipherLab 1000A Linear Imager USB</div>
-                <div class="prod-sku">SKU: A1000RSU00001</div>
-                <div class="prod-desc">Ekonomiczny skaner 1D do prostych zastosowań biurowych i magazynowych. Plug & Play USB.</div>
-              </div>
-              <div class="prod-footer">
-                <button class="prod-btn">Zapytaj o cenę</button>
-                <div class="prod-btn-out">♡</div>
-              </div>
-            </div>
-
-          </div><!-- /prod-grid -->
-
-          <!-- PAGINACJA -->
-          <div class="pagination">
-            <div class="pg-n">‹</div>
-            <div class="pg-n on">1</div>
-            <div class="pg-n">2</div>
-            <div class="pg-n">3</div>
-            <div class="pg-n">…</div>
-            <div class="pg-n">12</div>
-            <div class="pg-n">›</div>
-          </div>
-
-        </div><!-- /prod-col -->
-      </div><!-- /cat-layout -->
-
-    </div><!-- /page-subkategoria -->
-
-    <!-- ===== PAGE: KARTA PRODUKTU ===== -->
-    <div class="page-view" id="page-produkt">
-
-      <!-- BREADCRUMB -->
-      <div class="bc">
-        <div class="bc-inner">
-          <span class="bc-link">Strona główna</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-link">AUTO ID</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-link">Czytniki kodów kreskowych</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-cur">Zebra DS9308 Skaner prezentacyjny 1D/2D</span>
-        </div>
-      </div>
-
-      <!-- PRODUKT GŁÓWNY -->
-      <div class="prod-layout">
-
-        <!-- GALERIA -->
-        <div class="prod-gallery">
-          <div class="gallery-main">
-            <img src="https://www.kreski.pl/media/2024/zebra-ds9308-skaner-ladowarka.jpg" alt="Zebra DS9308" onerror="this.parentElement.innerHTML='<div style='font-size:11px;color:#ccc;font-family:sans-serif;'>[zdjęcie główne produktu]</div>'">
-            <div class="gallery-zoom">⤡</div>
-          </div>
-          <div class="gallery-thumbs">
-            <div class="gallery-thumb active"><div style="font-size:9px;color:#ccc;font-family:sans-serif;">01</div></div>
-            <div class="gallery-thumb"><div style="font-size:9px;color:#ccc;font-family:sans-serif;">02</div></div>
-            <div class="gallery-thumb"><div style="font-size:9px;color:#ccc;font-family:sans-serif;">03</div></div>
-            <div class="gallery-thumb"><div style="font-size:9px;color:#ccc;font-family:sans-serif;">PDF</div></div>
-          </div>
-        </div>
-
-        <!-- INFO -->
-        <div class="prod-info">
-          <div class="prod-info-brand">Zebra Technologies</div>
-          <h1 class="prod-info-h1">Zebra DS9308<br>Skaner prezentacyjny 1D/2D</h1>
-          <div class="prod-info-sku-row">
-            <div class="prod-info-sku">SKU: <span>DS9308-SR4U2100AZE</span></div>
-            <div class="prod-avail"><div class="avail-dot"></div><span class="avail-txt">Dostępny</span></div>
-          </div>
-
-          <ul class="prod-highlights">
-            <li>Omnidirectional 2D — odczyt w dowolnej orientacji bez celowania</li>
-            <li>Obsługa kodów na ekranach smartfonów (e-kupony, bilety, karty lojalnościowe)</li>
-            <li>Kompaktowa obudowa do blatu kasowego, easy-to-clean</li>
-            <li>Plug & Play USB — brak konfiguracji, gotowy w 30 sek.</li>
-            <li>Gwarancja Zebra OneCare 3 lata (opcja)</li>
-          </ul>
-
-          <!-- MODUŁ SKU / WARIANTY -->
-          <div class="sku-module">
-            <div class="sku-module-h">Wybierz wariant (Part Number)</div>
-            <table class="sku-table">
-              <tr>
-                <th style="width:32px;"></th>
-                <th>Part Number</th>
-                <th>Interfejs</th>
-                <th>Kolor</th>
-                <th>Ładowarka</th>
-              </tr>
-              <tr>
-                <td><input type="radio" class="sku-radio" checked name="sku"></td>
-                <td>DS9308-SR4U2100AZE</td>
-                <td>USB</td>
-                <td>Czarny</td>
-                <td>Brak</td>
-              </tr>
-              <tr>
-                <td><input type="radio" class="sku-radio" name="sku"></td>
-                <td>DS9308-SR4U2100EZE</td>
-                <td>USB</td>
-                <td>Biały</td>
-                <td>Brak</td>
-              </tr>
-              <tr>
-                <td><input type="radio" class="sku-radio" name="sku"></td>
-                <td>DS9308-SRBU2100SGW</td>
-                <td>RS-232</td>
-                <td>Czarny</td>
-                <td>W zestawie</td>
-              </tr>
-            </table>
-            <div style="font-size:9px;color:#aaa;font-family:sans-serif;margin-top:8px;font-style:italic;">Warianty nie generują osobnych URL-i — jeden produkt, wiele part numberów (edytowalne z CMS)</div>
-          </div>
-
-          <!-- CTA BOX -->
-          <div class="prod-cta-box">
-            <div class="cta-price-label">Cena</div>
-            <div class="cta-price-note">Cena indywidualna — zapytaj o ofertę handlową dla firmy</div>
-            <button class="cta-main-btn">Zapytaj o cenę / wycenę</button>
-            <button class="cta-sec-btn">Dodaj do listy zapytań</button>
-            <div class="cta-tel">+48 789 868 803</div>
-            <div class="cta-tel-sub">Pon–Pt 8:00–17:00 · ekspert Auto ID</div>
-            <div class="cta-pdf">
-              <div class="cta-pdf-icon">PDF</div>
-              <div>
-                <div style="font-weight:700;color:#1a1a1a;">Karta katalogowa DS9308</div>
-                <div style="font-size:10px;color:#aaa;">Pobierz specyfikację techniczną (2.4 MB)</div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /prod-info -->
-      </div><!-- /prod-layout -->
-
-      <!-- TABS -->
-      <div class="prod-tabs-section">
-        <div class="tab-bar">
-          <button class="tab-btn active" onclick="switchTab(this,'tab-opis')">Opis</button>
-          <button class="tab-btn" onclick="switchTab(this,'tab-spec')">Specyfikacja techniczna</button>
-          <button class="tab-btn" onclick="switchTab(this,'tab-akcesoria')">Akcesoria</button>
-          <button class="tab-btn" onclick="switchTab(this,'tab-dokumenty')">Dokumenty</button>
-          <button class="tab-btn" onclick="switchTab(this,'tab-serwis')">Serwis</button>
-        </div>
-
-        <div class="tab-content active" id="tab-opis">
-          <p style="font-size:13px;color:#444;font-family:sans-serif;line-height:1.8;max-width:780px;margin-bottom:16px;">Zebra DS9308 to kompaktowy skaner omnidirectional zaprojektowany z myślą o szybkiej i bezbłędnej obsłudze klientów w punktach sprzedaży, aptekach i klinikach. Urządzenie bezproblemowo odczytuje uszkodzone etykiety, kody na zakrzywionych opakowaniach oraz cyfrowe kupony wyświetlane na ekranach smartfonów.</p>
-          <p style="font-size:13px;color:#444;font-family:sans-serif;line-height:1.8;max-width:780px;">Dzięki technologii PRZYZM™ (Multi-Row Imager) DS9308 skanuje w 360° bez konieczności ustawiania kodu pod odpowiednim kątem — idealne rozwiązanie dla intensywnych środowisk kasowych.</p>
-        </div>
-
-        <div class="tab-content" id="tab-spec">
-          <table class="spec-table" style="max-width:780px;">
-            <tr><td colspan="2" class="spec-group-h">Parametry skanowania</td></tr>
-            <tr><td>Technologia skanowania</td><td>Multi-row imager (PRZYZM™)</td></tr>
-            <tr><td>Obsługiwane kody</td><td>1D, 2D, PDF417, DataMatrix, QR Code, Aztec</td></tr>
-            <tr><td>Głębokość pola</td><td>0–25 cm (zależnie od kodu)</td></tr>
-            <tr><td>Rozdzielczość</td><td>min. 5 mil (0.127 mm)</td></tr>
-            <tr><td colspan="2" class="spec-group-h">Elektryczne</td></tr>
-            <tr><td>Interfejsy</td><td>USB, RS-232, IBM, OPOS/JPOS</td></tr>
-            <tr><td>Zasilanie</td><td>5V DC przez interfejs hosta</td></tr>
-            <tr><td colspan="2" class="spec-group-h">Mechaniczne</td></tr>
-            <tr><td>Wymiary (D × S × W)</td><td>155 × 97 × 83 mm</td></tr>
-            <tr><td>Waga</td><td>312 g (bez kabla)</td></tr>
-            <tr><td>Temperatura pracy</td><td>0°C do +40°C</td></tr>
-            <tr><td>Wilgotność</td><td>5–95% (bez kondensacji)</td></tr>
-            <tr><td colspan="2" class="spec-group-h">Certyfikaty</td></tr>
-            <tr><td>Certyfikaty</td><td>CE, FCC, UL, RoHS, IP52</td></tr>
-          </table>
-        </div>
-
-        <div class="tab-content" id="tab-akcesoria">
-          <div style="font-size:12px;color:#666;font-family:sans-serif;margin-bottom:16px;">Produkty kompatybilne z Zebra DS9308:</div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:780px;">
-            <div class="prod-card">
-              <div class="prod-img" style="aspect-ratio:1/1;"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[kabel USB]</div></div>
-              <div class="prod-body"><div class="prod-brand">Zebra</div><div class="prod-name">Kabel USB Type-A 2m</div></div>
-            </div>
-            <div class="prod-card">
-              <div class="prod-img" style="aspect-ratio:1/1;"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[podstawka]</div></div>
-              <div class="prod-body"><div class="prod-brand">Zebra</div><div class="prod-name">Stacja ładująca CRD9300</div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-content" id="tab-dokumenty">
-          <div style="display:flex;flex-direction:column;gap:10px;max-width:500px;">
-            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
-              <div style="width:32px;height:32px;background:#e30613;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
-              <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Karta katalogowa DS9308</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">Specyfikacja techniczna · 2.4 MB</div></div>
-              <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;">Pobierz</div>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
-              <div style="width:32px;height:32px;background:#555;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
-              <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Instrukcja obsługi DS9308 PL</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">Instrukcja · 8.1 MB</div></div>
-              <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;">Pobierz</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-content" id="tab-serwis">
-          <div style="max-width:680px;">
-            <p style="font-size:13px;color:#444;font-family:sans-serif;line-height:1.8;margin-bottom:20px;">Kreski.pl jest autoryzowanym centrum serwisowym Zebra Technologies dla produktów linii DS/LI/RS. Oferujemy naprawy gwarancyjne i pogwarancyjne, kalibrację i czyszczenie, kontrakty serwisowe Zebra OneCare.</p>
-            <a href="#" style="display:inline-flex;align-items:center;height:42px;padding:0 24px;background:#e30613;color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-family:sans-serif;">Zgłoś urządzenie do serwisu →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRODUKTY POWIĄZANE -->
-      <div class="related">
-        <div class="related-inner">
-          <div class="related-h">Produkty powiązane</div>
-          <div class="prod-grid" style="grid-template-columns:repeat(4,1fr);">
-            <div class="prod-card"><div class="prod-img"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[produkt]</div></div><div class="prod-body"><div class="prod-brand">Zebra</div><div class="prod-name">Zebra DS2208 Skaner 1D/2D USB</div></div><div class="prod-footer"><button class="prod-btn">Zapytaj o cenę</button></div></div>
-            <div class="prod-card"><div class="prod-img"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[produkt]</div></div><div class="prod-body"><div class="prod-brand">Honeywell</div><div class="prod-name">Honeywell Orbit 7190g Omnidirectional</div></div><div class="prod-footer"><button class="prod-btn">Zapytaj o cenę</button></div></div>
-            <div class="prod-card"><div class="prod-img"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[produkt]</div></div><div class="prod-body"><div class="prod-brand">Datalogic</div><div class="prod-name">Datalogic Magellan 3310HSi Fixed</div></div><div class="prod-footer"><button class="prod-btn">Zapytaj o cenę</button></div></div>
-            <div class="prod-card"><div class="prod-img"><div style="font-size:10px;color:#ccc;font-family:sans-serif;">[produkt]</div></div><div class="prod-body"><div class="prod-brand">Newland</div><div class="prod-name">Newland NLS-BS80 Bluetooth Scanner</div></div><div class="prod-footer"><button class="prod-btn">Zapytaj o cenę</button></div></div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /page-produkt -->
-
-    <!-- ===== PAGE: KONTAKT ===== -->
-    <div class="page-view" id="page-kontakt">
-
-      <!-- BREADCRUMB -->
-      <div class="bc">
-        <div class="bc-inner">
-          <span class="bc-link">Strona główna</span>
-          <span class="bc-sep">›</span>
-          <span class="bc-cur">Kontakt</span>
-        </div>
-      </div>
-
-      <!-- PAGE HERO -->
-      <div class="pg-hero">
-        <div class="pg-hero-inner">
-          <div>
-            <div class="pg-hero-breadcrumb">Skontaktuj się z nami</div>
-            <h1>Kontakt</h1>
-            <p class="pg-hero-sub">Masz pytanie o produkt, potrzebujesz wyceny lub chcesz umówić się na demo? Nasi eksperci odpowiedzą w ciągu 1 dnia roboczego.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-layout">
-
-        <!-- DANE FIRMY -->
-        <div class="contact-info-block">
-          <h2 class="contact-h2">Dane kontaktowe</h2>
-
-          <div class="contact-item">
-            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-            <div>
-              <div class="contact-item-label">Telefon</div>
-              <div class="contact-item-val">+48 789 868 803</div>
-              <div class="contact-item-sub">Pon–Pt 8:00–17:00</div>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div>
-              <div class="contact-item-label">E-mail</div>
-              <div class="contact-item-val">biuro@kreski.pl</div>
-              <div class="contact-item-sub">Odpowiedź w ciągu 24h</div>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div>
-              <div class="contact-item-label">Adres</div>
-              <div class="contact-item-val">ul. Przykładowa 12</div>
-              <div class="contact-item-sub">00-000 Warszawa</div>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-            <div>
-              <div class="contact-item-label">Dane firmy</div>
-              <div class="contact-item-val">Kreski Sp. Jawna</div>
-              <div class="contact-item-sub">NIP: 000-000-00-00 · REGON: 000000000</div>
-            </div>
-          </div>
-
-          <!-- MAPA PLACEHOLDER -->
-          <div class="contact-map">[ Google Maps — mapa dojazdu ]</div>
-
-          <!-- GODZINY -->
-          <div style="margin-top:24px;background:#f8f8f8;border:1px solid #eee;padding:16px;">
-            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#333;font-family:sans-serif;margin-bottom:12px;">Godziny pracy</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;font-size:12px;font-family:sans-serif;">
-              <span style="color:#666;">Poniedziałek – Piątek</span><span style="font-weight:600;color:#1a1a1a;">8:00 – 17:00</span>
-              <span style="color:#666;">Sobota</span><span style="color:#aaa;">Zamknięte</span>
-              <span style="color:#666;">Niedziela</span><span style="color:#aaa;">Zamknięte</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- FORMULARZ -->
-        <div class="contact-form">
-          <h3>Napisz do nas</h3>
-          <div class="contact-form-sub">Odpowiemy w ciągu jednego dnia roboczego. Możesz też zadzwonić: +48 789 868 803</div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label">Imię i nazwisko *</label>
-              <input class="form-input" type="text" placeholder="Jan Kowalski">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Firma</label>
-              <input class="form-input" type="text" placeholder="Nazwa firmy">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label class="form-label">E-mail *</label>
-              <input class="form-input" type="email" placeholder="jan@firma.pl">
-            </div>
-            <div class="form-field">
-              <label class="form-label">Telefon</label>
-              <input class="form-input" type="tel" placeholder="+48 000 000 000">
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">Temat zapytania</label>
-            <select class="form-select">
-              <option>Wybierz temat...</option>
-              <option>Zapytanie o produkt / wycena</option>
-              <option>Serwis i naprawa</option>
-              <option>Wsparcie techniczne</option>
-              <option>Współpraca handlowa</option>
-              <option>Inne</option>
-            </select>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">Wiadomość *</label>
-            <textarea class="form-textarea" placeholder="Opisz czego potrzebujesz..."></textarea>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox">
-            <span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez Kreski Sp. Jawna w celu obsługi zapytania. <a href="#" style="color:#e30613;">Polityka prywatności</a></span>
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox">
-            <span>Wyrażam zgodę na kontakt telefoniczny w celach handlowych (opcjonalnie)</span>
-          </div>
-
-          <button class="form-submit">Wyślij wiadomość</button>
-
-          <div style="font-size:10px;color:#aaa;font-family:sans-serif;margin-top:12px;text-align:center;">* Pola obowiązkowe</div>
-        </div>
-
-      </div><!-- /contact-layout -->
-
-    </div><!-- /page-kontakt -->
   </div>
 </div>
-<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;display:flex;gap:0;border-top:2px solid #e30613;height:34px;align-items:center;">
-  <div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;font-family:sans-serif;padding:0 14px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;">Wireframe v4</div>
-  <a href="index.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Strona główna</a>
-  <a href="kategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kategoria</a>
-  <a href="subkategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Subkategoria</a>
-  <a href="produkt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#e30613;background:#1a0000;">Karta produktu</a>
-  <a href="kontakt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;color:#888;">Kontakt</a>
-  
-  <span style="font-size:8px;color:#444;font-family:sans-serif;padding:0 16px;margin-left:auto;letter-spacing:.5px;">kreski.pl</span>
-</div>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;display:flex;border-top:2px solid #e30613;height:34px;align-items:center;"><div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;font-family:sans-serif;padding:0 14px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;">Wireframe v4</div><a href="index.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;white-space:nowrap;color:#888;">Strona główna</a><a href="kategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;white-space:nowrap;color:#888;">Kategoria</a><a href="subkategoria.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;white-space:nowrap;color:#888;">Subkategoria</a><a href="produkt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;white-space:nowrap;color:#e30613;background:#1a0000;">Karta produktu</a><a href="kontakt.html" style="height:100%;padding:0 14px;display:flex;align-items:center;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-right:1px solid #222;font-family:sans-serif;white-space:nowrap;color:#888;">Kontakt</a><span style="font-size:8px;color:#444;font-family:sans-serif;padding:0 16px;margin-left:auto;">kreski.pl</span></div>
 <script>
 function toggleNav(id) {
   var allNavItems = document.querySelectorAll('.nav-i');
@@ -1877,10 +1250,8 @@ function toggleNav(id) {
 function showL3(id) {
   document.querySelectorAll('.l2-item').forEach(function(el) { el.classList.remove('active'); });
   document.querySelectorAll('.l3-col').forEach(function(el) { el.classList.remove('active'); });
-  var l2 = document.getElementById('l2-' + id);
-  var l3 = document.getElementById('l3-' + id);
-  if (l2) l2.classList.add('active');
-  if (l3) l3.classList.add('active');
+  var l2 = document.getElementById('l2-' + id); var l3 = document.getElementById('l3-' + id);
+  if (l2) l2.classList.add('active'); if (l3) l3.classList.add('active');
 }
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.nav-i') && !e.target.closest('.hdr-nav')) {
@@ -1888,28 +1259,24 @@ document.addEventListener('click', function(e) {
   }
 });
 function toggleMob(id, el) {
-  var sub = document.getElementById(id);
-  var isOpen = sub.classList.contains('open');
+  var sub = document.getElementById(id); var isOpen = sub.classList.contains('open');
   document.querySelectorAll('.mob-sub').forEach(function(s){ s.classList.remove('open'); });
   document.querySelectorAll('.mob-nav-i').forEach(function(n){ n.classList.remove('active'); });
   if (!isOpen) { sub.classList.add('open'); el.classList.add('active'); }
 }
 function switchTab(btn, tabId) {
-  btn.closest('.prod-tabs-section').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.closest('.prod-tabs-section').querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
+  var wrap = btn.closest('.tabs-wrap');
+  wrap.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  wrap.querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
   btn.classList.add('active');
   document.getElementById(tabId).classList.add('active');
 }
-</script>
-<script>
 function toggleInquiry() {
   const form = document.getElementById('inquiryForm');
-  const btn  = document.getElementById('inquiryBtn');
+  const btn = document.getElementById('inquiryBtn');
   const open = form.classList.toggle('open');
   btn.classList.toggle('active', open);
-  btn.innerHTML = open
-    ? '✕ &nbsp;Zamknij formularz'
-    : '✉ &nbsp;Zapytaj o produkt';
+  btn.innerHTML = open ? '✕ &nbsp;Zamknij formularz' : '✉ &nbsp;Zapytaj o produkt';
   if (open) form.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
 </script>
