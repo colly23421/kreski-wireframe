@@ -347,7 +347,8 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
                     <div class="l2-item" onmouseenter="showL3('przemysl')" id="l2-przemysl">Rozwiązania dla przemysłu <span class="l2-arr">›</span></div>
                     <div class="l2-item" onmouseenter="showL3('oprogramowanie')" id="l2-oprogramowanie">Oprogramowanie <span class="l2-arr">›</span></div>
                     <div class="l2-item" onmouseenter="showL3('infrastruktura')" id="l2-infrastruktura">Infrastruktura IT <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('serwis')" id="l2-serwis">Serwis urządzeń <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('monitoring')" id="l2-monitoring">Monitoring i kontrola dostępu <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('security')" id="l2-security">Bezpieczeństwo IT <span class="l2-arr">›</span></div>
                   </div>
 
                   <!-- L3: Auto ID -->
@@ -419,46 +420,39 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
                     </div>
                   </div>
 
-                  <!-- L3: Infrastruktura IT — z podgrupami -->
+                  <!-- L3: Infrastruktura IT -->
                   <div class="l3-col" id="l3-infrastruktura">
                     <div class="l3-header">Infrastruktura IT</div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 20px;">
-                      <div class="l3-group">
-                        <div class="l3-group-h">Sieci komputerowe</div>
-                        <a href="#" class="l3-subitem">Sieci komputerowe</a>
-                        <a href="#" class="l3-subitem">Switche</a>
-                        <a href="#" class="l3-subitem">Access Pointy</a>
-                        <a href="#" class="l3-subitem">Serwery</a>
-                        <a href="#" class="l3-subitem">UPS / zasilanie awaryjne</a>
-                      </div>
-                      <div class="l3-group">
-                        <div class="l3-group-h">Monitoring</div>
-                        <a href="#" class="l3-subitem">Kamery IP</a>
-                        <a href="#" class="l3-subitem">Kontrola dostępu</a>
-                      </div>
-                      <div class="l3-group">
-                        <div class="l3-group-h">Bezpieczeństwo IT</div>
-                        <a href="#" class="l3-subitem">Zapory sieciowe (NGFW)</a>
-                        <a href="#" class="l3-subitem">Systemy IPS</a>
-                        <a href="#" class="l3-subitem">Systemy DLP</a>
-                        <a href="#" class="l3-subitem">Email Security</a>
-                        <a href="#" class="l3-subitem">Web Security</a>
-                        <a href="#" class="l3-subitem">Backup i archiwizacja</a>
-                        <a href="#" class="l3-subitem">Zarządzanie infrastrukturą IT</a>
-                        <a href="#" class="l3-subitem">SSE</a>
-                      </div>
+                    <div class="l3-grid cols1">
+                      <a href="#" class="l3-item">Sieci komputerowe</a>
+                      <a href="#" class="l3-item">Switche</a>
+                      <a href="#" class="l3-item">Access Pointy</a>
+                      <a href="#" class="l3-item">Serwery</a>
+                      <a href="#" class="l3-item">UPS / zasilanie awaryjne</a>
                     </div>
                   </div>
 
-                  <!-- L3: Serwis -->
-                  <div class="l3-col" id="l3-serwis">
-                    <div class="l3-header">Serwis urządzeń</div>
-                    <a href="#" class="l3-cta">→ Zgłoś naprawę online</a>
-                    <div class="l3-grid cols1" style="margin-top:8px;">
-                      <a href="#" class="l3-item">Gwarancja i ochrona urządzeń</a>
-                      <a href="#" class="l3-item">Serwis mobilny</a>
-                      <a href="#" class="l3-item">Sprzedaż części</a>
-                      <a href="#" class="l3-item">FAQ</a>
+                  <!-- L3: Monitoring i kontrola dostępu -->
+                  <div class="l3-col" id="l3-monitoring">
+                    <div class="l3-header">Monitoring i kontrola dostępu</div>
+                    <div class="l3-grid cols1">
+                      <a href="#" class="l3-item">Kamery IP</a>
+                      <a href="#" class="l3-item">Kontrola dostępu</a>
+                    </div>
+                  </div>
+
+                  <!-- L3: Bezpieczeństwo IT -->
+                  <div class="l3-col" id="l3-security">
+                    <div class="l3-header">Bezpieczeństwo IT</div>
+                    <div class="l3-grid cols2">
+                      <a href="#" class="l3-item">Zapory sieciowe NGFW</a>
+                      <a href="#" class="l3-item">Systemy IPS</a>
+                      <a href="#" class="l3-item">Systemy DLP</a>
+                      <a href="#" class="l3-item">Email Security</a>
+                      <a href="#" class="l3-item">Web Security</a>
+                      <a href="#" class="l3-item">Backup i archiwizacja danych</a>
+                      <a href="#" class="l3-item">Zarządzanie infrastrukturą IT</a>
+                      <a href="#" class="l3-item">Security Service Edge (SSE)</a>
                     </div>
                   </div>
 
@@ -497,6 +491,19 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
               <a href="#">Szkolenia techniczne i produktowe</a>
               <a href="#">Wypożyczanie sprzętu IT i Auto ID</a>
               <a href="#">Oprogramowanie dedykowane</a>
+            </div>
+          </div>
+
+          <!-- L1: SERWIS -->
+          <div class="nav-i" id="nav-serwis" onclick="toggleNav('serwis')">
+            Serwis <span class="arr">&#9660;</span>
+            <div class="nav-panel dropdown" id="panel-serwis">
+              <a href="#" style="color:#e30613;font-weight:700;">→ Zgłoś naprawę online</a>
+              <hr class="dropdown-sep">
+              <a href="#">Gwarancja i ochrona urządzeń</a>
+              <a href="#">Serwis mobilny</a>
+              <a href="#">Sprzedaż części</a>
+              <a href="#">FAQ</a>
             </div>
           </div>
 
@@ -599,24 +606,37 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
           </div>
           <div class="mob-sub-group">
             <div class="mob-sub-h">Infrastruktura IT</div>
-            <a href="#">Sieci komputerowe</a>
+            <a href="#" class="mob-sub-l3">Sieci komputerowe</a>
             <a href="#" class="mob-sub-l3">Switche</a>
             <a href="#" class="mob-sub-l3">Access Pointy</a>
             <a href="#" class="mob-sub-l3">Serwery</a>
             <a href="#" class="mob-sub-l3">UPS / zasilanie awaryjne</a>
-            <a href="#">Monitoring — Kamery IP</a>
-            <a href="#" class="mob-sub-l3">Kontrola dostępu</a>
-            <a href="#">Bezpieczeństwo IT (NGFW, IPS, DLP...)</a>
-            <a href="#" class="mob-sub-l3">Email / Web Security</a>
-            <a href="#" class="mob-sub-l3">Backup i archiwizacja</a>
-            <a href="#" class="mob-sub-l3">SSE</a>
           </div>
           <div class="mob-sub-group">
-            <div class="mob-sub-h">Serwis urządzeń</div>
-            <a href="#" style="color:#e30613;font-weight:700;">→ Zgłoś naprawę</a>
-            <a href="#">Gwarancja i ochrona</a>
-            <a href="#">Serwis mobilny</a>
-            <a href="#">Sprzedaż części</a>
+            <div class="mob-sub-h">Monitoring i kontrola dostępu</div>
+            <a href="#" class="mob-sub-l3">Kamery IP</a>
+            <a href="#" class="mob-sub-l3">Kontrola dostępu</a>
+          </div>
+          <div class="mob-sub-group">
+            <div class="mob-sub-h">Bezpieczeństwo IT</div>
+            <a href="#" class="mob-sub-l3">Zapory sieciowe NGFW</a>
+            <a href="#" class="mob-sub-l3">Systemy IPS</a>
+            <a href="#" class="mob-sub-l3">Systemy DLP</a>
+            <a href="#" class="mob-sub-l3">Email Security</a>
+            <a href="#" class="mob-sub-l3">Web Security</a>
+            <a href="#" class="mob-sub-l3">Backup i archiwizacja danych</a>
+            <a href="#" class="mob-sub-l3">SSE</a>
+          </div>
+        </div>
+
+        <div class="mob-nav-i" onclick="toggleMob('mobSerwis',this)">Serwis <span>&#9660;</span></div>
+        <div class="mob-sub" id="mobSerwis">
+          <div class="mob-sub-group">
+            <a href="#" style="display:block;padding:10px 20px 10px 28px;color:#e30613;font-weight:700;font-family:sans-serif;font-size:13px;">→ Zgłoś naprawę online</a>
+            <a href="#" class="mob-sub-l3">Gwarancja i ochrona urządzeń</a>
+            <a href="#" class="mob-sub-l3">Serwis mobilny</a>
+            <a href="#" class="mob-sub-l3">Sprzedaż części</a>
+            <a href="#" class="mob-sub-l3">FAQ</a>
           </div>
         </div>
 
