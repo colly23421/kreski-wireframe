@@ -103,8 +103,8 @@ Zakładki:
 - [ ] Floating contact menu
 - [ ] Eksport produktów z CMS Marcina
 - [ ] Skrypt mapowania URLi → 301
-- [ ] dev.kreski.pl na OVH (rekord A)
-- [ ] Zakup szablonu ThemeForest
+- [x] dev.kreski.pl na OVH (rekord A) ✓
+- [x] Zakup szablonu ThemeForest ✓
 
 ---
 
