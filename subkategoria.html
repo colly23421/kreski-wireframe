@@ -308,7 +308,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     /* FLOATING MENU — ukryj na mobile */
     .floating { display: none !important; }
 
-    /* LAYOUT subkategorii */
+    /* LAYOUT subkategorii — pełna szerokość, ukryj sidebar */
     .sub-layout { grid-template-columns: 1fr !important; }
     .filters-sidebar { display: none !important; }
     .prod-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
@@ -318,6 +318,10 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     /* PAGE HERO */
     .page-hero-inner { flex-direction: column !important; gap: 12px !important; }
     .page-hero-count { font-size: 36px !important; }
+
+    /* KARTY produktów na mobile */
+    .prod-card-body { padding: 10px 12px !important; }
+    .prod-card-name { font-size: 12px !important; }
 
     /* OGÓLNE fonty */
     h1 { font-size: 24px !important; }
@@ -885,7 +889,7 @@ body { padding-bottom: 34px; }
     </div>
 
     <!-- LAYOUT: FILTRY + GRID -->
-    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;max-width:1170px;margin:0 auto;padding:32px 20px 48px;">
+    <div class="sub-layout" style="display:grid;grid-template-columns:260px 1fr;gap:28px;max-width:1170px;margin:0 auto;padding:32px 20px 48px;">
 
       <!-- FILTRY -->
       <div style="background:white;border:1px solid #eee;">
