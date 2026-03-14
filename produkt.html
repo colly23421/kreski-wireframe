@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karta produktu — Zebra DS2208 — Kreski.pl | Low-Fi Wireframe</title>
 <style>
-
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
+a { text-decoration:none; }
+body { padding-bottom:34px; font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .qtag { position:absolute; top:5px; right:8px; font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#c0392b; background:#fff5f5; padding:2px 6px; border:1px solid #e8b4b8; z-index:20; }
 .con { max-width:1170px; margin:0 auto; padding:0 20px; }
 .wrap { padding:20px; background:#edecea; }
@@ -57,7 +57,9 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 
 /* L2 — lewa kolumna z kategoriami */
 .l2-col { width:220px; flex-shrink:0; background:#f8f8f8; border-right:1px solid #e8e8e8; padding:8px 0; }
-.l2-item { display:flex; align-items:center; justify-content:space-between; padding:9px 16px; font-size:12.5px; color:#333; font-family:sans-serif; cursor:pointer; transition:all .12s; border-left:3px solid transparent; }
+.l2-item { display:flex; align-items:center; gap:8px; justify-content:space-between; padding:9px 16px; font-size:12.5px; color:#333; font-family:sans-serif; cursor:pointer; transition:all .12s; border-left:3px solid transparent; }
+.l2-ico { width:15px; height:15px; flex-shrink:0; color:#bbb; transition:color .12s; }
+.l2-item:hover .l2-ico, .l2-item.active .l2-ico { color:#e30613; }
 .l2-item:hover, .l2-item.active { background:white; color:#e30613; border-left-color:#e30613; }
 .l2-item .l2-arr { font-size:9px; color:#ccc; }
 .l2-item:hover .l2-arr, .l2-item.active .l2-arr { color:#e30613; }
@@ -141,7 +143,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .trust-lbl { text-align:center; font-size:13px; color:#555; text-transform:uppercase; letter-spacing:3px; font-weight:600; margin-bottom:20px; }
 
 /* SECTIONS */
-.sec { padding:50px 0; background:white; position:relative; border-top:1px solid #f0f0f0; }
+.sec { padding:72px 0; background:white; position:relative; border-top:1px solid #f0f0f0; }
 .sec.gray { background:#f8f8f8; }
 .sec.dark { background:#1c1c1c; border-top:none; }
 .sec-eyebrow { font-size:7.5px; color:#e30613; text-transform:uppercase; letter-spacing:3px; display:inline-block; margin-bottom:7px; }
@@ -154,7 +156,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .feat-col { display:flex; flex-direction:column; gap:10px; padding:20px 0; }
 .feat-icon { width:52px; height:52px; border:2px dashed #ddd; background:#fafafa; display:flex; align-items:center; justify-content:center; font-size:22px; color:#ddd; margin-bottom:4px; }
 .feat-title { height:13px; background:#1a1a1a; border-radius:2px; width:70%; }
-.feat-body { height:8px; background:#ddd; border-radius:2px; }
+.feat-body { padding-bottom:34px; height:8px; background:#ddd; border-radius:2px; }
 .feat-body.s { background:#e8e8e8; }
 
 /* ALTERNATING 50/50 */
@@ -165,7 +167,8 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .at-eye { font-size:10px; color:#e30613; text-transform:uppercase; letter-spacing:3px; font-family:sans-serif; font-weight:600; }
 .at-h { font-size:22px; font-weight:800; color:#1a1a1a; font-family:sans-serif; line-height:1.2; }
 .at-p { font-size:12px; color:#666; line-height:1.7; font-family:sans-serif; }
-.at-btn { height:42px; padding:0 22px; background:#e30613; display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:6px; font-family:sans-serif; font-weight:600; }
+.at-btn { height:42px; padding:0 22px; background:#e30613; border:2px solid #e30613; display:inline-flex; align-items:center; justify-content:center; font-size:10px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:6px; font-family:sans-serif; font-weight:600; text-decoration:none; transition:background .2s, color .2s; }
+.at-btn:hover { background:#fff; color:#e30613; }
 
 /* STATS */
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#e8e8e8; }
@@ -178,7 +181,8 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .callout { background:#1c1c1c; padding:60px 20px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:16px; position:relative; }
 .callout-h { font-size:26px; font-weight:800; color:#fff; font-family:sans-serif; max-width:700px; line-height:1.3; }
 .callout-sub { font-size:14px; color:rgba(255,255,255,0.7); font-family:sans-serif; max-width:500px; }
-.callout-btn { height:44px; padding:0 28px; background:#e30613; display:inline-flex; align-items:center; justify-content:center; font-size:11px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:8px; font-family:sans-serif; font-weight:600; }
+.callout-btn { height:44px; padding:0 28px; background:#e30613; border:2px solid #e30613; display:inline-flex; align-items:center; justify-content:center; font-size:11px; color:#fff; text-transform:uppercase; letter-spacing:2px; margin-top:8px; font-family:sans-serif; font-weight:600; cursor:pointer; transition:background .2s, color .2s; }
+.callout-btn:hover { background:#fff; color:#e30613; }
 
 /* KATEGORIE */
 .cat-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
@@ -195,7 +199,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .blog-date { position:absolute; bottom:0; left:0; background:#e30613; padding:5px 9px; display:flex; flex-direction:column; align-items:center; gap:2px; }
 .bdd { height:14px; width:20px; background:rgba(255,255,255,0.85); border-radius:1px; }
 .bdm { height:8px; width:16px; background:rgba(255,255,255,0.5); border-radius:1px; }
-.blog-body { padding:14px; display:flex; flex-direction:column; gap:7px; }
+.blog-body { padding-bottom:34px; padding:14px; display:flex; flex-direction:column; gap:7px; }
 .bt { height:11px; background:#1a1a1a; border-radius:2px; }
 .bt2 { height:11px; background:#1a1a1a; width:70%; border-radius:2px; }
 .be { height:7.5px; background:#e8e8e8; border-radius:2px; }
@@ -247,13 +251,13 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     .bk-icon { width:52px; height:52px; background:#fef2f2; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
     .bk-name { font-size:16px; font-weight:800; color:#111; margin-bottom:10px; font-family:sans-serif; line-height:1.3; }
     .bk-desc { font-size:13.5px; color:#5a5a5a; line-height:1.7; margin-bottom:24px; font-family:sans-serif; flex-grow:1; }
-    .bk-btn { align-self:flex-start; background:#e30613; color:#fff; border:none; border-radius:6px; padding:10px 20px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; transition:background .2s; }
-    .bk-btn:hover { background:#c00; }
+    .bk-btn { align-self:flex-start; background:#e30613; color:#fff; border:2px solid #e30613; border-radius:6px; padding:10px 20px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; transition:background .2s, color .2s; }
+    .bk-btn:hover { background:#fff; color:#e30613; }
   
   @media (max-width: 768px) {
 
     /* GLOBAL - zapobieganie overflow */
-    body { overflow-x: hidden; }
+    body { padding-bottom:34px; overflow-x: hidden; }
     .wrap { padding: 8px; }
     .canvas { overflow-x: hidden; }
 
@@ -282,11 +286,16 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     /* BRANŻE grid */
     .branza-grid { grid-template-columns: 1fr !important; }
 
-    /* ALT sections */
+    /* ALT sections — obrazek PRZED tekstem na mobile */
     .alt-row { grid-template-columns: 1fr !important; }
+    .alt-row .alt-img { order: -1 !important; }
     .alt-copy { padding: 28px 20px !important; }
     .at-h { font-size: 20px !important; }
     .at-eye { font-size: 10px !important; }
+
+    /* ZDJĘCIE PRZEŁAMANIE — obrazek przed tekstem */
+    .przelam-row { flex-direction: column !important; }
+    .przelam-row > *:first-child { order: -1; }
 
     /* STATS */
     .stats-grid { grid-template-columns: 1fr 1fr !important; }
@@ -308,18 +317,33 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
     /* FLOATING MENU — ukryj na mobile */
     .floating { display: none !important; }
 
-    /* PRODUKT grid */
-    .product-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-    .products-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
-    .prod-name { font-size: 22px !important; }
-    .tabs-nav { overflow-x: auto; }
-    .tab-btn { padding: 10px 14px !important; font-size: 12px !important; }
-    .sku-tbl { font-size: 11px !important; }
-    .sku-tbl th, .sku-tbl td { padding: 6px 8px !important; }
+    /* OFERTA 9 kafelków — 2 kolumny na mobile */
+    .oferta-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .oferta-grid .bk-name { font-size: 13px !important; }
+    .oferta-grid .bk-desc { font-size: 12px !important; }
+    .oferta-grid .branza-karta { padding: 16px 12px !important; }
+
+    /* PARTNERZY — 3 kolumny na mobile */
+    .partners-row { grid-template-columns: 1fr 1fr 1fr !important; gap: 8px !important; }
+
+    /* BRANŻE — 2 kolumny na mobile */
+    .branza-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+    /* ZDJĘCIE PRZEŁAMANIE */
+    .przelam-inner { padding: 40px 20px !important; text-align: center; }
+    .przelam-h { font-size: 20px !important; line-height: 1.4 !important; }
 
     /* OGÓLNE fonty */
-    h1 { font-size: 24px !important; }
-    h2 { font-size: 20px !important; }
+    h1, .section-h1 { font-size: 24px !important; }
+    h2, .section-h2 { font-size: 20px !important; }
+
+    /* FIX: usunięcie hover-only efektów na touch (brak double-tap) */
+    .branza-karta:hover { box-shadow: none; transform: none; }
+    .branza-karta:hover::before { transform: scaleX(0); }
+    .branza-karta:active { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+    .cat-card:hover { background: #f4f4f4; box-shadow: none; }
+    .l3-item:hover { background: none; color: #333; padding-left: 8px; }
+    .mega-tag:hover { background: #f5f5f5; color: #555; border-color: #e8e8e8; }
 
   }
 
@@ -331,6 +355,21 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
   }
 
   
+/* ===== PAGE SWITCHER ===== */
+.pg-sw { position:fixed; top:0; left:0; right:0; z-index:9999; background:#1a1a1a; display:flex; align-items:center; gap:0; border-bottom:2px solid #e30613; height:36px; }
+.pg-sw-lbl { font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; font-family:sans-serif; padding:0 14px; border-right:1px solid #333; height:100%; display:flex; align-items:center; white-space:nowrap; }
+.pg-btn { height:100%; padding:0 16px; background:transparent; border:none; border-right:1px solid #2a2a2a; color:#888; font-size:10px; font-family:sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all .15s; white-space:nowrap; }
+.pg-btn:hover { background:#222; color:#fff; }
+.pg-btn.active { background:#e30613; color:#fff; }
+.pg-note { font-size:8px; color:#555; font-family:sans-serif; padding:0 16px; margin-left:auto; letter-spacing:.5px; }
+
+/* ===== PAGE VISIBILITY ===== */
+.page-view { display:none; }
+.page-view.active { display:block; }
+
+/* Fix wrap to account for switcher bar */
+.wrap { padding-top: 56px !important; }
+
 /* ===== SHARED ELEMENTS ===== */
 .bc { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
 .bc-inner { max-width:1170px; margin:0 auto; padding:0 20px; display:flex; align-items:center; gap:6px; font-size:11px; color:#999; font-family:sans-serif; }
@@ -353,7 +392,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .filter-group { border-bottom:1px solid #f0f0f0; }
 .filter-group-h { padding:12px 16px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#333; font-family:sans-serif; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
 .filter-group-h .fg-arr { color:#ccc; font-size:10px; }
-.filter-body { padding:8px 16px 12px; }
+.filter-body { padding-bottom:34px; padding:8px 16px 12px; }
 .filter-item { display:flex; align-items:center; gap:8px; padding:4px 0; font-size:12px; color:#555; font-family:sans-serif; cursor:pointer; }
 .filter-item:hover { color:#e30613; }
 .fcheck { width:14px; height:14px; border:1.5px solid #ccc; flex-shrink:0; border-radius:2px; }
@@ -368,7 +407,7 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .prod-img { aspect-ratio:4/3; background:#f5f5f5; display:flex; align-items:center; justify-content:center; overflow:hidden; border-bottom:1px solid #f0f0f0; position:relative; }
 .prod-img img { max-width:75%; max-height:75%; object-fit:contain; }
 .prod-badge { position:absolute; top:8px; left:8px; background:#e30613; color:white; font-size:8px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 7px; font-family:sans-serif; }
-.prod-body { padding:14px; flex:1; display:flex; flex-direction:column; gap:6px; }
+.prod-body { padding-bottom:34px; padding:14px; flex:1; display:flex; flex-direction:column; gap:6px; }
 .prod-brand { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; font-family:sans-serif; }
 .prod-name { font-size:13px; font-weight:700; color:#1a1a1a; font-family:sans-serif; line-height:1.35; }
 .prod-sku { font-size:10px; color:#aaa; font-family:sans-serif; }
@@ -486,102 +525,19 @@ body { font-family:'Courier New',monospace; background:#edecea; color:#333; }
 .form-check input { margin-top:2px; accent-color:#e30613; }
 .form-submit { width:100%; height:46px; background:#e30613; color:white; border:none; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; margin-top:8px; }
 
-/* Annotations enhancement */
+    /* ZDJĘCIE PRZEŁAMANIE — obrazek przed tekstem na mobile */
+    .przelam-row { display:grid; grid-template-columns:1fr 1fr; min-height:360px; }
+    @media (max-width:768px) {
+      .przelam-row { grid-template-columns:1fr !important; }
+      .przelam-img { min-height:220px; order:1; }
+      .przelam-txt { order:2; padding:36px 20px !important; }
+    }
 @media (max-width: 900px) {
   .cat-layout { grid-template-columns:1fr; }
   .prod-layout { grid-template-columns:1fr; }
   .contact-layout { grid-template-columns:1fr; }
   .prod-grid { grid-template-columns:repeat(2,1fr); }
   .subcat-grid { grid-template-columns:repeat(2,1fr); }
-}
-
-
-
-body { padding-bottom: 34px; }
-.bc { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
-.bc-inner { display:flex; align-items:center; gap:6px; font-size:11px; color:#999; font-family:sans-serif; }
-.bc-sep { color:#ddd; }
-.bc-cur { color:#1a1a1a; font-weight:600; }
-.bc-link { color:#666; text-decoration:none; }
-.bc-link:hover { color:#e30613; }
-
-
-.inquiry-wrap { margin-bottom:24px; }
-.inquiry-form { display:none; overflow:hidden; border:2px solid #e30613; border-top:none; border-radius:0 0 8px 8px; background:#fff; padding:20px 22px 22px; }
-.inquiry-form.open { display:block; }
-.btn-primary { border-radius:6px; background:#e30613; color:#fff; border:none; padding:14px 28px; font-size:13px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; width:100%; }
-.btn-primary.active { border-radius:6px 6px 0 0; }
-.btn-secondary { background:#fff; color:#333; border:2px solid #ddd; border-radius:6px; padding:12px 28px; font-size:13px; font-weight:600; font-family:sans-serif; cursor:pointer; width:100%; display:flex; align-items:center; justify-content:center; gap:8px; }
-.inq-row { display:flex; gap:12px; margin-bottom:10px; }
-.inq-field { display:flex; flex-direction:column; flex:1; gap:4px; }
-.inq-field label { font-size:11px; font-weight:700; color:#888; text-transform:uppercase; letter-spacing:.8px; font-family:sans-serif; }
-.inq-field input, .inq-field textarea { padding:9px 12px; border:1px solid #ddd; border-radius:5px; font-size:13px; font-family:sans-serif; outline:none; width:100%; resize:none; box-sizing:border-box; }
-.inq-actions { display:flex; align-items:center; justify-content:space-between; margin-top:14px; }
-.inq-rodo { font-size:10px; color:#aaa; line-height:1.5; font-family:sans-serif; flex:1; margin-right:16px; }
-.inq-rodo a { color:#e30613; }
-.inq-submit { background:#e30613; color:#fff; border:none; border-radius:6px; padding:11px 24px; font-size:12px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; font-family:sans-serif; cursor:pointer; white-space:nowrap; }
-.product-main { padding:40px 0 48px; }
-.product-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
-.gallery-main { aspect-ratio:4/3; background:#f4f4f4; border:1px solid #e8e8e8; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; overflow:hidden; }
-.gallery-main img { width:100%; height:100%; object-fit:contain; padding:24px; }
-.gallery-thumbs { display:flex; gap:8px; }
-.thumb { width:72px; height:72px; background:#f4f4f4; border:1.5px solid #e0e0e0; border-radius:6px; cursor:pointer; flex-shrink:0; }
-.thumb.active { border-color:#e30613; }
-.prod-category { font-size:11px; font-weight:700; color:#e30613; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px; font-family:sans-serif; }
-.prod-name { font-size:26px; font-weight:800; color:#111; line-height:1.2; margin-bottom:8px; font-family:sans-serif; }
-.prod-sku { font-size:11px; color:#aaa; font-family:sans-serif; margin-bottom:16px; }
-.prod-short { font-size:14px; color:#555; line-height:1.7; font-family:sans-serif; margin-bottom:24px; border-left:3px solid #e30613; padding-left:14px; }
-.spec-table { width:100%; border-collapse:collapse; margin-bottom:24px; font-family:sans-serif; }
-.spec-table tr { border-bottom:1px solid #f0f0f0; }
-.spec-table td { padding:9px 12px; font-size:13px; }
-.spec-table td:first-child { color:#888; font-size:12px; width:45%; background:#fafafa; }
-.spec-table td:last-child { color:#222; font-weight:600; }
-.prod-actions { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
-.downloads-box { background:#f8f8f8; border:1px solid #eee; border-radius:8px; padding:16px 20px; }
-.downloads-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#999; font-family:sans-serif; margin-bottom:12px; }
-.download-item { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #eee; font-family:sans-serif; font-size:13px; color:#444; }
-.download-item:last-child { border-bottom:none; }
-.dl-icon { width:32px; height:32px; background:#e30613; border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.dl-icon svg { fill:white; }
-.dl-name { flex:1; }
-.dl-link { font-size:11px; color:#e30613; font-weight:700; text-decoration:none; }
-.tabs-section { border-top:3px solid #f0f0f0; padding:40px 0; }
-.tabs-nav { display:flex; border-bottom:2px solid #e8e8e8; margin-bottom:32px; overflow-x:auto; }
-.tab-btn { padding:12px 24px; font-size:13px; font-weight:700; font-family:sans-serif; color:#888; border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px; white-space:nowrap; }
-.tab-btn.active { color:#e30613; border-bottom-color:#e30613; }
-.tab-content { font-family:sans-serif; font-size:14px; color:#555; line-height:1.8; display:none; }
-.tab-content.active { display:block; }
-.spec-full { width:100%; border-collapse:collapse; }
-.spec-full tr { border-bottom:1px solid #f0f0f0; }
-.spec-full td { padding:10px 16px; font-size:13px; }
-.spec-full td:first-child { color:#666; width:35%; background:#fafafa; font-weight:500; }
-.spec-full td:last-child { color:#222; }
-/* SKU table */
-.sku-module { background:#f8f8f8; border:1px solid #e8e8e8; border-radius:6px; overflow:hidden; }
-.sku-module-h { background:#1a1a1a; padding:10px 16px; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:white; font-family:sans-serif; }
-.sku-tbl { width:100%; border-collapse:collapse; font-family:sans-serif; font-size:12px; }
-.sku-tbl th { background:#e30613; color:white; padding:8px 12px; text-align:left; font-size:10px; font-weight:700; letter-spacing:.5px; }
-.sku-tbl td { padding:8px 12px; border-bottom:1px solid #eee; color:#444; vertical-align:middle; }
-.sku-tbl tr:last-child td { border-bottom:none; }
-.sku-tbl tr.selected td { background:#fff8f8; }
-.sku-radio { accent-color:#e30613; width:15px; height:15px; cursor:pointer; }
-.sku-note { font-size:9px; color:#aaa; font-family:sans-serif; padding:8px 12px; font-style:italic; border-top:1px solid #f0f0f0; }
-.related-section { background:#f9f9f9; border-top:1px solid #eee; padding:48px 0; }
-.section-header { text-align:center; margin-bottom:32px; }
-.section-eyebrow { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; font-family:sans-serif; margin-bottom:8px; }
-.section-title { font-size:24px; font-weight:800; color:#111; font-family:sans-serif; }
-.products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.prod-card { background:white; border:1px solid #eee; border-radius:8px; overflow:hidden; }
-.prod-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.1); }
-.prod-card-img { aspect-ratio:1; background:#f4f4f4; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.prod-card-img img { width:80%; height:80%; object-fit:contain; }
-.prod-card-body { padding:14px 16px; }
-.prod-card-cat { font-size:10px; color:#e30613; font-weight:700; text-transform:uppercase; letter-spacing:1px; font-family:sans-serif; margin-bottom:4px; }
-.prod-card-name { font-size:13px; font-weight:700; color:#222; font-family:sans-serif; margin-bottom:8px; line-height:1.3; }
-.prod-card-btn { font-size:11px; color:#e30613; font-weight:700; text-decoration:none; font-family:sans-serif; }
-@media (max-width:768px) {
-  .product-grid { grid-template-columns:1fr; gap:28px; }
-  .products-grid { grid-template-columns:1fr 1fr; }
 }
 
 </style>
@@ -605,14 +561,14 @@ body { padding-bottom: 34px; }
 
                   <!-- L2 kolumna -->
                   <div class="l2-col">
-                    <div class="l2-item" onmouseenter="showL3('auto-id')" id="l2-auto-id">Auto ID <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('akcesoria')" id="l2-akcesoria">Akcesoria <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('materialy')" id="l2-materialy">Materiały eksploatacyjne <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('przemysl')" id="l2-przemysl">Rozwiązania dla przemysłu <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('oprogramowanie')" id="l2-oprogramowanie">Oprogramowanie <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('infrastruktura')" id="l2-infrastruktura">Infrastruktura IT <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('monitoring')" id="l2-monitoring">Monitoring i kontrola dostępu <span class="l2-arr">›</span></div>
-                    <div class="l2-item" onmouseenter="showL3('security')" id="l2-security">Bezpieczeństwo IT <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('auto-id')" id="l2-auto-id"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M10 3v18M14 3v18M18 3v18M3 3h18M3 21h18"/></svg>Auto ID <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('akcesoria')" id="l2-akcesoria"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/></svg>Akcesoria <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('materialy')" id="l2-materialy"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>Materiały eksploatacyjne <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('przemysl')" id="l2-przemysl"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>Rozwiązania dla przemysłu <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('oprogramowanie')" id="l2-oprogramowanie"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Oprogramowanie <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('infrastruktura')" id="l2-infrastruktura"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="1"/><rect x="2" y="14" width="20" height="8" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>Infrastruktura IT <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('monitoring')" id="l2-monitoring"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>Monitoring i kontrola dostępu <span class="l2-arr">›</span></div>
+                    <div class="l2-item" onmouseenter="showL3('security')" id="l2-security"><svg class="l2-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Bezpieczeństwo IT <span class="l2-arr">›</span></div>
                   </div>
 
                   <!-- L3: Auto ID -->
@@ -944,224 +900,9 @@ body { padding-bottom: 34px; }
         <div class="mob-nav-i" style="color:#e30613;">Kontakt</div>
         <div class="mob-tel">+48 789 868 803</div>
       </div>
-    <div class="bc"><div style="max-width:1170px;margin:0 auto;padding:0 20px;"><div class="bc-inner"><a href="index.html" class="bc-link">Strona główna</a> <span class="bc-sep">›</span> <a href="kategoria.html" class="bc-link">AUTO ID</a> <span class="bc-sep">›</span> <a href="subkategoria.html" class="bc-link">Czytniki kodów</a> <span class="bc-sep">›</span> <span class="bc-cur">Zebra DS2208</span></div></div></div>
-    
-    <!-- PRODUCT MAIN -->
-    <div class="product-main">
-      <div class="con">
-        <div class="product-grid">
 
-          <!-- GALLERY -->
-          <div>
-            <div class="gallery-main">
-              <img src="Zebra_DS2208.jpg" alt="Zebra DS2208">
-            </div>
-            <div class="gallery-thumbs">
-              <div class="thumb active"></div>
-              <div class="thumb"></div>
-              <div class="thumb"></div>
-              <div class="thumb"></div>
-            </div>
-          </div>
 
-          <!-- PRODUCT INFO -->
-          <div>
-            <div class="prod-category">Czytniki kodów kreskowych</div>
-            <div class="prod-name">Zebra DS2208</div>
-            <div class="prod-sku">SKU: DS2208-SR7U2100AZW &nbsp;|&nbsp; Kod producenta: DS2208</div>
-            <div class="prod-short">Przewodowy skaner 1D/2D przeznaczony do intensywnej eksploatacji w punktach sprzedaży, logistyce i obsłudze magazynowej. Obsługuje kody kreskowe 1D, 2D oraz kody QR z ekranów telefonów.</div>
 
-            <table class="spec-table">
-              <tr><td>Typ skanera</td><td>Prezentacyjny / ręczny</td></tr>
-              <tr><td>Kody kreskowe</td><td>1D, 2D, QR, PDF417</td></tr>
-              <tr><td>Interfejs</td><td>USB (kabel w zestawie)</td></tr>
-              <tr><td>Gwarancja</td><td>5 lat (serwis autoryzowany)</td></tr>
-              <tr><td>Dostępność</td><td style="color:#27ae60; font-weight:700;">Na stanie</td></tr>
-            </table>
-
-            <div class="prod-actions">
-              <div class="inquiry-wrap">
-                <button class="btn-primary" id="inquiryBtn" onclick="toggleInquiry()">&#9993; &nbsp;Zapytaj o produkt</button>
-                <div class="inquiry-form" id="inquiryForm">
-                  <div class="inq-row">
-                    <div class="inq-field"><label>Imię i nazwisko *</label><input type="text" placeholder="Jan Kowalski"></div>
-                  </div>
-                  <div class="inq-row">
-                    <div class="inq-field"><label>E-mail *</label><input type="email" placeholder="jan@firma.pl"></div>
-                    <div class="inq-field"><label>Telefon</label><input type="tel" placeholder="+48 000 000 000"></div>
-                  </div>
-                  <div class="inq-field" style="margin-bottom:10px;">
-                    <label>Temat zapytania</label>
-                    <input type="text" style="background:#fff8f8;border-color:#f5c0c0;color:#c00;font-weight:600;" value="Zapytanie o produkt: Zebra DS2208" readonly>
-                  </div>
-                  <div class="inq-field">
-                    <label>Treść wiadomości</label>
-                    <textarea rows="3" placeholder="Wpisz pytanie lub opisz swoje potrzeby..."></textarea>
-                  </div>
-                  <div class="inq-actions">
-                    <div class="inq-rodo">
-                      <label style="display:flex;gap:6px;align-items:flex-start;">
-                        <input type="checkbox" style="margin-top:2px;flex-shrink:0;accent-color:#e30613;">
-                        <span>Wyrażam zgodę na przetwarzanie danych przez Kreski Sp. J. <a href="#">Polityka prywatności</a>.</span>
-                      </label>
-                    </div>
-                    <button class="inq-submit">Wyślij zapytanie →</button>
-                  </div>
-                </div>
-              </div>
-              <button class="btn-secondary">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Pobierz kartę katalogową (PDF)
-              </button>
-            </div>
-
-            <div class="downloads-box">
-              <div class="downloads-title">Materiały do pobrania</div>
-              <div class="download-item"><div class="dl-icon"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dl-name">Karta katalogowa DS2208</div><a href="#" class="dl-link">Pobierz PDF</a></div>
-              <div class="download-item"><div class="dl-icon"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dl-name">Instrukcja obsługi (EN)</div><a href="#" class="dl-link">Pobierz PDF</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TABS -->
-    <div class="tabs-section">
-      <div class="con">
-        <div class="tabs-wrap">
-          <div class="tabs-nav">
-            <button class="tab-btn active" onclick="switchTab(this,'tab-opis')">Opis produktu</button>
-            <button class="tab-btn" onclick="switchTab(this,'tab-sku')">SKU / Warianty</button>
-            <button class="tab-btn" onclick="switchTab(this,'tab-spec')">Specyfikacja techniczna</button>
-            <button class="tab-btn" onclick="switchTab(this,'tab-dokumenty')">Pliki do pobrania</button>
-          </div>
-
-          <div class="tab-content active" id="tab-opis">
-            <h3 style="font-size:16px;font-weight:700;color:#111;margin-bottom:12px;font-family:sans-serif;">O produkcie</h3>
-            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;margin-bottom:14px;">Zebra DS2208 to niezawodny skaner obrazowy przeznaczony do intensywnego użytkowania w środowiskach detalicznych, logistycznych i magazynowych. Dzięki technologii CMOS obsługuje wszystkie popularne kody 1D oraz 2D, w tym QR Code, Data Matrix i PDF417.</p>
-            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;margin-bottom:14px;"><strong style="color:#111;">Zastosowania:</strong> Punkt sprzedaży (POS) · Obsługa klienta · Weryfikacja paczek · Przyjęcie i wydanie towaru · Skanowanie kodów z ekranów telefonów</p>
-            <p style="font-family:sans-serif;font-size:14px;color:#555;line-height:1.8;">Kreski.pl oferuje pełną obsługę gwarancyjną i pogwarancyjną, urządzenia zastępcze na czas naprawy oraz umowy serwisowe SLA.</p>
-          </div>
-
-          <div class="tab-content" id="tab-sku">
-            <div style="margin-bottom:20px;">
-              <p style="font-size:13px;color:#666;font-family:sans-serif;line-height:1.7;margin-bottom:16px;">Produkt dostępny w kilku wariantach (Part Numbers). Każdy wariant różni się interfejsem, kolorem lub zestawem akcesoriów — <strong style="color:#1a1a1a;">nie generują osobnych URL-i</strong>. Wybór wariantu aktualizuje tylko SKU w zapytaniu.</p>
-              <div class="sku-module">
-                <div class="sku-module-h">Wybierz wariant — Part Number</div>
-                <table class="sku-tbl">
-                  <thead>
-                    <tr>
-                      <th style="width:36px;"></th>
-                      <th>Part Number / SKU</th>
-                      <th>Interfejs</th>
-                      <th>Kolor</th>
-                      <th>W zestawie</th>
-                      <th>Uwagi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="selected">
-                      <td><input type="radio" class="sku-radio" name="sku" checked></td>
-                      <td style="font-family:monospace;font-size:11px;font-weight:700;">DS2208-SR7U2100AZW</td>
-                      <td>USB</td>
-                      <td>Czarny</td>
-                      <td>Kabel USB 2m</td>
-                      <td>—</td>
-                    </tr>
-                    <tr>
-                      <td><input type="radio" class="sku-radio" name="sku"></td>
-                      <td style="font-family:monospace;font-size:11px;">DS2208-SR7U2100EZW</td>
-                      <td>USB</td>
-                      <td>Biały</td>
-                      <td>Kabel USB 2m</td>
-                      <td>Wersja retail</td>
-                    </tr>
-                    <tr>
-                      <td><input type="radio" class="sku-radio" name="sku"></td>
-                      <td style="font-family:monospace;font-size:11px;">DS2208-SRBU2100SGW</td>
-                      <td>RS-232</td>
-                      <td>Czarny</td>
-                      <td>Zasilacz, kabel RS</td>
-                      <td>Do starszych kas</td>
-                    </tr>
-                    <tr>
-                      <td><input type="radio" class="sku-radio" name="sku"></td>
-                      <td style="font-family:monospace;font-size:11px;">DS2208-SR7U2100SGW</td>
-                      <td>USB</td>
-                      <td>Czarny</td>
-                      <td>Kabel USB, stojak</td>
-                      <td>Kit z podstawką</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="sku-note">* Warianty edytowalne z poziomu CMS. Wybór wariantu nie zmienia URL strony — jeden produkt, wiele Part Numbers.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-spec">
-            <table class="spec-full" style="max-width:760px;">
-              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Parametry skanowania</td></tr>
-              <tr><td>Technologia</td><td>CMOS 2D Imager</td></tr>
-              <tr><td>Obsługiwane kody</td><td>1D, 2D, QR Code, DataMatrix, PDF417, Aztec</td></tr>
-              <tr><td>Głębokość pola</td><td>0–25 cm</td></tr>
-              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Elektryczne</td></tr>
-              <tr><td>Interfejs</td><td>USB, RS-232, IBM, OPOS/JPOS</td></tr>
-              <tr><td>Zasilanie</td><td>5V DC przez hosta</td></tr>
-              <tr><td colspan="2" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e30613;padding:12px 16px 6px;font-family:sans-serif;">Mechaniczne</td></tr>
-              <tr><td>Wymiary</td><td>155 × 97 × 83 mm</td></tr>
-              <tr><td>Waga</td><td>312 g</td></tr>
-              <tr><td>Temperatura pracy</td><td>0°C do +40°C</td></tr>
-              <tr><td>Certyfikaty</td><td>CE, FCC, UL, RoHS, IP52</td></tr>
-            </table>
-          </div>
-
-          <div class="tab-content" id="tab-dokumenty">
-            <div style="display:flex;flex-direction:column;gap:10px;max-width:500px;">
-              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
-                <div style="width:32px;height:32px;background:#e30613;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
-                <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Karta katalogowa DS2208</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">2.4 MB</div></div>
-                <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;font-weight:700;">Pobierz</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#f8f8f8;border:1px solid #eee;">
-                <div style="width:32px;height:32px;background:#555;display:flex;align-items:center;justify-content:center;color:white;font-size:9px;font-weight:700;font-family:sans-serif;flex-shrink:0;">PDF</div>
-                <div style="flex:1;"><div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;">Instrukcja obsługi (EN)</div><div style="font-size:10px;color:#aaa;font-family:sans-serif;">8.1 MB</div></div>
-                <div style="font-size:11px;color:#e30613;font-family:sans-serif;cursor:pointer;font-weight:700;">Pobierz</div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /tabs-wrap -->
-      </div>
-    </div>
-
-    <!-- RELATED -->
-    <div class="related-section">
-      <div class="con">
-        <div class="section-header">
-          <div class="section-eyebrow">Podobne produkty</div>
-          <div class="section-title">Może Cię zainteresować</div>
-        </div>
-        <div class="products-grid">
-          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
-            <div class="prod-card-img"><img src="Sekcja_1__Drukarki_Skanery.jpeg" alt=""></div>
-            <div class="prod-card-body"><div class="prod-card-cat">Skanery</div><div class="prod-card-name">Zebra DS9308 — Skaner prezentacyjny</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
-          </a>
-          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
-            <div class="prod-card-img"><img src="Terminale_Zebra_TC501_TC701.jpeg" alt=""></div>
-            <div class="prod-card-body"><div class="prod-card-cat">Terminale mobilne</div><div class="prod-card-name">Zebra TC52 — Terminal mobilny Android</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
-          </a>
-          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
-            <div class="prod-card-img"><img src="Tablet_Zebra_ET401.jpeg" alt=""></div>
-            <div class="prod-card-body"><div class="prod-card-cat">Tablety przemysłowe</div><div class="prod-card-name">Zebra ET401 — Tablet Android 10"</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
-          </a>
-          <a href="produkt.html" class="prod-card" style="text-decoration:none;">
-            <div class="prod-card-img" style="background:#f0f0f0;"></div>
-            <div class="prod-card-body"><div class="prod-card-cat">Drukarki etykiet</div><div class="prod-card-name">Zebra ZD421 — Drukarka biurkowa</div><div class="prod-card-btn">Zapytaj o produkt →</div></div>
-          </a>
-        </div>
-      </div>
-    </div>
 
     <!-- FOOTER -->
     <div style="position:relative;">
