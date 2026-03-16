@@ -1960,12 +1960,18 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 
           <!-- CTA BOX -->
           <div class="prod-cta-box">
-            <div class="cta-price-label">Cena</div>
-            <div class="cta-price-note">Cena indywidualna — zapytaj o ofertę handlową dla firmy</div>
-            <button class="cta-main-btn">Zapytaj o cenę / wycenę</button>
-            <button class="cta-sec-btn">Dodaj do listy zapytań</button>
-            <div class="cta-tel">+48 789 868 803</div>
-            <div class="cta-tel-sub">Pon–Pt 8:00–17:00 · ekspert Auto ID</div>
+            <button id="inquiryBtn" class="cta-main-btn" onclick="toggleInquiry()">&#9993;&nbsp; Zapytaj o produkt</button>
+            <div id="inquiryForm" style="display:none;margin-top:12px;background:#f9f9f9;border:1px solid #e8e8e8;border-radius:4px;padding:16px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a1a1a;font-family:sans-serif;margin-bottom:12px;">Formularz zapytania</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <input type="text" placeholder="Imię i nazwisko *" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="text" placeholder="Firma" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="email" placeholder="E-mail *" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="tel" placeholder="Telefon" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <textarea placeholder="Treść zapytania, ilość, dodatkowe wymagania" rows="3" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;resize:none;"></textarea>
+                <button onclick="return false;" style="background:#e30613;color:#fff;border:none;border-radius:3px;padding:10px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Wyślij zapytanie</button>
+              </div>
+            </div>
             <div class="cta-pdf">
               <div class="cta-pdf-icon">PDF</div>
               <div>
@@ -2421,6 +2427,14 @@ function showPage(id, btn) {
 }
 
 // Product tabs
+function toggleInquiry() {
+  var form = document.getElementById('inquiryForm');
+  var btn = document.getElementById('inquiryBtn');
+  var open = form.style.display === 'none';
+  form.style.display = open ? 'block' : 'none';
+  btn.innerHTML = open ? '✕&nbsp; Zamknij formularz' : '&#9993;&nbsp; Zapytaj o produkt';
+  if (open) form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
 function switchTab(btn, tabId) {
   btn.closest('.prod-tabs-section').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.closest('.prod-tabs-section').querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
