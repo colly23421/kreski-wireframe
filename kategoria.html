@@ -1469,7 +1469,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
       </div>
 
       <!-- SEO TEXT + CTA -->
-      <div style="max-width:1170px;margin:24px auto 0;padding:0 20px 48px;display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;">
+      <div class="seo-cta-row" style="max-width:1170px;margin:24px auto 0;padding:0 20px 48px;display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start;">
         <div>
           <div style="font-size:12px;color:#666;font-family:sans-serif;line-height:1.8;max-width:700px;">
             <p style="margin-bottom:12px;">Technologie Auto ID (automatycznej identyfikacji) to systemy służące do automatycznego odczytu, rejestracji i przetwarzania danych — w formie kodów kreskowych, RFID, systemów wizyjnych i innych. W Kreski oferujemy pełen przekrój urządzeń do każdej branży i skali działalności.</p>
@@ -1960,12 +1960,18 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 
           <!-- CTA BOX -->
           <div class="prod-cta-box">
-            <div class="cta-price-label">Cena</div>
-            <div class="cta-price-note">Cena indywidualna — zapytaj o ofertę handlową dla firmy</div>
-            <button class="cta-main-btn">Zapytaj o cenę / wycenę</button>
-            <button class="cta-sec-btn">Dodaj do listy zapytań</button>
-            <div class="cta-tel">+48 789 868 803</div>
-            <div class="cta-tel-sub">Pon–Pt 8:00–17:00 · ekspert Auto ID</div>
+            <button id="inquiryBtn" class="cta-main-btn" onclick="toggleInquiry()">&#9993;&nbsp; Zapytaj o produkt</button>
+            <div id="inquiryForm" style="display:none;margin-top:12px;background:#f9f9f9;border:1px solid #e8e8e8;border-radius:4px;padding:16px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a1a1a;font-family:sans-serif;margin-bottom:12px;">Formularz zapytania</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <input type="text" placeholder="Imię i nazwisko *" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="text" placeholder="Firma" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="email" placeholder="E-mail *" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="tel" placeholder="Telefon" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <textarea placeholder="Treść zapytania, ilość, dodatkowe wymagania" rows="3" style="padding:9px 12px;border:1px solid #ddd;border-radius:3px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;resize:none;"></textarea>
+                <button onclick="return false;" style="background:#e30613;color:#fff;border:none;border-radius:3px;padding:10px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Wyślij zapytanie</button>
+              </div>
+            </div>
             <div class="cta-pdf">
               <div class="cta-pdf-icon">PDF</div>
               <div>
@@ -1983,6 +1989,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
         <div class="tab-bar">
           <button class="tab-btn active" onclick="switchTab(this,'tab-opis')">Opis</button>
           <button class="tab-btn" onclick="switchTab(this,'tab-spec')">Specyfikacja techniczna</button>
+          <button class="tab-btn" onclick="switchTab(this,'tab-sku')">SKU / Warianty</button>
           <button class="tab-btn" onclick="switchTab(this,'tab-akcesoria')">Akcesoria</button>
           <button class="tab-btn" onclick="switchTab(this,'tab-dokumenty')">Dokumenty</button>
           <button class="tab-btn" onclick="switchTab(this,'tab-serwis')">Serwis</button>
@@ -2011,6 +2018,48 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
             <tr><td colspan="2" class="spec-group-h">Certyfikaty</td></tr>
             <tr><td>Certyfikaty</td><td>CE, FCC, UL, RoHS, IP52</td></tr>
           </table>
+        </div>
+
+        <div class="tab-content" id="tab-sku">
+          <div style="max-width:780px;">
+            <p style="font-size:11px;color:#aaa;font-family:sans-serif;margin-bottom:16px;">Wszystkie warianty produktu (part numbery) są edytowalne w CMS. Warianty nie generują osobnych URL-i — jeden produkt, wiele SKU.</p>
+            <table style="width:100%;border-collapse:collapse;font-size:13px;font-family:sans-serif;">
+              <thead>
+                <tr style="background:#1a1a1a;color:#fff;">
+                  <th style="padding:10px 14px;text-align:left;font-weight:700;letter-spacing:0.5px;">SKU / Part number</th>
+                  <th style="padding:10px 14px;text-align:left;font-weight:700;letter-spacing:0.5px;">Opis wariantu</th>
+                  <th style="padding:10px 14px;text-align:left;font-weight:700;letter-spacing:0.5px;">Interfejs</th>
+                  <th style="padding:10px 14px;text-align:left;font-weight:700;letter-spacing:0.5px;">Kolor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #eee;background:#fff;">
+                  <td style="padding:10px 14px;font-family:monospace;font-size:12px;color:#e30613;font-weight:700;">DS9308-SR4NNSSTw</td>
+                  <td style="padding:10px 14px;color:#444;">Standard Range, Stand</td>
+                  <td style="padding:10px 14px;color:#444;">USB</td>
+                  <td style="padding:10px 14px;color:#444;">Czarny</td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;background:#f9f9f9;">
+                  <td style="padding:10px 14px;font-family:monospace;font-size:12px;color:#e30613;font-weight:700;">DS9308-SR4NNSSTw-VID</td>
+                  <td style="padding:10px 14px;color:#444;">Standard Range, Stand, Video</td>
+                  <td style="padding:10px 14px;color:#444;">USB</td>
+                  <td style="padding:10px 14px;color:#444;">Czarny</td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;background:#fff;">
+                  <td style="padding:10px 14px;font-family:monospace;font-size:12px;color:#e30613;font-weight:700;">DS9308-SR4NNSSSTw</td>
+                  <td style="padding:10px 14px;color:#444;">Standard Range, Stand, Serial</td>
+                  <td style="padding:10px 14px;color:#444;">RS-232</td>
+                  <td style="padding:10px 14px;color:#444;">Czarny</td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee;background:#f9f9f9;">
+                  <td style="padding:10px 14px;font-family:monospace;font-size:12px;color:#e30613;font-weight:700;">DS9308-SR4NNSSSTw-WHT</td>
+                  <td style="padding:10px 14px;color:#444;">Standard Range, Stand</td>
+                  <td style="padding:10px 14px;color:#444;">USB</td>
+                  <td style="padding:10px 14px;color:#444;">Biały</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div class="tab-content" id="tab-akcesoria">
@@ -2421,6 +2470,14 @@ function showPage(id, btn) {
 }
 
 // Product tabs
+function toggleInquiry() {
+  var form = document.getElementById('inquiryForm');
+  var btn = document.getElementById('inquiryBtn');
+  var open = form.style.display === 'none';
+  form.style.display = open ? 'block' : 'none';
+  btn.innerHTML = open ? '✕&nbsp; Zamknij formularz' : '&#9993;&nbsp; Zapytaj o produkt';
+  if (open) form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
 function switchTab(btn, tabId) {
   btn.closest('.prod-tabs-section').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.closest('.prod-tabs-section').querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
