@@ -629,10 +629,10 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
     <!-- ===== PAGE SWITCHER ===== -->
     <div class="pg-sw">
       <div class="pg-sw-lbl">Widok:</div>
-      <button class="pg-btn active" onclick="showPage('home',this)">Strona główna</button>
+      <button class="pg-btn" onclick="showPage('home',this)">Strona główna</button>
       <button class="pg-btn" onclick="showPage('kategoria',this)">Kategoria</button>
       <button class="pg-btn" onclick="showPage('subkategoria',this)">Subkategoria</button>
-      <button class="pg-btn" onclick="showPage('produkt',this)">Karta produktu</button>
+      <button class="pg-btn active" onclick="showPage('produkt',this)">Karta produktu</button>
       <button class="pg-btn" onclick="showPage('kontakt',this)">Kontakt</button>
       <span class="pg-note">Low-Fi Wireframe v4 · Kreski.pl</span>
     </div>
@@ -1782,13 +1782,21 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 
           <!-- CTA BOX -->
           <div class="prod-cta-box">
-            <div class="cta-price-label">Cena</div>
-            <div class="cta-price-note">Cena indywidualna — zapytaj o ofertę handlową dla firmy</div>
-            <button class="cta-main-btn">Zapytaj o cenę / wycenę</button>
-            <button class="cta-sec-btn">Dodaj do listy zapytań</button>
-            <div class="cta-tel">+48 789 868 803</div>
-            <div class="cta-tel-sub">Pon–Pt 8:00–17:00 · ekspert Auto ID</div>
-            <div class="cta-pdf">
+            <button id="inquiryBtn" class="cta-main-btn" onclick="toggleInquiry()">&#9993; &nbsp;Zapytaj o produkt</button>
+
+            <div id="inquiryForm" style="display:none; margin-top:16px; background:#f9f9f9; border:1px solid #eee; border-radius:6px; padding:16px;">
+              <div style="font-size:12px;font-weight:700;color:#1a1a1a;font-family:sans-serif;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Formularz zapytania</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <input type="text" placeholder="Imię i nazwisko *" style="padding:9px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="text" placeholder="Firma" style="padding:9px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="email" placeholder="E-mail *" style="padding:9px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <input type="tel" placeholder="Telefon" style="padding:9px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;">
+                <textarea placeholder="Treść zapytania / ilość / dodatkowe wymagania" rows="3" style="padding:9px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;font-family:sans-serif;width:100%;box-sizing:border-box;resize:none;"></textarea>
+                <button style="background:#e30613;color:#fff;border:none;border-radius:4px;padding:10px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-family:sans-serif;cursor:pointer;">Wyślij zapytanie</button>
+              </div>
+            </div>
+
+            <div class="cta-pdf" style="margin-top:12px;">
               <div class="cta-pdf-icon">PDF</div>
               <div>
                 <div style="font-weight:700;color:#1a1a1a;">Karta katalogowa DS9308</div>
