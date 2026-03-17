@@ -442,7 +442,6 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
 
 /* Fix wrap to account for switcher bar */
 .wrap { padding-top: 56px !important; }
-#page-fonty.active { margin-top: -56px; }
 
 /* ===== SHARED ELEMENTS ===== */
 .bc { background:#f8f8f8; border-bottom:1px solid #eee; padding:10px 0; }
@@ -635,7 +634,7 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
       <button class="pg-btn" onclick="showPage('subkategoria',this)">Subkategoria</button>
       <button class="pg-btn" onclick="showPage('produkt',this)">Karta produktu</button>
       <button class="pg-btn" onclick="showPage('kontakt',this)">Kontakt</button>
-      <button class="pg-btn" onclick="showPage('fonty',this)" style="border-left:2px solid #e30613;">Fonty</button>
+      <a href="fonty.html" style="height:100%;padding:0 16px;background:transparent;border-left:2px solid #e30613;color:#e30613;font-size:10px;font-family:sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;text-decoration:none;">Fonty →</a>
       <span class="pg-note">Low-Fi Wireframe v4 · Kreski.pl</span>
     </div>
 
@@ -2407,142 +2406,6 @@ body { padding-bottom:34px; font-family:'Courier New',monospace; background:#ede
     </div>
 
     </div><!-- /page-kontakt -->
-
-    <!-- ===== FONTY ===== -->
-    <div class="page-view" id="page-fonty">
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=DM+Sans:wght@400;700;800&family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@400;700&family=Manrope:wght@400;700;800&family=Exo+2:wght@400;700;800&family=Titillium+Web:wght@400;600;700&family=Saira:wght@400;700;800&family=Rajdhani:wght@500;600;700&display=swap');
-        .font-page { background:#f5f5f5; min-height:100vh; padding:16px 0 48px; }
-        .font-page-inner { max-width:1100px; margin:0 auto; padding:0 32px; }
-        .font-page h1 { font-family:sans-serif; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; margin:0 0 8px; }
-        .font-page h2 { font-family:sans-serif; font-size:28px; font-weight:800; color:#1a1a1a; margin:0 0 6px; }
-        .font-page .subtitle { font-family:sans-serif; font-size:15px; color:#666; margin:0 0 40px; }
-        .font-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-        .font-card { background:#fff; border:1px solid #e8e8e8; padding:28px 28px 22px; position:relative; }
-        .font-card:hover { border-color:#e30613; }
-        .font-badge { position:absolute; top:16px; right:16px; font-family:sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:4px 10px; border-radius:3px; }
-        .badge-rec { background:#fdecea; color:#c0000a; }
-        .badge-ok { background:#f0f0f0; color:#666; }
-        .font-name { font-family:sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; margin:0 0 14px; display:block; }
-        .font-h1 { font-size:26px; font-weight:800; color:#1a1a1a; margin:0 0 6px; line-height:1.2; }
-        .font-h2 { font-size:16px; font-weight:700; color:#1a1a1a; margin:0 0 10px; }
-        .font-body { font-size:14px; font-weight:400; color:#555; line-height:1.6; margin:0 0 14px; }
-        .font-caps { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#e30613; }
-        .font-nums { font-size:22px; font-weight:800; color:#1a1a1a; margin-left:16px; }
-        .font-meta { margin-top:16px; padding-top:14px; border-top:1px solid #f0f0f0; display:flex; align-items:center; justify-content:space-between; }
-        .font-meta-name { font-family:sans-serif; font-size:12px; color:#999; }
-        .font-card.current { border:2px solid #1a1a1a; }
-        .current-label { font-family:sans-serif; font-size:10px; font-weight:700; color:#1a1a1a; letter-spacing:1px; text-transform:uppercase; background:#f0f0f0; padding:4px 10px; border-radius:3px; }
-        @media(max-width:700px){ .font-grid { grid-template-columns:1fr; } }
-      </style>
-      <div class="font-page">
-        <div class="font-page-inner">
-          <p class="font-page h1">Typografia</p>
-          <h2 class="font-page h2">Propozycje czcionek dla Kreski</h2>
-          <p class="font-page subtitle">Wszystkie fonty są darmowe (Google Fonts, licencja OFL). Kliknij w nazwę by otworzyć na Google Fonts.</p>
-
-          <div class="font-grid">
-
-            <!-- Barlow (obecny) -->
-            <div class="font-card current">
-              <span class="font-badge current-label">Obecny</span>
-              <span class="font-name">Barlow</span>
-              <div class="font-h1" style="font-family:'Barlow',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Barlow',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Barlow',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Barlow',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Barlow',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Barlow</span></div>
-            </div>
-
-            <!-- DM Sans -->
-            <div class="font-card">
-              <span class="font-badge badge-rec">Rekomendowany</span>
-              <span class="font-name">DM Sans</span>
-              <div class="font-h1" style="font-family:'DM Sans',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'DM Sans',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'DM Sans',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'DM Sans',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'DM Sans',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/DM+Sans</span></div>
-            </div>
-
-            <!-- Outfit -->
-            <div class="font-card">
-              <span class="font-badge badge-rec">Rekomendowany</span>
-              <span class="font-name">Outfit</span>
-              <div class="font-h1" style="font-family:'Outfit',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Outfit',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Outfit',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Outfit',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Outfit',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Outfit</span></div>
-            </div>
-
-            <!-- Exo 2 -->
-            <div class="font-card">
-              <span class="font-badge badge-rec">Rekomendowany</span>
-              <span class="font-name">Exo 2</span>
-              <div class="font-h1" style="font-family:'Exo 2',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Exo 2',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Exo 2',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Exo 2',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Exo 2',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Exo+2</span></div>
-            </div>
-
-            <!-- Titillium Web -->
-            <div class="font-card">
-              <span class="font-badge badge-ok">Tech / NASA</span>
-              <span class="font-name">Titillium Web</span>
-              <div class="font-h1" style="font-family:'Titillium Web',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Titillium Web',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Titillium Web',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Titillium Web',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Titillium Web',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Titillium+Web</span></div>
-            </div>
-
-            <!-- Plus Jakarta Sans -->
-            <div class="font-card">
-              <span class="font-badge badge-ok">Elegancki B2B</span>
-              <span class="font-name">Plus Jakarta Sans</span>
-              <div class="font-h1" style="font-family:'Plus Jakarta Sans',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Plus Jakarta Sans',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Plus Jakarta Sans',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Plus Jakarta Sans',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Plus Jakarta Sans',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Plus+Jakarta+Sans</span></div>
-            </div>
-
-            <!-- Space Grotesk -->
-            <div class="font-card">
-              <span class="font-badge badge-ok">Engineering</span>
-              <span class="font-name">Space Grotesk</span>
-              <div class="font-h1" style="font-family:'Space Grotesk',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Space Grotesk',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Space Grotesk',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Space Grotesk',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Space Grotesk',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Space+Grotesk</span></div>
-            </div>
-
-            <!-- Manrope -->
-            <div class="font-card">
-              <span class="font-badge badge-ok">Czytelny</span>
-              <span class="font-name">Manrope</span>
-              <div class="font-h1" style="font-family:'Manrope',sans-serif;">Kreski – partner technologii Auto ID</div>
-              <div class="font-h2" style="font-family:'Manrope',sans-serif;">Kompleksowe rozwiązania Auto ID i IT</div>
-              <div class="font-body" style="font-family:'Manrope',sans-serif;">Dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</div>
-              <span class="font-caps" style="font-family:'Manrope',sans-serif;">AUTORYZOWANY PARTNER ZEBRA</span>
-              <span class="font-nums" style="font-family:'Manrope',sans-serif;">20+ 5000+ 48h</span>
-              <div class="font-meta"><span class="font-meta-name">fonts.google.com/specimen/Manrope</span></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div><!-- /page-fonty -->
 
 
 <script>
