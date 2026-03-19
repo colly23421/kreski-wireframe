@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kreski.pl — Technologie Auto ID dla przemysłu i logistyki</title>
+<title>KRESKI.pl – Auto ID: drukarki etykiet, terminale, skanery, RFID</title>
+<meta name="description" content="Drukarki etykiet, terminale mobilne, czytniki kodów i systemy RFID. Największy partner Zebra Technologies w Polsce o statusie Zebra Premier Business Partner.">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -13,6 +14,7 @@
   --gray-l:#f4f4f4;--gray-b:#e2e2e2;--white:#fff;
   --font:'Exo 2',sans-serif;
   --nav:64px;
+  --pgsw:32px;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font);color:var(--black);background:var(--white);overflow-x:hidden}
@@ -278,7 +280,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 
   /* Mobile nav */
   .mobile-nav{
-    display:flex;position:sticky;top:0;z-index:1000;
+    display:flex;position:sticky;top:32px;z-index:1000;
     background:var(--white);border-bottom:1px solid var(--gray-b);
     align-items:center;justify-content:space-between;
     padding:0 16px;height:56px;
@@ -378,7 +380,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 
 /* SUBKATEGORIA */
 .subcat-layout{display:grid;grid-template-columns:280px 1fr;gap:32px;max-width:1200px;margin:0 auto;padding:32px}
-.filters-panel{background:var(--white);border:1px solid var(--gray-b);padding:20px;align-self:start;position:sticky;top:calc(var(--nav) + 44px + 10px)}
+.filters-panel{background:var(--white);border:1px solid var(--gray-b);padding:20px;align-self:start;position:sticky;top:calc(var(--nav) + 44px + 32px + 10px)}
 .filter-group{margin-bottom:24px;border-bottom:1px solid var(--gray-b);padding-bottom:20px}
 .filter-group:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .filter-group-title{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--black);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
@@ -416,7 +418,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 
 /* KARTA PRODUKTU */
 .product-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1200px;margin:0 auto;padding:32px}
-.product-gallery{position:sticky;top:calc(var(--nav) + 44px + 20px)}
+.product-gallery{position:sticky;top:calc(var(--nav) + 44px + 32px + 20px)}
 .gallery-main{width:100%;height:380px;background:var(--gray-l);display:flex;align-items:center;justify-content:center;margin-bottom:12px;overflow:hidden}
 .gallery-main img{max-width:100%;max-height:100%;object-fit:contain}
 .gallery-thumbs{display:flex;gap:8px}
@@ -528,7 +530,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 }
 
 /* Nav widok na podstronach */
-.page-nav-wrap{position:sticky;top:0;z-index:1000}
+.page-nav-wrap{position:sticky;top:32px;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
 </style>
 
 <style>
@@ -543,8 +545,8 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 .pv{display:none;}
 .pv.show{display:block;}
 /* Offset everything for page switcher bar */
-.page-nav-wrap{top:32px !important;}
-.mobile-nav{top:32px !important;}
+/* page-nav-wrap top already set above */
+.mobile-nav{top:32px;}
 /* Progress bar */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:#e30613;width:0%;z-index:99999;pointer-events:none;box-shadow:0 0 8px rgba(227,6,19,.5);transition:width .08s linear;}
 /* Topbar social */
@@ -804,10 +806,10 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
   <div class="hero-parallax" id="heroBg"></div>
   <div class="hero-gradient"></div>
   <div class="hero-content">
-    <div class="hero-badge"><span></span>Autoryzowany partner Zebra &amp; Honeywell</div>
-    <h1>Kreski – partner technologii<br><span class="red">Auto ID</span></h1>
+    <div class="hero-badge"><span></span>Największy Partner Zebra w Polsce · Zebra Premier Business Partner</div>
+    <h1>KRESKI.pl – autoryzowany partner<br>technologii <span class="red">Auto ID</span></h1>
     <div class="hero-typewriter" id="typewriter"><span class="cursor"></span></div>
-    <p>Od ponad 20 lat dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</p>
+    <p>Szukasz niezawodnych rozwiązań do automatycznej identyfikacji lub infrastruktury IT dla swojej firmy? Od ponad 20 lat dostarczamy polskim przedsiębiorstwom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe.</p>
     <div class="hero-btns">
       <a href="#" class="btn-primary">Zobacz ofertę</a>
       <a href="#" class="btn-outline">Skontaktuj się z ekspertem</a>
@@ -842,8 +844,8 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
     <div class="s-header reveal">
       <div>
         <div class="s-label">Nasza oferta</div>
-        <div class="s-title">Kompleksowe rozwiązania Auto ID i IT</div>
-        <p class="s-sub">Od drukarek etykiet po zasilanie awaryjne — wszystko czego potrzebuje nowoczesne przedsiębiorstwo.</p>
+        <div class="s-eyebrow">Nasza oferta</div><div class="s-title">Oferta Kreski.pl – drukarki etykiet, skanery kodów, terminale mobilne, infrastruktura IT i więcej</div>
+        <p class="s-sub">Nasze portfolio obejmuje kompletny ekosystem urządzeń Auto ID oraz rozwiązań IT dla przemysłu i logistyki. Niezależnie od tego, czy potrzebujesz pojedynczego skanera do punktu sprzedaży, kompleksowego systemu RFID dla całego magazynu, czy bezpiecznej infrastruktury sieciowej — mamy rozwiązanie dla Ciebie.</p>
       </div>
       <div class="filter-tabs">
         <button class="ftab active" onclick="filterTiles('all',this)">Wszystkie</button>
@@ -853,15 +855,15 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
       </div>
     </div>
     <div class="products-grid reveal">
-      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/><line x1="9" y1="18" x2="15" y2="18"/></svg></div><div class="tile-title">Drukarki etykiet</div><div class="tile-desc">Termiczne i termotransferowe drukarki biurowe, przemysłowe i mobilne od Zebra, Honeywell, TSC i Citizen.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M6 3v18M10 3v18M14 3v18M18 3v18M3 3h18M3 21h18"/></svg></div><div class="tile-title">Skanery kodów kreskowych</div><div class="tile-desc">Ręczne, prezentacyjne i przemysłowe skanery 1D/2D do kasy, magazynu i linii produkcyjnej.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="tile-title">Terminale mobilne</div><div class="tile-desc">Kolektory danych z Androidem do pracy w magazynie, terenie i na produkcji — Zebra, Honeywell, Unitech.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="tile-title">Infrastruktura sieciowa</div><div class="tile-desc">Switche, access pointy WiFi, serwery i okablowanie strukturalne od Extreme Networks, HPE Aruba i Cisco.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="tile-title">Bezpieczeństwo IT</div><div class="tile-desc">Zapory NGFW, systemy IPS/DLP, backup danych i Security Service Edge dla firm każdej wielkości.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="tile-title">Zasilanie awaryjne UPS</div><div class="tile-desc">Systemy UPS do ochrony infrastruktury IT i urządzeń krytycznych od Eaton i APC.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M2 16.1A5 5 0 015.9 20M2 12.05A9 9 0 019.95 20M2 8V6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg></div><div class="tile-title">Systemy RFID</div><div class="tile-desc">Czytniki, anteny i tagi RFID UHF do śledzenia aktywów, inwentaryzacji i kontroli dostępu.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="tile-title">Materiały eksploatacyjne</div><div class="tile-desc">Etykiety, taśmy termotransferowe i karty plastikowe do wszystkich modeli drukarek.</div><span class="tile-arrow">Sprawdź →</span></div>
-      <div class="ptile" data-cat="serwis"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div class="tile-title">Serwis i wsparcie</div><div class="tile-desc">Autoryzowany serwis Zebra i Honeywell, naprawy gwarancyjne, kontrakty serwisowe i urządzenia zastępcze.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/><line x1="9" y1="18" x2="15" y2="18"/></svg></div><div class="tile-title">Drukarki etykiet</div><div class="tile-desc">Profesjonalne drukarki termiczne i termotransferowe. Modele biurowe, przemysłowe i mobilne od Zebra, Honeywell, TSC i Citizen. Wydajność od 1000 do 50 000 etykiet dziennie.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M6 3v18M10 3v18M14 3v18M18 3v18M3 3h18M3 21h18"/></svg></div><div class="tile-title">Skanery kodów kreskowych</div><div class="tile-desc">Czytniki kodów 1D i 2D — od prostych modeli ręcznych po zaawansowane skanery przemysłowe. Odczyt z ekranów, uszkodzonych etykiet i w trudnych warunkach. Wersje przewodowe, bezprzewodowe i napalcowe.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="tile-title">Terminale mobilne</div><div class="tile-desc">Kolektory danych z systemem Android, wbudowanym skanerem i wytrzymałą obudową IP65/IP67. Idealne do inwentaryzacji, kompletacji zamówień i zarządzania magazynem.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="tile-title">Infrastruktura sieciowa</div><div class="tile-desc">Projektowanie, dostawa i wdrożenie sieci LAN/WAN, Wi-Fi dla magazynów i hal produkcyjnych. Rozwiązania Cisco, Extreme Networks, Cambium Networks i Ubiquiti.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="tile-title">Bezpieczeństwo IT</div><div class="tile-desc">Kompleksowa ochrona IT — zapory NGFW, systemy DLP, backup i archiwizacja danych oraz MDM. Rozwiązania SonicWall, Forcepoint, Acronis i SOTI.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="it"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="tile-title">Zasilanie awaryjne UPS</div><div class="tile-desc">Systemy UPS, listwy zasilające i zarządzanie energią chroniące serwery i infrastrukturę przed przerwami w zasilaniu. APC by Schneider Electric i Eaton.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M2 16.1A5 5 0 015.9 20M2 12.05A9 9 0 019.95 20M2 8V6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg></div><div class="tile-title">Systemy RFID</div><div class="tile-desc">Kompleksowe rozwiązania RFID — czytniki stacjonarne i mobilne, anteny, drukarki tagów i bramki. Inwentaryzacja nawet 10x szybsza niż tradycyjne skanowanie.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="autoid"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><div class="tile-title">Materiały eksploatacyjne</div><div class="tile-desc">Etykiety termiczne, termotransferowe, syntetyczne i RFID. Taśmy barwiące do wszystkich typów drukarek. Gwarancja kompatybilności z Zebra, Honeywell, TSC i innymi.</div><span class="tile-arrow">Sprawdź →</span></div>
+      <div class="ptile" data-cat="serwis"><div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e30613" stroke-width="1.8" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div class="tile-title">Serwis i wsparcie</div><div class="tile-desc">Autoryzowany serwis Zebra i Honeywell. Naprawy gwarancyjne i pogwarancyjne, kontrakty serwisowe, urządzenia zastępcze na czas naprawy. Czas reakcji od 24 godzin.</div><span class="tile-arrow">Sprawdź →</span></div>
     </div>
     <div class="products-cta reveal">
       <a href="#" class="btn-primary">Zobacz wszystkie produkty →</a>
@@ -918,12 +920,18 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 
 <!-- STATS -->
 <section class="stats-section">
+  <div style="text-align:center;padding:48px 32px 0;max-width:800px;margin:0 auto;">
+    <div class="s-eyebrow" style="color:rgba(255,255,255,.5);">Kreski w liczbach</div>
+    <div class="s-title" style="color:white;font-size:clamp(22px,3vw,34px);">Ponad 20 lat doświadczenia w branży Auto ID i IT</div>
+    <p style="color:rgba(255,255,255,.6);font-size:14px;margin-top:10px;line-height:1.7;">Nie jesteśmy kolejnym sklepem internetowym. Jesteśmy zespołem ekspertów, którzy od lat budują efektywne systemy Auto ID i infrastruktury IT dla polskich firm.</p>
+  </div>
   <div class="stats-grid inner">
     <div class="stat-item reveal"><div class="stat-num"><span class="counter" data-target="20">0</span><span class="stat-suf">+</span></div><div class="stat-label">lat na rynku</div><div class="stat-sub">doświadczenia w Auto ID i IT</div></div>
-    <div class="stat-item reveal reveal-d1"><div class="stat-num"><span class="counter" data-target="721">0</span><span class="stat-suf">+</span></div><div class="stat-label">produktów w ofercie</div><div class="stat-sub">sprzęt, oprogramowanie, materiały</div></div>
-    <div class="stat-item reveal reveal-d2"><div class="stat-num"><span class="counter" data-target="500">0</span><span class="stat-suf">+</span></div><div class="stat-label">aktywnych klientów</div><div class="stat-sub">od małych firm po korporacje</div></div>
-    <div class="stat-item reveal reveal-d3"><div class="stat-num"><span class="counter" data-target="8000">0</span><span class="stat-suf">+</span></div><div class="stat-label">naprawionych urządzeń</div><div class="stat-sub">autoryzowany serwis Zebra i Honeywell</div></div>
-    <div class="stat-item reveal reveal-d4"><div class="stat-num"><span class="counter" data-target="48">0</span><span class="stat-suf">h</span></div><div class="stat-label">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
+    <div class="stat-item reveal reveal-d1"><div class="stat-num"><span class="counter" data-target="18000">0</span><span class="stat-suf">+</span></div><div class="stat-label">produktów w ofercie</div><div class="stat-sub">sprzęt, oprogramowanie, materiały eksploatacyjne</div></div>
+    <div class="stat-item reveal reveal-d2"><div class="stat-num"><span class="counter" data-target="1100">0</span><span class="stat-suf">+</span></div><div class="stat-label">aktywnych klientów</div><div class="stat-sub">od lokalnych firm po międzynarodowe korporacje</div></div>
+    <div class="stat-item reveal reveal-d3"><div class="stat-num"><span class="counter" data-target="80000">0</span><span class="stat-suf">+</span></div><div class="stat-label">naprawionych urządzeń</div><div class="stat-sub">jedna z największych placówek serwisowych Zebra w Polsce</div></div>
+    <div class="stat-item reveal reveal-d4"><div class="stat-num"><span class="counter" data-target="5000">0</span><span class="stat-suf">+</span></div><div class="stat-label">zainstalowanych AP Wi-Fi</div><div class="stat-sub">w magazynach i halach produkcyjnych w Polsce</div></div>
+    <div class="stat-item reveal reveal-d5"><div class="stat-num"><span class="counter" data-target="48">0</span><span class="stat-suf">h</span></div><div class="stat-label">średni czas naprawy</div><div class="stat-sub">urządzenia zastępcze na czas serwisu</div></div>
   </div>
 </section>
 
@@ -951,7 +959,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
   <div class="inner" style="text-align:center">
     <div class="reveal">
       <div class="s-label">Nasi główni partnerzy</div>
-      <div class="s-title">Partnerzy Kreski — światowi liderzy Auto ID</div>
+      <div class="s-eyebrow">Zaufali nam</div><div class="s-title">Partnerzy Kreski.pl – światowi liderzy technologii Auto ID</div><p style="color:var(--gray-m);font-size:15px;max-width:640px;margin:12px auto 0;line-height:1.7;">Współpracujemy wyłącznie z producentami, którzy wyznaczają standardy w branży automatycznej identyfikacji. Dzięki temu gwarantujemy najwyższą jakość sprzętu i pełne wsparcie techniczne.</p>
     </div>
     <div style="margin-top:36px" class="reveal">
       <div class="carousel-wrap">
