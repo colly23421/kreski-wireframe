@@ -26,27 +26,27 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
 .hdr-wrap { position:sticky; top:36px; z-index:400; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
 
 /* Topbar */
-.topbar { background:#1a1a1a; height:40px; display:flex; align-items:center; padding:0 24px; gap:0; }
+.topbar { background:#ffffff; border-bottom:1px solid #eee; height:48px; display:flex; align-items:center; padding:0 24px; gap:0; }
 .topbar-logo { flex-shrink:0; margin-right:20px; }
 .topbar-logo img { height:24px; width:auto; display:block; }
 /* LEFT icons: lupa, telefon, mail */
 .topbar-icons { display:flex; align-items:center; gap:4px; }
-.tb-ico { width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#aaa; transition:color .15s; border-radius:3px; }
+.tb-ico { width:32px; height:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#555; transition:color .15s; border-radius:3px; }
 .tb-ico:hover { color:#fff; background:rgba(255,255,255,0.08); }
 .tb-ico svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
 /* RIGHT: social + CTA */
 .topbar-right { display:flex; align-items:center; gap:8px; margin-left:auto; }
 .topbar-social { display:flex; align-items:center; gap:4px; }
-.topbar-soc { width:26px; height:26px; background:#2a2a2a; border-radius:3px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .15s; }
+.topbar-soc { width:26px; height:26px; background:#f0f0f0; border-radius:3px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .15s; }
 .topbar-soc:hover { background:#e30613; }
-.topbar-soc svg { width:12px; height:12px; fill:white; }
-.tb-sep { width:1px; height:22px; background:#333; margin:0 8px; flex-shrink:0; }
+.topbar-soc svg { width:12px; height:12px; fill:#555; }
+.tb-sep { width:1px; height:22px; background:#ddd; margin:0 8px; flex-shrink:0; }
 .topbar-cta { height:30px; padding:0 16px; background:#e30613; color:#fff; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; border:none; cursor:pointer; white-space:nowrap; transition:background .15s; display:flex; align-items:center; }
 .topbar-cta:hover { background:#c00; }
 
 /* Nav row */
-.navrow { background:white; border-bottom:2px solid #e30613; height:52px; display:flex; align-items:stretch; padding:0 24px; position:relative; }
-.nav-i { position:static; padding:0 13px; height:52px; display:flex; align-items:center; font-size:12px; color:#222; font-weight:700; letter-spacing:.3px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:4px; cursor:pointer; transition:color .15s; border-bottom:3px solid transparent; margin-bottom:-2px; }
+.navrow { background:white; border-bottom:2px solid #e30613; height:60px; display:flex; align-items:stretch; padding:0 24px; position:relative; }
+.nav-i { position:static; padding:0 13px; height:60px; display:flex; align-items:center; font-size:12px; color:#222; font-weight:700; letter-spacing:.3px; border-left:1px solid #f2f2f2; white-space:nowrap; gap:4px; cursor:pointer; transition:color .15s; border-bottom:3px solid transparent; margin-bottom:-2px; }
 .nav-i:first-child { border-left:none; padding-left:0; }
 .nav-i .arr { font-size:7px; color:#aaa; }
 .nav-i.open, .nav-i:hover { color:#e30613; }
@@ -58,7 +58,7 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
 /* ==============================
    FLYOUT PANELS
    ============================== */
-.nav-panel { display:none; position:absolute; top:52px; left:0; background:white; border:1px solid #e8e8e8; border-top:3px solid #e30613; box-shadow:0 8px 32px rgba(0,0,0,0.13); z-index:300; min-width:220px; }
+.nav-panel { display:none; position:absolute; top:60px; left:0; background:white; border:1px solid #e8e8e8; border-top:3px solid #e30613; box-shadow:0 8px 32px rgba(0,0,0,0.13); z-index:300; min-width:220px; }
 .nav-i.open .nav-panel { display:flex; }
 .nav-panel.mega { width:880px; }
 .l2-col { width:220px; flex-shrink:0; background:#f8f8f8; border-right:1px solid #e8e8e8; padding:8px 0; }
@@ -411,13 +411,13 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
   .pg-note { display:none; }
 
   /* HEADER mobile */
-  .topbar { padding:0 14px !important; height:36px !important; }
+  .topbar { padding:0 14px !important; height:44px !important; }
   .topbar-logo img { height:20px !important; }
   .topbar-icons { display:none !important; }
   .tb-sep { display:none !important; }
   .topbar-social { display:none !important; }
   .topbar-cta { font-size:9px !important; padding:0 10px !important; height:26px !important; }
-  .navrow { padding:0 14px !important; height:44px !important; }
+  .navrow { padding:0 14px !important; height:52px !important; }
   .hdr-wrap { top:36px; }
   .nav-i { display:none !important; }
   /* Hamburger PO PRAWEJ */
@@ -618,11 +618,11 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
           </div>
         </div>
       </div>
-      <div class="nav-i" id="nav-przemysl" onclick="toggleNav('przemysl')">Dla przemysłu <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-przemysl"><a href="#">Tablety przemysłowe</a><a href="#">Komputery przemysłowe</a><a href="#">Notebooki przemysłowe</a><a href="#">Kioski informacyjne</a><a href="#">Urządzenia ATEX</a><a href="#">Systemy kontrolno-pomiarowe</a></div></div>
+      <div class="nav-i" id="nav-przemysl" onclick="toggleNav('przemysl')">Rozwiązania dla przemysłu <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-przemysl"><a href="#">Tablety przemysłowe</a><a href="#">Komputery przemysłowe</a><a href="#">Notebooki przemysłowe</a><a href="#">Kioski informacyjne</a><a href="#">Urządzenia ATEX</a><a href="#">Systemy kontrolno-pomiarowe</a></div></div>
       <div class="nav-i" id="nav-opro" onclick="toggleNav('opro')">Oprogramowanie <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-opro"><div class="dropdown-h">Zarządzanie</div><a href="#">Tworzenie etykiet (BarTender)</a><a href="#">Zarządzanie urządzeniami MDM</a><hr class="dropdown-sep"><div class="dropdown-h">Aplikacje</div><a href="#">Aplikacje mobilne</a><a href="#">Aplikacje dedykowane</a><a href="#">Migracja z Wing</a></div></div>
       <div class="nav-i" id="nav-infra" onclick="toggleNav('infra')">Infrastruktura IT <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-infra"><a href="#">Sieci komputerowe</a><a href="#">Switche</a><a href="#">Access Pointy WiFi</a><a href="#">Serwery</a><a href="#">UPS / zasilanie awaryjne</a><a href="#">Okablowanie strukturalne</a></div></div>
       <div class="nav-i" id="nav-sec" onclick="toggleNav('sec')">Bezpieczeństwo IT <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-sec"><a href="#">Zapory sieciowe NGFW</a><a href="#">Systemy IPS / DLP</a><a href="#">Email Security</a><a href="#">Web Security</a><a href="#">Backup i archiwizacja</a><a href="#">Security Service Edge SSE</a></div></div>
-      <div class="nav-i" id="nav-serwis" onclick="toggleNav('serwis')">Serwis <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-serwis"><a href="#" style="color:#e30613;font-weight:700;">→ Zgłoś naprawę online</a><hr class="dropdown-sep"><a href="#">Gwarancja i ochrona</a><a href="#">Serwis mobilny</a><a href="#">Sprzedaż części</a></div></div>
+      <div class="nav-i" id="nav-serwis" onclick="toggleNav('serwis')">Serwis urządzeń <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-serwis"><a href="#" style="color:#e30613;font-weight:700;">→ Zgłoś naprawę online</a><hr class="dropdown-sep"><a href="#">Gwarancja i ochrona</a><a href="#">Serwis mobilny</a><a href="#">Sprzedaż części</a></div></div>
       <div class="nav-i" id="nav-uslugi" onclick="toggleNav('uslugi')">Usługi <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-uslugi"><div class="dropdown-h">Wdrożenia</div><a href="#">Znakowanie magazynów</a><a href="#">Systemy wizyjne</a><a href="#">Automatyka procesów</a><hr class="dropdown-sep"><div class="dropdown-h">Wsparcie</div><a href="#">Audyty sieci WiFi</a><a href="#">Szkolenia techniczne</a><a href="#">Wypożyczanie sprzętu</a></div></div>
       <div class="nav-i" id="nav-wiedza" onclick="toggleNav('wiedza')">Centrum wiedzy <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-wiedza"><a href="#">Artykuły i baza wiedzy</a><a href="#">Pliki do pobrania</a><a href="#">Realizacje i case studies</a></div></div>
       <div class="nav-i" id="nav-firma" onclick="toggleNav('firma')">O firmie <span class="arr">▾</span><div class="nav-panel dropdown" id="panel-firma"><a href="#">O nas</a><a href="#">Nasi partnerzy</a><hr class="dropdown-sep"><a href="#">Kariera</a></div></div>
@@ -637,7 +637,7 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
     <div class="mob-menu" id="mobMenu">
       <div class="mob-nav-i" onclick="toggleMob('mobAuto',this)">AUTO ID <span>▾</span></div>
       <div class="mob-sub" id="mobAuto"><div class="mob-sub-group"><div class="mob-sub-h">Czytniki i drukarki</div><a href="#">Czytniki kodów kreskowych</a><a href="#">Drukarki etykiet</a><a href="#">Drukarki kart</a></div><div class="mob-sub-group"><div class="mob-sub-h">Terminale i RFID</div><a href="#">Terminale przenośne</a><a href="#">RFID</a><a href="#">Systemy wizyjne</a><a href="#">Materiały eksploat.</a></div></div>
-      <div class="mob-nav-i" onclick="toggleMob('mobPrz',this)">Dla przemysłu <span>▾</span></div>
+      <div class="mob-nav-i" onclick="toggleMob('mobPrz',this)">Rozwiązania dla przemysłu <span>▾</span></div>
       <div class="mob-sub" id="mobPrz"><div class="mob-sub-group"><a href="#">Tablety przemysłowe</a><a href="#">Komputery przemysłowe</a><a href="#">ATEX</a><a href="#">Kioski</a></div></div>
       <div class="mob-nav-i" onclick="toggleMob('mobOpr',this)">Oprogramowanie <span>▾</span></div>
       <div class="mob-sub" id="mobOpr"><div class="mob-sub-group"><a href="#">Zarządzanie etykietami</a><a href="#">MDM</a><a href="#">Aplikacje mobilne</a><a href="#">Migracja z Wing</a></div></div>
@@ -645,7 +645,7 @@ body,p,h1,h2,h3,h4,h5,h6,span,div,a,li,td,th,input,button,label,select,textarea 
       <div class="mob-sub" id="mobInf"><div class="mob-sub-group"><a href="#">Sieci / Switche</a><a href="#">Access Pointy</a><a href="#">Serwery</a><a href="#">UPS</a></div></div>
       <div class="mob-nav-i" onclick="toggleMob('mobSec',this)">Bezpieczeństwo IT <span>▾</span></div>
       <div class="mob-sub" id="mobSec"><div class="mob-sub-group"><a href="#">NGFW / IPS / DLP</a><a href="#">Email Security</a><a href="#">Backup</a><a href="#">SSE</a></div></div>
-      <div class="mob-nav-i" onclick="toggleMob('mobSer',this)">Serwis <span>▾</span></div>
+      <div class="mob-nav-i" onclick="toggleMob('mobSer',this)">Serwis urządzeń <span>▾</span></div>
       <div class="mob-sub" id="mobSer"><div class="mob-sub-group"><a href="#" style="color:#e30613;font-weight:700;">→ Zgłoś naprawę online</a><a href="#">Gwarancja</a><a href="#">Serwis mobilny</a></div></div>
       <div class="mob-nav-i" onclick="toggleMob('mobUsl',this)">Usługi <span>▾</span></div>
       <div class="mob-sub" id="mobUsl"><div class="mob-sub-group"><a href="#">Znakowanie magazynów</a><a href="#">Systemy wizyjne</a><a href="#">Szkolenia</a></div></div>
