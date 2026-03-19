@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kreski.pl — Strona główna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #e30613;
+    --red-dark: #b80510;
+    --black: #1a1a1a;
+    --gray-dark: #2d2d2d;
+    --gray-mid: #6b6b6b;
+    --gray-light: #f4f4f4;
+    --gray-border: #e2e2e2;
+    --white: #ffffff;
+    --font: 'Barlow', sans-serif;
+    --font-cond: 'Barlow Condensed', sans-serif;
+    --nav-h: 64px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--black); background: var(--white); overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--black);
+    color: #aaa;
+    font-size: 12px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+  }
+  .topbar a { color: #ccc; transition: color .2s; }
+  .topbar a:hover { color: var(--white); }
+  .topbar-left, .topbar-right { display: flex; gap: 20px; align-items: center; }
+  .topbar-right a { display: flex; align-items: center; gap: 5px; }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-border);
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 0;
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,.10); }
+
+  .nav-logo { margin-right: 32px; flex-shrink: 0; }
+  .nav-logo img { height: 32px; }
+
+  .nav-links { display: flex; align-items: stretch; height: 100%; flex: 1; }
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .nav-item > a, .nav-item > span {
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--black);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color .2s;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s, color .2s;
+  }
+  .nav-item:hover > a, .nav-item:hover > span { color: var(--red); border-bottom-color: var(--red); }
+  .nav-item .chevron { font-size: 10px; transition: transform .2s; }
+  .nav-item:hover .chevron { transform: rotate(180deg); }
+
+  /* dropdown */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-top: 2px solid var(--red);
+    min-width: 220px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.10);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity .2s, transform .2s;
+  }
+  .nav-item:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+  .dropdown a {
+    display: block;
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--gray-dark);
+    border-bottom: 1px solid var(--gray-border);
+    transition: background .15s, color .15s, padding-left .15s;
+  }
+  .dropdown a:last-child { border-bottom: none; }
+  .dropdown a:hover { background: var(--gray-light); color: var(--red); padding-left: 22px; }
+  .dropdown-heading { padding: 8px 16px 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #999; }
+
+  .nav-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .nav-phone { font-size: 14px; font-weight: 700; color: var(--black); display: flex; align-items: center; gap: 6px; }
+  .nav-phone:hover { color: var(--red); }
+  .nav-search { background: none; border: none; cursor: pointer; padding: 6px; color: var(--gray-mid); font-size: 16px; transition: color .2s; }
+  .nav-search:hover { color: var(--red); }
+  .btn-cta {
+    background: var(--red);
+    color: var(--white);
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .btn-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  /* sticky contact widget */
+  .sticky-contact {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .sticky-btn {
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    transition: background .2s, padding .2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sticky-btn:hover { background: var(--red); padding-right: 20px; }
+  .sticky-btn.red { background: var(--red); }
+  .sticky-btn.red:hover { background: var(--red-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 560px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://kreski-wireframe.vercel.app/Sekcja_1__Drukarki_Skanery.jpeg') center/cover;
+    opacity: .35;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 64px;
+    max-width: 700px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .6s .2s forwards;
+  }
+  .hero h1 {
+    font-family: var(--font-cond);
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .6s .35s forwards;
+  }
+  .hero h1 span { color: var(--red); }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,.75);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 520px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .6s .5s forwards;
+  }
+  .hero-btns {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .6s .65s forwards;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    cursor: pointer;
+    border: none;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,.4);
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
+
+  /* hero arrows */
+  .hero-arrows {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp .6s .8s forwards;
+  }
+  .hero-arrow {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-arrow:hover { background: var(--red); border-color: var(--red); }
+
+  /* ── PARTNERS CAROUSEL ── */
+  .partners-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-border);
+    padding: 0;
+    overflow: hidden;
+  }
+  .partners-inner { padding: 16px 24px; }
+  .partners-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--gray-mid);
+    margin-bottom: 12px;
+  }
+  .carousel-track-wrap { overflow: hidden; position: relative; }
+  .carousel-track-wrap::before, .carousel-track-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .carousel-track-wrap::before { left: 0; background: linear-gradient(to right, white, transparent); }
+  .carousel-track-wrap::after  { right: 0; background: linear-gradient(to left, white, transparent); }
+  .carousel-track {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+  }
+  .carousel-track:hover { animation-play-state: paused; }
+  .carousel-track img { height: 28px; filter: grayscale(1) opacity(.5); transition: filter .3s; }
+  .carousel-track img:hover { filter: grayscale(0) opacity(1); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-cond);
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: var(--gray-mid);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* ── PRODUCTS GRID ── */
+  .products-section { background: var(--gray-light); }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray-border);
+    border: 1px solid var(--gray-border);
+  }
+  .product-tile {
+    background: var(--white);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    transition: background .25s, transform .25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+    z-index: 0;
+  }
+  .product-tile:hover::after { transform: scaleY(1); }
+  .product-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+  .product-tile > * { position: relative; z-index: 1; }
+  .tile-icon { font-size: 28px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: var(--gray-light); transition: background .25s; }
+  .product-tile:hover .tile-icon { background: rgba(255,255,255,.2); }
+  .tile-title { font-size: 15px; font-weight: 700; transition: color .25s; }
+  .product-tile:hover .tile-title { color: var(--white); }
+  .tile-desc { font-size: 13px; color: var(--gray-mid); line-height: 1.55; transition: color .25s; }
+  .product-tile:hover .tile-desc { color: rgba(255,255,255,.85); }
+  .tile-arrow { margin-top: auto; font-size: 13px; font-weight: 700; color: var(--red); transition: color .25s, transform .25s; display: inline-flex; align-items: center; gap: 4px; }
+  .product-tile:hover .tile-arrow { color: var(--white); transform: translateX(4px); }
+
+  .products-cta { text-align: center; margin-top: 32px; }
+
+  /* ── PROMO STRIPS ── */
+  .promo-section { padding: 0 24px 80px; }
+  .promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .promo-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .promo-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform .5s cubic-bezier(.4,0,.2,1);
+  }
+  .promo-card:hover .promo-img { transform: scale(1.04); }
+  .promo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 60%); }
+  .promo-content { position: relative; z-index: 1; padding: 28px; }
+  .promo-cat { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--red); margin-bottom: 6px; }
+  .promo-title { font-family: var(--font-cond); font-size: 22px; font-weight: 700; text-transform: uppercase; color: white; margin-bottom: 8px; line-height: 1.2; }
+  .promo-desc { font-size: 13px; color: rgba(255,255,255,.75); margin-bottom: 14px; line-height: 1.5; }
+  .btn-white { background: white; color: var(--black); padding: 9px 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, transform .15s; }
+  .btn-white:hover { background: var(--red); color: white; transform: translateY(-2px); }
+
+  /* ── INDUSTRIES ── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .industry-card {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    cursor: pointer;
+  }
+  .industry-bg {
+    position: absolute; inset: 0;
+    background: var(--gray-dark);
+    transition: transform .4s cubic-bezier(.4,0,.2,1);
+  }
+  .industry-card:hover .industry-bg { transform: scale(1.06); }
+  .industry-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,.5);
+    transition: background .3s;
+  }
+  .industry-card:hover .industry-overlay { background: rgba(227,6,19,.75); }
+  .industry-content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+  .industry-icon { font-size: 28px; margin-bottom: 8px; }
+  .industry-name { font-family: var(--font-cond); font-size: 18px; font-weight: 700; text-transform: uppercase; color: white; }
+  .industry-desc { font-size: 12px; color: rgba(255,255,255,.8); margin-top: 4px; max-height: 0; overflow: hidden; transition: max-height .3s; line-height: 1.4; }
+  .industry-card:hover .industry-desc { max-height: 60px; }
+
+  /* ── STATS ── */
+  .stats-section { background: var(--black); }
+  .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; max-width: 1200px; margin: 0 auto; }
+  .stat-item { padding: 40px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,.1); }
+  .stat-item:last-child { border-right: none; }
+  .stat-number { font-family: var(--font-cond); font-size: 48px; font-weight: 700; color: var(--red); line-height: 1; }
+  .stat-suffix { font-size: 28px; }
+  .stat-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.5); margin-top: 8px; }
+  .stat-sublabel { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 4px; }
+
+  /* ── PARTNERS FULL ── */
+  .partners-section { background: var(--gray-light); }
+  .partners-full-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--gray-border); max-width: 1200px; margin: 0 auto 32px; }
+  .partner-logo {
+    background: var(--white);
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(1) opacity(.5);
+    transition: filter .3s, transform .3s;
+    cursor: pointer;
+  }
+  .partner-logo:hover { filter: grayscale(0) opacity(1); transform: scale(1.05); }
+  .partner-logo-text { font-family: var(--font-cond); font-size: 22px; font-weight: 700; letter-spacing: .05em; color: var(--black); }
+
+  /* ── NEWS ── */
+  .news-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .news-card {
+    cursor: pointer;
+    transition: transform .25s;
+  }
+  .news-card:hover { transform: translateY(-4px); }
+  .news-img { width: 100%; height: 180px; object-fit: cover; background: var(--gray-border); margin-bottom: 14px; transition: opacity .25s; }
+  .news-card:hover .news-img { opacity: .85; }
+  .news-date { font-size: 11px; color: var(--gray-mid); margin-bottom: 6px; }
+  .news-title { font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--black); transition: color .2s; }
+  .news-card:hover .news-title { color: var(--red); }
+  .news-excerpt { font-size: 13px; color: var(--gray-mid); margin-top: 6px; line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--black); color: rgba(255,255,255,.6); }
+  .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 60px 24px 40px; }
+  .footer-brand img { height: 30px; filter: brightness(0) invert(1); margin-bottom: 16px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; }
+  .footer-brand .footer-contact { margin-top: 20px; }
+  .footer-brand .footer-contact a { display: block; font-size: 13px; color: rgba(255,255,255,.6); transition: color .2s; margin-bottom: 4px; }
+  .footer-brand .footer-contact a:hover { color: var(--white); }
+  .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.9); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 7px; transition: color .2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 16px 24px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .6s, transform .6s;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ── SEARCH OVERLAY ── */
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+  }
+  .search-overlay.open { opacity: 1; pointer-events: all; }
+  .search-box {
+    background: white;
+    width: 100%;
+    max-width: 640px;
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transform: translateY(-20px);
+    transition: transform .25s;
+  }
+  .search-overlay.open .search-box { transform: translateY(0); }
+  .search-box input { flex: 1; border: none; outline: none; font-size: 20px; font-family: var(--font); }
+  .search-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--gray-mid); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .promo-grid { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid .stat-item:nth-child(2n) { border-right: none; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-main { grid-template-columns: 1fr 1fr; }
+    .partners-full-grid { grid-template-columns: repeat(3, 1fr); }
+    .topbar { display: none; }
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .sticky-contact { display: none; }
+    .hero-content { padding: 60px 24px; }
+  }
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    .partners-full-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-main { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>Autoryzowany partner Zebra &amp; Honeywell</span>
+  </div>
+  <div class="topbar-right">
+    <a href="#">in</a>
+    <a href="#">fb</a>
+    <a href="#">yt</a>
+    <a href="mailto:kreski@kreski.pl">✉ kreski@kreski.pl</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="#"><img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski"></a>
+  </div>
+  <div class="nav-links">
+    <div class="nav-item">
+      <span>Produkty <span class="chevron">▾</span></span>
+      <div class="dropdown">
+        <div class="dropdown-heading">Auto ID</div>
+        <a href="#">Czytniki kodów kreskowych</a>
+        <a href="#">Drukarki etykiet</a>
+        <a href="#">Terminale przenośne</a>
+        <a href="#">RFID</a>
+        <div class="dropdown-heading">IT</div>
+        <a href="#">Infrastruktura sieciowa</a>
+        <a href="#">Bezpieczeństwo IT</a>
+        <a href="#">UPS / zasilanie awaryjne</a>
+      </div>
+    </div>
+    <div class="nav-item"><span>Usługi <span class="chevron">▾</span></span>
+      <div class="dropdown">
+        <a href="#">Wdrożenia i integracje</a>
+        <a href="#">Audyty sieci WiFi</a>
+        <a href="#">Szkolenia techniczne</a>
+      </div>
+    </div>
+    <div class="nav-item"><span>Serwis <span class="chevron">▾</span></span>
+      <div class="dropdown">
+        <a href="#">Zgłoś naprawę online</a>
+        <a href="#">Gwarancja i ochrona</a>
+        <a href="#">Serwis mobilny</a>
+      </div>
+    </div>
+    <div class="nav-item"><span>Centrum wiedzy <span class="chevron">▾</span></span>
+      <div class="dropdown">
+        <a href="#">Artykuły / Baza wiedzy</a>
+        <a href="#">Pliki do pobrania</a>
+        <a href="#">Realizacje</a>
+      </div>
+    </div>
+    <div class="nav-item"><span>O firmie <span class="chevron">▾</span></span>
+      <div class="dropdown">
+        <a href="#">O nas</a>
+        <a href="#">Nasi partnerzy</a>
+        <a href="#">Kariera</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#">Kontakt</a></div>
+  </div>
+  <div class="nav-right">
+    <a href="tel:+48789868803" class="nav-phone">📞 +48 789 868 803</a>
+    <button class="nav-search" onclick="toggleSearch()">🔍</button>
+    <a href="#" class="btn-cta">Zapytaj o ofertę</a>
+  </div>
+</nav>
+
+<!-- STICKY CONTACT -->
+<div class="sticky-contact">
+  <button class="sticky-btn red">Zapytaj o ofertę</button>
+  <button class="sticky-btn">Telefon</button>
+  <button class="sticky-btn">E-mail</button>
+  <button class="sticky-btn">Serwis</button>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" onclick="closeSearch(event)">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Szukaj produktów, kategorii, producentów…">
+    <button class="search-close" onclick="toggleSearch()">✕</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Autoryzowany partner Zebra &amp; Honeywell</div>
+    <h1>Kreski – partner technologii <span>Auto ID</span><br>dla przemysłu i logistyki</h1>
+    <p>Od ponad 20 lat dostarczamy polskim firmom sprawdzone technologie, które usprawniają procesy magazynowe, produkcyjne i sprzedażowe. Pełne wsparcie – od doboru sprzętu, przez wdrożenie, aż po serwis.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Zobacz ofertę</a>
+      <a href="#" class="btn-outline">Skontaktuj się z ekspertem</a>
+    </div>
+  </div>
+  <div class="hero-arrows">
+    <button class="hero-arrow">‹</button>
+    <button class="hero-arrow">›</button>
+  </div>
+</section>
+
+<!-- PARTNERS CAROUSEL -->
+<div class="partners-bar">
+  <div class="partners-inner">
+    <div class="partners-label">Nasi główni partnerzy</div>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="carousel">
+        <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="Partner">
+        <!-- duplicate for seamless loop -->
+        <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Partner">
+        <img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="Partner">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Nasza oferta</div>
+      <div class="section-title">Kompleksowe rozwiązania Auto ID i IT</div>
+      <p class="section-sub">Od drukarek etykiet po zasilanie awaryjne — wszystko, czego potrzebuje nowoczesne przedsiębiorstwo.</p>
+    </div>
+    <div class="products-grid reveal">
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">🖨</div>
+        <div class="tile-title">Drukarki etykiet</div>
+        <div class="tile-desc">Termiczne i termotransferowe drukarki biurowe, przemysłowe i mobilne od Zebra, Honeywell, TSC i Citizen.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">📷</div>
+        <div class="tile-title">Skanery kodów kreskowych</div>
+        <div class="tile-desc">Ręczne, prezentacyjne i przemysłowe skanery 1D/2D do kasy, magazynu i linii produkcyjnej.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">📱</div>
+        <div class="tile-title">Terminale mobilne</div>
+        <div class="tile-desc">Kolektory danych z Androidem do pracy w magazynie, terenie i na produkcji — Zebra, Honeywell, Unitech.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">🌐</div>
+        <div class="tile-title">Infrastruktura sieciowa</div>
+        <div class="tile-desc">Switche, access pointy WiFi, serwery i okablowanie strukturalne od Extreme Networks, HPE Aruba i Cisco.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">🔒</div>
+        <div class="tile-title">Bezpieczeństwo IT</div>
+        <div class="tile-desc">Zapory NGFW, systemy IPS/DLP, backup danych i Security Service Edge dla firm każdej wielkości.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">⚡</div>
+        <div class="tile-title">Zasilanie awaryjne UPS</div>
+        <div class="tile-desc">Systemy UPS do ochrony infrastruktury IT i urządzeń krytycznych od Eaton i APC.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">📡</div>
+        <div class="tile-title">Systemy RFID</div>
+        <div class="tile-desc">Czytniki, anteny i tagi RFID UHF do śledzenia aktywów, inwentaryzacji i kontroli dostępu.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">🏷</div>
+        <div class="tile-title">Materiały eksploatacyjne</div>
+        <div class="tile-desc">Etykiety, taśmy termotransferowe i karty plastikowe do wszystkich modeli drukarek.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+      <div class="product-tile" onclick="location.href='#'">
+        <div class="tile-icon">🔧</div>
+        <div class="tile-title">Serwis i wsparcie</div>
+        <div class="tile-desc">Autoryzowany serwis Zebra i Honeywell, naprawy gwarancyjne, kontrakty serwisowe.</div>
+        <span class="tile-arrow">Sprawdź →</span>
+      </div>
+    </div>
+    <div class="products-cta reveal">
+      <a href="#" class="btn-primary" style="display:inline-block;margin-top:8px;">Zobacz wszystkie produkty →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO STRIPS -->
+<section class="promo-section">
+  <div class="promo-grid reveal">
+    <div class="promo-card">
+      <div class="promo-img" style="background-image:url('https://kreski-wireframe.vercel.app/Sekcja_1__Drukarki_Skanery.jpeg')"></div>
+      <div class="promo-overlay"></div>
+      <div class="promo-content">
+        <div class="promo-cat">Drukarki i skanery</div>
+        <div class="promo-title">Profesjonalne urządzenia dla Twojego biznesu</div>
+        <div class="promo-desc">Szeroki wybór od Zebra, Honeywell, TSC i Citizen. Wszystkie modele dostępne od ręki z pełnym wsparciem technicznym.</div>
+        <a href="#" class="btn-white">Poznaj ofertę →</a>
+      </div>
+    </div>
+    <div class="promo-card">
+      <div class="promo-img" style="background-image:url('https://kreski-wireframe.vercel.app/Serwis_Zebra_Honeywell.jpeg')"></div>
+      <div class="promo-overlay"></div>
+      <div class="promo-content">
+        <div class="promo-cat">Serwis i wsparcie</div>
+        <div class="promo-title">Autoryzowany serwis Zebra i Honeywell</div>
+        <div class="promo-desc">Naprawy, kalibracje, konfiguracje i umowy serwisowe. Szybka reakcja i sprawdzone procedury.</div>
+        <a href="#" class="btn-white">Dowiedz się więcej →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section style="background:var(--white);padding:80px 24px;">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Dla kogo pracujemy</div>
+      <div class="section-title">Rozwiązania według branży</div>
+      <p class="section-sub">Dostarczamy kompletne rozwiązania dopasowane do specyfiki każdego sektora.</p>
+    </div>
+    <div class="industries-grid reveal">
+      <div class="industry-card">
+        <div class="industry-bg" style="background:url('https://kreski-wireframe.vercel.app/Sekcja_1__Drukarki_Skanery.jpeg') center/cover"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">🏭</div>
+          <div class="industry-name">Logistyka i magazynowanie</div>
+          <div class="industry-desc">Terminale mobilne, systemy RFID UHF i drukarki przemysłowe do obsługi WMS.</div>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-bg" style="background:#2d2d2d"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">🛒</div>
+          <div class="industry-name">Retail i handel</div>
+          <div class="industry-desc">Skanery do kas, drukarki etykiet cenowych i kolektory do inwentaryzacji.</div>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-bg" style="background:url('https://kreski-wireframe.vercel.app/Serwis_Zebra_Honeywell.jpeg') center/cover"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">⚙️</div>
+          <div class="industry-name">Produkcja przemysłowa</div>
+          <div class="industry-desc">Drukarki IP65, aplikatory etykiet, urządzenia ATEX i systemy wizyjne.</div>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-bg" style="background:#1e3a5f"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">🏥</div>
+          <div class="industry-name">Służba zdrowia</div>
+          <div class="industry-desc">Drukarki opasek pacjenta, skanery do serializacji leków i RFID do śledzenia aktywów.</div>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-bg" style="background:#3d2b1f"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">📦</div>
+          <div class="industry-name">Usługi kurierskie</div>
+          <div class="industry-desc">Mobilne drukarki Bluetooth do listów przewozowych i terminale Android do POD.</div>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-bg" style="background:#1a2f1a"></div>
+        <div class="industry-overlay"></div>
+        <div class="industry-content">
+          <div class="industry-icon">🏛</div>
+          <div class="industry-name">Administracja publiczna</div>
+          <div class="industry-desc">Systemy identyfikacji, druk kart i dokumentów oraz infrastruktura sieciowa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number"><span class="counter" data-target="20">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">lat na rynku</div>
+      <div class="stat-sublabel">doświadczenia w Auto ID i IT</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number"><span class="counter" data-target="721">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">produktów w ofercie</div>
+      <div class="stat-sublabel">sprzęt, oprogramowanie, materiały</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">aktywnych klientów</div>
+      <div class="stat-sublabel">od małych firm po korporacje</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number"><span class="counter" data-target="8000">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-label">naprawionych urządzeń</div>
+      <div class="stat-sublabel">autoryzowany serwis Zebra i Honeywell</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-4">
+      <div class="stat-number"><span class="counter" data-target="48">0</span><span class="stat-suffix">h</span></div>
+      <div class="stat-label">średni czas naprawy</div>
+      <div class="stat-sublabel">urządzenia zastępcze na czas serwisu</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS FULL -->
+<section class="partners-section">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:32px;">
+      <div class="section-label" style="text-align:center;">Zaufali nam</div>
+      <div class="section-title" style="text-align:center;">Partnerzy Kreski – światowi liderzy technologii Auto ID</div>
+    </div>
+    <div class="partners-full-grid reveal">
+      <div class="partner-logo"><span class="partner-logo-text">Zebra</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">Honeywell</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">Datalogic</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">TSC</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">Citizen</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">SATO</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">Unitech</span></div>
+      <div class="partner-logo"><span class="partner-logo-text">Advantech</span></div>
+    </div>
+    <div style="text-align:center;" class="reveal">
+      <a href="#" class="btn-primary">Poznaj wszystkich naszych partnerów →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section style="background:var(--white);">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Centrum wiedzy</div>
+      <div class="section-title">Aktualności Kreski</div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal">
+        <img class="news-img" src="https://kreski-wireframe.vercel.app/Terminale_Zebra_TC501_TC701.jpeg" alt="">
+        <div class="news-date">02.12.2025</div>
+        <div class="news-title">Inteligentne terminale mobilne z obsługą AI — Zebra TC501 i TC701</div>
+        <div class="news-excerpt">Grzegorz z Kresek rozpakowuje terminale mobilne Zebra TC501 i TC701, które bezpośrednio zastępują poprzednią generację…</div>
+      </div>
+      <div class="news-card reveal reveal-delay-1">
+        <img class="news-img" src="https://kreski-wireframe.vercel.app/Tablet_Zebra_ET401.jpeg" alt="">
+        <div class="news-date">02.12.2025</div>
+        <div class="news-title">Zebra ET401 – tablet, który zmienia zasady gry w biznesie!</div>
+        <div class="news-excerpt">Najnowszy tablet Zebra ET401 to mobilne centrum dowodzenia – wydajny, wytrzymały i gotowy na wyzwania magazynu…</div>
+      </div>
+      <div class="news-card reveal reveal-delay-2">
+        <img class="news-img" src="https://kreski-wireframe.vercel.app/certyfikat.png" alt="">
+        <div class="news-date">31.10.2025</div>
+        <div class="news-title">Diamentowy Certyfikat Rzetelności dla Kresek</div>
+        <div class="news-excerpt">W świecie biznesu są nagrody, które mają szczególne znaczenie — nie za spektakularne kampanie, ale za codzienną rzetelność…</div>
+      </div>
+      <div class="news-card reveal reveal-delay-3">
+        <img class="news-img" src="https://kreski-wireframe.vercel.app/PGE_Projekt_Warszawa.jpg" alt="">
+        <div class="news-date">26.08.2025</div>
+        <div class="news-title">Kreski grają dalej z PGE Projektem Warszawa!</div>
+        <div class="news-excerpt">Z wielką dumą ogłaszamy, że nasza firma w sezonie 2025/2026 kontynuuje współpracę z drużyną PGE Projekt Warszawa…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski">
+      <p>Autoryzowany partner Zebra &amp; Honeywell. Kompleksowe rozwiązania Auto ID i IT dla przemysłu, logistyki i handlu od ponad 20 lat.</p>
+      <div class="footer-contact">
+        <a href="tel:+48226662240">📞 +48 22 666 22 40</a>
+        <a href="mailto:kreski@kreski.pl">✉ kreski@kreski.pl</a>
+        <a href="#">📍 ul. Mory 12, 01-303 Warszawa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Produkty</h4>
+      <a href="#">Auto ID</a>
+      <a href="#">Infrastruktura IT</a>
+      <a href="#">Bezpieczeństwo IT</a>
+      <a href="#">Materiały eksploatacyjne</a>
+      <a href="#">Oprogramowanie</a>
+    </div>
+    <div class="footer-col">
+      <h4>Firma</h4>
+      <a href="#">O nas</a>
+      <a href="#">Nasi partnerzy</a>
+      <a href="#">Realizacje</a>
+      <a href="#">Kariera</a>
+      <a href="#">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h4>Wsparcie</h4>
+      <a href="#">Zgłoś naprawę</a>
+      <a href="#">Centrum wiedzy</a>
+      <a href="#">Pliki do pobrania</a>
+      <a href="#">FAQ</a>
+      <a href="#">Polityka prywatności</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span>
+    <span>Realizacja: <a href="https://collytics.io" style="color:var(--red);">Collytics</a></span>
+  </div>
+</footer>
+
+<script>
+// ── STICKY NAV ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── COUNTER ANIMATION ──
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.done) {
+      entry.target.dataset.done = '1';
+      const target = +entry.target.dataset.target;
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        entry.target.textContent = Math.floor(current).toLocaleString('pl');
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ── SEARCH ──
+function toggleSearch() {
+  const o = document.getElementById('searchOverlay');
+  o.classList.toggle('open');
+  if (o.classList.contains('open')) {
+    setTimeout(() => document.getElementById('searchInput').focus(), 250);
+  }
+}
+function closeSearch(e) {
+  if (e.target === document.getElementById('searchOverlay')) toggleSearch();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('searchOverlay').classList.remove('open');
+});
+</script>
+</body>
+</html>
