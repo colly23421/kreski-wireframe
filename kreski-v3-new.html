@@ -113,7 +113,7 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 .carousel-wrap::after{right:0;background:linear-gradient(to left,white,transparent)}
 .carousel-track{display:flex;gap:52px;align-items:center;width:max-content;animation:slide 22s linear infinite}
 .carousel-track:hover{animation-play-state:paused}
-.carousel-track img{height:26px;filter:grayscale(1) opacity(.45);transition:filter .35s,transform .35s;cursor:pointer}
+.carousel-track img{height:48px;filter:grayscale(1) opacity(.5);transition:filter .35s,transform .35s;cursor:pointer}
 .carousel-track img:hover{filter:grayscale(0) opacity(1);transform:scale(1.1)}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -294,7 +294,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 .badge-best{background:#fff3cd;color:#856404}
 .badge-new{background:#d4edda;color:#155724}
 .pagination{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:32px}
-.page-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-b);font-size:13px;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,color .2s;background:var(--white)}
+.page-btn{width:36px;height:48px;display:flex;align-items:center;justify-content:center;border:1px solid var(--gray-b);font-size:13px;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,color .2s;background:var(--white)}
 .page-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
 .page-btn:hover:not(.active){border-color:var(--red);color:var(--red)}
 .product-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1200px;margin:0 auto;padding:32px}
@@ -386,9 +386,9 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 .page-nav-wrap{position:sticky;top:32px;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
 </style>
 <style>
-#pgsw{position:fixed;top:0;left:0;right:0;z-index:9500;background:#1a1a1a;height:32px;display:flex;align-items:center;overflow-x:auto;border-bottom:1px solid #333;}
+#pgsw{position:fixed;top:0;left:0;right:0;z-index:9500;background:#1a1a1a;height:48px;display:flex;align-items:center;overflow-x:auto;border-bottom:1px solid #333;}
 .psw-lbl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#555;padding:0 12px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
-.psw-btn{height:32px;padding:0 13px;background:transparent;border:none;border-right:1px solid #2a2a2a;color:#888;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;}
+.psw-btn{height:48px;padding:0 13px;background:transparent;border:none;border-right:1px solid #2a2a2a;color:#888;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;}
 .psw-btn:hover{background:#222;color:#fff;}.psw-btn.on{background:#e30613;color:#fff;}
 .psw-note{font-size:8px;color:#444;padding:0 12px;margin-left:auto;white-space:nowrap;}
 .pv{display:none;}.pv.show{display:block;}
@@ -404,6 +404,11 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 .eq-inp{padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:3px;font-size:13px;font-family:inherit;width:100%;box-sizing:border-box;}
 .eq-inp:focus{outline:none;border-color:#e30613;}
 .eq-submit{background:#e30613;color:#fff;border:none;border-radius:3px;height:44px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:inherit;}
+
+@media(max-width:1000px){
+  .footer-form-grid-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+}
+@media(max-width:768px){.footer-form-grid{grid-template-columns:1fr!important;}.footer-form-grid-inner{grid-template-columns:1fr!important;}}
 </style>
 </head>
 <body>
@@ -446,17 +451,16 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 </div>
 <div class="topbar">
   <div class="tb-l"><span>Kreski - Najlepsze technologie dla firm</span><div class="tb-divider"></div><span>Pon–Pt 8:00–17:00</span></div>
-  <div class="tb-r"><div class="tb-social"><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">YouTube</a></div><div class="tb-divider"></div><a href="mailto:kreski@kreski.pl">kreski@kreski.pl</a></div>
+  <div class="tb-r"><div class="tb-social"><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">YouTube</a></div><div class="tb-divider"></div><a href="/cdn-cgi/l/email-protection#5a31283f2931331a31283f293133742a36"><span class="__cf_email__" data-cfemail="711a0314021a18311a0314021a185f011d">[email&#160;protected]</span></a></div>
 </div>
 <nav id="nav">
   <div class="nav-top">
     <div class="nav-logo"><a href="#"><img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski"></a></div>
-    <div class="nav-contact-info">
-      <a href="tel:+48226662240" class="nav-contact-item"><div><span>Nasza infolinia</span><strong>22 666 22 40</strong></div></a>
-      <a href="mailto:kreski@kreski.pl" class="nav-contact-item"><div><span>Napisz do nas</span><strong>kreski@kreski.pl</strong></div></a>
-      <a href="#" class="nav-cta" onclick="event.preventDefault();openEq()">Zapytaj o ofertę</a>
-    </div>
-  </div>
+    <div class="nav-contact-info" style="gap:8px">
+      <button onclick="toggleSearch()" title="Szukaj" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);cursor:pointer;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+      <a href="tel:+48226662240" title="Zadzwoń: 22 666 22 40" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);text-decoration:none;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+      <a href="mailto:biuro@kreski.pl" title="biuro@kreski.pl" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);text-decoration:none;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    </div></div>
   <div class="nav-bottom">
     <div class="nav-links">
       <div class="nav-item"><span>Auto ID <span class="chevron">▾</span></span><div class="mega"><div class="mega-col"><div class="mega-heading">Sprzęt Auto ID</div><a href="#">Czytniki kodów kreskowych</a><a href="#">Drukarki etykiet</a><a href="#">Drukarki kart</a><a href="#">Terminale przenośne</a><a href="#">Terminale wózkowe</a><a href="#">RFID</a><a href="#">Systemy wizyjne</a><a href="#">Wearables</a></div><div class="mega-col"><div class="mega-heading">Akcesoria i materiały</div><a href="#">Baterie i ładowarki</a><a href="#">Futerały i etui</a><a href="#">Etykiety</a><a href="#">Taśmy i Ribbony</a><a href="#">Karty plastikowe</a></div><div class="mega-preview"><img class="mega-preview-img" src="https://kreski-wireframe.vercel.app/Sekcja_1__Drukarki_Skanery.jpeg" alt=""><div class="mega-preview-label">Bestseller</div><div class="mega-preview-title">Zebra DS9308 Skaner prezentacyjny 1D/2D</div><a href="#" class="mega-preview-link">Zobacz produkt →</a></div></div></div>
@@ -497,11 +501,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
     </div>
   </div>
 </section>
-<div class="partners-bar">
-  <div class="partners-label">Nasi partnerzy technologiczni</div>
-  <div class="carousel-wrap"><div class="carousel-track">
-    <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Partner"><img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="Partner">
-  </div></div>
+
 </div>
 <section style="background:var(--gray-l)">
   <div class="inner">
@@ -584,9 +584,9 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 </section>
 <section class="partners-full-section">
   <div class="inner" style="text-align:center">
-    <div class="reveal"><div class="s-label">Zaufali nam</div><div class="s-title">Nasi główni partnerzy</div><div style="display:none">Partnerzy Kreski.pl – światowi liderzy technologii Auto ID</div><p style="color:var(--gray-m);font-size:15px;max-width:640px;margin:12px auto 0;line-height:1.7;">Współpracujemy wyłącznie z producentami, którzy wyznaczają standardy w branży automatycznej identyfikacji. Dzięki temu gwarantujemy najwyższą jakość sprzętu i pełne wsparcie techniczne.</p></div>
+    <div class="reveal"><div class="s-label">Zaufali nam</div><div class="s-title">Nasi główni partnerzy</div></div>
     <div style="margin-top:36px" class="reveal"><div class="carousel-wrap"><div class="carousel-track">
-      <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Citizen" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="SATO" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:36px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:36px">
+      <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Citizen" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="SATO" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:48px">
     </div></div></div>
     
   </div>
@@ -598,7 +598,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
       <p>Autoryzowany partner Zebra &amp; Honeywell. Kompleksowe rozwiązania Auto ID i IT dla przemysłu, logistyki i handlu od ponad 20 lat.</p>
       <div class="fb-contact">
         <a href="tel:+48226662240">+48 22 666 22 40</a>
-        <a href="mailto:kreski@kreski.pl">kreski@kreski.pl</a>
+        <a href="/cdn-cgi/l/email-protection#dbb0a9bea8b0b29bb0a9bea8b0b2f5abb7"><span class="__cf_email__" data-cfemail="f69d8493859d9fb69d8493859d9fd8869a">[email&#160;protected]</span></a>
         <a href="#">ul. Mory 12, 01-303 Warszawa</a>
       </div>
     </div>
@@ -606,7 +606,33 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
     <div class="fc"><h4>Firma</h4><a href="#">O nas</a><a href="#">Nasi partnerzy</a><a href="#">Realizacje</a><a href="#">Kariera</a><a href="#">Kontakt</a></div>
     <div class="fc"><h4>Wsparcie</h4><a href="#">Zgłoś naprawę</a><a href="#">Centrum wiedzy</a><a href="#">Pliki do pobrania</a><a href="#">FAQ</a><a href="#">Polityka prywatności</a></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
+  
+<div style="border-top:1px solid rgba(255,255,255,.08);padding:40px 32px 32px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="footer-form-grid">
+  <div>
+    <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--red);margin-bottom:10px">Napisz do nas</div>
+    <div style="font-size:22px;font-weight:800;text-transform:uppercase;color:white;margin-bottom:6px">Masz pytanie? Odpiszemy szybko.</div>
+    <p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:0">Odpowiadamy w ciągu jednego dnia roboczego. Możesz też zadzwonić: <strong style="color:rgba(255,255,255,.7)">22 666 22 40</strong></p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <input type="text" placeholder="Imię i nazwisko" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:white;padding:11px 14px;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#e30613'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+      <input type="email" placeholder="E-mail *" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:white;padding:11px 14px;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#e30613'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+    </div>
+    <input type="text" placeholder="Temat" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:white;padding:11px 14px;font-family:inherit;font-size:13px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#e30613'" onblur="this.style.borderColor='rgba(255,255,255,.12)'">
+    <textarea rows="3" placeholder="Treść wiadomości..." style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:white;padding:11px 14px;font-family:inherit;font-size:13px;outline:none;resize:none;transition:border-color .2s" onfocus="this.style.borderColor='#e30613'" onblur="this.style.borderColor='rgba(255,255,255,.12)'"></textarea>
+    <button onclick="this.textContent='Wysłano ✓';this.style.background='#22c55e'" style="background:var(--red);color:white;border:none;padding:13px;font-family:inherit;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:background .2s;align-self:flex-start;min-width:180px">Wyślij wiadomość</button>
+  </div>
+</div>
+<div style="border-top:1px solid rgba(255,255,255,.08);padding:18px 32px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <div style="display:flex;gap:8px;align-items:center">
+    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="Instagram" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="Facebook" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="YouTube" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="LinkedIn" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="X / Twitter" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  </div>
+</div>
+<div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
 </footer>
 <div class="mobile-sticky-icons">
   <button class="msi-btn red" onclick="openEq()"><span class="msi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Zapytaj</button>
@@ -716,7 +742,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
   <div class="contact-info">
     <h2>Skontaktuj się z nami</h2>
     <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.20 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.20 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="contact-item-title">Telefon</div><div class="contact-item-val">+48 789 868 803</div><div class="contact-item-sub">Pon–Pt 8:00–17:00</div></div></div>
-    <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-item-title">E-mail</div><div class="contact-item-val">biuro@kreski.pl</div><div class="contact-item-sub">Odpowiedź w ciągu 24h</div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-item-title">E-mail</div><div class="contact-item-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6b4bfa3a4b996bda4b3a5bdbff8a6ba">[email&#160;protected]</a></div><div class="contact-item-sub">Odpowiedź w ciągu 24h</div></div></div>
     <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-item-title">Adres</div><div class="contact-item-val">ul. Mory 12, 01-303 Warszawa</div><div class="contact-item-sub">Kreski Spółka Jawna · NIP: 118-207-33-46</div></div></div>
     <div class="contact-map">[ Google Maps — mapa dojazdu ]</div>
     <div class="contact-hours"><h3>Godziny pracy</h3><div class="hours-row"><span>Poniedziałek – Piątek</span><span>8:00 – 17:00</span></div><div class="hours-row"><span>Sobota</span><span style="color:var(--gray-m)">Zamknięte</span></div><div class="hours-row"><span>Niedziela</span><span style="color:var(--gray-m)">Zamknięte</span></div></div>
@@ -733,7 +759,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
     <button class="btn-submit">Wyślij wiadomość</button>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const bar=document.getElementById('progress-bar');
 window.addEventListener('scroll',()=>{const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;bar.style.width=pct+'%';});
 const nav=document.getElementById('nav');
@@ -760,10 +786,4 @@ function toggleDrawer(){document.getElementById('mobileDrawer').classList.toggle
 </script>
 </div><!-- /pv-kon -->
 <script>
-(function(){function upd(){var el=document.documentElement;var st=window.scrollY||el.scrollTop;var sh=el.scrollHeight-window.innerHeight;var bar=document.getElementById('scroll-progress');if(bar)bar.style.width=(sh>0?Math.min(st/sh*100,100):0).toFixed(1)+'%';}window.addEventListener('scroll',upd,{passive:true});window.addEventListener('load',upd);})();
-function showView(id,btn){document.querySelectorAll('.pv').forEach(function(el){el.classList.remove('show');});document.querySelectorAll('.psw-btn').forEach(function(b){b.classList.remove('on');});var el=document.getElementById('pv-'+id);if(el)el.classList.add('show');if(btn)btn.classList.add('on');window.scrollTo(0,0);document.documentElement.scrollTop=0;}
-function openEq(){document.getElementById('eqModal').classList.add('open');}
-function closeEq(){document.getElementById('eqModal').classList.remove('open');}
-</script>
-</body>
-</html>
+(function(){function upd(){var el=document.documentElement;var st=window.scrollY||el.scrollTop;var sh=el.scrollHeight-window.innerHeight;var bar=document.getElementById('scroll-progress');if(bar)bar.style.width=(sh>0?Math.min(st/sh*100,100):0).toFixed(1)+'%';}window.addEventListener('
