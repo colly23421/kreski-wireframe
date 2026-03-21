@@ -92,7 +92,6 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 .search-box input{flex:1;border:none;outline:none;font-size:20px;font-family:var(--font)}
 .search-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray-m)}
 
-/* HERO — stała wysokość, nie skacze */
 .hero{position:relative;height:480px;min-height:unset;background:var(--black);display:flex;align-items:center;overflow:hidden}
 .hero-parallax{position:absolute;inset:-10%;background:url('https://kreski-wireframe.vercel.app/Sekcja_1__Drukarki_Skanery.jpeg') center/cover;opacity:.38;will-change:transform}
 .hero-gradient{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.85) 40%,rgba(0,0,0,.2) 100%)}
@@ -100,10 +99,8 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.4);color:#86efac;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:5px 14px;margin-bottom:16px;opacity:0;transform:translateY(16px);animation:fadeUp .5s .1s forwards}
 .hero-badge span{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
-/* H1 — mniejsza czcionka */
 .hero h1{font-size:clamp(22px,3vw,36px);font-weight:800;color:var(--white);line-height:1.1;text-transform:uppercase;margin-bottom:6px;opacity:0;transform:translateY(16px);animation:fadeUp .5s .25s forwards}
 .hero h1 .red{color:var(--red)}
-/* Typewriter — stała wysokość, nie rozciąga */
 .hero-typewriter{font-size:clamp(22px,3vw,36px);font-weight:800;color:var(--red);text-transform:uppercase;line-height:1.1;margin-bottom:16px;opacity:0;transform:translateY(16px);animation:fadeUp .5s .35s forwards;height:1.2em;overflow:hidden;}
 .cursor{display:inline-block;width:3px;height:.85em;background:var(--red);margin-left:2px;vertical-align:middle;animation:blink .7s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
@@ -394,7 +391,6 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 }
 .page-nav-wrap{position:sticky;top:32px;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
 
-/* Mobile overflow fixes */
 html, body { overflow-x: hidden; max-width: 100vw; }
 #pgsw { overflow-x: auto; max-width: 100vw; }
 .carousel-wrap { overflow: hidden; max-width: 100%; }
@@ -405,18 +401,11 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .stats-grid { overflow-x: hidden; }
   .stat-num { font-size: 38px; }
 }
-
 @media(max-width:768px){
   .footer-form-grid { grid-template-columns: 1fr !important; }
-  .footer-form-grid > div:first-child { display: none; } /* hide text block, keep form */
-  footer input, footer textarea, footer button { 
-    max-width: 100%; 
-    box-sizing: border-box; 
-    width: 100% !important; 
-  }
-  .footer-form-grid > div:last-child {
-    padding: 0;
-  }
+  .footer-form-grid > div:first-child { display: none; }
+  footer input, footer textarea, footer button { max-width: 100%; box-sizing: border-box; width: 100% !important; }
+  .footer-form-grid > div:last-child { padding: 0; }
 }
 </style>
 <style>
@@ -438,10 +427,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .eq-inp{padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:3px;font-size:13px;font-family:inherit;width:100%;box-sizing:border-box;}
 .eq-inp:focus{outline:none;border-color:#e30613;}
 .eq-submit{background:#e30613;color:#fff;border:none;border-radius:3px;height:44px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:inherit;}
-
-@media(max-width:1000px){
-  .footer-form-grid-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-}
+@media(max-width:1000px){.footer-form-grid-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
 @media(max-width:768px){.footer-form-grid{grid-template-columns:1fr!important;}.footer-form-grid-inner{grid-template-columns:1fr!important;}}
 </style>
 </head>
@@ -454,7 +440,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <button class="psw-btn" onclick="showView('sub',this)">Subkategoria</button>
   <button class="psw-btn" onclick="showView('prod',this)">Karta produktu</button>
   <button class="psw-btn" onclick="showView('kon',this)">Kontakt</button>
-  <span class="psw-note">kreski-v3.html · Collytics 2026</span>
+  <span class="psw-note">kreski-v3-new.html · Collytics 2026</span>
 </div>
 <div id="eqModal" onclick="if(event.target===this)closeEq()">
   <div class="eq-box">
@@ -474,43 +460,104 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <a class="mobile-nav-logo" href="#"><img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski"></a>
   <button class="mobile-hamburger" onclick="toggleDrawer()">☰</button>
 </div>
+
+<!-- ============================================================
+     MOBILE DRAWER — menu wg dokumentu Marcina
+     ============================================================ -->
 <div class="mobile-menu-drawer" id="mobileDrawer">
   <div class="drawer-header"><img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski" style="height:28px"><button class="drawer-close" onclick="toggleDrawer()">✕</button></div>
   <div class="drawer-nav">
     <span>Auto ID ›</span>
     <div class="drawer-sub">
       <a href="#">Czytniki kodów kreskowych</a><a href="#">Drukarki etykiet</a><a href="#">Drukarki kart</a>
-      <a href="#">Terminale przenośne</a><a href="#">Terminale wózkowe</a><a href="#">Weryfikatory kodów</a>
-      <a href="#">Weryfikatory cen</a><a href="#">Aplikatory etykiet</a><a href="#">Wearables</a>
+      <a href="#">Terminale przenośne (kolektory danych)</a><a href="#">Terminale wózkowe</a>
+      <a href="#">Weryfikatory kodów</a><a href="#">Weryfikatory cen</a>
+      <a href="#">Aplikatory etykiet</a><a href="#">Wearables (urządzenia ubieralne)</a>
       <a href="#">RFID</a><a href="#">Systemy wizyjne</a>
       <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Akcesoria</a>
-      <a href="#">Baterie i ładowarki</a><a href="#">Futerały i etui</a><a href="#">Stacje dokujące</a><a href="#">Uchwyty i podstawki</a><a href="#">Przewody i adaptery</a>
+      <a href="#">Baterie i ładowarki</a><a href="#">Futerały i etui ochronne</a>
+      <a href="#">Stacje dokujące</a><a href="#">Uchwyty i podstawki</a><a href="#">Przewody i adaptery</a>
       <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Materiały eksploatacyjne</a>
-      <a href="#">Etykiety</a><a href="#">Taśmy i Ribbony</a><a href="#">Karty plastikowe</a>
+      <a href="#">Etykiety</a><a href="#">Taśmy i Ribbony do drukarek</a><a href="#">Karty plastikowe</a>
     </div>
     <span>Rozwiązania dla przemysłu ›</span>
-    <div class="drawer-sub"><a href="#">Tablety przemysłowe</a><a href="#">Komputery i monitory przemysłowe</a><a href="#">Notebooki i laptopy</a><a href="#">Kioski informacyjne</a><a href="#">Urządzenia ATEX</a><a href="#">Systemy kontrolno-pomiarowe</a></div>
+    <div class="drawer-sub">
+      <a href="#">Tablety przemysłowe</a>
+      <a href="#">Komputery i monitory przemysłowe</a>
+      <a href="#">Notebooki i laptopy przemysłowe</a>
+      <a href="#">Komputery kioskowe i kioski informacyjne</a>
+      <a href="#">Urządzenia ATEX</a>
+      <a href="#">Systemy kontrolno-pomiarowe</a>
+    </div>
     <span>Oprogramowanie ›</span>
-    <div class="drawer-sub"><a href="#">Zarządzanie etykietami</a><a href="#">MDM</a><a href="#">Aplikacje mobilne</a><a href="#">Aplikacje na drukarki</a><a href="#">Aplikacje na skanery</a><a href="#">Aplikacje dedykowane</a><a href="#">Bezp. urządzeń mobilnych</a></div>
+    <div class="drawer-sub">
+      <a href="#">Tworzenie i zarządzanie etykietami</a>
+      <a href="#">Zarządzanie urządzeniami (MDM)</a>
+      <a href="#">Aplikacje mobilne</a>
+      <a href="#">Aplikacje na drukarki</a>
+      <a href="#">Aplikacje na skanery</a>
+      <a href="#">Aplikacje dedykowane</a>
+      <a href="#">Inne aplikacje i skanery</a>
+      <a href="#">Bezp. urządzeń mobilnych</a>
+    </div>
     <span>Infrastruktura IT ›</span>
-    <div class="drawer-sub"><a href="#">Przełączniki</a><a href="#">Punkty dostępowe (AP)</a><a href="#">Serwery</a><a href="#">UPS / zasilanie awaryjne</a><a href="#">Kamery IP</a><a href="#">Kontrola dostępu</a><a href="#">Projektowanie sieci WiFi</a><a href="#">Okablowanie strukturalne</a><a href="#">Administracja sieci</a></div>
+    <div class="drawer-sub">
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Sprzęt sieciowy</a>
+      <a href="#">Przełączniki</a><a href="#">Punkty dostępowe (AP)</a>
+      <a href="#">Serwery</a><a href="#">UPS / zasilanie awaryjne</a>
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Monitoring</a>
+      <a href="#">Kamery IP</a><a href="#">Kontrola dostępu</a>
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Rozwiązania sieciowe</a>
+      <a href="#">Projektowanie i audyt sieci WiFi</a><a href="#">Okablowanie strukturalne</a>
+      <a href="#">Konfiguracja sieci</a><a href="#">Migracja z Wing</a>
+      <a href="#">Administracja sieci</a><a href="#">Subskrypcje</a>
+    </div>
     <span>Bezpieczeństwo IT ›</span>
-    <div class="drawer-sub"><a href="#">Backup i archiwizacja</a><a href="#">Bezpieczeństwo poczty</a><a href="#">Ochrona sieci WWW</a><a href="#">Zapory NGFW</a><a href="#">Systemy IPS</a><a href="#">Systemy DLP</a><a href="#">Rozwiązania SSE</a><a href="#">Zarządzanie urządzeniami końcowymi</a></div>
+    <div class="drawer-sub">
+      <a href="#">Backup i archiwizacja danych</a>
+      <a href="#">Bezpieczeństwo poczty (Email Security)</a>
+      <a href="#">Ochrona sieci WWW (Web Security)</a>
+      <a href="#">Zapory sieciowe nowej generacji (NGFW)</a>
+      <a href="#">Systemy zapobiegania włamaniom (IPS)</a>
+      <a href="#">Systemy zapobiegania wyciekom danych (DLP)</a>
+      <a href="#">Rozwiązania Security Service Edge (SSE)</a>
+      <a href="#">Zarządzanie urządzeniami końcowymi</a>
+    </div>
     <span>Serwis urządzeń ›</span>
-    <div class="drawer-sub"><a href="#">Zgłoszenie naprawy</a><a href="#">Gwarancja i ochrona</a><a href="#">Serwis mobilny</a><a href="#">Sprzedaż części</a><a href="#">FAQ</a></div>
+    <div class="drawer-sub">
+      <a href="#">Zgłoszenie naprawy</a><a href="#">Gwarancja i ochrona urządzeń</a>
+      <a href="#">Serwis mobilny</a><a href="#">Sprzedaż części</a><a href="#">FAQ</a>
+    </div>
     <span>Usługi ›</span>
-    <div class="drawer-sub"><a href="#">Znakowanie magazynów</a><a href="#">Systemy wizyjne i inspekcyjne</a><a href="#">Automatyka procesów</a><a href="#">Systemy lokalizacji (VLC)</a><a href="#">Szkolenia techniczne</a><a href="#">Wypożyczanie sprzętu</a><a href="#">Tworzenie aplikacji na zamówienie</a></div>
+    <div class="drawer-sub">
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Wdrożenia i integracje</a>
+      <a href="#">Znakowanie magazynów i stref logistycznych</a>
+      <a href="#">Systemy wizyjne i inspekcyjne</a>
+      <a href="#">Automatyka procesów przemysłowych</a>
+      <a href="#">Systemy lokalizacji w czasie rzeczywistym (VLC)</a>
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Wsparcie i szkolenia</a>
+      <a href="#">Szkolenia techniczne i produktowe</a>
+      <a href="#">Wypożyczanie sprzętu IT i Auto ID</a>
+      <a href="#" style="font-weight:800;color:var(--gray-m);font-size:10px;text-transform:uppercase;letter-spacing:.1em;padding:10px 32px 4px">Oprogramowanie dedykowane</a>
+      <a href="#">Tworzenie aplikacji na zamówienie</a>
+    </div>
     <span>Centrum wiedzy ›</span>
-    <div class="drawer-sub"><a href="#">Artykuły / Baza wiedzy</a><a href="#">Pliki do pobrania</a><a href="#">Realizacje</a></div>
+    <div class="drawer-sub">
+      <a href="#">Artykuły / Baza wiedzy</a>
+      <a href="#">Pliki do pobrania</a>
+      <a href="#">Realizacje</a>
+    </div>
     <span>O firmie ›</span>
     <div class="drawer-sub"><a href="#">O nas</a><a href="#">Nasi partnerzy</a><a href="#">Kariera</a></div>
     <a href="#">Kontakt</a>
   </div>
 </div>
+
 <div class="topbar">
   <div class="tb-l"><span>Kreski - Najlepsze technologie dla firm</span><div class="tb-divider"></div><span>Pon–Pt 8:00–17:00</span></div>
   <div class="tb-r"><div class="tb-social"><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">YouTube</a></div><div class="tb-divider"></div>kreski@kreski.pl</div>
 </div>
+
 <nav id="nav">
   <div class="nav-top">
     <div class="nav-logo"><a href="#"><img src="https://kreski-wireframe.vercel.app/kreski_logo_transparent.png" alt="Kreski"></a></div>
@@ -518,8 +565,13 @@ html, body { overflow-x: hidden; max-width: 100vw; }
       <button onclick="toggleSearch()" title="Szukaj" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);cursor:pointer;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
       <a href="tel:+48226662240" title="Zadzwoń: 22 666 22 40" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);text-decoration:none;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
       <a href="mailto:biuro@kreski.pl" title="biuro@kreski.pl" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--gray-l);border-radius:4px;border:1px solid var(--gray-b);color:var(--black);text-decoration:none;transition:background .2s,color .2s;" onmouseover="this.style.background='var(--red)';this.style.color='white'" onmouseout="this.style.background='var(--gray-l)';this.style.color='var(--black)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-    </div></div>
-    <div class="nav-bottom">
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAV-BOTTOM — menu wg dokumentu Marcina (Menu_nowej_strony.docx)
+       ============================================================ -->
+  <div class="nav-bottom">
     <div class="nav-links">
 
       <!-- AUTO ID -->
@@ -530,12 +582,12 @@ html, body { overflow-x: hidden; max-width: 100vw; }
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M10 3v18M14 3v18M18 3v18M3 3h18M3 21h18"/></svg>Czytniki kodów kreskowych</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>Drukarki etykiet</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Drukarki kart</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Terminale przenośne</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>Terminale przenośne (kolektory danych)</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Terminale wózkowe</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Weryfikatory kodów</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>Weryfikatory cen</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14"/><path d="M5 12h14"/><path d="M5 17h14"/><path d="M3 5v14"/><circle cx="19" cy="12" r="3"/></svg>Aplikatory etykiet</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg>Wearables</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg>Wearables (urządzenia ubieralne)</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 015.9 20M2 12.05A9 9 0 019.95 20M2 8V6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg>RFID</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Systemy wizyjne</a>
           </div>
@@ -548,7 +600,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Przewody i adaptery</a>
             <div class="mega-heading" style="margin-top:14px">Materiały eksploatacyjne</div>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Etykiety</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>Taśmy i Ribbony</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>Taśmy i Ribbony do drukarek</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h2"/><path d="M10 15h4"/></svg>Karty plastikowe</a>
           </div>
           <div class="mega-preview">
@@ -560,19 +612,19 @@ html, body { overflow-x: hidden; max-width: 100vw; }
         </div>
       </div>
 
-      <!-- ROZWIĄZANIA DLA PRZEMYSŁU -->
+      <!-- ROZWIĄZANIA DLA PRZEMYSŁU — pełne nazwy wg dok. Marcina -->
       <div class="nav-item"><span>Rozwiązania dla przemysłu <span class="chevron">▾</span></span>
-        <div class="dropdown">
+        <div class="dropdown" style="min-width:300px">
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><line x1="9" y1="22" x2="15" y2="22"/></svg>Tablety przemysłowe</a>
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Komputery i monitory przemysłowe</a>
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17H22V21H2z"/><rect x="3" y="5" width="18" height="12" rx="2"/></svg>Notebooki i laptopy przemysłowe</a>
-          <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="8" y1="6" x2="16" y2="6"/></svg>Kioski informacyjne</a>
+          <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="8" y1="6" x2="16" y2="6"/></svg>Komputery kioskowe i kioski informacyjne</a>
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Urządzenia ATEX</a>
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M7 6h1"/><path d="M6 7v1"/><rect x="2" y="2" width="20" height="20" rx="2"/></svg>Systemy kontrolno-pomiarowe</a>
         </div>
       </div>
 
-      <!-- OPROGRAMOWANIE -->
+      <!-- OPROGRAMOWANIE — pełne nazwy + Inne aplikacje i skanery -->
       <div class="nav-item"><span>Oprogramowanie <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
@@ -583,12 +635,13 @@ html, body { overflow-x: hidden; max-width: 100vw; }
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Aplikacje na drukarki</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Aplikacje na skanery</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Aplikacje dedykowane</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Inne aplikacje i skanery</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Bezp. urządzeń mobilnych</a>
           </div>
         </div>
       </div>
 
-      <!-- INFRASTRUKTURA IT -->
+      <!-- INFRASTRUKTURA IT — + Subskrypcje w Rozwiązaniach sieciowych -->
       <div class="nav-item"><span>Infrastruktura IT <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
@@ -608,28 +661,29 @@ html, body { overflow-x: hidden; max-width: 100vw; }
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2m0 16v2m7.07-4.93l-1.41-1.41M4.93 19.07l1.41-1.41M2 12h2m16 0h2"/></svg>Konfiguracja sieci</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 8 16 13"/><line x1="21" y1="8" x2="9" y2="8"/><polyline points="8 21 3 16 8 11"/><line x1="3" y1="16" x2="15" y2="16"/></svg>Migracja z Wing</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Administracja sieci</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Subskrypcje</a>
           </div>
         </div>
       </div>
 
-      <!-- BEZPIECZEŃSTWO IT -->
+      <!-- BEZPIECZEŃSTWO IT — pełne nazwy wg dok. Marcina -->
       <div class="nav-item"><span>Bezpieczeństwo IT <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Bezpieczeństwo IT</div>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>Backup i archiwizacja danych</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/><line x1="12" y1="13" x2="12" y2="20"/></svg>Bezpieczeństwo poczty</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Ochrona sieci WWW</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>Zapory NGFW</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Systemy IPS</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>Systemy DLP</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Rozwiązania SSE</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/><line x1="12" y1="13" x2="12" y2="20"/></svg>Bezpieczeństwo poczty (Email Security)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Ochrona sieci WWW (Web Security)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>Zapory sieciowe nowej generacji (NGFW)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Systemy zapobiegania włamaniom (IPS)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>Systemy zapobiegania wyciekom danych (DLP)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Rozwiązania Security Service Edge (SSE)</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6"/><path d="M9 11h6"/><path d="M9 15h4"/></svg>Zarządzanie urządzeniami końcowymi</a>
           </div>
         </div>
       </div>
 
-      <!-- SERWIS -->
+      <!-- SERWIS URZĄDZEŃ -->
       <div class="nav-item"><span>Serwis urządzeń <span class="chevron">▾</span></span>
         <div class="dropdown">
           <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Zgłoszenie naprawy</a>
@@ -640,18 +694,18 @@ html, body { overflow-x: hidden; max-width: 100vw; }
         </div>
       </div>
 
-      <!-- USŁUGI -->
+      <!-- USŁUGI — pełne nazwy wg dok. Marcina -->
       <div class="nav-item"><span>Usługi <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Wdrożenia i integracje</div>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V8l6-4v4l6-4v4l6-4v16H2z"/><rect x="6" y="14" width="3" height="6"/><rect x="11" y="14" width="3" height="6"/></svg>Znakowanie magazynów i stref</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V8l6-4v4l6-4v4l6-4v16H2z"/><rect x="6" y="14" width="3" height="6"/><rect x="11" y="14" width="3" height="6"/></svg>Znakowanie magazynów i stref logistycznych</a>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>Systemy wizyjne i inspekcyjne</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Automatyka procesów</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Systemy lokalizacji (VLC)</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Automatyka procesów przemysłowych</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Systemy lokalizacji w czasie rzeczywistym (VLC)</a>
             <div class="mega-heading" style="margin-top:14px">Wsparcie i szkolenia</div>
             <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Szkolenia techniczne i produktowe</a>
-            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>Wypożyczanie sprzętu</a>
+            <a href="#"><svg class="mi" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>Wypożyczanie sprzętu IT i Auto ID</a>
           </div>
           <div class="mega-col">
             <div class="mega-heading">Oprogramowanie dedykowane</div>
@@ -682,9 +736,9 @@ html, body { overflow-x: hidden; max-width: 100vw; }
       <div class="nav-item"><a href="#">Kontakt</a></div>
 
     </div>
-    <!-- search in nav-top -->
   </div>
 </nav>
+
 <div class="sticky-contact">
   <button class="sc-btn red" onclick="openEq()" title="Zapytaj"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></button>
   <button class="sc-btn" title="Telefon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></button>
@@ -795,10 +849,8 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     <div style="margin-top:36px" class="reveal"><div class="carousel-wrap"><div class="carousel-track">
       <img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 5.png" alt="Citizen" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 6.png" alt="SATO" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 1.png" alt="Zebra" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 2.png" alt="Honeywell" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma_7.png" alt="Datalogic" style="height:48px"><img src="https://kreski-wireframe.vercel.app/firma 4.png" alt="TSC" style="height:48px">
     </div></div></div>
-    
   </div>
 </section>
-
 </div><!-- /pv-home -->
 
 <div id="pv-kat" class="pv">
@@ -900,7 +952,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <div class="contact-info">
     <h2>Skontaktuj się z nami</h2>
     <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.20 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.20 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="contact-item-title">Telefon</div><div class="contact-item-val">+48 789 868 803</div><div class="contact-item-sub">Pon–Pt 8:00–17:00</div></div></div>
-    <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-item-title">E-mail</div><div class="contact-item-val"><a href="mailto:biuro@kreski.pl" style="color:inherit"><span class="__cf_email__" data-cfemail="583a312d2a3718332a3d2b3331762834">[email&#160;protected]</span></a></div><div class="contact-item-sub">Odpowiedź w ciągu 24h</div></div></div>
+    <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="contact-item-title">E-mail</div><div class="contact-item-val"><a href="mailto:biuro@kreski.pl" style="color:inherit">biuro@kreski.pl</a></div><div class="contact-item-sub">Odpowiedź w ciągu 24h</div></div></div>
     <div class="contact-item"><div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-item-title">Adres</div><div class="contact-item-val">ul. Mory 12, 01-303 Warszawa</div><div class="contact-item-sub">Kreski Spółka Jawna</div><div class="contact-item-sub">NIP: 1182073346 · REGON: 143152450 · KRS: 0000390990</div></div></div>
     <div class="contact-hours"><h3>Godziny pracy</h3><div class="hours-row"><span>Poniedziałek – Piątek</span><span>8:00 – 17:00</span></div><div class="hours-row"><span>Sobota</span><span style="color:var(--gray-m)">Zamknięte</span></div><div class="hours-row"><span>Niedziela</span><span style="color:var(--gray-m)">Zamknięte</span></div></div>
     <div class="contact-map">[ Google Maps — mapa dojazdu ]</div>
@@ -955,30 +1007,10 @@ function toggleDrawer(){document.getElementById('mobileDrawer').classList.toggle
         <a href="#">ul. Mory 12, 01-303 Warszawa</a>
       </div>
     </div>
-    <div class="fc"><h4>Produkty</h4>
-<a href="#">Auto ID</a>
-<a href="#">Dla przemysłu</a>
-<a href="#">Oprogramowanie</a>
-<a href="#">Infrastruktura IT</a>
-<a href="#">Bezpieczeństwo IT</a>
-<a href="#">Materiały eksploatacyjne</a>
-</div>
-    <div class="fc"><h4>Firma</h4>
-<a href="#">O nas</a>
-<a href="#">Nasi partnerzy</a>
-<a href="#">Realizacje</a>
-<a href="#">Kariera</a>
-<a href="#">Kontakt</a>
-</div>
-    <div class="fc"><h4>Wsparcie</h4>
-<a href="#">Zgłoś naprawę</a>
-<a href="#">Centrum wiedzy</a>
-<a href="#">Pliki do pobrania</a>
-<a href="#">Szkolenia</a>
-<a href="#">FAQ</a>
-</div>
+    <div class="fc"><h4>Produkty</h4><a href="#">Auto ID</a><a href="#">Dla przemysłu</a><a href="#">Oprogramowanie</a><a href="#">Infrastruktura IT</a><a href="#">Bezpieczeństwo IT</a><a href="#">Materiały eksploatacyjne</a></div>
+    <div class="fc"><h4>Firma</h4><a href="#">O nas</a><a href="#">Nasi partnerzy</a><a href="#">Realizacje</a><a href="#">Kariera</a><a href="#">Kontakt</a></div>
+    <div class="fc"><h4>Wsparcie</h4><a href="#">Zgłoś naprawę</a><a href="#">Centrum wiedzy</a><a href="#">Pliki do pobrania</a><a href="#">Szkolenia</a><a href="#">FAQ</a></div>
   </div>
-  
 <div style="border-top:1px solid rgba(255,255,255,.08);padding:40px 32px 32px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="footer-form-grid">
   <div>
     <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--red);margin-bottom:10px">Napisz do nas</div>
@@ -1006,6 +1038,7 @@ function toggleDrawer(){document.getElementById('mobileDrawer').classList.toggle
 </div>
 <div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span style="display:flex;gap:20px;align-items:center"><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Regulamin</a><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Polityka prywatności</a><span style="color:rgba(255,255,255,.25)">·</span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
 </footer>
+
 <div class="mobile-sticky-icons">
   <button class="msi-btn red" onclick="openEq()"><span class="msi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Zapytaj</button>
   <button class="msi-btn"><span class="msi-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>Telefon</button>
@@ -1025,7 +1058,6 @@ function toggleDrawer(){document.getElementById('mobileDrawer').classList.toggle
   window.addEventListener('scroll',upd,{passive:true});
   window.addEventListener('load',upd);
 })();
-
 function showView(id,btn){
   document.querySelectorAll('.pv').forEach(function(el){el.classList.remove('show');});
   document.querySelectorAll('.psw-btn').forEach(function(b){b.classList.remove('on');});
@@ -1035,7 +1067,6 @@ function showView(id,btn){
   window.scrollTo(0,0);
   document.documentElement.scrollTop=0;
 }
-
 function openEq(){document.getElementById('eqModal').classList.add('open');}
 function closeEq(){document.getElementById('eqModal').classList.remove('open');}
 </script>
