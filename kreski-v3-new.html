@@ -17,8 +17,8 @@
   --nav:64px;
   --pgsw:32px;
 }
-html{scroll-behavior:smooth;overflow-x:clip}
-body{font-family:var(--font);color:var(--black);background:var(--white)}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--black);background:var(--white);position:relative;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%}
 
@@ -214,7 +214,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 .fc h4{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.9);margin-bottom:16px}
 .fc a{display:block;font-size:13px;color:rgba(255,255,255,.45);margin-bottom:8px;transition:color .2s,padding-left .15s}
 .fc a:hover{color:var(--white);padding-left:4px}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 32px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 32px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:12px;}
 
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -475,7 +475,13 @@ html, body { max-width: 100vw; }
 .eq-inp:focus{outline:none;border-color:#e30613;}
 .eq-submit{background:#e30613;color:#fff;border:none;border-radius:6px;height:44px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:inherit;}
 @media(max-width:1000px){.footer-form-grid-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}}
-@media(max-width:1000px){.footer-form-name-email{grid-template-columns:1fr!important;} .footer-form-grid{padding:24px 16px!important;} .footer-form-grid>div:first-child{display:none;}} @media(max-width:768px){.footer-form-grid{grid-template-columns:1fr!important;}.footer-form-grid-inner{grid-template-columns:1fr!important;}}
+@media(max-width:1000px){.footer-form-name-email{grid-template-columns:1fr!important;}
+
+  .footer-bottom{flex-direction:column;padding:16px;gap:8px;}
+  .footer-bottom span{flex-wrap:wrap;gap:8px;}
+  .footer-main{padding:40px 16px 32px;}
+  .footer-bottom > span:first-child{font-size:11px;color:rgba(255,255,255,.35);}
+ .footer-form-grid{padding:24px 16px!important;} .footer-form-grid>div:first-child{display:none;}} @media(max-width:768px){.footer-form-grid{grid-template-columns:1fr!important;}.footer-form-grid-inner{grid-template-columns:1fr!important;}}
 </style>
 </head>
 <body>
@@ -1177,7 +1183,7 @@ function toggleAcc(btn){
     <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s;border-radius:6px" title="X / Twitter" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
   </div>
 </div>
-<div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span style="display:flex;gap:20px;align-items:center"><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Regulamin</a><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Polityka prywatności</a><span style="color:rgba(255,255,255,.25)">·</span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
+<div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Regulamin</a><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Polityka prywatności</a><span style="color:rgba(255,255,255,.25)">·</span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
 </footer>
 
 <div class="mobile-sticky-icons">
