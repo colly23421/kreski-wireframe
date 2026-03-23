@@ -1178,6 +1178,11 @@ function showView(id,btn){
   if(btn)btn.classList.add('on');
   window.scrollTo(0,0);
   document.documentElement.scrollTop=0;
+  // Ukryj sticky ikonki na Thank You page
+  var sc=document.querySelector('.sticky-contact');
+  var msi=document.querySelector('.mobile-sticky-icons');
+  if(sc)sc.style.display=id==='thankyou'?'none':'';
+  if(msi)msi.style.display=id==='thankyou'?'none':'';
 }
 function openEq(){document.getElementById('eqModal').classList.add('open');}
 function closeEq(){document.getElementById('eqModal').classList.remove('open');}
