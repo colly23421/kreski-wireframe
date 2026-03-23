@@ -32,7 +32,7 @@ img{max-width:100%}
 .tb-social a{color:#888;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;transition:color .2s}
 .tb-social a:hover{color:var(--white)}
 
-nav{position:sticky;top:48px;z-index:1000;background:var(--white);border-bottom:1px solid var(--gray-b);width:100%;transition:box-shadow .3s;}
+nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--gray-b);width:100%;transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 .nav-top{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;border-bottom:1px solid var(--gray-b);}
 .nav-logo img{height:36px}
@@ -442,7 +442,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .acc-direct:hover{color:var(--red);background:var(--gray-l);}
 </style>
 <style>
-#pgsw{position:fixed;top:0;left:0;right:0;z-index:9500;background:#1a1a1a;height:48px;display:flex;align-items:center;overflow-x:auto;border-bottom:1px solid #333;}
+#pgsw{position:relative;z-index:9500;background:#1a1a1a;height:48px;display:flex;align-items:center;overflow-x:auto;border-bottom:1px solid #333;}
 .psw-lbl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#555;padding:0 12px;border-right:1px solid #333;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
 .psw-btn{height:48px;padding:0 13px;background:transparent;border:none;border-right:1px solid #2a2a2a;color:#888;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;flex-shrink:0;font-family:inherit;}
 .psw-btn:hover{background:#222;color:#fff;}.psw-btn.on{background:#e30613;color:#fff;}
