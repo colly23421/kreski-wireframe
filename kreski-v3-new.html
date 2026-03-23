@@ -32,7 +32,7 @@ img{max-width:100%}
 .tb-social a{color:#888;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;transition:color .2s}
 .tb-social a:hover{color:var(--white)}
 
-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--gray-b);width:100%;transition:box-shadow .3s;}
+nav{position:sticky;top:48px;z-index:1000;background:var(--white);border-bottom:1px solid var(--gray-b);width:100%;transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 .nav-top{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;border-bottom:1px solid var(--gray-b);}
 .nav-logo img{height:36px}
@@ -224,7 +224,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
 
 @media(max-width:1000px){
   .topbar{display:none}.nav-top{display:none}.nav-bottom{display:none}.sticky-contact{display:none}
-  .mobile-nav{display:flex;position:sticky;top:32px;z-index:1100;background:var(--white);border-bottom:1px solid var(--gray-b);align-items:center;justify-content:space-between;padding:0 16px;height:56px;box-shadow:0 2px 12px rgba(0,0,0,.07);}
+  .mobile-nav{display:flex;position:sticky;top:48px;z-index:1100;background:var(--white);border-bottom:1px solid var(--gray-b);align-items:center;justify-content:space-between;padding:0 16px;height:56px;box-shadow:0 2px 12px rgba(0,0,0,.07);}
   .mobile-nav-logo img{height:28px}
   .mobile-hamburger{background:none;border:none;cursor:pointer;font-size:22px;color:var(--black);padding:4px}
   .mobile-sticky-icons{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--black);border-top:1px solid rgba(255,255,255,.1);height:54px;}
@@ -409,7 +409,7 @@ footer{background:var(--black);color:rgba(255,255,255,.55)}
   .contact-layout{grid-template-columns:1fr;padding:24px 16px;display:flex;flex-direction:column;}.form-row{grid-template-columns:1fr}
   .contact-form{order:1}.contact-info{order:2}
 }
-.page-nav-wrap{position:sticky;top:32px;z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.page-nav-wrap{position:sticky;top:calc(48px + 108px);z-index:1000;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
 
 html, body { overflow-x: hidden; max-width: 100vw; }
 #pgsw { overflow-x: auto; max-width: 100vw; }
@@ -448,7 +448,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 .psw-btn:hover{background:#222;color:#fff;}.psw-btn.on{background:#e30613;color:#fff;}
 .psw-note{font-size:8px;color:#444;padding:0 12px;margin-left:auto;white-space:nowrap;}
 .pv{display:none;}.pv.show{display:block;}
-.mobile-nav{top:32px;}
+.mobile-nav{top:48px;}
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:#e30613;width:0%;z-index:99999;pointer-events:none;box-shadow:0 0 8px rgba(227,6,19,.5);transition:width .08s linear;}
 .tb-social a{background:#f0f0f0 !important;color:#555 !important;}
 .tb-social a:hover{background:var(--red) !important;color:#fff !important;}
@@ -1143,15 +1143,7 @@ function toggleAcc(btn){
     <div class="fc"><h4>Wsparcie</h4><a href="#">Zgłoś naprawę</a><a href="#">Centrum wiedzy</a><a href="#">Pliki do pobrania</a><a href="#">Szkolenia</a><a href="#">FAQ</a></div>
   </div>
 
-<div style="border-top:1px solid rgba(255,255,255,.08);padding:18px 32px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-  <div style="display:flex;gap:8px;align-items:center">
-    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="Instagram" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="Facebook" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="YouTube" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="LinkedIn" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-    <a href="#" style="width:34px;height:34px;background:var(--red);display:flex;align-items:center;justify-content:center;transition:opacity .2s" title="X / Twitter" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-  </div>
-</div>
+
 <div class="footer-bottom"><span>© 2026 Kreski Spółka Jawna. Wszelkie prawa zastrzeżone.</span><span style="display:flex;gap:20px;align-items:center"><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Regulamin</a><a href="#" style="color:rgba(255,255,255,.4);font-size:12px;transition:color .2s" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.4)'">Polityka prywatności</a><span style="color:rgba(255,255,255,.25)">·</span>Realizacja: <a href="https://collytics.io" style="color:var(--red)">Collytics</a></span></div>
 </footer>
 
