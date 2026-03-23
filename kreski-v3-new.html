@@ -61,7 +61,10 @@ nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.09)}
 
 .mega-col a{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12.5px;color:var(--gray-d);transition:color .15s,padding-left .15s}
 .mega-col a:hover{color:var(--red);padding-left:4px}
-.mega-col a .mi{width:18px;height:18px;flex-shrink:0;opacity:.55;transition:opacity .15s}
+.mega-col a .mi{width:18px;height:18px;flex-shrink:0;opacity:.55;transition:opacity .15s;margin-right:7px;display:inline-flex;align-items:center;flex-shrink:0;}
+.mega-col a span.mi{width:16px;height:16px;flex-shrink:0;color:var(--gray-m);transition:color .15s;margin-right:8px;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;}
+.mega-col a:hover span.mi{color:var(--red);}
+.mega-col a span.mi svg{stroke:currentColor;}
 .mega-col a:hover .mi{opacity:1}
 .mega-col a::before{display:none}
 .mega{min-width:860px}
@@ -629,7 +632,7 @@ html, body { max-width: 100vw; }
     <div class="nav-links">
 
       <!-- AUTO ID -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15l2-4 2 3 2-2 2 3"/></svg> Auto ID <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Auto ID <span class="chevron">▾</span></span>
         <div class="mega mega-wide">
           <div class="mega-col">
             <div class="mega-heading">Sprzęt Auto ID</div>
@@ -667,7 +670,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- ROZWIĄZANIA DLA PRZEMYSŁU — pełne nazwy wg dok. Marcina -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg> Rozwiązania dla przemysłu <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Rozwiązania dla przemysłu <span class="chevron">▾</span></span>
         <div class="dropdown" style="min-width:300px">
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>Tablety przemysłowe</a>
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>Komputery i monitory przemysłowe</a>
@@ -679,7 +682,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- OPROGRAMOWANIE — pełne nazwy + Inne aplikacje i skanery -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Oprogramowanie <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Oprogramowanie <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Oprogramowanie</div>
@@ -696,7 +699,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- INFRASTRUKTURA IT — + Subskrypcje w Rozwiązaniach sieciowych -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> Infrastruktura IT <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Infrastruktura IT <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Sprzęt sieciowy</div>
@@ -721,7 +724,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- BEZPIECZEŃSTWO IT — pełne nazwy wg dok. Marcina -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Bezpieczeństwo IT <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Bezpieczeństwo IT <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Bezpieczeństwo IT</div>
@@ -738,7 +741,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- SERWIS URZĄDZEŃ -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg> Serwis urządzeń <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Serwis urządzeń <span class="chevron">▾</span></span>
         <div class="dropdown">
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>Zgłoszenie naprawy</a>
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>Gwarancja i ochrona urządzeń</a>
@@ -749,7 +752,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- USŁUGI — pełne nazwy wg dok. Marcina -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Usługi <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Usługi <span class="chevron">▾</span></span>
         <div class="mega">
           <div class="mega-col">
             <div class="mega-heading">Wdrożenia i integracje</div>
@@ -769,7 +772,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- CENTRUM WIEDZY -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> Centrum wiedzy <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>Centrum wiedzy <span class="chevron">▾</span></span>
         <div class="dropdown">
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>Artykuły / Baza wiedzy</a>
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>Pliki do pobrania</a>
@@ -778,7 +781,7 @@ html, body { max-width: 100vw; }
       </div>
 
       <!-- O FIRMIE -->
-      <div class="nav-item"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> O firmie <span class="chevron">▾</span></span>
+      <div class="nav-item"><span>O firmie <span class="chevron">▾</span></span>
         <div class="dropdown">
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>O nas</a>
           <a href="#"><span class="mi"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span>Nasi partnerzy</a>
