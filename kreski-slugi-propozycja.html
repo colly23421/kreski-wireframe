@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propozycja struktury URL — kreski.pl</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+  :root {
+    --red: #e30613;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray-l: #f4f4f4;
+    --gray-b: #e0e0e0;
+    --gray-m: #888;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  header {
+    border-bottom: 2px solid var(--red);
+    padding: 28px 40px 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--red);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: var(--mono);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .meta {
+    font-size: 12px;
+    color: var(--gray-m);
+    font-family: var(--mono);
+    margin-left: auto;
+  }
+
+  .controls {
+    padding: 16px 40px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: #111;
+    border-bottom: 1px solid #222;
+    align-items: center;
+  }
+
+  .controls input {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: var(--white);
+    padding: 7px 12px;
+    border-radius: 4px;
+    width: 280px;
+    outline: none;
+  }
+  .controls input:focus { border-color: var(--red); }
+  .controls input::placeholder { color: #555; }
+
+  .filter-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 7px 14px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: transparent;
+    color: var(--gray-m);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+  }
+
+  .count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gray-m);
+    margin-left: auto;
+  }
+  .count span { color: var(--white); font-weight: 600; }
+
+  .table-wrap {
+    padding: 24px 40px 60px;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-m);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #2a2a2a;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #1a1a1a;
+    transition: background 0.1s;
+  }
+  tbody tr:hover { background: #131313; }
+
+  td {
+    padding: 9px 14px;
+    vertical-align: middle;
+  }
+
+  /* Sekcja nagłówkowa */
+  tr.section-header td {
+    background: #111;
+    border-top: 2px solid var(--red);
+    border-bottom: 1px solid #2a2a2a;
+    padding: 12px 14px 10px;
+  }
+  tr.section-header .td-name {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+
+  .td-name {
+    font-weight: 500;
+    color: var(--white);
+    min-width: 220px;
+  }
+  .td-name.level-2 { padding-left: 18px; color: #ccc; }
+
+  .td-slug {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: #7ec8a0;
+    white-space: nowrap;
+  }
+  .td-slug .domain { color: #555; }
+
+  .td-type {
+    white-space: nowrap;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .badge-woo   { background: #1a3a2a; color: #5dba8a; border: 1px solid #2a5a3a; }
+  .badge-wp    { background: #1a2a3a; color: #5a9aba; border: 1px solid #2a4a6a; }
+  .badge-usluga{ background: #2a1a2a; color: #ba7aba; border: 1px solid #4a2a4a; }
+  .badge-serwis{ background: #2a1a1a; color: #e07070; border: 1px solid #5a2a2a; }
+  .badge-blog  { background: #2a2a1a; color: #bab07a; border: 1px solid #4a4a2a; }
+  .badge-info  { background: #1e1e1e; color: #888; border: 1px solid #333; }
+
+  .td-uwagi {
+    font-size: 11px;
+    color: var(--gray-m);
+    max-width: 280px;
+    line-height: 1.5;
+  }
+  .uwaga-warn { color: #e09050; }
+
+  .level-indicator {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .lv1 { background: var(--red); }
+  .lv2 { background: #555; }
+
+  tr.hidden { display: none; }
+
+  .legend {
+    padding: 0 40px 32px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--gray-m);
+    font-family: var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Collytics → Kreski.pl</div>
+  <h1>Propozycja struktury URL</h1>
+  <div class="meta">v1.0 · 26.03.2026 · do akceptacji przez Zamawiającego</div>
+</header>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Szukaj węzła lub sluga...">
+  <button class="filter-btn active" data-filter="all">Wszystkie</button>
+  <button class="filter-btn" data-filter="woo">WooCommerce</button>
+  <button class="filter-btn" data-filter="wp">Strona WP</button>
+  <button class="filter-btn" data-filter="usluga">Usługi</button>
+  <button class="filter-btn" data-filter="serwis">Serwis</button>
+  <button class="filter-btn" data-filter="blog">Wiedza</button>
+  <div class="count">Wyświetlane: <span id="counter">0</span> węzłów</div>
+</div>
+
+<div class="table-wrap">
+<table id="main-table">
+<thead>
+  <tr>
+    <th>Poziom</th>
+    <th>Nazwa węzła</th>
+    <th>Proponowany URL</th>
+    <th>Typ</th>
+    <th>Uwagi</th>
+  </tr>
+</thead>
+<tbody id="tbody">
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- AUTO ID -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">AUTO ID — Sprzęt</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria nadrzędna WooCommerce. Strona archiwum kategorii.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Czytniki kodów kreskowych</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/czytniki-kodow-kreskowych/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Subkategoria produktów.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Drukarki etykiet</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/drukarki-etykiet/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Subkategoria produktów.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Drukarki kart</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/drukarki-kart/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Terminale przenośne (kolektory danych)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/terminale-przenosne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug — "kolektory-danych" jako alias 301 opcjonalnie.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Terminale wózkowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/terminale-wozkowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Weryfikatory kodów</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/weryfikatory-kodow/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Weryfikatory cen</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/weryfikatory-cen/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Aplikatory etykiet</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/aplikatory-etykiet/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Wearables (urządzenia ubieralne)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/wearables/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Slug anglojęzyczny — "wearables" jest frazą branżową, rozpoznawalną.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">RFID</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/rfid/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">RFID jako skrót — zachować, to silna fraza SEO.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy wizyjne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/auto-id/systemy-wizyjne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- AKCESORIA -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Akcesoria</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria nadrzędna WooCommerce.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Baterie i ładowarki</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/baterie-i-ladowarki/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Futerały i etui ochronne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/futeraly-i-etui/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug — "ochronne" zbędne.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Stacje dokujące</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/stacje-dokujace/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Uchwyty i podstawki</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/uchwyty-i-podstawki/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi uwaga-warn">⚠ Duplikat w xlsx (wiersze 16 i 18) — jedna kategoria.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Przewody i adaptery</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/akcesoria/przewody-i-adaptery/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi uwaga-warn">⚠ Duplikat w xlsx (wiersze 17 i 19) — jedna kategoria.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MATERIAŁY EKSPLOATACYJNE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Materiały eksploatacyjne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/materialy-eksploatacyjne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria nadrzędna WooCommerce.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Etykiety</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/materialy-eksploatacyjne/etykiety/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Taśmy termotransferowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/materialy-eksploatacyjne/tasmy-termotransferowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Pełna nazwa w slugu — lepsza fraza SEO niż samo "tasmy".</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Ribbony</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/materialy-eksploatacyjne/ribbony/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Karty plastikowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/materialy-eksploatacyjne/karty-plastikowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- ROZWIĄZANIA DLA PRZEMYSŁU -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Rozwiązania dla przemysłu</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug — "rozwiazania-dla-przemyslu" za długie.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Tablety przemysłowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/tablety-przemyslowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Komputery i monitory przemysłowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/komputery-przemyslowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Notebooki i laptopy przemysłowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/laptopy-przemyslowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Komputery kioskowe i kioski informacyjne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/kioski-informacyjne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Urządzenia ATEX</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/urzadzenia-atex/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">ATEX jako termin branżowy — zachować w slugu.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy kontrolno-pomiarowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/przemysl/systemy-kontrolno-pomiarowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- OPROGRAMOWANIE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Oprogramowanie</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria WooCommerce (produkty soft) + strona WP dla usług.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Tworzenie i zarządzanie etykietami</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/zarzadzanie-etykietami/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Zarządzanie urządzeniami (MDM)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/mdm/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">MDM jako silna fraza SEO — krótko i precyzyjnie.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Aplikacje mobilne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/aplikacje-mobilne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Aplikacje na drukarki</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/aplikacje-na-drukarki/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Aplikacje na skanery</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/aplikacje-na-skanery/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Aplikacje dedykowane</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/aplikacje-dedykowane/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi uwaga-warn">⚠ Pokrywa się zakresem z usługą "Dedykowane oprogramowanie" — omówić z Marcinem.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Inne aplikacje i systemy IT</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/systemy-it/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Migracja z WiNG</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/migracja-wing/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">WiNG jako nazwa własna — zachować.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Bezpieczeństwo urządzeń mobilnych</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/oprogramowanie/bezpieczenstwo-urzadzen/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- INFRASTRUKTURA IT -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Infrastruktura IT</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria nadrzędna WooCommerce.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Sieci komputerowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/sieci-komputerowe/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Switche</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/switche/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">"Switche" — spolszczona fraza branżowa, lepiej indeksowana niż "przelaczniki".</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Access Pointy</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/access-pointy/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Fraza branżowa — zachować anglojęzyczny zapis.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Serwery</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/serwery/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">UPS / zasilanie awaryjne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/infrastruktura-it/ups-zasilanie-awaryjne/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">UPS jako silna fraza — zachować.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- MONITORING I KONTROLA DOSTĘPU -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Monitoring i kontrola dostępu</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/monitoring/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug — "monitoring-i-kontrola-dostepu" za długie.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Kamery IP</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/monitoring/kamery-ip/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Kontrola dostępu</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/monitoring/kontrola-dostepu/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- BEZPIECZEŃSTWO IT -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="woo">
+  <td></td>
+  <td class="td-name td-name-section">Bezpieczeństwo IT</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Kategoria nadrzędna WooCommerce.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Zapory sieciowe (NGFW)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/firewall-ngfw/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">"Firewall" + "NGFW" — dwie frazy SEO w jednym slugu.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy zapobiegania włamaniom (IPS)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/ips/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrót IPS jako główna fraza wyszukiwana.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy zapobiegania wyciekom danych (DLP)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/dlp/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrót DLP jako główna fraza.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Bezpieczeństwo poczty (Email Security)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/email-security/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Fraza angielska — tak szukają specjaliści IT.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Ochrona sieci WWW (Web Security)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/web-security/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Backup i archiwizacja danych</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/backup/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrócony slug — "backup" jako dominująca fraza.</td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Zarządzanie infrastrukturą IT</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/zarzadzanie-infrastruktura/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi"></td>
+</tr>
+<tr data-type="woo">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Security Service Edge (SSE)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/bezpieczenstwo-it/sse/</td>
+  <td class="td-type"><span class="badge badge-woo">WooCommerce</span></td>
+  <td class="td-uwagi">Skrót SSE jako fraza techniczna.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SERWIS URZĄDZEŃ -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="serwis">
+  <td></td>
+  <td class="td-name td-name-section">Serwis urządzeń</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">Strona WP — landing serwisowy. Linkuje do podstron poniżej.</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Zgłoszenie naprawy</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/zgloszenie-naprawy/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">✓ Już zakodowane jako page-zgloszenie-naprawy.php</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Gwarancja i ochrona urządzeń</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/gwarancja/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">301 z: /gwarancje-i-ochrona-urzadzen.html</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Serwis mobilny</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/serwis-mobilny/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi uwaga-warn">301 z: /seriws-mobilny.html (literówka w oryginale!)</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Sprzedaż części</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/sprzedaz-czesci/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">301 z: /sprzedaz-czesci.html</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Kontrakty serwisowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/kontrakty-serwisowe/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">301 z: /kontrakty-serwisowe.html. Nowa subkategoria.</td>
+</tr>
+<tr data-type="serwis">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">FAQ serwis</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/serwis/faq/</td>
+  <td class="td-type"><span class="badge badge-serwis">Serwis</span></td>
+  <td class="td-uwagi">Strona WP (page-content.php + UX Builder).</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- USŁUGI -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="usluga">
+  <td></td>
+  <td class="td-name td-name-section">Usługi — Wdrożenia i integracje</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wdrozenia-i-integracje/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">Strona WP — landing grupujący usługi wdrożeniowe.</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Znakowanie magazynów i stref logistycznych</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wdrozenia-i-integracje/znakowanie-magazynow/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /znakowanie-magazynow.html</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy wizyjne i inspekcyjne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wdrozenia-i-integracje/systemy-wizyjne/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /systemy-wizyjne.html</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Systemy lokalizacji (VLC / RTLS)</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wdrozenia-i-integracje/systemy-lokalizacji-rtls/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /vlc.html. RTLS jako fraza SEO lepsza niż samo VLC.</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Okablowanie strukturalne</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wdrozenia-i-integracje/okablowanie-strukturalne/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /okablowanie-strukturalne.html</td>
+</tr>
+
+<tr class="section-header" data-type="usluga">
+  <td></td>
+  <td class="td-name td-name-section">Usługi — Wsparcie i szkolenia</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wsparcie-i-szkolenia/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">Strona WP — landing grupujący usługi wsparcia.</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Audyty sieci WiFi i radiowych</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wsparcie-i-szkolenia/audyt-sieci-wifi/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /audyt-sieci-radiowej.html</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Szkolenia techniczne i produktowe</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wsparcie-i-szkolenia/szkolenia/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /szkolenia.html</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Wypożyczanie sprzętu</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wsparcie-i-szkolenia/wypozyczanie-sprzetu/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi">301 z: /wypozyczanie-sprzetu.html</td>
+</tr>
+<tr data-type="usluga">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Dedykowane oprogramowanie i automatyzacje</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/uslugi/wsparcie-i-szkolenia/dedykowane-oprogramowanie/</td>
+  <td class="td-type"><span class="badge badge-usluga">Usługi</span></td>
+  <td class="td-uwagi uwaga-warn">⚠ 301 z: /dedykowane-oprogramowanie-aplikacje.html i /autorskie-rozwiazania.html — potwierdzić z Marcinem czy to jedna strona.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- CENTRUM WIEDZY -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="blog">
+  <td></td>
+  <td class="td-name td-name-section">Centrum wiedzy</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/wiedza/</td>
+  <td class="td-type"><span class="badge badge-blog">Wiedza</span></td>
+  <td class="td-uwagi">Skrócony slug — "centrum-wiedzy" zbędnie długie.</td>
+</tr>
+<tr data-type="blog">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Artykuły / Baza wiedzy</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/wiedza/artykuly/</td>
+  <td class="td-type"><span class="badge badge-blog">Wiedza</span></td>
+  <td class="td-uwagi">WordPress posts / custom post type.</td>
+</tr>
+<tr data-type="blog">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Pliki do pobrania</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/wiedza/pliki-do-pobrania/</td>
+  <td class="td-type"><span class="badge badge-blog">Wiedza</span></td>
+  <td class="td-uwagi">Strona WP ze skróconymi slugami dla dokumentów.</td>
+</tr>
+<tr data-type="blog">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Realizacje</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/wiedza/realizacje/</td>
+  <td class="td-type"><span class="badge badge-blog">Wiedza</span></td>
+  <td class="td-uwagi">Case studies — CPT lub strona WP.</td>
+</tr>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- O FIRMIE -->
+<!-- ═══════════════════════════════════════════════════ -->
+<tr class="section-header" data-type="wp">
+  <td></td>
+  <td class="td-name td-name-section">O firmie</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/o-firmie/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">Strona WP — rodzic dla podstron O nas i Partnerzy.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">O nas</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/o-nas/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">✓ Zakodowane. Permalink na poziomie root — bez /o-firmie/ prefiksu.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Nasi partnerzy</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/partnerzy/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">✓ Zakodowane. Permalink na poziomie root.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Kariera</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/kariera/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">✓ Zakodowane.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Wydarzenia</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/wydarzenia/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">✓ Zakodowane.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Kontakt</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/kontakt/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">✓ Zakodowane.</td>
+</tr>
+
+<!-- STRONY PRAWNE -->
+<tr class="section-header" data-type="wp">
+  <td></td>
+  <td class="td-name td-name-section">Strony prawne / techniczne</td>
+  <td class="td-slug">—</td>
+  <td class="td-type"><span class="badge badge-info">Info</span></td>
+  <td class="td-uwagi">Do zrobienia.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Regulamin</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/regulamin/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">Do zrobienia.</td>
+</tr>
+<tr data-type="wp">
+  <td><span class="level-indicator lv2"></span></td>
+  <td class="td-name level-2">Polityka prywatności</td>
+  <td class="td-slug"><span class="domain">kreski.pl</span>/polityka-prywatnosci/</td>
+  <td class="td-type"><span class="badge badge-wp">Strona WP</span></td>
+  <td class="td-uwagi">Do zrobienia.</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="badge badge-woo">WooCommerce</span> Kategoria produktów w WooCommerce</div>
+  <div class="legend-item"><span class="badge badge-wp">Strona WP</span> Strona WordPress (page template)</div>
+  <div class="legend-item"><span class="badge badge-usluga">Usługi</span> Strona usługi (page-content.php)</div>
+  <div class="legend-item"><span class="badge badge-serwis">Serwis</span> Strona serwisowa</div>
+  <div class="legend-item"><span class="badge badge-blog">Wiedza</span> Centrum wiedzy / blog</div>
+  <div class="legend-item" style="color:#e09050">⚠ Wymaga decyzji Marcina</div>
+</div>
+
+<script>
+  const rows = Array.from(document.querySelectorAll('#tbody tr:not(.section-header)'));
+  const headers = Array.from(document.querySelectorAll('#tbody tr.section-header'));
+  const allRows = Array.from(document.querySelectorAll('#tbody tr'));
+  const counter = document.getElementById('counter');
+  const searchInput = document.getElementById('search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  function updateCounter() {
+    const visible = allRows.filter(r => !r.classList.contains('hidden')).length;
+    counter.textContent = visible;
+  }
+
+  function applyFilters() {
+    allRows.forEach(row => {
+      const type = row.dataset.type || '';
+      const text = row.textContent.toLowerCase();
+      const matchFilter = currentFilter === 'all' || type === currentFilter;
+      const matchSearch = currentSearch === '' || text.includes(currentSearch);
+      row.classList.toggle('hidden', !(matchFilter && matchSearch));
+    });
+    updateCounter();
+  }
+
+  searchInput.addEventListener('input', e => {
+    currentSearch = e.target.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  updateCounter();
+</script>
+</body>
+</html>
