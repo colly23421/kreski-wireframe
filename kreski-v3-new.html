@@ -494,6 +494,7 @@ html, body { max-width: 100vw; }
   <button class="psw-btn" onclick="showView('prod',this)">Karta produktu</button>
   <button class="psw-btn" onclick="showView('kon',this)">Kontakt</button>
   <button class="psw-btn" onclick="showView('thankyou',this)">Thank You Page</button>
+  <button class="psw-btn" onclick="showView('blog',this)">Blog</button>
   <span class="psw-note">kreski-v3-new.html · Collytics 2026</span>
 </div>
 <div id="eqModal" onclick="if(event.target===this)closeEq()">
@@ -1221,5 +1222,265 @@ function showView(id,btn){
 function openEq(){document.getElementById('eqModal').classList.add('open');}
 function closeEq(){document.getElementById('eqModal').classList.remove('open');}
 </script>
+
+<style>
+/* ===== BLOG /blog ===== */
+.blog-hero{background:var(--c-black,#0a0a0a);padding:52px 0 44px}
+.blog-hero-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.blog-hero-h1{font-size:42px;font-weight:900;color:#fff;letter-spacing:-1px;margin:10px 0 12px}
+.blog-hero-lead{font-size:15px;color:#999;max-width:540px;line-height:1.65}
+.blog-layout{max-width:1200px;margin:48px auto;padding:0 32px;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:start}
+/* Filters */
+.blog-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.bf-btn{background:#f5f5f5;border:1px solid #e5e5e5;color:#555;font-size:13px;font-weight:600;padding:7px 18px;border-radius:20px;cursor:pointer;transition:all .2s}
+.bf-btn:hover{border-color:#e30613;color:#e30613}
+.bf-btn.on{background:#e30613;border-color:#e30613;color:#fff}
+/* Featured */
+.blog-feat{display:grid;grid-template-columns:1fr 1fr;border-radius:14px;overflow:hidden;border:1px solid #e5e5e5;margin-bottom:36px}
+.blog-feat-img{position:relative;min-height:260px;overflow:hidden}
+.blog-feat-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.blog-feat:hover .blog-feat-img img{transform:scale(1.04)}
+.blog-feat-badge{position:absolute;top:14px;left:14px;background:#e30613;color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+.blog-feat-body{padding:36px;background:#fff;display:flex;flex-direction:column;justify-content:center}
+.blog-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#e30613}
+.blog-cat.gray{color:#999}
+.blog-cat.blue{color:#0066cc}
+.blog-cat.dark{color:#333}
+.blog-feat-title{font-size:21px;font-weight:800;color:#0a0a0a;line-height:1.3;margin:10px 0 12px;letter-spacing:-0.3px}
+.blog-feat-lead{font-size:14px;color:#555;line-height:1.7;margin-bottom:18px}
+.blog-meta{display:flex;align-items:center;gap:6px;font-size:12px;color:#999;margin-bottom:18px}
+.blog-meta-dot{width:22px;height:22px;border-radius:50%;background:#e30613;flex-shrink:0}
+.blog-sep{opacity:.4}
+.blog-read-btn{display:inline-block;background:#e30613;color:#fff;font-size:13px;font-weight:700;padding:11px 22px;border-radius:6px;text-decoration:none;align-self:flex-start;transition:opacity .2s}
+.blog-read-btn:hover{opacity:.85}
+/* Grid */
+.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:36px}
+.blog-card{border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;background:#fff;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s;cursor:pointer}
+.blog-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.10);transform:translateY(-3px)}
+.blog-card-img{height:170px;overflow:hidden;background:#f8f8f8;display:flex;align-items:center;justify-content:center}
+.blog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.blog-card:hover .blog-card-img img{transform:scale(1.05)}
+.blog-card-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.blog-card-title{font-size:14px;font-weight:700;color:#0a0a0a;line-height:1.4;margin:8px 0 8px;flex:1}
+.blog-card-excerpt{font-size:12px;color:#666;line-height:1.6;margin-bottom:12px}
+.blog-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.blog-card-link{font-size:12px;font-weight:700;color:#e30613;text-decoration:none}
+.blog-card-link:hover{text-decoration:underline}
+/* Pagination */
+.blog-pag{display:flex;align-items:center;gap:6px}
+.bp-btn{width:34px;height:34px;border-radius:6px;border:1px solid #e5e5e5;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.bp-btn:hover{border-color:#e30613;color:#e30613}
+.bp-btn.on{background:#e30613;border-color:#e30613;color:#fff}
+.bp-next{padding:0 14px;height:34px;border-radius:6px;border:1px solid #e5e5e5;background:#fff;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.bp-next:hover{border-color:#e30613;color:#e30613}
+/* Sidebar */
+.blog-sidebar{display:flex;flex-direction:column;gap:22px;position:sticky;top:120px}
+.bs-box{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:22px}
+.bs-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:#0a0a0a;margin:0 0 14px}
+.bs-cats{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.bs-cats a{display:flex;justify-content:space-between;align-items:center;padding:7px 8px;border-radius:6px;font-size:13px;color:#444;text-decoration:none;transition:background .15s}
+.bs-cats a:hover{background:#f8f8f8;color:#e30613}
+.bs-cats a span{font-size:11px;color:#aaa;background:#f5f5f5;padding:2px 7px;border-radius:10px}
+.bs-tags{display:flex;flex-wrap:wrap;gap:7px}
+.bs-tag{font-size:12px;font-weight:600;color:#555;background:#f5f5f5;border:1px solid #e5e5e5;padding:5px 12px;border-radius:20px;text-decoration:none;transition:all .2s}
+.bs-tag:hover{border-color:#e30613;color:#e30613;background:#fff5f5}
+.bs-cta{background:#0a0a0a;border-color:#0a0a0a}
+.bs-cta-icon{width:44px;height:44px;background:#e30613;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.bs-cta h4{color:#fff;font-size:15px;font-weight:800;margin:0 0 8px}
+.bs-cta p{color:#999;font-size:12px;line-height:1.6;margin:0 0 14px}
+.bs-cta-btn{display:inline-block;background:#e30613;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:6px;text-decoration:none}
+.bs-cta-btn:hover{opacity:.85}
+@media(max-width:900px){
+  .blog-layout{grid-template-columns:1fr}
+  .blog-sidebar{position:static}
+  .blog-feat{grid-template-columns:1fr}
+  .blog-feat-img{min-height:200px}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .blog-hero-h1{font-size:30px}
+}
+</style>
+
+<div id="pv-blog" class="pv">
+  <div class="blog-hero">
+    <div class="blog-hero-inner">
+      <div style="font-size:12px;color:#666;margin-bottom:10px"><a href="#" onclick="showView('home',document.querySelector('.psw-btn'));return false;" style="color:#666">Strona główna</a> › Centrum wiedzy</div>
+      <h1 class="blog-hero-h1">Centrum wiedzy</h1>
+      <p class="blog-hero-lead">Artykuły techniczne, aktualności branżowe, case study i poradniki od ekspertów Kreski.</p>
+    </div>
+  </div>
+
+  <div class="blog-layout">
+    <main>
+
+      <div class="blog-filters">
+        <button class="bf-btn on" onclick="filterBlog(this,'all')">Wszystkie</button>
+        <button class="bf-btn" onclick="filterBlog(this,'produkty')">Produkty</button>
+        <button class="bf-btn" onclick="filterBlog(this,'aktualnosci')">Aktualności</button>
+        <button class="bf-btn" onclick="filterBlog(this,'poradniki')">Poradniki</button>
+        <button class="bf-btn" onclick="filterBlog(this,'case-study')">Case study</button>
+      </div>
+
+      <div class="blog-feat">
+        <div class="blog-feat-img">
+          <img src="https://kreski-wireframe.vercel.app/Terminale_Zebra_TC501_TC701.jpeg" alt="Zebra TC501 TC701">
+          <span class="blog-feat-badge">Wyróżniony</span>
+        </div>
+        <div class="blog-feat-body">
+          <span class="blog-cat">Produkty</span>
+          <h2 class="blog-feat-title">Inteligentne terminale mobilne z obsługą AI — Zebra TC501 i TC701</h2>
+          <p class="blog-feat-lead">Grzegorz z Kresek rozpakowuje nowe terminale mobilne Zebra TC501 i TC701. Dowiedz się co nowego przynosi ta generacja urządzeń i dlaczego warto zainwestować w AI-ready hardware już teraz.</p>
+          <div class="blog-meta">
+            <span class="blog-meta-dot"></span>
+            <span>Grzegorz Kowalski</span>
+            <span class="blog-sep">·</span>
+            <span>02.12.2025</span>
+            <span class="blog-sep">·</span>
+            <span>5 min czytania</span>
+          </div>
+          <a href="#" class="blog-read-btn">Czytaj artykuł →</a>
+        </div>
+      </div>
+
+      <div class="blog-grid" id="blog-grid">
+        <article class="blog-card" data-cat="produkty">
+          <div class="blog-card-img"><img src="https://kreski-wireframe.vercel.app/Tablet_Zebra_ET401.jpeg" alt=""></div>
+          <div class="blog-card-body">
+            <span class="blog-cat">Produkty</span>
+            <h3 class="blog-card-title">Zebra ET401 – tablet, który zmienia zasady gry w biznesie!</h3>
+            <p class="blog-card-excerpt">Najnowszy tablet Zebra ET401 to mobilne centrum dowodzenia dla nowoczesnych operacji magazynowych.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>02.12.2025</span><span class="blog-sep">·</span><span>3 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="aktualnosci">
+          <div class="blog-card-img"><img src="https://kreski-wireframe.vercel.app/certyfikat.png" alt=""></div>
+          <div class="blog-card-body">
+            <span class="blog-cat gray">Aktualności</span>
+            <h3 class="blog-card-title">Diamentowy Certyfikat Rzetelności dla Kresek</h3>
+            <p class="blog-card-excerpt">W świecie biznesu są nagrody, które mają szczególne znaczenie. To właśnie jedna z nich.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>31.10.2025</span><span class="blog-sep">·</span><span>2 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="aktualnosci">
+          <div class="blog-card-img"><img src="https://kreski-wireframe.vercel.app/PGE_Projekt_Warszawa.jpg" alt=""></div>
+          <div class="blog-card-body">
+            <span class="blog-cat gray">Aktualności</span>
+            <h3 class="blog-card-title">Kreski grają dalej z PGE Projektem Warszawa!</h3>
+            <p class="blog-card-excerpt">Z wielką dumą ogłaszamy kontynuację współpracy z drużyną PGE Projekt Warszawa na nowy sezon.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>26.08.2025</span><span class="blog-sep">·</span><span>2 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="poradniki">
+          <div class="blog-card-img" style="background:#f8f8f8">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-cat blue">Poradniki</span>
+            <h3 class="blog-card-title">Jak wybrać skaner do magazynu? Przewodnik kupującego 2025</h3>
+            <p class="blog-card-excerpt">Parametry, które naprawdę mają znaczenie przy wyborze skanera do pracy magazynowej.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>15.07.2025</span><span class="blog-sep">·</span><span>8 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="case-study">
+          <div class="blog-card-img" style="background:#0a0a0a">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-cat dark">Case study</span>
+            <h3 class="blog-card-title">Wdrożenie RFID w centrum logistycznym — 10x szybsza inwentaryzacja</h3>
+            <p class="blog-card-excerpt">Jak Kreski pomogło firmie z branży e-commerce skrócić czas inwentaryzacji z 3 dni do 4 godzin.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>10.06.2025</span><span class="blog-sep">·</span><span>6 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card" data-cat="poradniki">
+          <div class="blog-card-img" style="background:#f8f8f8">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-cat blue">Poradniki</span>
+            <h3 class="blog-card-title">MDM w praktyce — zarządzanie flotą terminali mobilnych</h3>
+            <p class="blog-card-excerpt">SOTI MobiControl vs Zebra DNA Cloud — porównanie systemów MDM dla flot urządzeń Android.</p>
+            <div class="blog-card-footer">
+              <div class="blog-meta" style="margin:0"><span>22.04.2025</span><span class="blog-sep">·</span><span>7 min</span></div>
+              <a href="#" class="blog-card-link">Czytaj →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="blog-pag">
+        <button class="bp-btn on">1</button>
+        <button class="bp-btn">2</button>
+        <button class="bp-btn">3</button>
+        <span style="color:#aaa;padding:0 4px">…</span>
+        <button class="bp-btn">8</button>
+        <button class="bp-next">Następna →</button>
+      </div>
+
+    </main>
+
+    <aside class="blog-sidebar">
+      <div class="bs-box">
+        <h4 class="bs-title">Kategorie</h4>
+        <ul class="bs-cats">
+          <li><a href="#">Wszystkie <span>24</span></a></li>
+          <li><a href="#">Produkty <span>9</span></a></li>
+          <li><a href="#">Aktualności <span>7</span></a></li>
+          <li><a href="#">Poradniki <span>5</span></a></li>
+          <li><a href="#">Case study <span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="bs-box">
+        <h4 class="bs-title">Popularne tagi</h4>
+        <div class="bs-tags">
+          <a href="#" class="bs-tag">Zebra</a>
+          <a href="#" class="bs-tag">RFID</a>
+          <a href="#" class="bs-tag">Skanery</a>
+          <a href="#" class="bs-tag">MDM</a>
+          <a href="#" class="bs-tag">Magazyn</a>
+          <a href="#" class="bs-tag">Android</a>
+          <a href="#" class="bs-tag">WMS</a>
+          <a href="#" class="bs-tag">Drukarki etykiet</a>
+          <a href="#" class="bs-tag">Honeywell</a>
+        </div>
+      </div>
+      <div class="bs-box bs-cta">
+        <div class="bs-cta-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h4>Zapytaj eksperta</h4>
+        <p>Masz pytania dotyczące urządzeń lub wdrożeń? Nasi specjaliści pomogą dobrać właściwe rozwiązanie.</p>
+        <a href="#" class="bs-cta-btn" onclick="openEq();return false;">Skontaktuj się →</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+function filterBlog(btn,cat){
+  document.querySelectorAll('.bf-btn').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+  document.querySelectorAll('#blog-grid .blog-card').forEach(function(c){
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+}
+</script>
+
 </body>
 </html>
